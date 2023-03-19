@@ -1,0 +1,17 @@
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\bin\Debug\net7.0\FIleData.deps.json
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\bin\Debug\net7.0\FIleData.dll
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\bin\Debug\net7.0\FIleData.pdb
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\bin\Debug\net7.0\Application.dll
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\bin\Debug\net7.0\Domain.dll
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\bin\Debug\net7.0\Application.pdb
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\bin\Debug\net7.0\Domain.pdb
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\obj\Debug\net7.0\FIleData.csproj.AssemblyReference.cache
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\obj\Debug\net7.0\FIleData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\obj\Debug\net7.0\FIleData.AssemblyInfoInputs.cache
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\obj\Debug\net7.0\FIleData.AssemblyInfo.cs
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\obj\Debug\net7.0\FIleData.csproj.CoreCompileInputs.cache
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\obj\Debug\net7.0\FIleData.csproj.CopyComplete
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\obj\Debug\net7.0\FIleData.dll
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\obj\Debug\net7.0\refint\FIleData.dll
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\obj\Debug\net7.0\FIleData.pdb
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\FIleData\obj\Debug\net7.0\ref\FIleData.dll
