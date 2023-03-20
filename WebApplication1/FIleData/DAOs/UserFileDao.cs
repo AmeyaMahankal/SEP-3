@@ -23,6 +23,7 @@ public class UserFileDao: IUserDao
         }
 
         user.Id = Id;
+        user.password = user.password;
         context.Users.Add(user);
         context.SaveChanges();
         return Task.FromResult(user);
