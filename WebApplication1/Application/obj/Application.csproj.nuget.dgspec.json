@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Application\\Application.csproj": {}
+    "C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\DNP-Assignment1\\WebApplication1\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Application\\Application.csproj": {
+    "C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\DNP-Assignment1\\WebApplication1\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\DNP-Assignment1\\WebApplication1\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Lucija\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Application\\obj\\",
+        "projectPath": "C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\DNP-Assignment1\\WebApplication1\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\sarie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\DNP-Assignment1\\WebApplication1\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lucija\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\sarie\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -26,8 +26,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Domain\\Domain.csproj"
+              "C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\DNP-Assignment1\\WebApplication1\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\DNP-Assignment1\\WebApplication1\\Domain\\Domain.csproj"
               }
             }
           }
@@ -57,21 +57,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Lucija\\.dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Domain\\Domain.csproj": {
+    "C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\DNP-Assignment1\\WebApplication1\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\DNP-Assignment1\\WebApplication1\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Lucija\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\DNP-Assignment1\\WebApplication1\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\sarie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\DNP-Assignment1\\WebApplication1\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lucija\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\sarie\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -110,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Lucija\\.dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
