@@ -31,4 +31,21 @@ public class PostController: ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Post>>> GetAsync([FromQuery] string? username, [FromQuery] int? UserId,
+        [FromQuery] string? titlecontains)
+    {
+        try
+        {
+            SearchPostParametersDto parameters = new(username, UserId, titlecontains);
+            var posts = await PostLogic.GetAsync(parameters);
+            return Ok(posts);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
 }
