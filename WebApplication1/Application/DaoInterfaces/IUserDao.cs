@@ -10,4 +10,5 @@ public interface IUserDao
     Task<User?> GetByIdAsync(int dtoOwnerId);
     
     public Task<IEnumerable<User>> GetAsync(SearchUserParametersDto searchParameters);
+    
 }

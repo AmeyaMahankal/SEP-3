@@ -513,19 +513,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ameya Mahankala\\.nuget\\packages\\": {}
+    "C:\\Users\\Lucija\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\DNP-Assignment1\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\DNP-Assignment1\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
-      "packagesPath": "C:\\Users\\Ameya Mahankala\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\DNP-Assignment1\\WebApplication1\\WebApplication1\\obj\\",
+      "projectPath": "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "packagesPath": "C:\\Users\\Lucija\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ameya Mahankala\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Lucija\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -537,11 +537,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\DNP-Assignment1\\WebApplication1\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\DNP-Assignment1\\WebApplication1\\Application\\Application.csproj"
+            "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\Application\\Application.csproj"
             },
-            "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\DNP-Assignment1\\WebApplication1\\FIleData\\FIleData.csproj": {
-              "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\DNP-Assignment1\\WebApplication1\\FIleData\\FIleData.csproj"
+            "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\FIleData\\FIleData.csproj": {
+              "projectPath": "C:\\Users\\Lucija\\Desktop\\DNP\\DNP-Assignment1\\WebApplication1\\FIleData\\FIleData.csproj"
             }
           }
         }
@@ -584,7 +584,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Lucija\\.dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

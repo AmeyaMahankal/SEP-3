@@ -8,4 +8,5 @@ public interface IUserLogic
     Task<User> CreateAsync(UserCreationDto userCreationDto);
     
     public Task<IEnumerable<User>> GetAsync(SearchUserParametersDto searchParameters);
+    
 }
