@@ -23,7 +23,8 @@ public class UserLogic: IUserLogic
         ValidateData(dto);
         User toCreate = new User
         {
-            UserName = dto.UserName
+            UserName = dto.UserName,
+            password= dto.Password
         };
         User created = await userDao.CreateAsync(toCreate);
         return created;
@@ -55,6 +56,7 @@ public class UserLogic: IUserLogic
         {
             throw new Exception("Password must be at most 15 characters!");
         }
+        
         
     }
 }
