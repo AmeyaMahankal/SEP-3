@@ -44,16 +44,7 @@ public class UserFileDao: IUserDao
             users = context.Users.Where(u =>
                 u.UserName.Contains(searchParameters.UsernameContains, StringComparison.OrdinalIgnoreCase));
         }
-      /*  else if (searchParameters.PasswordContains!=null)
-        {
-            users = context.Users.Where(u =>
-                u.password.Contains(searchParameters.PasswordContains, StringComparison.OrdinalIgnoreCase));
-        }
-        else if (searchParameters.PasswordContains==null)
-        {
-            throw new Exception();
-        }
-*/
+     
         return Task.FromResult(users);
     }
 }

@@ -76,3 +76,4 @@ C:\Users\sarie\OneDrive\Dokumenter\GitHub\DNP-Assignment1\WebApplication1\WebApp
 C:\Users\sarie\OneDrive\Dokumenter\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\obj\Debug\net7.0\WebApplication1.pdb
 C:\Users\sarie\OneDrive\Dokumenter\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\obj\Debug\net7.0\WebApplication1.genruntimeconfig.cache
 C:\Users\sarie\OneDrive\Dokumenter\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\obj\Debug\net7.0\ref\WebApplication1.dll
+C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\WebApplication1\bin\Debug\net7.0\data.json
