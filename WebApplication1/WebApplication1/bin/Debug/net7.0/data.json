@@ -1,0 +1,21 @@
+{
+  "Users": [
+    {
+      "Id": 1,
+      "UserName": "jonayrab",
+      "password": "lol69420"
+    }
+  ],
+  "Posts": [
+    {
+      "Id": 1,
+      "Poster": {
+        "Id": 1,
+        "UserName": "jonayrab",
+        "password": "lol69420"
+      },
+      "PostTitle": "ilikepuppies",
+      "PostBody": "puppies are lovely"
+    }
+  ]
+}

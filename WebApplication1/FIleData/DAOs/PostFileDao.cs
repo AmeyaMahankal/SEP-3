@@ -49,4 +49,26 @@ public class PostFileDao: IPostDao
 
         return Task.FromResult(result);
     }
+
+    public Task<Post?> GetByIdAsync(int id)
+    {
+        Post? existing = context.Posts.FirstOrDefault(t => t.Id == id);
+        return Task.FromResult(existing);
+    }
+
+    public Task UpdateAsync(Post updated)
+    {
+        //Post? existing = context.Posts.FirstOrDefault(post => post.Id == updated.Id);
+        Post? existing = context.Posts.FirstOrDefault(Post => Post.Id == updated.Id);
+        if (existing == null)
+        {
+            throw new Exception($"Post with id {updated.Id} does not exist!");
+        }
+
+        context.Posts.Remove(existing);
+        context.Posts.Add(updated);
+        context.SaveChanges();
+
+        return Task.CompletedTask;
+    }
 }

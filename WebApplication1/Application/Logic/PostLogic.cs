@@ -1,4 +1,5 @@
-﻿using Application.DaoInterfaces;
+﻿using System.Data.Common;
+using Application.DaoInterfaces;
 using Application.LogicInterface;
 using Domain.DTOs;
 using Domain.Models;
@@ -34,6 +35,41 @@ public class PostLogic: IPostLogic
     public Task<IEnumerable<Post>> GetAsync(SearchPostParametersDto dto)
     {
         return PostDao.GetAsync(dto);
+    }
+
+    public async Task UpdateAsync(PostUpdateDto dto)
+    {
+        Post? existing = await PostDao.GetByIdAsync(dto.Id);
+        if (existing == null)
+        {
+            throw new Exception($"Post with ID {dto.Id} not found!");
+        }
+        
+        User? user = null;
+        if (dto.OwnerId != null)
+        {
+            user = await UserDao.GetByIdAsync((int)dto.OwnerId);
+            if (user == null)
+            {
+                throw new Exception($"User with id {dto.OwnerId} was not found.");
+            }
+        }
+
+        User userToUse = user ?? existing.Poster;
+        string titleToUse = dto.Title ?? existing.PostTitle;
+        string descToUse = dto.Description ?? existing.PostTitle;
+
+        Post updated = new(userToUse, titleToUse, descToUse);
+        {
+            updated.PostTitle = titleToUse;
+            updated.PostBody = descToUse;
+            updated.Id = existing.Id;
+        }
+
+       
+        await PostDao.UpdateAsync(updated);
+
+
     }
 
     private void ValidatePost(PostCreationDto dto)
