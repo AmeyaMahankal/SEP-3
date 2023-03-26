@@ -72,6 +72,17 @@ public class PostLogic: IPostLogic
 
     }
 
+    public async Task DeleteAsync(int id)
+    {
+        Post? post = await PostDao.GetByIdAsync(id);
+        if (post == null)
+        {
+            throw new Exception($"Post with ID {id} was not found!");
+        }
+
+        await PostDao.DeleteAsync(id);
+    }
+
     private void ValidatePost(PostCreationDto dto)
     {
         if (string.IsNullOrEmpty(dto.Title)) throw new Exception("Title cannot be empty.");

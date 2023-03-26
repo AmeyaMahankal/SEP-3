@@ -2,8 +2,8 @@
   "Users": [
     {
       "Id": 1,
-      "UserName": "jonayrab",
-      "password": "lol69420"
+      "UserName": "lucija",
+      "password": "1234444"
     }
   ],
   "Posts": [
@@ -11,11 +11,11 @@
       "Id": 1,
       "Poster": {
         "Id": 1,
-        "UserName": "jonayrab",
-        "password": "lol69420"
+        "UserName": "lucija",
+        "password": "1234444"
       },
-      "PostTitle": "ilikepuppies",
-      "PostBody": "puppies are lovely"
+      "PostTitle": "iluvcroatia",
+      "PostBody": "beautiful country"
     }
   ]
 }
