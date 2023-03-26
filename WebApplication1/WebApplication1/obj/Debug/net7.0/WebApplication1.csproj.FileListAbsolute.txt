@@ -39,6 +39,7 @@ C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\WebApplication1\obj\
 C:\Users\Lucija\Desktop\DNP\DNP-Assignment1\WebApplication1\WebApplication1\obj\Debug\net7.0\ref\WebApplication1.dll
 C:\Users\Ameya Mahankala\Documents\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\Ameya Mahankala\Documents\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\bin\Debug\net7.0\appsettings.json
+C:\Users\Ameya Mahankala\Documents\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\bin\Debug\net7.0\data.json
 C:\Users\Ameya Mahankala\Documents\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\bin\Debug\net7.0\WebApplication1.exe
 C:\Users\Ameya Mahankala\Documents\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\bin\Debug\net7.0\WebApplication1.deps.json
 C:\Users\Ameya Mahankala\Documents\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\bin\Debug\net7.0\WebApplication1.runtimeconfig.json
@@ -76,4 +77,3 @@ C:\Users\Ameya Mahankala\Documents\GitHub\DNP-Assignment1\WebApplication1\WebApp
 C:\Users\Ameya Mahankala\Documents\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\obj\Debug\net7.0\WebApplication1.pdb
 C:\Users\Ameya Mahankala\Documents\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\obj\Debug\net7.0\WebApplication1.genruntimeconfig.cache
 C:\Users\Ameya Mahankala\Documents\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\obj\Debug\net7.0\ref\WebApplication1.dll
-C:\Users\Ameya Mahankala\Documents\GitHub\DNP-Assignment1\WebApplication1\WebApplication1\bin\Debug\net7.0\data.json
