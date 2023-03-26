@@ -3,6 +3,8 @@ using Application.Logic;
 using Application.LogicInterface;
 using FileData;
 using FileData.DAOs;
+using HttpClientss.ClientInterfaces;
+using HttpClientss.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<FileContext>();
 builder.Services.AddScoped<IUserDao, UserFileDao>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
+builder.Services.AddScoped<IUserService, UserHttpClient>();
 
 builder.Services.AddScoped<IPostDao, PostFileDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();
+builder.Services.AddScoped(
+    sp =>
+        new HttpClient
+        {
+            BaseAddress = new Uri("https://http://localhost:5202")
+        });
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -20,6 +29,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true)
+    .AllowCredentials());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
