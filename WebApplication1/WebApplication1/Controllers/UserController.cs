@@ -23,7 +23,7 @@ public class UserController : ControllerBase
         try
         {
             User user = await UserLogic.CreateAsync(dto);
-            return Created($"/users/{user.Id}", user);
+            return Created($"/user/{user.Id}", user);
         }
         catch (Exception e)
         {
