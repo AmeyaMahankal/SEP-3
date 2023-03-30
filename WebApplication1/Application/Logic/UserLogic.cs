@@ -23,7 +23,7 @@ public class UserLogic: IUserLogic
         ValidateData(dto);
         User toCreate = new User
         {
-            UserName = dto.UserName,password =dto.PassWord 
+            UserName = dto.UserName,Password =dto.PassWord 
                 
             
         };

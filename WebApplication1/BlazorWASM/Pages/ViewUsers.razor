@@ -26,7 +26,7 @@ else
         @foreach (User user in users)
         {
             <div class="user-card">
-                <label>@user.password @user.UserName @user.Id</label>
+                <label>@user.Password @user.UserName @user.Id</label>
             </div>
         }
     </div>
@@ -42,6 +42,7 @@ else
         try
         {
             users = await userService.GetUsers();
+            int stpher = 0;
         }
         catch (Exception e)
         {
