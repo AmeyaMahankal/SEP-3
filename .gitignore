@@ -1,0 +1,12 @@
+﻿/WebApplication1/Application/bin/
+/WebApplication1/Application/obj/
+/WebApplication1/BlazorWASM/bin/
+/WebApplication1/BlazorWASM/obj/
+/WebApplication1/Domain/bin/
+/WebApplication1/Domain/obj/
+/WebApplication1/FileData/bin/
+/WebApplication1/FileData/obj/
+/WebApplication1/HttpClients/bin/
+/WebApplication1/HttpClients/obj/
+/WebApplication1/WebApplication1/bin/
+/WebApplication1/WebApplication1/obj/
