@@ -1,0 +1,83 @@
+﻿@page "/CreatePost"
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@using Domain.DTOs
+@inject IUserService userService
+@inject IPostService postService
+@inject NavigationManager navMgr
+
+<div class="card">
+    
+    <h3>Create Post</h3>
+    <div class="form-group field">
+        <label>Title:</label>
+        <input type="text" @bind="posttitle"/>
+    </div>
+    <div class="form-group field">
+        <label>Description:</label>
+        <input type="text" @bind="postDesc"/>
+    </div>
+    
+    <div class="button-row">
+        @if (!string.IsNullOrEmpty(msg))
+        {
+            <label style="color: red">@msg</label>
+        }
+        <button @onclick="Create" class="acceptbtn">Create</button>
+    </div>
+
+</div>
+
+@code {
+    private IEnumerable<User> users;
+    private int? selectedUserId=3;
+    private string posttitle = "";
+    private string postDesc = "";
+
+    private string msg = "";
+
+    protected override async void OnInitialized()
+    {
+        msg = "";
+        try
+        {
+            users = await userService.GetUsers();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+    
+
+    private async Task Create()
+    {
+        msg = "";
+        /*
+        if (selectedUserId == null)
+        {
+            msg = "Select an assignee";
+            return;
+        }
+        if (string.IsNullOrEmpty((posttitle)))
+        {
+            msg = "Title cannot be empty!";
+            return;
+        }
+*/
+        try
+        {
+            PostCreationDto dto = new((int)selectedUserId, posttitle, postDesc);
+            await postService.CreateAsync(dto);
+            navMgr.NavigateTo("/");
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+
+}
