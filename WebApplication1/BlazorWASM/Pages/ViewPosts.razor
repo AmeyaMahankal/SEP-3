@@ -2,7 +2,7 @@
 @using Domain.Models
 @using HttpClients.ClientInterfaces
 @inject IPostService postService
-
+@inject NavigationManager NavMgr
 <h3 style="text-align: center">Overview of all posts</h3>
 
 @if (!string.IsNullOrEmpty(msg))
@@ -26,11 +26,15 @@ else
         @foreach (Post post in posts)
         {
             <div class="user-card">
-                <label>@post.Id - @post.Poster - @post.PostTitle - @post.PostBody </label>
+                <label>@post.Id - @post.Poster.UserName - @post.PostTitle - @post.PostBody </label>
+                <button @onclick="@(() => RemovePost(post.Id))" style="cursor:pointer; color: red; font-weight: bold">
+                                        &#x2717;
+                                    </button>
             </div>
         }
     </div>
 }
+
 
 @code {
     private IEnumerable<Post>? posts;
@@ -50,4 +54,25 @@ else
             msg = e.Message;
         }
     }
+    private async Task RemovePost(int postId)
+    {
+        msg = "";
+        try
+        {
+             postId = 0;
+            await postService.DeleteAsync(postId: postId);
+        
+            var list = new List<Post>(posts!);
+            list.RemoveAll(post => post.Id == postId);
+            posts = list.AsEnumerable();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+    
+    
+
 }

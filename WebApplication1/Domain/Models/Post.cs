@@ -9,6 +9,9 @@ public class Post
     public string PostTitle { get; set; }
     
     public string PostBody { get; set; }
+    public object IsCompleted { get; set; }
+    public object Owner { get; set; }
+    public object Title { get; set; }
 
     public Post(User poster, string postTitle, string postBody)
     {
