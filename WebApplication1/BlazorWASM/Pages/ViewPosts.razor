@@ -59,7 +59,6 @@ else
         msg = "";
         try
         {
-             postId = 0;
             await postService.DeleteAsync(postId: postId);
         
             var list = new List<Post>(posts!);
