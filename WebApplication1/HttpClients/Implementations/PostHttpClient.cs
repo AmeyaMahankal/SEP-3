@@ -46,54 +46,14 @@ public class PostHttpClient : IPostService
         });
         return posts;
     }
-
-   /* public async Task<IEnumerable<Post>> GetPosts(int? userId, string? poster, string? title, string? postBody)
+    
+    public async Task DeleteAsync(int id)
     {
-        string query = ConstructQuery(userId, poster, title, postBody);
-        HttpResponseMessage response = await client.GetAsync("/posts");
-        string content = await response.Content.ReadAsStringAsync();
+        HttpResponseMessage response = await client.DeleteAsync($"post/{id}");
         if (!response.IsSuccessStatusCode)
         {
+            string content = await response.Content.ReadAsStringAsync();
             throw new Exception(content);
         }
-
-        ICollection<Post> posts = JsonSerializer.Deserialize<ICollection<Post>>(content, new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        })!;
-        return posts;
     }
-
-    private static string ConstructQuery(int? userId, string? poster, string? title, string? postBody)
-    {
-        string query = "";
-
-
-        if (userId != null)
-        {
-            query += string.IsNullOrEmpty(query) ? "?" : "&";
-            query += $"userid={userId}";
-        }
-
-        if (!string.IsNullOrEmpty(poster))
-        {
-            query += $"?poster={poster}";
-        }
-
-
-        if (!string.IsNullOrEmpty(title))
-        {
-            query += string.IsNullOrEmpty(query) ? "?" : "&";
-            query += $"title={title}";
-        }
-
-        if (!string.IsNullOrEmpty(postBody))
-        {
-            query += string.IsNullOrEmpty(query) ? "?" : "&";
-            query += $"postBody={postBody}";
-        }
-
-
-        return query;
-    }*/
 }
