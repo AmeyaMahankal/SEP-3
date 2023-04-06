@@ -27,9 +27,11 @@ else
         {
             <div class="user-card">
                 <label>@post.Id - @post.Poster.UserName - @post.PostTitle - @post.PostBody </label>
-                <button @onclick="@(() => RemovePost(post.Id))" style="cursor:pointer; color: red; font-weight: bold">
-                                        &#x2717;
-                                    </button>
+                <AuthorizeView Policy="MustBeAdmin"> <!-- policy that requires admin can only delete-->
+                    <button @onclick="@(() => RemovePost(post.Id))" style="cursor:pointer; color: red; font-weight: bold">
+                        &#x2717;
+                    </button>
+                </AuthorizeView>
             </div>
         }
     </div>
@@ -54,13 +56,14 @@ else
             msg = e.Message;
         }
     }
+
     private async Task RemovePost(int postId)
     {
         msg = "";
         try
         {
             await postService.DeleteAsync(postId: postId);
-        
+
             var list = new List<Post>(posts!);
             list.RemoveAll(post => post.Id == postId);
             posts = list.AsEnumerable();
@@ -71,7 +74,7 @@ else
             msg = e.Message;
         }
     }
-    
-    
+
+
 
 }
