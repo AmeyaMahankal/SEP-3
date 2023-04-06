@@ -1,4 +1,5 @@
 ﻿@page "/ViewUsers"
+@attribute [Authorize("MustBeAdmin")]
 @using Domain.Models
 @using HttpClients.ClientInterfaces
 @inject IUserService userService
