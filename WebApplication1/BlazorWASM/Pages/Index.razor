@@ -4,5 +4,16 @@
 
 <h1>Hello there !</h1>
 
-Welcome to readit
+
+
+<AuthorizeView>
+    <Authorized>
+        <p>Welcome to Readit</p>
+        <p>Hello @context.User.Claims.First(claim => claim.Type.Equals("Username")).Value</p>
+    </Authorized>
+    <NotAuthorized>
+        <p>Welcome to Readit</p>
+        <p>Be sure to create an account or log-in as you can only view posts</p>
+    </NotAuthorized>
+</AuthorizeView>
 
