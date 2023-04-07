@@ -3,6 +3,7 @@
 @using Domain.Models
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
+@using System.Security.Claims
 @inject IUserService userService
 @inject IPostService postService
 @inject NavigationManager navMgr
@@ -16,6 +17,7 @@
     </div>
     <div class="form-group field">
         <label>Description:</label>
+        <p>@stringselectedUserId</p>
         <input type="text" @bind="postDesc"/>
     </div>
     
@@ -30,43 +32,52 @@
 </div>
 
 @code {
-    private IEnumerable<User> users;
-    private int? selectedUserId=1;
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    
+    
+    private int? selectedUserId;
     private string posttitle = "";
     private string postDesc = "";
+
+    private string stringselectedUserId;
 
     private string msg = "";
 
     protected override async void OnInitialized()
     {
-        msg = "";
-        try
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal user = authState.User;
+        isLoggedIn = user.Identity != null;
+        
+        if (!isLoggedIn) return;
+        
+        userClaims = user.Claims;
+        
+        stringselectedUserId = user.Claims.First(claim => claim.Type.Equals("Id")).ToString();
+
+        string stringid="";
+        foreach (char VARIABLE in stringselectedUserId)
         {
-            users = await userService.GetUsers();
+            if (Char.IsDigit(VARIABLE))
+            {
+                stringid = stringid + VARIABLE;
+            }
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            msg = e.Message;
-        }
+
+        selectedUserId = Convert.ToInt32(stringid);
+
+
     }
     
 
     private async Task Create()
     {
         msg = "";
-        /*
-        if (selectedUserId == null)
-        {
-            msg = "Select an assignee";
-            return;
-        }
-        if (string.IsNullOrEmpty((posttitle)))
-        {
-            msg = "Title cannot be empty!";
-            return;
-        }
-*/
+       
         try
         {
             PostCreationDto dto = new((int)selectedUserId, posttitle, postDesc);

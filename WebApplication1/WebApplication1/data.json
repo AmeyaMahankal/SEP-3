@@ -1,1 +1,40 @@
-{"Users":[{"Id":1,"UserName":"bobby","Password":"ilikecats","Role":null},{"Id":2,"UserName":"kevin","Password":"jefffff","Role":null}],"Posts":[{"Id":1,"Poster":{"Id":1,"UserName":"bobby","Password":"ilikecats","Role":null},"PostTitle":"cats are cool","PostBody":"dogs bad","IsCompleted":null,"Owner":null,"Title":null},{"Id":2,"Poster":{"Id":1,"UserName":"bobby","Password":"ilikecats","Role":null},"PostTitle":"stuff","PostBody":"cool","IsCompleted":null,"Owner":null,"Title":null}]}
+{
+  "Users": [
+    {
+      "Id": 1,
+      "UserName": "bobby",
+      "Password": "ilikecats",
+      "Role": null
+    },
+    {
+      "Id": 2,
+      "UserName": "kevin",
+      "Password": "jefffff",
+      "Role": null
+    }
+  ],
+  "Posts": [
+    {
+      "Id": 1,
+      "Poster": {
+        "Id": 1,
+        "UserName": "bobby",
+        "Password": "ilikecats",
+        "Role": null
+      },
+      "PostTitle": "wadawdawd",
+      "PostBody": ""
+    },
+    {
+      "Id": 2,
+      "Poster": {
+        "Id": 1,
+        "UserName": "bobby",
+        "Password": "ilikecats",
+        "Role": null
+      },
+      "PostTitle": "wadadawdawdwadaw",
+      "PostBody": "awdadwadw"
+    }
+  ]
+}
