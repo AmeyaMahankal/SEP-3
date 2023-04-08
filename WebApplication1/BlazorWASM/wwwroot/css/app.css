@@ -193,4 +193,16 @@ a, .btn-link {
     width: 30px;
     cursor: pointer;
 }
+.posting{
+    height: 300px;
+    width: 350px;
+    padding: 20px;
+    border-radius: 25px;
+    border: 2px solid #0e0e0e;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 Adding the b

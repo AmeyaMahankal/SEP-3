@@ -25,13 +25,21 @@ else
     <div class="posts-container">
         @foreach (Post post in posts)
         {
-            <div class="user-card">
-                <label>@post.Id - @post.Poster.UserName - @post.PostTitle - @post.PostBody </label>
+            <div class="posting">
+                <h3> <b> @post.PostTitle </b></h3>
+                <br>
+                <div> By  @post.Poster.UserName </div>
+                <br>
+                <div> @post.PostBody  </div>
+                <br>
                 <AuthorizeView Policy="MustBeAdmin"> <!-- policy that requires admin can only delete-->
                     <button @onclick="@(() => RemovePost(post.Id))" style="cursor:pointer; color: red; font-weight: bold">
                         &#x2717;
                     </button>
                 </AuthorizeView>
+            </div>
+            <div>                                                                  
+                <br>
             </div>
         }
     </div>
