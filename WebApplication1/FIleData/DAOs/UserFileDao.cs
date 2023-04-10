@@ -25,6 +25,7 @@ public class UserFileDao: IUserDao
 
         user.Id = Id;
         user.Password = user.Password;
+        user.Role = "User";
         context.Users.Add(user);
         context.SaveChanges();
         return Task.FromResult(user);

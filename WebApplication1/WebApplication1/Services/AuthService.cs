@@ -1,4 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json;
+using Application.LogicInterface;
+using Domain.DTOs;
 using Domain.Models;
 using FileData;
 using FileData.DAOs;
@@ -7,6 +10,43 @@ namespace WebApplication1.Services;
 
 public class AuthService : IAuthService
 {
+
+    private const string filepath = "data.json";
+    private DataContainer? dataContainer;
+
+    private void LoadData()
+    {
+        if (dataContainer!=null) return;
+
+        if (!File.Exists(filepath))
+        {
+            dataContainer = new()
+            {
+                Posts = new List<Post>(),
+                Users = new List<User>()
+            };
+            return;
+        }
+
+        string content = File.ReadAllText(filepath);
+        dataContainer = JsonSerializer.Deserialize<DataContainer>(content);
+    }
+
+    public IList<User> jusers
+    {
+        
+        get
+        {
+            dataContainer = new()
+            {
+                Posts = new List<Post>(),
+                Users = new List<User>()
+            };
+            string content = File.ReadAllText(filepath);
+            dataContainer = JsonSerializer.Deserialize<DataContainer>(content);
+            return (IList<User>)dataContainer.Users;
+        }
+    }
     
     private  IList<User> users = new List<User>
     {
@@ -29,7 +69,7 @@ public class AuthService : IAuthService
 
     public Task<User> ValidateUser(string username, string password)
     {
-        User? existinguser = users.FirstOrDefault(u =>
+        User? existinguser = jusers.FirstOrDefault(u =>
             u.UserName.Equals(username, StringComparison.OrdinalIgnoreCase));
         
         if (existinguser == null)
