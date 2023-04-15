@@ -1,7 +1,9 @@
 using System.Text;
 using Application.DaoInterfaces;
+using Application.DAOInterfaces;
 using Application.Logic;
 using Application.LogicInterface;
+using Application.LogicInterfaces;
 using Domain.Auth;
 using FileData;
 using FileData.DAOs;
@@ -19,6 +21,13 @@ builder.Services.AddScoped<IUserLogic, UserLogic>();
 builder.Services.AddScoped<IPostDao, PostFileDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+
+builder.Services.AddScoped<IReviewDao, ReviewFileDao>();
+builder.Services.AddScoped<IReviewLogic, ReviewLogic>();
+
+builder.Services.AddScoped<IReportDao, ReportFileDao>();
+builder.Services.AddScoped<IReportLogic, ReportLogic>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
