@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Protos/Retriever.cs \
+obj\Debug\net7.0\Protos/RetrieverGrpc.cs: Protos/retriever.proto

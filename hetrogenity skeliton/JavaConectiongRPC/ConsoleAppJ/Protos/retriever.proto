@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "ConsoleAppJ";
+
+service Retriever {
+  rpc RegistrationNumbersRetriever(TextInput) returns(TextOutput); //gets all reg# involved in a product
+  rpc ProductsRetriever(TextInput) returns(TextOutput);// gets all products a reg# is involved in
+}
+
+
+
+message TextInput{
+
+  string input=1;
+
+}
+
+message TextOutput{
+
+  string output=1;
+  int32 code=2;
+
+}
+
