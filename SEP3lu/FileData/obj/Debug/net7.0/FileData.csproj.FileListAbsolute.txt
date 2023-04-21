@@ -1,0 +1,17 @@
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\bin\Debug\net7.0\FileData.deps.json
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\bin\Debug\net7.0\FileData.dll
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\bin\Debug\net7.0\FileData.pdb
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\bin\Debug\net7.0\Application.dll
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\bin\Debug\net7.0\Domain.dll
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\bin\Debug\net7.0\Application.pdb
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\bin\Debug\net7.0\Domain.pdb
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\obj\Debug\net7.0\FileData.csproj.AssemblyReference.cache
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\obj\Debug\net7.0\FileData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\obj\Debug\net7.0\FileData.AssemblyInfoInputs.cache
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\obj\Debug\net7.0\FileData.AssemblyInfo.cs
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\obj\Debug\net7.0\FileData.csproj.CoreCompileInputs.cache
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\obj\Debug\net7.0\FileData.csproj.CopyComplete
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\obj\Debug\net7.0\FileData.dll
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\obj\Debug\net7.0\refint\FileData.dll
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\obj\Debug\net7.0\FileData.pdb
+C:\Users\Lucija\RiderProjects\SEP3lu\FileData\obj\Debug\net7.0\ref\FileData.dll
