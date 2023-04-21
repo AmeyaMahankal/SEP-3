@@ -18,6 +18,13 @@ builder.Services.AddScoped<IUserLogic, UserLogic>();
 
 builder.Services.AddScoped<IPostDao, PostFileDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();
+
+builder.Services.AddScoped<IReviewDao, ReviewFileDao>();
+builder.Services.AddScoped<IReviewLogic, ReviewLogic>();
+
+builder.Services.AddScoped<IReportDao, ReportFileDao>();
+builder.Services.AddScoped<IReportLogic, ReportLogic>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddControllers();
