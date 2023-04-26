@@ -15,7 +15,7 @@ public class PostHttpClient : IPostService
         this.client = client;
     }
 
-    public async Task CreateAsync(PostCreationDto dto)
+    public async Task CreateAsync(CityCreationDto dto)
     {
         HttpResponseMessage response = await client.PostAsJsonAsync("/post", dto);
         if (!response.IsSuccessStatusCode)
@@ -25,7 +25,7 @@ public class PostHttpClient : IPostService
         }
     }
 
-    public async Task<IEnumerable<Post>?> GetPosts(string? postTitalContains = null)
+    public async Task<IEnumerable<City>?> GetPosts(string? postTitalContains = null)
     {
         string uri = "/post";
         if (!string.IsNullOrEmpty(postTitalContains))
@@ -40,7 +40,7 @@ public class PostHttpClient : IPostService
             throw new Exception(result);
         }
 
-        IEnumerable<Post> posts = JsonSerializer.Deserialize<IEnumerable<Post>>(result, new JsonSerializerOptions
+        IEnumerable<City> posts = JsonSerializer.Deserialize<IEnumerable<City>>(result, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         });
