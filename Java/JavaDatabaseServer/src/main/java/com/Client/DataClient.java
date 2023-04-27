@@ -1,0 +1,24 @@
+package com.Client;
+
+import com.sdj3.protobuf.AccessGrpc;
+import com.sdj3.protobuf.DataAccess;
+import com.server.DataAccessService;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+
+public class DataClient {
+    public static void main(String[] args) {
+        ManagedChannel managedChannel = ManagedChannelBuilder
+                .forAddress("localhost",9090)
+                .usePlaintext().build();
+
+        AccessGrpc.AccessBlockingStub blockingStub=AccessGrpc.newBlockingStub(managedChannel);
+
+        DataAccess.UserCreate request=DataAccess.UserCreate.newBuilder()
+                .setUserName("bobby")
+                .setPassWord("ilikelego").build();
+
+        DataAccess.UserCreateResponse response= blockingStub.createUser(request);
+        System.out.println("Received and created ==> " + response.getUserName());
+    }
+}
