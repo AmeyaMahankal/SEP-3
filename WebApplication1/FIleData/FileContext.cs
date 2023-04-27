@@ -43,6 +43,14 @@ public class FileContext
             return dataContainer!.Reports;
         }
     }
+    public ICollection<City> Cities
+    {
+        get
+        {
+            LoadData();
+            return dataContainer!.Cities;
+        }
+    }
     
     
 
