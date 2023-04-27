@@ -22,7 +22,7 @@ public class AuthService : IAuthService
         {
             dataContainer = new()
             {
-              
+                Posts = new List<Post>(),
                 Users = new List<User>()
             };
             return;
@@ -39,7 +39,7 @@ public class AuthService : IAuthService
         {
             dataContainer = new()
             {
-            
+                Posts = new List<Post>(),
                 Users = new List<User>()
             };
             string content = File.ReadAllText(filepath);

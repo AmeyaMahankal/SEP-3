@@ -21,10 +21,8 @@ public class ReviewController: ControllerBase
     {
         try
         {
-            
             Review review = await reviewLogic.CreateAsync(dto);
             return Created($"/reviews/{review.Id}", review);
-           
         }
         catch (Exception e)
         {

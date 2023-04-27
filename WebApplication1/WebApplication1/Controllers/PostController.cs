@@ -7,25 +7,23 @@ namespace WebApplication1.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class CityController: ControllerBase
+public class PostController: ControllerBase
 {
-    private readonly ICityLogic cityLogic;
+    private readonly IPostLogic PostLogic;
 
-    public CityController(ICityLogic cityLogic)
-    { 
-        this.cityLogic = cityLogic;
+    public PostController(IPostLogic postLogic)
+    {
+        PostLogic = postLogic;
     }
 
     [HttpPost]
-    public async Task<ActionResult<City>> CreateAsync(CityCreationDto dto)
+    public async Task<ActionResult<Post>> CreateAsync([FromBody] PostCreationDto dto)
     {
         try
         {
-            
-            City city = await cityLogic.CreateAsync(dto);
-          
+            Post created = await PostLogic.CreateAsync(dto);
+            return Created($"/posts/{created.Id}", created);
 
-            return Created($"/citys/{city.Id}", city);
         }
         catch (Exception e)
         {
@@ -35,16 +33,15 @@ public class CityController: ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<City>>> GetAsync([FromQuery] int? id, [FromQuery] String? name)
+    public async Task<ActionResult<IEnumerable<Post>>> GetAsync([FromQuery] string? username, [FromQuery] int? UserId,
+        [FromQuery] string? titlecontains)
     {
         try
         {
-            
-            SearchCityParametersDto parameters = new(id,name);
-            IEnumerable<City> cities = await cityLogic.GetAsync(parameters);
-            return Ok(cities);
+            SearchPostParametersDto parameters = new(username, UserId, titlecontains);
+            var posts = await PostLogic.GetAsync(parameters);
+            return Ok(posts);
         }
-        
         catch (Exception e)
         {
             Console.WriteLine(e);
@@ -53,11 +50,11 @@ public class CityController: ControllerBase
     }
 
     [HttpPatch]
-    public async Task<ActionResult> UpdateAsync([FromBody] CityUpdateDto dto)
+    public async Task<ActionResult> UpdateAsync([FromBody] PostUpdateDto dto)
     {
         try
         {
-            await cityLogic.UpdateAsync(dto);
+            await PostLogic.UpdateAsync(dto);
             return Ok();
         }
         catch (Exception e)
@@ -72,7 +69,7 @@ public class CityController: ControllerBase
     {
         try
         {
-            await cityLogic.DeleteAsync(id);
+            await PostLogic.DeleteAsync(id);
             return Ok();
         }
         catch (Exception e)
