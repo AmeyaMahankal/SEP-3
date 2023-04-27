@@ -1,0 +1,95 @@
+﻿@page "/CreatePost"
+@attribute [Authorize]
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@using Domain.DTOs
+@using System.Security.Claims
+@inject IUserService userService
+@inject IPostService postService
+@inject NavigationManager navMgr
+
+<div class="card">
+    
+    <h3>Create Post</h3>
+    <div class="form-group field">
+        <label>Title:</label>
+        <input type="text" @bind="posttitle"/>
+    </div>
+    <div class="form-group field">
+        <label>Description:</label>
+        <p>@stringselectedUserId</p>
+        <input type="text" @bind="postDesc"/>
+    </div>
+    
+    <div class="button-row">
+        @if (!string.IsNullOrEmpty(msg))
+        {
+            <label style="color: red">@msg</label>
+        }
+        <button @onclick="Create" class="acceptbtn">Create</button>
+    </div>
+
+</div>
+
+@code {
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    
+    
+    private int? selectedUserId;
+    private string posttitle = "";
+    private string postDesc = "";
+
+    private string stringselectedUserId;
+
+    private string msg = "";
+
+    protected override async void OnInitialized()
+    {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal user = authState.User;
+        isLoggedIn = user.Identity != null;
+        
+        if (!isLoggedIn) return;
+        
+        userClaims = user.Claims;
+        
+        stringselectedUserId = user.Claims.First(claim => claim.Type.Equals("Id")).ToString();
+
+        string stringid="";
+        foreach (char VARIABLE in stringselectedUserId)
+        {
+            if (Char.IsDigit(VARIABLE))
+            {
+                stringid = stringid + VARIABLE;
+            }
+        }
+
+        selectedUserId = Convert.ToInt32(stringid);
+
+
+    }
+    
+
+    private async Task Create()
+    {
+        msg = "";
+       
+        try
+        {
+            PostCreationDto dto = new((int)selectedUserId, posttitle, postDesc);
+            await postService.CreateAsync(dto);
+            navMgr.NavigateTo("/");
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+
+}
