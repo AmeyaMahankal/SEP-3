@@ -21,9 +21,9 @@ public class CityController: ControllerBase
     {
         try
         {
-            
+            Console.WriteLine("here from city1");
             City city = await cityLogic.CreateAsync(dto);
-          
+            Console.WriteLine("here from city2");
 
             return Created($"/citys/{city.Id}", city);
         }
