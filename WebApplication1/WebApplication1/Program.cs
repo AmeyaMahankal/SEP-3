@@ -18,6 +18,8 @@ builder.Services.AddScoped<IUserLogic, UserLogic>();
 
 builder.Services.AddScoped<IPostDao, PostFileDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();
+builder.Services.AddScoped<ICityDao, CityFileDao>();
+builder.Services.AddScoped<ICityLogic, CityLogic>();
 
 builder.Services.AddScoped<IReviewDao, ReviewFileDao>();
 builder.Services.AddScoped<IReviewLogic, ReviewLogic>();
