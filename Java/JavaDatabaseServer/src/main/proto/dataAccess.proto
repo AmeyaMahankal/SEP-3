@@ -13,5 +13,6 @@ message UserCreate{
 }
 
 message UserCreateResponse{
-
+  int32 code=1;
+  string userName=2;
 }
