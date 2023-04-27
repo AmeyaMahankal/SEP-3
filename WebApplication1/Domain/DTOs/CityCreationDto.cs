@@ -6,9 +6,9 @@ public class CityCreationDto
     public string Name { get; }
     public string Description { get; }
 
-    public CityCreationDto( string name, string description)
+    public CityCreationDto(int id, string name, string description)
     {
-      
+        Id = id;
         Name = name;
         Description = description;
     }

@@ -50,7 +50,7 @@ public class CityLogic : ICityLogic
      City? city = null;
      if (dto.CityId != null)
      {
-         city = await cityDao.GetByIdAsync((int)dto.CityId);
+         city = await cityDao.GetByIdAsync(dto.CityId);
          if (city == null)
          {
              throw new Exception($"City with id {dto.CityId} was not found.");
@@ -62,14 +62,12 @@ public class CityLogic : ICityLogic
 
      string descToUseToUse =dto.Description?? existing.Description ;
      
-     
-     
-
 
      City updated = new(nameToUse,descToUseToUse);
      {
          updated.Name = nameToUse;
          updated.Description = descToUseToUse ;
+         updated.Id = existing.Id;
      }
 
     
@@ -94,7 +92,7 @@ public class CityLogic : ICityLogic
     
     
       
-    //add some filtering
+    //todo add some filtering
     private static void ValidateData(CityCreationDto cityCreationDto)
     {
         
