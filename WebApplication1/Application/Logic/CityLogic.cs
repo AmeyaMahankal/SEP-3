@@ -1,27 +1,26 @@
-﻿using System.Data.Common;
-using Application.DaoInterfaces;
+﻿using Application.DaoInterfaces;
 using Application.LogicInterface;
 using Domain.DTOs;
 using Domain.Models;
 
 namespace Application.Logic;
 
-public class CityLogic: ICityLogic
+public class CityLogic : ICityLogic
 {
 
     private readonly ICityDao cityDao;
-   
+    
 
     public CityLogic(ICityDao cityDao)
     {
         this.cityDao = cityDao;
     }
-
+    
     public async Task<City> CreateAsync(CityCreationDto dto)
     {
         
-        ValidateCity(dto);
-        City toCreate = new City
+       // ValidateData(dto);
+        City toCreate = new City(dto.Name,dto.Description)
         {
             Name = dto.Name
             , Description = dto.Description
@@ -33,55 +32,72 @@ public class CityLogic: ICityLogic
         return created;
     }
 
-    public Task<IEnumerable<City>> GetAsync(SearchCityParametersDto dto)
+    public Task<IEnumerable<City>> GetAsync(SearchCityParametersDto searchCityParameters)
     {
-        return cityDao.GetAsync(dto);
+        return cityDao.GetAsync(searchCityParameters);
     }
     
-        public async Task UpdateAsync(CityUpdateDto dto)
-        {
-            City? existing = await cityDao.GetByIdAsync(dto.Id);
-            if (existing == null)
-            {
-                throw new Exception($"City with ID {dto.Id} not found!");
-            }
+    
+    
+      public async Task UpdateAsync(CityUpdateDto dto)
+      {
+          City? existing = await cityDao.GetByIdAsync(dto.CityId);
+     if (existing == null)
+     {
+         throw new Exception($"City with ID {dto.CityId} not found!");
+     }
      
-            City? city = null;
-            if (dto.Id != null)
-            {
-                city = await cityDao.GetByIdAsync(dto.Id);
-                if (city == null)
-                {
-                    throw new Exception($"City with id {dto.Id} was not found.");
-                }
-            }
+     City? city = null;
+     if (dto.CityId != null)
+     {
+         city = await cityDao.GetByIdAsync((int)dto.CityId);
+         if (city == null)
+         {
+             throw new Exception($"City with id {dto.CityId} was not found.");
+         }
+     }
 
-            string nameToUse = dto.Name ?? existing.Name;
-            string descToUse = dto.Description ?? existing.Description;
-            City updated = new();
-            {
-                updated.Description = descToUse;
-                updated.Name = nameToUse;
-            }
+   
+     string nameToUse = dto.Name ?? existing.Name;
+
+     string descToUseToUse =dto.Description?? existing.Description ;
+     
+     
+     
+
+
+     City updated = new(nameToUse,descToUseToUse);
+     {
+         updated.Name = nameToUse;
+         updated.Description = descToUseToUse ;
+     }
 
     
-            await cityDao.UpdateAsync(updated);
-        }
+     await cityDao.UpdateAsync(updated);
+ }
 
+      public async Task DeleteAsync(int id)
+      {
+          City? city = await cityDao.GetByIdAsync(id);
+          if (city == null)
+          {
+              throw new Exception($"City with ID {id} was not found!");
+          }
 
-    public async Task DeleteAsync(int id)
+          await cityDao.DeleteAsync(id);
+      }
+    
+    
+    
+    
+    
+    
+    
+      
+    //add some filtering
+    private static void ValidateData(CityCreationDto cityCreationDto)
     {
-        City? city = await cityDao.GetByIdAsync(id);
-        if (city == null)
-        {
-            throw new Exception($"City with ID {id} was not found!");
-        }
-
-        await cityDao.DeleteAsync(id);
-    }
-
-    private void ValidateCity(CityCreationDto dto)
-    {
-        if (string.IsNullOrEmpty(dto.Name)) throw new Exception("Name cannot be empty.");
+        
     }
 }
+

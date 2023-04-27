@@ -1,4 +1,5 @@
 ﻿using Application.DaoInterfaces;
+using Application.Logic;
 using Domain.DTOs;
 using Domain.Models;
 
@@ -15,39 +16,42 @@ public class CityFileDao: ICityDao
     
     public Task<City> CreateAsync(City city)
     {
-        int id = 1;
+        int cityId = 1;
         if (context.Cities.Any())
         {
-            id = context.Cities.Max(t => t.Id);
-            id++;
+            cityId = context.Cities.Max(u => u.Id);  
+            cityId++;
         }
 
-        city.Id = id;
+        city.Id = cityId;
+        
         context.Cities.Add(city);
         context.SaveChanges();
+
         return Task.FromResult(city);
     }
 
-    public Task<IEnumerable<City>> GetAsync(SearchCityParametersDto searchCityParametersDto)
+    public Task<IEnumerable<City>> GetAsync(SearchCityParametersDto searchCityParameters)
     {
-        IEnumerable<City> cities = context.Cities.AsEnumerable(); 
-        if (searchCityParametersDto.CityContainsId!=null )//searchReviewParameterDto.ReviewContainsId != null)
+        IEnumerable<City> cities = context.Cities.AsEnumerable();
+        if (searchCityParameters.CityContainsName != null)
         {
-            cities = context.Cities.Where(u => u.Id.Equals(searchCityParametersDto.CityContainsId));
+            cities = context.Cities.Where(u => u.Name.Equals(searchCityParameters.CityContainsName));
         }
 
         return Task.FromResult(cities);
     }
-    public Task<City?> GetByIdAsync(int id)
+
+    public Task<City?> GetByIdAsync(int dtoCityId)
     {
-        City? existing = context.Cities.FirstOrDefault(t => t.Id == id);
+        City? existing = context.Cities.FirstOrDefault(u => u.Id == dtoCityId);
         return Task.FromResult(existing);
     }
 
+    
     public Task UpdateAsync(City updated)
     {
-      
-        City? existing = context.Cities.FirstOrDefault(City => City.Id == updated.Id);
+        City? existing = context.Cities.FirstOrDefault(city => city.Id  == updated.Id);
         if (existing == null)
         {
             throw new Exception($"City with id {updated.Id} does not exist!");
@@ -59,7 +63,8 @@ public class CityFileDao: ICityDao
 
         return Task.CompletedTask;
     }
-
+    
+    
     public Task DeleteAsync(int id)
     {
         City? existing = context.Cities.FirstOrDefault(city => city.Id == id);
@@ -67,7 +72,7 @@ public class CityFileDao: ICityDao
         {
             throw new Exception($"City with id {id} does not exist!");
         }
-
+        
         context.Cities.Remove(existing);
         context.SaveChanges();
         return Task.CompletedTask;

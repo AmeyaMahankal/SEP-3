@@ -12,8 +12,8 @@ public class CityController: ControllerBase
     private readonly ICityLogic cityLogic;
 
     public CityController(ICityLogic cityLogic)
-    {
-        cityLogic = cityLogic;
+    { 
+        this.cityLogic = cityLogic;
     }
 
     [HttpPost]
@@ -21,7 +21,10 @@ public class CityController: ControllerBase
     {
         try
         {
+            Console.WriteLine("here from city1");
             City city = await cityLogic.CreateAsync(dto);
+            Console.WriteLine("here from city2");
+
             return Created($"/citys/{city.Id}", city);
         }
         catch (Exception e)
@@ -32,14 +35,16 @@ public class CityController: ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<City>>> GetAsync([FromQuery] int? Id, [FromQuery] String? Name)
+    public async Task<ActionResult<IEnumerable<City>>> GetAsync([FromQuery] int? id, [FromQuery] String? name)
     {
         try
         {
-            SearchCityParametersDto parameters = new(Id,Name);
-            var cities = await cityLogic.GetAsync(parameters);
+            
+            SearchCityParametersDto parameters = new(id,name);
+            IEnumerable<City> cities = await cityLogic.GetAsync(parameters);
             return Ok(cities);
         }
+        
         catch (Exception e)
         {
             Console.WriteLine(e);

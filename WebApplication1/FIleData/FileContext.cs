@@ -19,14 +19,7 @@ public class FileContext
         }
     }
     
-    public ICollection<City> Cities
-    {
-        get
-        {
-            LoadData();
-            return dataContainer!.CitiesSAF;
-        }
-    }
+
     
     public ICollection<Review> Reviews
     {
@@ -45,7 +38,14 @@ public class FileContext
             return dataContainer!.Reports;
         }
     }
-    
+    public ICollection<City> Cities
+    {
+        get
+        {
+            LoadData();
+            return dataContainer!.Cities;
+        }
+    }
     
 
 
@@ -59,9 +59,9 @@ public class FileContext
             {
              
                 Users = new List<User>(),
-                CitiesSAF = new List<City>(),  
-                Reviews = new List<Review>(),
-                Reports = new List<Report>()
+               Reviews = new List<Review>(),
+                Reports = new List<Report>(),
+                Cities = new List<City>()
                 
             };
             return;

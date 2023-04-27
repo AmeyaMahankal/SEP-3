@@ -1,1 +1,1 @@
-{"Users":[{"Id":1,"UserName":"sagfdsg","Password":"sdfdsg","Role":"User"}],"Cities":null,"Reviews":[{"Id":1,"Comment":"stringdsgdfsg","StarReview":2}],"Reports":[]}
+{"Cities":null,"Users":[],"Reviews":[{"Id":1,"Comment":"string","StarReview":0},{"Id":2,"Comment":"string","StarReview":0},{"Id":3,"Comment":"string","StarReview":0},{"Id":4,"Comment":"string","StarReview":0},{"Id":5,"Comment":"string","StarReview":0},{"Id":6,"Comment":"string","StarReview":0}],"Reports":[]}

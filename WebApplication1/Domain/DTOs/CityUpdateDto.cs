@@ -2,14 +2,14 @@
 
 public class CityUpdateDto
 {
-    public int Id { get; }
+    public int CityId { get; }
     
     public string? Name { get; }
     public string? Description { get; }
 
-    public CityUpdateDto(int id, string? name, string? description)
+    public CityUpdateDto(int cityId, string? name, string? description)
     {
-        Id = id;
+        CityId = cityId;
         Name = name;
         Description = description;
     }
