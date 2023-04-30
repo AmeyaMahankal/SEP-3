@@ -20,5 +20,12 @@ public class DataClient {
 
         DataAccess.UserCreateResponse response= blockingStub.createUser(request);
         System.out.println("Received and created ==> " + response.getUserName());
+
+        DataAccess.UserGetUsername request2= DataAccess.UserGetUsername.newBuilder()
+                .setUsername("bobby")
+                .build();
+
+        DataAccess.User response2 =blockingStub.getByUsername(request2);
+        System.out.println(response2.getPassword().toString());
     }
 }

@@ -45,6 +45,37 @@ public final class AccessGrpc {
     return getCreateUserMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.UserGetUsername,
+      com.sdj3.protobuf.DataAccess.User> getGetByUsernameMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetByUsername",
+      requestType = com.sdj3.protobuf.DataAccess.UserGetUsername.class,
+      responseType = com.sdj3.protobuf.DataAccess.User.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.UserGetUsername,
+      com.sdj3.protobuf.DataAccess.User> getGetByUsernameMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.UserGetUsername, com.sdj3.protobuf.DataAccess.User> getGetByUsernameMethod;
+    if ((getGetByUsernameMethod = AccessGrpc.getGetByUsernameMethod) == null) {
+      synchronized (AccessGrpc.class) {
+        if ((getGetByUsernameMethod = AccessGrpc.getGetByUsernameMethod) == null) {
+          AccessGrpc.getGetByUsernameMethod = getGetByUsernameMethod =
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.UserGetUsername, com.sdj3.protobuf.DataAccess.User>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetByUsername"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sdj3.protobuf.DataAccess.UserGetUsername.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sdj3.protobuf.DataAccess.User.getDefaultInstance()))
+              .setSchemaDescriptor(new AccessMethodDescriptorSupplier("GetByUsername"))
+              .build();
+        }
+      }
+    }
+    return getGetByUsernameMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -100,6 +131,13 @@ public final class AccessGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateUserMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getByUsername(com.sdj3.protobuf.DataAccess.UserGetUsername request,
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.User> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetByUsernameMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -109,6 +147,13 @@ public final class AccessGrpc {
                 com.sdj3.protobuf.DataAccess.UserCreate,
                 com.sdj3.protobuf.DataAccess.UserCreateResponse>(
                   this, METHODID_CREATE_USER)))
+          .addMethod(
+            getGetByUsernameMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.sdj3.protobuf.DataAccess.UserGetUsername,
+                com.sdj3.protobuf.DataAccess.User>(
+                  this, METHODID_GET_BY_USERNAME)))
           .build();
     }
   }
@@ -134,6 +179,14 @@ public final class AccessGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateUserMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getByUsername(com.sdj3.protobuf.DataAccess.UserGetUsername request,
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.User> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetByUsernameMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -155,6 +208,13 @@ public final class AccessGrpc {
     public com.sdj3.protobuf.DataAccess.UserCreateResponse createUser(com.sdj3.protobuf.DataAccess.UserCreate request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.sdj3.protobuf.DataAccess.User getByUsername(com.sdj3.protobuf.DataAccess.UserGetUsername request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetByUsernameMethod(), getCallOptions(), request);
     }
   }
 
@@ -179,9 +239,18 @@ public final class AccessGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateUserMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.User> getByUsername(
+        com.sdj3.protobuf.DataAccess.UserGetUsername request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetByUsernameMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_USER = 0;
+  private static final int METHODID_GET_BY_USERNAME = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -203,6 +272,10 @@ public final class AccessGrpc {
         case METHODID_CREATE_USER:
           serviceImpl.createUser((com.sdj3.protobuf.DataAccess.UserCreate) request,
               (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.UserCreateResponse>) responseObserver);
+          break;
+        case METHODID_GET_BY_USERNAME:
+          serviceImpl.getByUsername((com.sdj3.protobuf.DataAccess.UserGetUsername) request,
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.User>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -266,6 +339,7 @@ public final class AccessGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new AccessFileDescriptorSupplier())
               .addMethod(getCreateUserMethod())
+              .addMethod(getGetByUsernameMethod())
               .build();
         }
       }

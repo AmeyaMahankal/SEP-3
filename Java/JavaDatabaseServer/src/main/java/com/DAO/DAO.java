@@ -1,5 +1,7 @@
 package com.DAO;
 
+import com.model.User;
+
 import java.sql.*;
 
 public class DAO {
@@ -65,6 +67,33 @@ public class DAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public User selectUserWithUsername(String Username){
+        String sql = "SELECT Id,UserName,Password,Role FROM Users";
+
+        User user=null;
+
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+                if(rs.getString("Username").equals(Username))
+                {
+                    int id=rs.getInt("Id");
+                    String username=rs.getString("UserName");
+                    String password=rs.getString("Password");
+                    String role=rs.getString("Role");
+                    User UserFound=new User(id,username,password,role);
+                    return UserFound;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return user;
     }
 
 
