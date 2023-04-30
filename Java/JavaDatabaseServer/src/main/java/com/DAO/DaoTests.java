@@ -12,5 +12,6 @@ public class DaoTests {
 
         //User isthere=d.selectUserWithUsername("jeff");
         //System.out.println(isthere.toString());
+        d.insert("bobby","ilikecats","Admin");
     }
 }

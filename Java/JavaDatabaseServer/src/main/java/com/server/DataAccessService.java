@@ -7,15 +7,19 @@ import com.sdj3.protobuf.DataAccess;
 import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class DataAccessService extends AccessGrpc.AccessImplBase {
-    private DAO Dao;
+    private DAO Dao=new DAO();
+
 
     @Override
     public void getByUsername(DataAccess.UserGetUsername request, StreamObserver<DataAccess.User> responseObserver) {
         //super.getByUsername(request, responseObserver);
-        //User user=Dao.selectUserWithUsername(request.getUsername().toString());
+        User user=Dao.selectUserWithUsername(request.getUsername().toString());
 
-        User user=new User(1,"hey","awdawdad","Admin");
+        //User user=new User(1,"hey","awdawdad","Admin");
         
         DataAccess.User response= DataAccess.User.newBuilder()
                 .setId(user.getId())

@@ -14,12 +14,16 @@ public class DataClient {
 
         AccessGrpc.AccessBlockingStub blockingStub=AccessGrpc.newBlockingStub(managedChannel);
 
+        //CREATE USER--
+
         DataAccess.UserCreate request=DataAccess.UserCreate.newBuilder()
                 .setUserName("bobby")
                 .setPassWord("ilikelego").build();
 
         DataAccess.UserCreateResponse response= blockingStub.createUser(request);
         System.out.println("Received and created ==> " + response.getUserName());
+
+        //GET USERNAME--
 
         DataAccess.UserGetUsername request2= DataAccess.UserGetUsername.newBuilder()
                 .setUsername("bobby")
