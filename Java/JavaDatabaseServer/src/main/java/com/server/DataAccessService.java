@@ -40,7 +40,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         String password=request.getPassWord().toString();
         String role="User";
 
-        //Dao.insert(username,password,role);
+        Dao.insert(username,password,role);
 
         System.out.println("Received request ==> " + request.toString());
         DataAccess.UserCreateResponse response= DataAccess.UserCreateResponse.newBuilder()

@@ -17,8 +17,8 @@ public class DataClient {
         //CREATE USER--
 
         DataAccess.UserCreate request=DataAccess.UserCreate.newBuilder()
-                .setUserName("bobby")
-                .setPassWord("ilikelego").build();
+                .setUserName("jefferson")
+                .setPassWord("usababyy").build();
 
         DataAccess.UserCreateResponse response= blockingStub.createUser(request);
         System.out.println("Received and created ==> " + response.getUserName());
