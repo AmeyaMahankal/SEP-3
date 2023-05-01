@@ -1,0 +1,29 @@
+syntax="proto3";
+
+option java_package="com.sdj3.protobuf";
+
+service Access{
+  rpc CreateUser(UserCreate) returns (UserCreateResponse);
+  rpc GetByUsername(UserGetUsername) returns (User);
+
+}
+message User{
+  int32 id=1;
+  string username=2;
+  string password=3;
+  string role=4;
+}
+
+message UserGetUsername{
+  string username=1;
+}
+
+message UserCreate{
+  string userName=1;
+  string PassWord=2;
+}
+
+message UserCreateResponse{
+  int32 code=1;
+  string userName=2;
+}
