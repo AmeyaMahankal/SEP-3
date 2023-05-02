@@ -518,11 +518,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\WEBAPI\\WEBAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\WEBAPI\\WEBAPI.csproj",
       "projectName": "WEBAPI",
-      "projectPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\WEBAPI\\WEBAPI.csproj",
+      "projectPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\WEBAPI\\WEBAPI.csproj",
       "packagesPath": "C:\\Users\\Lucija\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\WEBAPI\\obj\\",
+      "outputPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\WEBAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lucija\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -537,11 +537,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Application\\Application.csproj"
+            "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Application\\Application.csproj"
             },
-            "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\FileData\\FileData.csproj": {
-              "projectPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\FileData\\FileData.csproj"
+            "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\FileData\\FileData.csproj": {
+              "projectPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\FileData\\FileData.csproj"
             }
           }
         }

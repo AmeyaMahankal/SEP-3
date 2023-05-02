@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Domain\\Domain.csproj",
+      "projectPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Lucija\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Domain\\obj\\",
+      "outputPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lucija\\AppData\\Roaming\\NuGet\\NuGet.Config"

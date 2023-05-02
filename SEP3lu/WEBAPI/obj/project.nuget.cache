@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RYxQrdZx5ovUek+B6yZw+S0+Xh9dm1HaZYU3U7nUdubPVA9yXz4hWx4KVqCA2+Lg5u1P1NaYGjYRYQcDO00dAg==",
+  "dgSpecHash": "WBw+J/9amcke/wj58czeZa6nAzfbMR9XB6HR6yFIb95/lrHT1eOzyFjr2a05yUgA1csAveSOXy/15GjrNp35aQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\WEBAPI\\WEBAPI.csproj",
+  "projectFilePath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\WEBAPI\\WEBAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucija\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.3\\microsoft.aspnetcore.openapi.7.0.3.nupkg.sha512",
     "C:\\Users\\Lucija\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

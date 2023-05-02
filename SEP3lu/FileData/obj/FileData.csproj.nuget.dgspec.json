@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\FileData\\FileData.csproj": {}
+    "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\FileData\\FileData.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Application\\Application.csproj": {
+    "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Lucija\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Application\\obj\\",
+        "outputPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lucija\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Domain\\Domain.csproj"
+              "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Domain\\Domain.csproj"
               }
             }
           }
@@ -61,14 +61,14 @@
         }
       }
     },
-    "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Domain\\Domain.csproj": {
+    "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Lucija\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lucija\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -114,14 +114,14 @@
         }
       }
     },
-    "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\FileData\\FileData.csproj": {
+    "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\FileData\\FileData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\FileData\\FileData.csproj",
+        "projectUniqueName": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\FileData\\FileData.csproj",
         "projectName": "FileData",
-        "projectPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\FileData\\FileData.csproj",
+        "projectPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\FileData\\FileData.csproj",
         "packagesPath": "C:\\Users\\Lucija\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\FileData\\obj\\",
+        "outputPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\FileData\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lucija\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -136,8 +136,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Lucija\\RiderProjects\\SEP3lu\\Application\\Application.csproj"
+              "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Lucija\\Desktop\\git\\SEP-3\\SEP3lu\\Application\\Application.csproj"
               }
             }
           }
