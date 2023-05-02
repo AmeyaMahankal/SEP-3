@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using Domain.Models;
+using SEP3lu;
 
 namespace FileData;
 
@@ -52,6 +53,41 @@ public class FileContext
         }
     }
     
+    public ICollection<Hotel> Hotels
+    {
+        get
+        {
+            LoadData();
+            return dataContainer!.Hotels;
+        }
+    }
+    
+    public ICollection<Museum> Museums
+    {
+        get
+        {
+            LoadData();
+            return dataContainer!.Museums;
+        }
+    }
+    public ICollection<Park> Parks
+    {
+        get
+        {
+            LoadData();
+            return dataContainer!.Parks;
+        }
+    }
+    public ICollection<Restaurant> Restaurants
+    {
+        get
+        {
+            LoadData();
+            return dataContainer!.Restaurants;
+        }
+    }
+    
+    
     
 
 
@@ -66,7 +102,11 @@ public class FileContext
                 Posts = new List<Post>(),
                 Users = new List<User>(),  
                 Reviews = new List<Review>(),
-                Reports = new List<Report>()
+                Reports = new List<Report>(),
+                Hotels = new List<Hotel>(),
+                Museums = new List<Museum>(),
+                Restaurants = new List<Restaurant>(),
+                Parks = new List<Park>()
                 
             };
             return;
