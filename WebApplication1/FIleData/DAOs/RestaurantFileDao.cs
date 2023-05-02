@@ -32,24 +32,19 @@ public class RestaurantFileDao : IRestaurantDao
         return Task.FromResult(restaurant);
     }
 
-    public Task<IEnumerable<Restaurant>> GetAsync(SearchRestaurantParametersDto dto)
+    public Task<IEnumerable<Restaurant>> GetAsync(SearchRestaurantParametersDto searchRestaurantParameters)
     {
-        IEnumerable<Restaurant> result = context.Restaurants.AsEnumerable();
-        if (!string.IsNullOrEmpty(dto.Name))
+        IEnumerable<Restaurant> restaurants = context.Restaurants.AsEnumerable();
+        if (searchRestaurantParameters.NameContains != null)
         {
-            result = context.Restaurants.Where(u => u.Name.Equals(dto.NameContains, StringComparison.OrdinalIgnoreCase));
+            restaurants = context.Restaurants.Where(u => u.Name.Equals(searchRestaurantParameters.NameContains));
         }
-        if (dto.Name!=null)
+        if (searchRestaurantParameters.Id != null)
         {
-            result = result.Where((t => t.Name == dto.Name));
-        }
-
-        if (!string.IsNullOrEmpty(dto.NameContains))
-        {
-            result = result.Where(t => t.Name.Contains(dto.NameContains, StringComparison.OrdinalIgnoreCase));
+            restaurants = context.Restaurants.Where(u => u.Id.Equals(searchRestaurantParameters.Id));
         }
 
-        return Task.FromResult(result);
+        return Task.FromResult(restaurants);
     }
 
     public Task<Restaurant?> GetByIdAsync(int dtoRestaurantId)
@@ -57,7 +52,23 @@ public class RestaurantFileDao : IRestaurantDao
         Restaurant? existing = context.Restaurants.FirstOrDefault(u => u.Id == dtoRestaurantId);
         return Task.FromResult(existing);
     }
+
     
+    public Task UpdateAsync(Restaurant updated)
+    {
+        Restaurant? existing = context.Restaurants.FirstOrDefault(restaurant => restaurant.Id  == updated.Id);
+        if (existing == null)
+        {
+            throw new Exception($"Restaurant with id {updated.Id} does not exist!");
+        }
+
+        context.Restaurants.Remove(existing);
+        context.Restaurants.Add(updated);
+        context.SaveChanges();
+
+        return Task.CompletedTask;
+    }
+
     public Task DeleteAsync(int id)
     {
         Restaurant? existing = context.Restaurants.FirstOrDefault(restaurant => restaurant.Id == id);

@@ -38,13 +38,28 @@ public class MuseumController : ControllerBase
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Museum>>> GetAsync([FromQuery] string? name,
-        [FromQuery] string? description, [FromQuery] int? id)
+        [FromQuery] int? id)
     {
         try
         {
-            SearchMuseumParametersDto parameters = new(description, name, id);
+            SearchMuseumParametersDto parameters = new( name, id);
             IEnumerable<Museum> museums = await museumLogic.GetAsync(parameters);
             return Ok(museums);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+
+    [HttpPatch]
+    public async Task<ActionResult> UpdateAsync([FromBody] MuseumCreationDto dto)
+    {
+        try
+        {
+            await museumLogic.UpdateAsync(dto);
+            return Ok();
         }
         catch (Exception e)
         {

@@ -35,11 +35,11 @@ namespace WEBAPI.Controllers;
         }
     
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Restaurant>>> GetAsync([FromQuery] string? name,[FromQuery] string? description,[FromQuery] int? id )
+        public async Task<ActionResult<IEnumerable<Restaurant>>> GetAsync([FromQuery] string? name,[FromQuery] int? id )
         {
             try
             {
-                SearchRestaurantParametersDto parameters = new(description,name, id);
+                SearchRestaurantParametersDto parameters = new(name, id);
                 var restaurants = await restaurantLogic.GetAsync(parameters);
                 return Ok(restaurants);
             }
@@ -50,6 +50,21 @@ namespace WEBAPI.Controllers;
             }
         }
         
+        [HttpPatch]
+        public async Task<ActionResult> UpdateAsync([FromBody] RestaurantCreationDto dto)
+        {
+            try
+            {
+                await restaurantLogic.UpdateAsync(dto);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+
         
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteAsync([FromRoute] int id)

@@ -30,31 +30,41 @@ public class HotelFileDao : IHotelDao
         return Task.FromResult(hotel);
     }
     
-    public Task<IEnumerable<Hotel>> GetAsync(SearchHotelParametersDto dto)
+    public Task<IEnumerable<Hotel>> GetAsync(SearchHotelParametersDto searchHotelParameters)
     {
-        IEnumerable<Hotel> result = context.Hotels.AsEnumerable();
-        if (!string.IsNullOrEmpty(dto.Name))
+        IEnumerable<Hotel> hotels = context.Hotels.AsEnumerable();
+        if (searchHotelParameters.NameContains != null)
         {
-            result = context.Hotels.Where(u => u.Name.Equals(dto.NameContains, StringComparison.OrdinalIgnoreCase));
+            hotels = context.Hotels.Where(u => u.Name.Equals(searchHotelParameters.NameContains));
         }
-        if (dto.Name!=null)
+        if (searchHotelParameters.Id != null)
         {
-            result = result.Where((t => t.Name == dto.Name));
-        }
-
-        if (!string.IsNullOrEmpty(dto.NameContains))
-        {
-            result = result.Where(t => t.Name.Contains(dto.NameContains, StringComparison.OrdinalIgnoreCase));
+            hotels = context.Hotels.Where(u => u.Id.Equals(searchHotelParameters.Id));
         }
 
-        return Task.FromResult(result);
+        return Task.FromResult(hotels);
     }
-    
 
-    public Task<Hotel?> GetByIdAsync(int id)
+    public Task<Hotel?> GetByIdAsync(int dtoHotelId)
     {
-        Hotel? existing = context.Hotels.FirstOrDefault(u => u.Id == id);
+        Hotel? existing = context.Hotels.FirstOrDefault(u => u.Id == dtoHotelId);
         return Task.FromResult(existing);
+    }
+
+    
+    public Task UpdateAsync(Hotel updated)
+    {
+        Hotel? existing = context.Hotels.FirstOrDefault(hotel => hotel.Id  == updated.Id);
+        if (existing == null)
+        {
+            throw new Exception($"Hotel with id {updated.Id} does not exist!");
+        }
+
+        context.Hotels.Remove(existing);
+        context.Hotels.Add(updated);
+        context.SaveChanges();
+
+        return Task.CompletedTask;
     }
 
     public Task DeleteAsync(int id)

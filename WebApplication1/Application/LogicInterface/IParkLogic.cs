@@ -7,7 +7,7 @@ public interface IParkLogic
 {
     Task<Park> CreateAsync(ParkCreationDto parkToCreate);
     Task<IEnumerable<Park>> GetAsync(SearchParkParametersDto searchParameters);
-
+    Task UpdateAsync(ParkCreationDto dto);
     Task DeleteAsync(int id);
 }
 

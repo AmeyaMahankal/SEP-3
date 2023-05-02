@@ -36,13 +36,28 @@ namespace WEBAPI.Controllers;
         }
     
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Hotel>>> GetAsync([FromQuery] string? name,[FromQuery] string? description,[FromQuery] int? id )
+        public async Task<ActionResult<IEnumerable<Hotel>>> GetAsync([FromQuery] string? name,[FromQuery] int? id )
         {
             try
             {
-                SearchHotelParametersDto parameters = new(description,name, id);
+                SearchHotelParametersDto parameters = new(name,id);
                 IEnumerable<Hotel> hotels = await HotelLogic.GetAsync(parameters);
                 return Ok(hotels);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+        
+        [HttpPatch]
+        public async Task<ActionResult> UpdateAsync([FromBody] HotelCreationDto dto)
+        {
+            try
+            {
+                await HotelLogic.UpdateAsync(dto);
+                return Ok();
             }
             catch (Exception e)
             {

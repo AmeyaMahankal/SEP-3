@@ -17,7 +17,7 @@ public class RestaurantLogic: IRestaurantLogic
 
     public async Task<Restaurant> CreateAsync(RestaurantCreationDto dto)
     {
-        Restaurant toCreate = new Restaurant(1,"Bella","Best Italian restaurant.")
+        Restaurant toCreate = new Restaurant(dto.Name,dto.Description)
         {
             Name = dto.Name
             , Description = dto.Description,
@@ -34,7 +34,40 @@ public class RestaurantLogic: IRestaurantLogic
     {
         return restaurantDao.GetAsync(searchRestaurantParameters);
     }
-    
+
+    public async Task UpdateAsync(RestaurantCreationDto dto)
+    {
+        Restaurant existing = await restaurantDao.GetByIdAsync(dto.Id);
+        if (existing == null)
+        {
+            throw new Exception($"Restaurant with ID {dto.Id} not found!");
+        }
+
+        Restaurant? restaurant = null;
+        if (dto.Id != null)
+        {
+            restaurant = await restaurantDao.GetByIdAsync(dto.Id);
+            if (restaurant == null)
+            {
+                throw new Exception($"Restaurant with id {dto.Id} was not found.");
+            }
+        }
+
+
+        string nameToUse = dto.Name ?? existing.Name;
+
+        string descToUseToUse = dto.Description ?? existing.Description;
+
+
+        Restaurant updated = new(nameToUse, descToUseToUse);
+        {
+            updated.Name = nameToUse;
+            updated.Description = descToUseToUse;
+            updated.Id = existing.Id;
+        }
+        await restaurantDao.UpdateAsync(updated);
+    }
+
 
     public async Task DeleteAsync(int id)
     {

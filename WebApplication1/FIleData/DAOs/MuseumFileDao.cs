@@ -30,30 +30,41 @@ public class MuseumFileDao : IMuseumDao
 
         return Task.FromResult(museum);
     }
-    public Task<IEnumerable<Museum>> GetAsync(SearchMuseumParametersDto dto)
+    public Task<IEnumerable<Museum>> GetAsync(SearchMuseumParametersDto searchMuseumParameters)
     {
-        IEnumerable<Museum> result = context.Museums.AsEnumerable();
-        if (!string.IsNullOrEmpty(dto.Name))
+        IEnumerable<Museum> museums = context.Museums.AsEnumerable();
+        if (searchMuseumParameters.NameContains != null)
         {
-            result = context.Museums.Where(u => u.Name.Equals(dto.NameContains, StringComparison.OrdinalIgnoreCase));
+            museums = context.Museums.Where(u => u.Name.Equals(searchMuseumParameters.NameContains));
         }
-        if (dto.Name!=null)
+        if (searchMuseumParameters.Id != null)
         {
-            result = result.Where((t => t.Name == dto.Name));
-        }
-
-        if (!string.IsNullOrEmpty(dto.NameContains))
-        {
-            result = result.Where(t => t.Name.Contains(dto.NameContains, StringComparison.OrdinalIgnoreCase));
+            museums = context.Museums.Where(u => u.Id.Equals(searchMuseumParameters.Id));
         }
 
-        return Task.FromResult(result);
+        return Task.FromResult(museums);
     }
 
     public Task<Museum?> GetByIdAsync(int dtoMuseumId)
     {
         Museum? existing = context.Museums.FirstOrDefault(u => u.Id == dtoMuseumId);
         return Task.FromResult(existing);
+    }
+
+    
+    public Task UpdateAsync(Museum updated)
+    {
+        Museum? existing = context.Museums.FirstOrDefault(museum => museum.Id  == updated.Id);
+        if (existing == null)
+        {
+            throw new Exception($"Museum with id {updated.Id} does not exist!");
+        }
+
+        context.Museums.Remove(existing);
+        context.Museums.Add(updated);
+        context.SaveChanges();
+
+        return Task.CompletedTask;
     }
 
     

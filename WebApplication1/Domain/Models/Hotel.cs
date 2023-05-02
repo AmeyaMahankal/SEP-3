@@ -7,9 +7,9 @@ public class Hotel
       public string Description { get; set; }
       
   
-      public Hotel (int id, string name, string description)
+      public Hotel ( string name, string description)
       {
-          Id = id;
+          
           Name = name;
           Description = description;
       }

@@ -7,9 +7,9 @@ public class Restaurant
     public string Description { get; set; }
     
 
-    public Restaurant (int id, string name, string description)
+    public Restaurant ( string name, string description)
     {
-        Id = id;
+
         Name = name;
         Description = description;
     }

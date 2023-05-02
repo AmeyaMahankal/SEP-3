@@ -8,7 +8,7 @@ public interface IMuseumLogic
    
         Task<Museum> CreateAsync(MuseumCreationDto cityToCreate);
         Task<IEnumerable<Museum>> GetAsync(SearchMuseumParametersDto searchParameters);
-
+        Task UpdateAsync(MuseumCreationDto dto);
         Task DeleteAsync(int id);
         
 }
