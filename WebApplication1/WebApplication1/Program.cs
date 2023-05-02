@@ -21,6 +21,15 @@ builder.Services.AddScoped<IPostLogic, PostLogic>();
 builder.Services.AddScoped<ICityDao, CityFileDao>();
 builder.Services.AddScoped<ICityLogic, CityLogic>();
 
+builder.Services.AddScoped<IHotelDao, HotelFileDao>();
+builder.Services.AddScoped<IHotelLogic, HotelLogic>();
+builder.Services.AddScoped<IMuseumDao, MuseumFileDao>();
+builder.Services.AddScoped<IMuseumLogic, MuseumLogic>();
+builder.Services.AddScoped<IParkDao, ParkFileDao>();
+builder.Services.AddScoped<IParkLogic, ParkLogic>();
+builder.Services.AddScoped<IRestaurantDao, RestaurantFileDao>();
+builder.Services.AddScoped<IRestaurantLogic, RestaurantLogic>();
+
 builder.Services.AddScoped<IReviewDao, ReviewFileDao>();
 builder.Services.AddScoped<IReviewLogic, ReviewLogic>();
 
