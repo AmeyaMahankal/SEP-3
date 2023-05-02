@@ -18,6 +18,13 @@
   <component name="ExportToHTMLSettings">
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../SEP3lu\exportToHTML" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JSON File" />
+      </list>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Application/DaoInterfaces/ICityDao.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application/Logic/CityLogic.cs" root0="FORCE_HIGHLIGHTING" />
@@ -158,8 +165,19 @@
       <workItem from="1681886574445" duration="3628000" />
       <workItem from="1681893156608" duration="10677000" />
       <workItem from="1681978661945" duration="4617000" />
-      <workItem from="1682060965943" duration="10040000" />
-      <workItem from="1683040349175" duration="479000" />
+      <workItem from="1682060965943" duration="10282000" />
+      <workItem from="1682496469775" duration="2826000" />
+      <workItem from="1682499612021" duration="624000" />
+      <workItem from="1682503263085" duration="143000" />
+      <workItem from="1682503452909" duration="118000" />
+      <workItem from="1682579576726" duration="803000" />
+      <workItem from="1682581344795" duration="4576000" />
+      <workItem from="1682677313151" duration="4476000" />
+      <workItem from="1682782329272" duration="9070000" />
+      <workItem from="1682852492861" duration="1420000" />
+      <workItem from="1683036035259" duration="3965000" />
+      <workItem from="1683040224823" duration="122000" />
+      <workItem from="1683040836813" duration="221000" />
     </task>
     <servers />
   </component>

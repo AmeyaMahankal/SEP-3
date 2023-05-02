@@ -1,0 +1,24 @@
+{"Cities":
+[
+  {"Id":1,
+    "Name":" Zagreb",
+    "Description":"Is a beautiful city"},
+  
+  {"Id":2,"Name":"Split",
+    "Description":"Is a city on Croatian coast"},
+  {"Id":3,"Name":"Zagreb","Description":"Zagreb is a beautiful city."},
+  {"Id":4,"Name":"Zagreb","Description":"Zagreb is a beautiful city."}],
+
+"Museums":[{"Id":8,"Name":" Mimara","Description":"Art museum"}],
+
+"Hotels":[
+    {
+      "Id":5,
+      "Name":" Ambasador",
+      "Description":"Hotel in Opatija"
+    }],
+"Parks":[{"Id":9,"Name":" Maksimir","Description":"Biggest park in Zagreb"}],
+"Restaurants":[{"Id":7,"Name":" Bella","Description":"5 star Italian restaurant"}]}
+
+
+
