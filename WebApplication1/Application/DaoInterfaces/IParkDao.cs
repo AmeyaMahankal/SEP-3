@@ -8,6 +8,9 @@ public interface IParkDao
     Task<Park> CreateAsync(Park park);
         
     Task<IEnumerable<Park>> GetAsync(SearchParkParametersDto searchParkParameters);
-    Task DeleteAsync(int id);
+ 
     Task<Park?> GetByIdAsync(int id);
+    Task UpdateAsync(Park updated);
+   Task DeleteAsync(int id);
+   
 }

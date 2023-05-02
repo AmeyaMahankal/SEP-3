@@ -8,6 +8,8 @@ public interface IRestaurantDao
     Task<Restaurant> CreateAsync(Restaurant restaurant);
         
     Task<IEnumerable<Restaurant>> GetAsync(SearchRestaurantParametersDto searchRestaurantParameters);
-    Task DeleteAsync(int id);
     Task<Restaurant?> GetByIdAsync(int id);
+    Task UpdateAsync(Restaurant updated);
+    Task DeleteAsync(int id);
+    
 }

@@ -7,9 +7,8 @@ public class Park
     public string Description { get; set; }
     
 
-    public Park (int id, string name, string description)
+    public Park (string name, string description)
     {
-        Id = id;
         Name = name;
         Description = description;
     }

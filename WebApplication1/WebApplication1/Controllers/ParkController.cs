@@ -34,13 +34,28 @@ namespace WEBAPI.Controllers;
         }
     
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Park>>> GetAsync([FromQuery] string? name,[FromQuery] string? description,[FromQuery] int? id )
+        public async Task<ActionResult<IEnumerable<Park>>> GetAsync([FromQuery] string? name,[FromQuery] int? id )
         {
             try
             {
-                SearchParkParametersDto parameters = new(description,name, id);
+                SearchParkParametersDto parameters = new(name, id);
                 IEnumerable<Park>parks = await parkLogic.GetAsync(parameters);
                 return Ok(parks);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+        
+        [HttpPatch]
+        public async Task<ActionResult> UpdateAsync([FromBody] ParkCreationDto dto)
+        {
+            try
+            {
+                await parkLogic.UpdateAsync(dto);
+                return Ok();
             }
             catch (Exception e)
             {

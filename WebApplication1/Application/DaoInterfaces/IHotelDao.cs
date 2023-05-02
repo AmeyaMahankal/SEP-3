@@ -10,6 +10,8 @@ namespace Application.DaoInterfaces;
         Task<Hotel> CreateAsync(Hotel hotel);
         
         public Task<IEnumerable<Hotel>> GetAsync(SearchHotelParametersDto searchHotelParameters);
-        Task DeleteAsync(int id);
         Task<Hotel?> GetByIdAsync(int id);
+        Task UpdateAsync(Hotel updated);
+        Task DeleteAsync(int id);
+        
 }

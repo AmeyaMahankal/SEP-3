@@ -8,6 +8,9 @@ public interface IMuseumDao
         Task<Museum> CreateAsync(Museum museum);
         
         Task<IEnumerable<Museum>> GetAsync(SearchMuseumParametersDto searchMuseumParameters);
-        Task DeleteAsync(int id);
         Task<Museum?> GetByIdAsync(int id);
+        Task UpdateAsync(Museum updated);
+        
+        Task DeleteAsync(int id);
+        
 }

@@ -8,6 +8,7 @@ public interface IHotelLogic
     
         Task<Hotel> CreateAsync(HotelCreationDto hotelToCreate);
         Task<IEnumerable<Hotel>> GetAsync(SearchHotelParametersDto searchParameters);
+        Task UpdateAsync(HotelCreationDto dto);
 
         Task DeleteAsync(int id);
 

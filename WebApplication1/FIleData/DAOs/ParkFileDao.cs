@@ -32,24 +32,19 @@ public class ParkFileDao: IParkDao
         return Task.FromResult(park);
     }
 
-    public Task<IEnumerable<Park>> GetAsync(SearchParkParametersDto dto)
+    public Task<IEnumerable<Park>> GetAsync(SearchParkParametersDto searchParkParameters)
     {
-        IEnumerable<Park> result = context.Parks.AsEnumerable();
-        if (!string.IsNullOrEmpty(dto.Name))
+        IEnumerable<Park> parks = context.Parks.AsEnumerable();
+        if (searchParkParameters.NameContains != null)
         {
-            result = context.Parks.Where(u => u.Name.Equals(dto.NameContains, StringComparison.OrdinalIgnoreCase));
+            parks = context.Parks.Where(u => u.Name.Equals(searchParkParameters.NameContains));
         }
-        if (dto.Name!=null)
+        if (searchParkParameters.Id != null)
         {
-            result = result.Where((t => t.Name == dto.Name));
-        }
-
-        if (!string.IsNullOrEmpty(dto.NameContains))
-        {
-            result = result.Where(t => t.Name.Contains(dto.NameContains, StringComparison.OrdinalIgnoreCase));
+            parks = context.Parks.Where(u => u.Id.Equals(searchParkParameters.Id));
         }
 
-        return Task.FromResult(result);
+        return Task.FromResult(parks);
     }
 
     public Task<Park?> GetByIdAsync(int dtoParkId)
@@ -57,7 +52,23 @@ public class ParkFileDao: IParkDao
         Park? existing = context.Parks.FirstOrDefault(u => u.Id == dtoParkId);
         return Task.FromResult(existing);
     }
+
     
+    public Task UpdateAsync(Park updated)
+    {
+        Park? existing = context.Parks.FirstOrDefault(park => park.Id  == updated.Id);
+        if (existing == null)
+        {
+            throw new Exception($"Park with id {updated.Id} does not exist!");
+        }
+
+        context.Parks.Remove(existing);
+        context.Parks.Add(updated);
+        context.SaveChanges();
+
+        return Task.CompletedTask;
+    }
+
     public Task DeleteAsync(int id)
     {
         Park? existing = context.Parks.FirstOrDefault(park => park.Id == id);
