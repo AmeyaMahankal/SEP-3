@@ -33,6 +33,22 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     }
 
     @Override
+    public void getById(DataAccess.UserGetId request, StreamObserver<DataAccess.User> responseObserver) {
+        //super.getById(request, responseObserver);
+        User user=Dao.selectUserWithId(request.getId());
+
+        DataAccess.User response= DataAccess.User.newBuilder()
+                .setId(user.getId())
+                .setUsername(user.getUsername().toString())
+                .setPassword(user.getPassword().toString())
+                .setRole(user.getRole().toString())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
     public void createUser(DataAccess.UserCreate request, StreamObserver<DataAccess.UserCreateResponse> responseObserver) {
         //super.createUser(request, responseObserver);
 

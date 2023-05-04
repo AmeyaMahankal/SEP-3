@@ -96,5 +96,32 @@ public class DAO {
         return user;
     }
 
+    public User selectUserWithId(int id){
+        String sql = "SELECT Id,UserName,Password,Role FROM Users";
+
+        User user=null;
+
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+                if(rs.getInt("Id")==id)
+                {
+                    int Id=rs.getInt("Id");
+                    String username=rs.getString("UserName");
+                    String password=rs.getString("Password");
+                    String role=rs.getString("Role");
+                    User UserFound=new User(Id,username,password,role);
+                    return UserFound;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return user;
+    }
+
 
 }

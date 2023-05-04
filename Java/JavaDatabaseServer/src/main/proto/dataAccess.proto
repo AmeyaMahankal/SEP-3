@@ -5,6 +5,7 @@ option java_package="com.sdj3.protobuf";
 service Access{
   rpc CreateUser(UserCreate) returns (UserCreateResponse);
   rpc GetByUsername(UserGetUsername) returns (User);
+  rpc GetById(UserGetId) returns (User);
 
 }
 message User{
@@ -16,6 +17,10 @@ message User{
 
 message UserGetUsername{
   string username=1;
+}
+
+message UserGetId{
+  int32 id=1;
 }
 
 message UserCreate{
