@@ -1,5 +1,6 @@
 package com.DAO;
 
+import com.model.City;
 import com.model.User;
 
 import java.sql.*;
@@ -7,7 +8,7 @@ import java.sql.*;
 public class DAO {
 
     private Connection connect() {
-        String url = "jdbc:sqlite:C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\Java\\JavaDatabaseServer\\container.db";
+        String url = "jdbc:sqlite:C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\SEP-3\\Java\\JavaDatabaseServer\\identifier.sqlite";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -16,47 +17,10 @@ public class DAO {
         }
         return conn;
     }
-    public void createNewDatabase(String fileName) {
-
-        String url = "jdbc:sqlite:C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\Java\\JavaDatabaseServer\\" + fileName;
-
-        try (Connection conn = DriverManager.getConnection(url)) {
-            if (conn != null) {
-                DatabaseMetaData meta = conn.getMetaData();
-                System.out.println("The driver name is " + meta.getDriverName());
-                System.out.println("A new database has been created.");
-            }
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void createUserTable() {
-
-        String url = "jdbc:sqlite:C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\Java\\JavaDatabaseServer\\container.db";
 
 
-        String sql = "create table IF NOT EXISTS Users\n" +
-                "(\n" +
-                "    Id       INTEGER not null\n" +
-                "            primary key autoincrement,\n" +
-                "    UserName TEXT    not null,\n" +
-                "    Password TEXT    not null,\n" +
-                "    Role     TEXT    not null\n" +
-                ");";
-
-        try (Connection conn = DriverManager.getConnection(url);
-             Statement stmt = conn.createStatement()) {
-
-            stmt.execute(sql);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void insert(String username, String password, String role) {
-        String sql = "INSERT INTO Users(UserName,Password,Role) VALUES(?,?,?)";
+    public void insertUser(String username, String password, String role) {
+        String sql = "INSERT INTO User(UserName,Password,Role) VALUES(?,?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -70,7 +34,7 @@ public class DAO {
     }
 
     public User selectUserWithUsername(String Username){
-        String sql = "SELECT Id,UserName,Password,Role FROM Users";
+        String sql = "SELECT Id,UserName,Password,Role FROM User";
 
         User user=null;
 
@@ -94,6 +58,201 @@ public class DAO {
             System.out.println(e.getMessage());
         }
         return user;
+    }
+
+    public void insertCity(String name, String description, String imageUrl) {
+        String sql = "INSERT INTO City(Name,Description,ImageURL) VALUES(?,?,?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, description);
+            pstmt.setString(3,imageUrl);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public City getCityByName(String CityName){
+        String sql = "SELECT Id,Name,Description,ImageURL FROM City";
+
+        City city=null;
+
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+            while (rs.next()) {
+                if(rs.getString("Name").equals(CityName))
+                {
+                    int id=rs.getInt("Id");
+                    String cityname=rs.getString("Name");
+                    String description=rs.getString("Description");
+                    String imageurl=rs.getString("ImageURL");
+                    City CityFound=new City(id,cityname,description,imageurl);
+                    return CityFound;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return city;
+    }
+
+
+
+    public City getCityById(int CityId){
+        String sql = "SELECT Id,Name,Description,ImageURL FROM City";
+
+        City city=null;
+
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+            while (rs.next()) {
+                if(rs.getInt("Id")==CityId)
+                {
+                    int id=rs.getInt("Id");
+                    String cityname=rs.getString("Name");
+                    String description=rs.getString("Description");
+                    String imageurl=rs.getString("ImageURL");
+                    City CityFound=new City(id,cityname,description,imageurl);
+                    return CityFound;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return city;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void insertHotel(String name, String description, String imageUrl, int cityId) {
+        String sql = "INSERT INTO Hotel(Name,Description,ImageURL,CityId) VALUES(?,?,?,?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, description);
+            pstmt.setString(3,imageUrl);
+            pstmt.setInt(4,cityId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+
+
+
+
+    public void insertMuseum(String name, String description, String imageUrl, int cityId) {
+        String sql = "INSERT INTO Museum(Name,Description,ImageURL,CityId) VALUES(?,?,?,?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, description);
+            pstmt.setString(3,imageUrl);
+            pstmt.setInt(4,cityId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+
+    public void insertPark(String name, String description, String imageUrl, int cityId) {
+        String sql = "INSERT INTO Park(Name,Description,ImageURL,CityId) VALUES(?,?,?,?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, description);
+            pstmt.setString(3,imageUrl);
+            pstmt.setInt(4,cityId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+
+
+
+
+
+
+    public void insertRestaurant(String name, String description, String imageUrl, int cityId) {
+        String sql = "INSERT INTO Restaurant(Name,Description,ImageURL,CityId) VALUES(?,?,?,?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, description);
+            pstmt.setString(3,imageUrl);
+            pstmt.setInt(4,cityId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void insertReview(String comment, int starReview, int userId,
+                             int categoryId, String categoryName) {
+        String sql = "INSERT INTO Review(Comment,StarReview,UserId,CategoryId,CategoryName) VALUES(?,?,?,?,?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, comment);
+            pstmt.setInt(2, starReview);
+            pstmt.setInt(3,userId);
+            pstmt.setInt(4,categoryId);
+            pstmt.setString(5,categoryName);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+
+
+
+
+
+
+
+    public void insertReport(int userId, String description, int reviewId) {
+        String sql = "INSERT INTO Report(UserId,Description,ReviewId) VALUES(?,?,?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, userId);
+            pstmt.setString(2, description);
+            pstmt.setInt(3,reviewId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
