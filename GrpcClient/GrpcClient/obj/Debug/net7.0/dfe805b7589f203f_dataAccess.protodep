@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Proto/DataAccess.cs \
+obj\Debug\net7.0\Proto/DataAccessGrpc.cs: Proto/dataAccess.proto
