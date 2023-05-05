@@ -3,6 +3,7 @@ package com.DAO;
 import com.model.User;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DAO {
 
@@ -121,6 +122,35 @@ public class DAO {
             System.out.println(e.getMessage());
         }
         return user;
+    }
+
+    public ArrayList<User> getUsersWithString(String contain)
+    {
+        String sql = "SELECT Id,UserName,Password,Role FROM Users";
+
+        ArrayList<User> users=new ArrayList<>();
+
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+                if(rs.getString("UserName").toString().contains(contain))
+                {
+                    int Id=rs.getInt("Id");
+                    String username=rs.getString("UserName");
+                    String password=rs.getString("Password");
+                    String role=rs.getString("Role");
+                    User UserFound=new User(Id,username,password,role);
+                    users.add(UserFound);
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return users;
     }
 
 

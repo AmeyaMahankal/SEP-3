@@ -6,13 +6,21 @@ service Access{
   rpc CreateUser(UserCreate) returns (UserCreateResponse);
   rpc GetByUsername(UserGetUsername) returns (User);
   rpc GetById(UserGetId) returns (User);
-
+  rpc GetUsersContaining(SearchUserParameters) returns (listOfUsers);
 }
 message User{
   int32 id=1;
   string username=2;
   string password=3;
   string role=4;
+}
+
+message SearchUserParameters{
+  string usercontains=1;
+}
+
+message listOfUsers{
+  repeated User users=1;
 }
 
 message UserGetUsername{
