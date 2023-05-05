@@ -10,7 +10,7 @@ public class DaoTests {
         //d.insertPark("Horsens","it is one of the most beautiful cities on the face of this horrid world","photo-of-hell",1);
         //d.insertRestaurant("Horsens","it is one of the most beautiful cities on the face of this horrid world","photo-of-hell",1);
       //  d.insertReview("sfsdgdrgh",4,1,1,"lknlknl");
-        System.out.println( d.getCityByName("SDFSDG"));
+        d.updateCityDescription("asfdfefqw",4);
 
        // System.out.println( d.getCityById(2));
     }

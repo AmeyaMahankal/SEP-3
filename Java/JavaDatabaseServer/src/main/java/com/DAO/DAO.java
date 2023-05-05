@@ -72,7 +72,6 @@ public class DAO {
         }
     }
 
-
     public City getCityByName(String CityName) {
         String sql = "SELECT Id,Name,Description,ImageURL FROM City";
 
@@ -120,6 +119,45 @@ public class DAO {
             System.out.println(e.getMessage());
         }
         return city;
+    }
+
+
+    public void updateCityName(String name, int id) {
+        String sql = "UPDATE City SET Name = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void updateCityDescription(String description, int id) {
+        String sql = "UPDATE City SET Description = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, description);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deleteCity(int id) {
+        String sql = "DELETE from City WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
@@ -191,6 +229,45 @@ public class DAO {
     }
 
 
+    public void updateHotelName(String name, int id) {
+        String sql = "UPDATE Hotel SET Name = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void updateHotelDescription(String description, int id) {
+        String sql = "UPDATE Hotel SET Description = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, description);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deleteHotel(int id) {
+        String sql = "DELETE from Hotel WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     public void insertMuseum(String name, String description, String imageUrl, int cityId) {
         String sql = "INSERT INTO Museum(Name,Description,ImageURL,CityId) VALUES(?,?,?,?)";
 
@@ -256,6 +333,45 @@ public class DAO {
             System.out.println(e.getMessage());
         }
         return museum;
+    }
+
+
+    public void updateMuseumName(String name, int id) {
+        String sql = "UPDATE Museum SET Name = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void updateMuseumDescription(String description, int id) {
+        String sql = "UPDATE Museum SET Description = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, description);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deleteMuseum(int id) {
+        String sql = "DELETE from Museum WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
@@ -327,6 +443,45 @@ public class DAO {
     }
 
 
+    public void updateParkName(String name, int id) {
+        String sql = "UPDATE Park SET Name = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void updateParkDescription(String description, int id) {
+        String sql = "UPDATE Park SET Description = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, description);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deletePark(int id) {
+        String sql = "DELETE from Park WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     public void insertRestaurant(String name, String description, String imageUrl, int cityId) {
         String sql = "INSERT INTO Restaurant(Name,Description,ImageURL,CityId) VALUES(?,?,?,?)";
 
@@ -395,6 +550,45 @@ public class DAO {
     }
 
 
+    public void updateRestaurantName(String name, int id) {
+        String sql = "UPDATE Restaurant SET Name = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void updateRestaurantDescription(String description, int id) {
+        String sql = "UPDATE Restaurant SET Description = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, description);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deleteRestaurant(int id) {
+        String sql = "DELETE from Restaurant WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     public void insertReview(String comment, int starReview, int userId,
                              int categoryId, String categoryName) {
         String sql = "INSERT INTO Review(Comment,StarReview,UserId,CategoryId,CategoryName) VALUES(?,?,?,?,?)";
@@ -412,6 +606,7 @@ public class DAO {
         }
     }
 
+
     public Review getReviewById(int ReviewId) {
         String sql = "SELECT Id,Comment,StarReview,UserId, CategoryId, CategoryName FROM Review";
 
@@ -428,7 +623,7 @@ public class DAO {
                     int userid = rs.getInt("UserId");
                     int categoryid = rs.getInt("CategoryId");
                     String categoryname = rs.getString("CategoryName");
-                    Review ReviewFound = new Review(id, comment, starreview, userid, categoryid,categoryname);
+                    Review ReviewFound = new Review(id, comment, starreview, userid, categoryid, categoryname);
                     return ReviewFound;
                 }
             }
@@ -439,8 +634,43 @@ public class DAO {
     }
 
 
+    public void updateReviewComment(String comment, int id) {
+        String sql = "UPDATE Review SET Comment = ? WHERE Id=?;";
 
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, comment);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
+    public void updateStarReview(int star, int id) {
+        String sql = "UPDATE Review SET StarReview = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, star);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deleteReview(int id) {
+        String sql = "DELETE from Review WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 
     public void insertReport(int userId, String description, int reviewId) {
@@ -458,8 +688,6 @@ public class DAO {
     }
 
 
-
-
     public Report getReportById(int ReportId) {
         String sql = "SELECT Id,UserId,Description,ReviewId FROM Report";
 
@@ -474,7 +702,7 @@ public class DAO {
                     int userid = rs.getInt("UserId");
                     String description = rs.getString("Description");
                     int reviewid = rs.getInt("ReviewId");
-                   Report ReportFound = new Report(id, userid, description, reviewid);
+                    Report ReportFound = new Report(id, userid, description, reviewid);
                     return ReportFound;
                 }
             }
@@ -485,15 +713,17 @@ public class DAO {
     }
 
 
+    public void deleteReport(int id) {
+        String sql = "DELETE from Report WHERE Id=?;";
 
-
-
-
-
-
-
-
-
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 
 }
