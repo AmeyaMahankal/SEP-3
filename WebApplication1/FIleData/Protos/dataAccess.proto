@@ -1,0 +1,43 @@
+syntax="proto3";
+
+option java_package="com.sdj3.protobuf";
+option csharp_namespace = "DataAccessClient";
+
+service Access{
+  rpc CreateUser(UserCreate) returns (UserCreateResponse);
+  rpc GetByUsername(UserGetUsername) returns (User);
+  rpc GetById(UserGetId) returns (User);
+  rpc GetUsersContaining(SearchUserParameters) returns (listOfUsers);
+}
+message User{
+  int32 id=1;
+  string username=2;
+  string password=3;
+  string role=4;
+}
+
+message SearchUserParameters{
+  string usercontains=1;
+}
+
+message listOfUsers{
+  repeated User users=1;
+}
+
+message UserGetUsername{
+  string username=1;
+}
+
+message UserGetId{
+  int32 id=1;
+}
+
+message UserCreate{
+  string userName=1;
+  string PassWord=2;
+}
+
+message UserCreateResponse{
+  int32 code=1;
+  string userName=2;
+}

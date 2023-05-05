@@ -20,7 +20,19 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         User user=Dao.selectUserWithUsername(request.getUsername().toString());
 
         //User user=new User(1,"hey","awdawdad","Admin");
-        
+        if(user==null)
+        {
+            DataAccess.User nullresponse= DataAccess.User.newBuilder()
+                    .setId(1)
+                    .setUsername("notfound")
+                    .setPassword("notfound")
+                    .setRole("notfound")
+                    .build();
+
+            responseObserver.onNext(nullresponse);
+            responseObserver.onCompleted();
+        }
+
         DataAccess.User response= DataAccess.User.newBuilder()
                 .setId(user.getId())
                 .setUsername(user.getUsername().toString())

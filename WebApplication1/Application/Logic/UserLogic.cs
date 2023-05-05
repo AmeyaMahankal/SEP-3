@@ -18,8 +18,12 @@ public class UserLogic: IUserLogic
     {
         User? existing = await userDao.GetByUsernameAsync(
             dto.UserName);
+        /*
         if (existing != null)
             throw new Exception("Username already taken!");
+            */
+        if ((existing.UserName != "notfound"))
+            throw new Exception("username taken");
         ValidateData(dto);
         User toCreate = new User
         {
