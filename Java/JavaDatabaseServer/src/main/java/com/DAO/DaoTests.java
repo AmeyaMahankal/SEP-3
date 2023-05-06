@@ -2,6 +2,8 @@ package com.DAO;
 
 import com.model.User;
 
+import java.util.ArrayList;
+
 public class DaoTests {
     public static void main(String[] args) {
         DAO d=new DAO();

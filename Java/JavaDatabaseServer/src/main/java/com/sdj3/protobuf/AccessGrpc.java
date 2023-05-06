@@ -76,6 +76,68 @@ public final class AccessGrpc {
     return getGetByUsernameMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.UserGetId,
+      com.sdj3.protobuf.DataAccess.User> getGetByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetById",
+      requestType = com.sdj3.protobuf.DataAccess.UserGetId.class,
+      responseType = com.sdj3.protobuf.DataAccess.User.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.UserGetId,
+      com.sdj3.protobuf.DataAccess.User> getGetByIdMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.UserGetId, com.sdj3.protobuf.DataAccess.User> getGetByIdMethod;
+    if ((getGetByIdMethod = AccessGrpc.getGetByIdMethod) == null) {
+      synchronized (AccessGrpc.class) {
+        if ((getGetByIdMethod = AccessGrpc.getGetByIdMethod) == null) {
+          AccessGrpc.getGetByIdMethod = getGetByIdMethod =
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.UserGetId, com.sdj3.protobuf.DataAccess.User>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sdj3.protobuf.DataAccess.UserGetId.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sdj3.protobuf.DataAccess.User.getDefaultInstance()))
+              .setSchemaDescriptor(new AccessMethodDescriptorSupplier("GetById"))
+              .build();
+        }
+      }
+    }
+    return getGetByIdMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.SearchUserParameters,
+      com.sdj3.protobuf.DataAccess.listOfUsers> getGetUsersContainingMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetUsersContaining",
+      requestType = com.sdj3.protobuf.DataAccess.SearchUserParameters.class,
+      responseType = com.sdj3.protobuf.DataAccess.listOfUsers.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.SearchUserParameters,
+      com.sdj3.protobuf.DataAccess.listOfUsers> getGetUsersContainingMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.SearchUserParameters, com.sdj3.protobuf.DataAccess.listOfUsers> getGetUsersContainingMethod;
+    if ((getGetUsersContainingMethod = AccessGrpc.getGetUsersContainingMethod) == null) {
+      synchronized (AccessGrpc.class) {
+        if ((getGetUsersContainingMethod = AccessGrpc.getGetUsersContainingMethod) == null) {
+          AccessGrpc.getGetUsersContainingMethod = getGetUsersContainingMethod =
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.SearchUserParameters, com.sdj3.protobuf.DataAccess.listOfUsers>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetUsersContaining"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sdj3.protobuf.DataAccess.SearchUserParameters.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sdj3.protobuf.DataAccess.listOfUsers.getDefaultInstance()))
+              .setSchemaDescriptor(new AccessMethodDescriptorSupplier("GetUsersContaining"))
+              .build();
+        }
+      }
+    }
+    return getGetUsersContainingMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -138,6 +200,20 @@ public final class AccessGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetByUsernameMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getById(com.sdj3.protobuf.DataAccess.UserGetId request,
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.User> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetByIdMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getUsersContaining(com.sdj3.protobuf.DataAccess.SearchUserParameters request,
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.listOfUsers> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUsersContainingMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -154,6 +230,20 @@ public final class AccessGrpc {
                 com.sdj3.protobuf.DataAccess.UserGetUsername,
                 com.sdj3.protobuf.DataAccess.User>(
                   this, METHODID_GET_BY_USERNAME)))
+          .addMethod(
+            getGetByIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.sdj3.protobuf.DataAccess.UserGetId,
+                com.sdj3.protobuf.DataAccess.User>(
+                  this, METHODID_GET_BY_ID)))
+          .addMethod(
+            getGetUsersContainingMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.sdj3.protobuf.DataAccess.SearchUserParameters,
+                com.sdj3.protobuf.DataAccess.listOfUsers>(
+                  this, METHODID_GET_USERS_CONTAINING)))
           .build();
     }
   }
@@ -187,6 +277,22 @@ public final class AccessGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetByUsernameMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getById(com.sdj3.protobuf.DataAccess.UserGetId request,
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.User> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetByIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getUsersContaining(com.sdj3.protobuf.DataAccess.SearchUserParameters request,
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.listOfUsers> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetUsersContainingMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -215,6 +321,20 @@ public final class AccessGrpc {
     public com.sdj3.protobuf.DataAccess.User getByUsername(com.sdj3.protobuf.DataAccess.UserGetUsername request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetByUsernameMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.sdj3.protobuf.DataAccess.User getById(com.sdj3.protobuf.DataAccess.UserGetId request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetByIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.sdj3.protobuf.DataAccess.listOfUsers getUsersContaining(com.sdj3.protobuf.DataAccess.SearchUserParameters request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetUsersContainingMethod(), getCallOptions(), request);
     }
   }
 
@@ -247,10 +367,28 @@ public final class AccessGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetByUsernameMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.User> getById(
+        com.sdj3.protobuf.DataAccess.UserGetId request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetByIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.listOfUsers> getUsersContaining(
+        com.sdj3.protobuf.DataAccess.SearchUserParameters request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetUsersContainingMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_USER = 0;
   private static final int METHODID_GET_BY_USERNAME = 1;
+  private static final int METHODID_GET_BY_ID = 2;
+  private static final int METHODID_GET_USERS_CONTAINING = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -276,6 +414,14 @@ public final class AccessGrpc {
         case METHODID_GET_BY_USERNAME:
           serviceImpl.getByUsername((com.sdj3.protobuf.DataAccess.UserGetUsername) request,
               (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.User>) responseObserver);
+          break;
+        case METHODID_GET_BY_ID:
+          serviceImpl.getById((com.sdj3.protobuf.DataAccess.UserGetId) request,
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.User>) responseObserver);
+          break;
+        case METHODID_GET_USERS_CONTAINING:
+          serviceImpl.getUsersContaining((com.sdj3.protobuf.DataAccess.SearchUserParameters) request,
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.listOfUsers>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -340,6 +486,8 @@ public final class AccessGrpc {
               .setSchemaDescriptor(new AccessFileDescriptorSupplier())
               .addMethod(getCreateUserMethod())
               .addMethod(getGetByUsernameMethod())
+              .addMethod(getGetByIdMethod())
+              .addMethod(getGetUsersContainingMethod())
               .build();
         }
       }

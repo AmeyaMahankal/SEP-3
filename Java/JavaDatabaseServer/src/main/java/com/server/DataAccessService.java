@@ -20,7 +20,35 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         User user=Dao.selectUserWithUsername(request.getUsername().toString());
 
         //User user=new User(1,"hey","awdawdad","Admin");
-        
+        if(user==null)
+        {
+            DataAccess.User nullresponse= DataAccess.User.newBuilder()
+                    .setId(1)
+                    .setUsername("notfound")
+                    .setPassword("notfound")
+                    .setRole("notfound")
+                    .build();
+
+            responseObserver.onNext(nullresponse);
+            responseObserver.onCompleted();
+        }
+
+        DataAccess.User response= DataAccess.User.newBuilder()
+                .setId(user.getId())
+                .setUsername(user.getUsername().toString())
+                .setPassword(user.getPassword().toString())
+                .setRole(user.getRole().toString())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getById(DataAccess.UserGetId request, StreamObserver<DataAccess.User> responseObserver) {
+        //super.getById(request, responseObserver);
+        User user=Dao.selectUserWithId(request.getId());
+
         DataAccess.User response= DataAccess.User.newBuilder()
                 .setId(user.getId())
                 .setUsername(user.getUsername().toString())
@@ -53,5 +81,25 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     }
 
+    @Override
+    public void getUsersContaining(DataAccess.SearchUserParameters request, StreamObserver<DataAccess.listOfUsers> responseObserver) {
+        //super.getUsersContaining(request, responseObserver);
+        ArrayList<User> users=Dao.getUsersWithString(request.getUsercontains().toString());
+        DataAccess.listOfUsers response = null;
+        for(User user : users)
+        {
+            DataAccess.User user1= DataAccess.User.newBuilder()
+                    .setId(user.getId())
+                    .setRole(user.getRole().toString())
+                    .setPassword(user.getPassword().toString())
+                    .setUsername(user.getUsername().toString())
+                    .build();
 
+            response= DataAccess.listOfUsers.newBuilder().addUsers(user1).build();
+        }
+
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
 }
