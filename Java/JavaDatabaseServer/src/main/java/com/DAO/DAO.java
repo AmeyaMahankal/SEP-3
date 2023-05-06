@@ -3,6 +3,8 @@ package com.DAO;
 import com.model.*;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAO {
 
@@ -268,6 +270,25 @@ public class DAO {
     }
 
 
+    public List<Hotel> listOfHotels(int cityId) {
+        List<Hotel> list = new ArrayList<>();
+        try (Connection conn = this.connect();) {
+            PreparedStatement statement = conn.prepareStatement(
+                    "SELECT * FROM Hotel where CityId=?");
+            statement.setInt(1, cityId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                list.add(new Hotel(resultSet.getInt("Id"), resultSet.getString("Name"), resultSet.getString("Description"),
+                        resultSet.getString("ImageURL"), resultSet.getInt("CityId")));
+            }
+            statement.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
+
+
     public void insertMuseum(String name, String description, String imageUrl, int cityId) {
         String sql = "INSERT INTO Museum(Name,Description,ImageURL,CityId) VALUES(?,?,?,?)";
 
@@ -372,6 +393,25 @@ public class DAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+
+    public List<Museum> listOfMuseums(int cityId) {
+        List<Museum> listofmuseums = new ArrayList<>();
+        try (Connection conn = this.connect();) {
+            PreparedStatement statement = conn.prepareStatement(
+                    "SELECT * FROM Museum where CityId=?");
+            statement.setInt(1, cityId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                listofmuseums.add(new Museum(resultSet.getInt("Id"), resultSet.getString("Name"), resultSet.getString("Description"),
+                        resultSet.getString("ImageURL"), resultSet.getInt("CityId")));
+            }
+            statement.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listofmuseums;
     }
 
 
@@ -482,6 +522,25 @@ public class DAO {
     }
 
 
+    public List<Park> listOfParks(int cityId) {
+        List<Park> listofparks = new ArrayList<>();
+        try (Connection conn = this.connect();) {
+            PreparedStatement statement = conn.prepareStatement(
+                    "SELECT * FROM Park where CityId=?");
+            statement.setInt(1, cityId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                listofparks.add(new Park(resultSet.getInt("Id"), resultSet.getString("Name"), resultSet.getString("Description"),
+                        resultSet.getString("ImageURL"), resultSet.getInt("CityId")));
+            }
+            statement.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listofparks;
+    }
+
+
     public void insertRestaurant(String name, String description, String imageUrl, int cityId) {
         String sql = "INSERT INTO Restaurant(Name,Description,ImageURL,CityId) VALUES(?,?,?,?)";
 
@@ -589,6 +648,24 @@ public class DAO {
     }
 
 
+    public List<Restaurant> listOfRestaurant(int cityId) {
+        List<Restaurant> listofrestaurant = new ArrayList<>();
+        try (Connection conn = this.connect();) {
+            PreparedStatement statement = conn.prepareStatement(
+                    "SELECT * FROM Restaurant where CityId=?");
+            statement.setInt(1, cityId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                listofrestaurant.add(new Restaurant(resultSet.getInt("Id"), resultSet.getString("Name"), resultSet.getString("Description"),
+                        resultSet.getString("ImageURL"), resultSet.getInt("CityId")));
+            }
+            statement.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listofrestaurant;
+    }
+
     public void insertReview(String comment, int starReview, int userId,
                              int categoryId, String categoryName) {
         String sql = "INSERT INTO Review(Comment,StarReview,UserId,CategoryId,CategoryName) VALUES(?,?,?,?,?)";
@@ -673,6 +750,30 @@ public class DAO {
     }
 
 
+    public List<Review> listOfReviews(int categoryId, String categoryName) {
+        List<Review> listofreviews = new ArrayList<>();
+        try (Connection conn = this.connect();) {
+            PreparedStatement statement = conn.prepareStatement(
+                    "select * from Review where CategoryId=? and CategoryName= ?");
+            statement.setInt(1, categoryId);
+            statement.setString(2, categoryName);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                listofreviews.add(new Review(resultSet.getInt("Id"),
+                        resultSet.getString("Comment"),
+                        resultSet.getInt("StarReview"),
+                        resultSet.getInt("UserId"),
+                        resultSet.getInt("CategoryId"),
+                        resultSet.getString("CategoryName")));
+            }
+            statement.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listofreviews;
+    }
+
+
     public void insertReport(int userId, String description, int reviewId) {
         String sql = "INSERT INTO Report(UserId,Description,ReviewId) VALUES(?,?,?)";
 
@@ -724,6 +825,30 @@ public class DAO {
             System.out.println(e.getMessage());
         }
     }
+
+
+    public List<Report> listOfReports(/*int reportId*/) {
+        List<Report> listofreports = new ArrayList<>();
+        try (Connection conn = this.connect();) {
+            PreparedStatement statement = conn.prepareStatement(
+                    "select * from Report ");
+            //statement.setInt(1, reportId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                listofreports.add(new Report(resultSet.getInt("Id"),
+                        resultSet.getInt("UserId"),
+                        resultSet.getString("Description"),
+                        resultSet.getInt("ReviewId")));
+            }
+            statement.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listofreports;
+    }
+
+
+
 
 
 }
