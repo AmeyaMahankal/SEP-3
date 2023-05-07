@@ -2,14 +2,19 @@
 
 public class ParkUpdateDto
 {
-    public int ParkId { get; }
+    public int Id { get; }
     public string Name { get; }
     public string Description { get; }
 
-    public ParkUpdateDto(int parkid,string name, string description)
+    public string ImageURL { get;  }
+    public int CityId { get; }
+
+    public ParkUpdateDto(int id, string name, string description, string imageUrl, int cityId)
     {
-        ParkId = parkid;
-        Description = description;
+        Id = id;
         Name = name;
+        Description = description;
+        ImageURL = imageUrl;
+        CityId = cityId;
     }
 }

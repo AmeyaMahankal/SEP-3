@@ -17,12 +17,12 @@ public class MuseumLogic: IMuseumLogic
 
     public async Task<Museum> CreateAsync(MuseumCreationDto dto)
     {
-        Museum toCreate = new Museum(dto.Name,dto.Description)
+        Museum toCreate = new Museum(dto.Name,dto.Description,dto.ImageURL,dto.CityId)
         {
             Name = dto.Name
             , Description = dto.Description,
-            Id = dto.Id
-
+            ImageURL = dto.ImageURL,
+            CityId = dto.CityId
         };
 
         Museum created = await museumDao.CreateAsync(toCreate); 
@@ -35,7 +35,7 @@ public class MuseumLogic: IMuseumLogic
         return museumDao.GetAsync(searchMuseumParameters);
     }
 
-    public async Task UpdateAsync(MuseumCreationDto dto)
+    public async Task UpdateAsync(MuseumUpdateDto dto)
     {
         Museum? existing = await museumDao.GetByIdAsync(dto.Id);
         if (existing == null)
@@ -57,12 +57,15 @@ public class MuseumLogic: IMuseumLogic
         string nameToUse = dto.Name ?? existing.Name;
 
         string descToUseToUse = dto.Description ?? existing.Description;
+        string imageToUse = dto.ImageURL ?? existing.ImageURL;
 
 
-        Museum updated = new(nameToUse, descToUseToUse);
+        Museum updated = new(nameToUse, descToUseToUse,imageToUse,existing.CityId);
         {
             updated.Name = nameToUse;
             updated.Description = descToUseToUse;
+            updated.ImageURL = imageToUse;
+            updated.CityId = existing.CityId;
             updated.Id = existing.Id;
         }
         await museumDao.UpdateAsync(updated);

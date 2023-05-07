@@ -4,13 +4,13 @@ public class ReportCreationDto
 {
     public string Description { get;  }
     public int ReviewID { get;  }
-    public int OwnerId { get;  }
+    public int UserId { get;  }
 
 
-    public ReportCreationDto(string description, int reviewId, int ownerId)
+    public ReportCreationDto(string description, int reviewId, int userId)
     {
         Description = description;
         ReviewID = reviewId;
-        OwnerId = ownerId;
+        UserId = userId;
     }
 }

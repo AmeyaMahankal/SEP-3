@@ -1,4 +1,5 @@
 ﻿using Application.LogicInterface;
+using Domain.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using sep3.DTOs;
 using SEP3lu;
@@ -52,7 +53,7 @@ namespace WEBAPI.Controllers;
         }
         
         [HttpPatch]
-        public async Task<ActionResult> UpdateAsync([FromBody] HotelCreationDto dto)
+        public async Task<ActionResult> UpdateAsync([FromBody] HotelUpdateDto dto)
         {
             try
             {

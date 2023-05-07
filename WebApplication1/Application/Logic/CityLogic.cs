@@ -20,7 +20,7 @@ public class CityLogic : ICityLogic
     {
         
        // ValidateData(dto);
-        City toCreate = new City(dto.Name,dto.Description)
+        City toCreate = new City(dto.Name,dto.Description,dto.ImageURL)
         {
             Name = dto.Name
             , Description = dto.Description
@@ -61,12 +61,14 @@ public class CityLogic : ICityLogic
      string nameToUse = dto.Name ?? existing.Name;
 
      string descToUseToUse =dto.Description?? existing.Description ;
+     string imageURLToUseToUse =dto.ImageURL?? existing.ImageURL ;
      
 
-     City updated = new(nameToUse,descToUseToUse);
+     City updated = new(nameToUse,descToUseToUse, imageURLToUseToUse);
      {
          updated.Name = nameToUse;
          updated.Description = descToUseToUse ;
+         updated.ImageURL = imageURLToUseToUse;
          updated.Id = existing.Id;
      }
 

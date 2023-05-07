@@ -2,14 +2,18 @@
 
 public class ParkCreationDto
 {
-    public int Id { get; }
     public string Name { get; }
     public string Description { get; }
 
-    public ParkCreationDto(int id,string name, string description)
+    public string ImageURL { get;  }
+    public int CityId { get; }
+
+    public ParkCreationDto( string name, string description, string imageUrl, int cityId)
     {
-        Id = id;
-        Description = description;
+       
         Name = name;
+        Description = description;
+        ImageURL = imageUrl;
+        CityId = cityId;
     }
 }

@@ -51,7 +51,7 @@ namespace WEBAPI.Controllers;
         }
         
         [HttpPatch]
-        public async Task<ActionResult> UpdateAsync([FromBody] RestaurantCreationDto dto)
+        public async Task<ActionResult> UpdateAsync([FromBody] RestaurantUpdateDto dto)
         {
             try
             {

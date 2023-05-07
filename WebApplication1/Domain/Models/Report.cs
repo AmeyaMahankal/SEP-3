@@ -3,14 +3,14 @@
 public class Report
 {
     public int Id { get; set; }
-    public User Reviewer { get; set; }
+    public int UserId { get; set; }
     public string Description { get; set; }
-    public Review ReportedReview { get; set; }
+    public int ReviewId { get; set; }
 
-    public Report(User reviewer, string description, Review reportedReview)
+    public Report(int userId, string description, int reviewId)
     {
-        Reviewer = reviewer;
+        UserId = userId;
         Description = description;
-        ReportedReview = reportedReview;
+        ReviewId = reviewId;
     }
 }

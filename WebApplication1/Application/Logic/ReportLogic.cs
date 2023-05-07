@@ -9,31 +9,17 @@ public class ReportLogic: IReportLogic
 { 
     
     private readonly IReportDao ReportDao;
-    private readonly IReviewDao ReviewDao;
-    private readonly IUserDao UserDao;
 
-    public ReportLogic(IReportDao reportDao, IReviewDao reviewDao, IUserDao userDao)
+
+    public ReportLogic(IReportDao reportDao)
     {
         this.ReportDao = reportDao;
-        this.ReviewDao = reviewDao;
-        this.UserDao = userDao;
     }
 
 
     public async Task<Report> CreateAsync(ReportCreationDto dto)
     {
-        Review? review = await ReviewDao.GetByIdAsync(dto.ReviewID);
-        if (review==null)
-        {
-            throw new Exception($"Review with id {dto.ReviewID} was not found.");
-        }
-        User? user = await UserDao.GetByIdAsync(dto.OwnerId);
-        if (user == null)
-        {
-            throw new Exception($"User with id {dto.OwnerId} was not found.");
-        }
-        
-        Report report = new Report(user,dto.Description,  review);
+        Report report = new Report(dto.UserId,dto.Description, dto.ReviewID);
         Report created = await ReportDao.CreateAsync(report);
         return created;
     }

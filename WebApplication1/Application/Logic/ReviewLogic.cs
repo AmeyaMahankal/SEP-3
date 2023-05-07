@@ -8,12 +8,12 @@ namespace Application.Logic;
 public class ReviewLogic : IReviewLogic
 {
     private readonly IReviewDao ReviewDao;
-    private readonly IUserDao UserDao;
+  
 
-    public ReviewLogic(IReviewDao reviewDao, IUserDao userDao)
+    public ReviewLogic(IReviewDao reviewDao)
     {
         this.ReviewDao = reviewDao;
-        this.UserDao = userDao;
+       
     }
 
 
@@ -34,14 +34,10 @@ public class ReviewLogic : IReviewLogic
 
     public async Task<Review> CreateAsync(ReviewCreationDto dto)
     {
-        User? user = await UserDao.GetByIdAsync(dto.OwnerId);
-        if (user == null)
-        {
-            throw new Exception($"User with id {dto.OwnerId} was not found.");
-        }
+     
 
-
-        Review review = new Review(user, dto.CreateComment, dto.CreateStarReview);
+        Review review = new Review( dto.CreateComment,dto.CreateStarReview, dto.UserId
+        , dto.CategoryId, dto.CategoryName, dto.CategoryType);
         Review created = await ReviewDao.CreateAsync(review);
         return created;
     }
@@ -70,25 +66,19 @@ public class ReviewLogic : IReviewLogic
             }
         }
 
-        User? user = null;
-        if (dto.OwnerId != null)
-        {
-            user = await UserDao.GetByIdAsync((int)dto.OwnerId);
-            if (user == null)
-            {
-                throw new Exception($"User with id {dto.OwnerId} was not found.");
-            }
-        }
-
-
-        User userToUse = user ?? existing.Reviewer;
-        string descToUse = dto.ReviewsComment ?? existing.Comment;
+        
+        string commentToUse = dto.ReviewsComment ?? existing.Comment;
         string starReviewToUse = IntToString(dto.ReviewsStarReview) ?? IntToString(existing.StarReview);
-        Review updated = new(userToUse, descToUse, StringToInt(starReviewToUse));
+        Review updated = new( commentToUse, StringToInt(starReviewToUse),existing.UserId,
+            existing.CategoryId,existing.CategoryName,existing.CategoryType);
         {
-            updated.Comment = descToUse;
+            updated.Comment = commentToUse;
             updated.StarReview = StringToInt(starReviewToUse);
             updated.Id = existing.Id;
+            updated.UserId = existing.UserId;
+            updated.CategoryId = existing.CategoryId;
+            updated.CategoryName = existing.CategoryName;
+            updated.CategoryType = existing.CategoryType;
         }
         await ReviewDao.UpdateAsync(updated);
     }
