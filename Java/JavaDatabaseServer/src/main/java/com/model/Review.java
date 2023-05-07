@@ -7,14 +7,16 @@ public class Review {
     private int userId;
     private int categoryId;
     private String categoryName;
+    private String categoryType;
 
-    public Review(int id, String comment, int starReview, int userId, int categoryId, String categoryName) {
+    public Review(int id, String comment, int starReview, int userId, int categoryId, String categoryName, String categoryType) {
         this.id = id;
         this.comment = comment;
         this.starReview = starReview;
         this.userId = userId;
         this.categoryId = categoryId;
         this.categoryName = categoryName;
+        this.categoryType = categoryType;
     }
 
     public int getId() {
@@ -41,6 +43,9 @@ public class Review {
         return categoryName;
     }
 
+    public String getCategoryType() {
+        return categoryType;
+    }
 
     @Override
     public String toString() {
@@ -51,6 +56,7 @@ public class Review {
                 ", userId=" + userId +
                 ", categoryId=" + categoryId +
                 ", categoryName='" + categoryName + '\'' +
+                ", categoryType='" + categoryType + '\'' +
                 '}';
     }
 }

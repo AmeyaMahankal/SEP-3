@@ -50,7 +50,7 @@ namespace WEBAPI.Controllers;
         }
         
         [HttpPatch]
-        public async Task<ActionResult> UpdateAsync([FromBody] ParkCreationDto dto)
+        public async Task<ActionResult> UpdateAsync([FromBody] ParkUpdateDto dto)
         {
             try
             {

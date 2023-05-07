@@ -17,11 +17,12 @@ public class RestaurantLogic: IRestaurantLogic
 
     public async Task<Restaurant> CreateAsync(RestaurantCreationDto dto)
     {
-        Restaurant toCreate = new Restaurant(dto.Name,dto.Description)
+        Restaurant toCreate = new Restaurant(dto.Name,dto.Description,dto.ImageURL, dto.CityId)
         {
             Name = dto.Name
-            , Description = dto.Description,
-            Id = dto.Id
+            , Description = dto.Description
+            , ImageURL = dto.ImageURL
+            , CityId = dto.CityId
 
         };
 
@@ -35,7 +36,7 @@ public class RestaurantLogic: IRestaurantLogic
         return restaurantDao.GetAsync(searchRestaurantParameters);
     }
 
-    public async Task UpdateAsync(RestaurantCreationDto dto)
+    public async Task UpdateAsync(RestaurantUpdateDto dto)
     {
         Restaurant existing = await restaurantDao.GetByIdAsync(dto.Id);
         if (existing == null)
@@ -57,12 +58,15 @@ public class RestaurantLogic: IRestaurantLogic
         string nameToUse = dto.Name ?? existing.Name;
 
         string descToUseToUse = dto.Description ?? existing.Description;
+        string imageToUse = dto.ImageURL ?? existing.ImageURL;
 
 
-        Restaurant updated = new(nameToUse, descToUseToUse);
+        Restaurant updated = new(nameToUse, descToUseToUse,imageToUse,existing.CityId);
         {
             updated.Name = nameToUse;
             updated.Description = descToUseToUse;
+            updated.ImageURL = imageToUse;
+            updated.CityId = existing.CityId;
             updated.Id = existing.Id;
         }
         await restaurantDao.UpdateAsync(updated);

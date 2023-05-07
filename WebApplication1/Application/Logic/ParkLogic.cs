@@ -18,12 +18,12 @@ public class ParkLogic: IParkLogic
 
     public async Task<Park> CreateAsync(ParkCreationDto dto)
     {
-        Park toCreate = new Park(dto.Name,dto.Description)
+        Park toCreate = new Park(dto.Name,dto.Description,dto.ImageURL,dto.CityId)
         {
             Name = dto.Name
             , Description = dto.Description,
-            Id = dto.Id
-
+            ImageURL = dto.ImageURL,
+            CityId = dto.CityId
         };
 
         Park created = await parkDao.CreateAsync(toCreate); 
@@ -36,7 +36,7 @@ public class ParkLogic: IParkLogic
         return parkDao.GetAsync(searchParkParameters);
     }
 
-    public async Task UpdateAsync(ParkCreationDto dto)
+    public async Task UpdateAsync(ParkUpdateDto dto)
     {
         Park? existing = await parkDao.GetByIdAsync(dto.Id);
         if (existing == null)
@@ -58,12 +58,15 @@ public class ParkLogic: IParkLogic
         string nameToUse = dto.Name ?? existing.Name;
 
         string descToUseToUse = dto.Description ?? existing.Description;
+        string imageToUse = dto.ImageURL ?? existing.ImageURL;
 
 
-        Park updated = new(nameToUse, descToUseToUse);
+        Park updated = new(nameToUse, descToUseToUse,imageToUse,existing.CityId);
         {
             updated.Name = nameToUse;
             updated.Description = descToUseToUse;
+            updated.ImageURL = imageToUse;
+            updated.CityId = existing.CityId;
             updated.Id = existing.Id;
         }
         await parkDao.UpdateAsync(updated);

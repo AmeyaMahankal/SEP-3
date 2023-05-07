@@ -458,7 +458,7 @@ public class DAO {
     }
 
     public User selectUserWithId(int id){
-        String sql = "SELECT Id,UserName,Password,Role FROM Users";
+        String sql = "SELECT Id,UserName,Password,Role FROM User";
 
         User user=null;
 
@@ -486,7 +486,7 @@ public class DAO {
 
     public ArrayList<User> getUsersWithString(String contain)
     {
-        String sql = "SELECT Id,UserName,Password,Role FROM Users";
+        String sql = "SELECT Id,UserName,Password,Role FROM User";
 
         ArrayList<User> users=new ArrayList<>();
 
@@ -742,7 +742,7 @@ public class DAO {
 
 
     public Review getReviewById(int ReviewId) {
-        String sql = "SELECT Id,Comment,StarReview,UserId, CategoryId, CategoryName FROM Review";
+        String sql = "SELECT Id,Comment,StarReview,UserId, CategoryId, CategoryName, CategoryType FROM Review";
 
         Review review = null;
 
@@ -757,7 +757,9 @@ public class DAO {
                     int userid = rs.getInt("UserId");
                     int categoryid = rs.getInt("CategoryId");
                     String categoryname = rs.getString("CategoryName");
-                    Review ReviewFound = new Review(id, comment, starreview, userid, categoryid, categoryname);
+                    String categoryType = rs.getString("CategoryType");
+                    Review ReviewFound = new Review(id, comment, starreview,
+                            userid, categoryid, categoryname,categoryType);
                     return ReviewFound;
                 }
             }
@@ -821,7 +823,8 @@ public class DAO {
                         resultSet.getInt("StarReview"),
                         resultSet.getInt("UserId"),
                         resultSet.getInt("CategoryId"),
-                        resultSet.getString("CategoryName")));
+                        resultSet.getString("CategoryName"),
+                        resultSet.getString("CategoryType")));
             }
             statement.close();
         } catch (SQLException e) {

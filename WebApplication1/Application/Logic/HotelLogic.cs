@@ -19,10 +19,13 @@ public class HotelLogic: IHotelLogic
 
     public async Task<Hotel> CreateAsync(HotelCreationDto dto)
     {
-        Hotel toCreate = new Hotel(dto.Name,dto.Description)
+        Hotel toCreate = new Hotel(dto.Name,dto.Description,dto.ImageURL, dto.CityId)
         {
             Name = dto.Name
             , Description = dto.Description
+            , ImageURL = dto.ImageURL
+            , CityId = dto.CityId
+            
         };
 
         Hotel created = await hotelDao.CreateAsync(toCreate); 
@@ -35,21 +38,21 @@ public class HotelLogic: IHotelLogic
         return hotelDao.GetAsync(searchHotelParameters);
     }
 
-    public async Task UpdateAsync(HotelCreationDto dto)
+    public async Task UpdateAsync(HotelUpdateDto dto)
     {
-        Hotel? existing = await hotelDao.GetByIdAsync(dto.Id);
+        Hotel? existing = await hotelDao.GetByIdAsync(dto.HotelId);
         if (existing == null)
         {
-            throw new Exception($"Hotel with ID {dto.Id} not found!");
+            throw new Exception($"Hotel with ID {dto.HotelId} not found!");
         }
      
         Hotel? hotel = null;
-        if (dto.Id != null)
+        if (dto.HotelId != null)
         {
-            hotel = await hotelDao.GetByIdAsync(dto.Id);
+            hotel = await hotelDao.GetByIdAsync(dto.HotelId);
             if (hotel == null)
             {
-                throw new Exception($"Hotel with id {dto.Id} was not found.");
+                throw new Exception($"Hotel with id {dto.HotelId} was not found.");
             }
         }
 
@@ -57,12 +60,15 @@ public class HotelLogic: IHotelLogic
         string nameToUse = dto.Name ?? existing.Name;
 
         string descToUseToUse =dto.Description?? existing.Description ;
+        string imageToUse =dto.ImageURL?? existing.ImageURL ;
      
 
-        Hotel updated = new(nameToUse,descToUseToUse);
+        Hotel updated = new(nameToUse,descToUseToUse,imageToUse,existing.CityId);
         {
             updated.Name = nameToUse;
             updated.Description = descToUseToUse ;
+            updated.ImageURL = imageToUse;
+            updated.CityId = existing.CityId;
             updated.Id = existing.Id;
         }
 

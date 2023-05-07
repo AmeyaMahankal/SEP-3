@@ -54,7 +54,7 @@ public class MuseumController : ControllerBase
     }
 
     [HttpPatch]
-    public async Task<ActionResult> UpdateAsync([FromBody] MuseumCreationDto dto)
+    public async Task<ActionResult> UpdateAsync([FromBody] MuseumUpdateDto dto)
     {
         try
         {

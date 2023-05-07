@@ -2,14 +2,18 @@
 
 public class RestaurantCreationDto
 {
-    public int Id { get; }
+ 
     public string Name { get; }
     public string Description { get; }
 
-    public RestaurantCreationDto(int id,string name, string description)
+    public string ImageURL { get;  }
+    public int CityId { get; }
+
+    public RestaurantCreationDto( string name, string description, string imageUrl, int cityId)
     {
-        Id = id;
-        Description = description;
         Name = name;
+        Description = description;
+        ImageURL = imageUrl;
+        CityId = cityId;
     }
 }
