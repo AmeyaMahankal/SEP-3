@@ -494,6 +494,19 @@ public class DAO {
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
 
+            if(contain.equals("getall"))
+            {
+                while (rs.next())
+                {
+                    int Id=rs.getInt("Id");
+                    String username=rs.getString("UserName");
+                    String password=rs.getString("Password");
+                    String role=rs.getString("Role");
+                    User UserFound=new User(Id,username,password,role);
+                    users.add(UserFound);
+                }
+                return users;
+            }
             // loop through the result set
             while (rs.next()) {
                 if(rs.getString("UserName").toString().contains(contain))

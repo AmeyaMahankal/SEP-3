@@ -16,7 +16,7 @@ public class DaoTests {
 
        // System.out.println( d.getCityById(2));
 
-            System.out.println( d.getUsersWithString("bo"));
+            System.out.println( d.getUsersWithString("getall"));
 
 
     }
