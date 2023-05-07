@@ -10,7 +10,7 @@ import java.util.List;
 public class DAO {
 
     private Connection connect() {
-        String url = "jdbc:sqlite:C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\SEP-3\\Java\\JavaDatabaseServer\\identifier.sqlite";
+        String url = "jdbc:sqlite:C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\Java\\JavaDatabaseServer\\identifier.sqlite";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -458,7 +458,7 @@ public class DAO {
     }
 
     public User selectUserWithId(int id){
-        String sql = "SELECT Id,UserName,Password,Role FROM Users";
+        String sql = "SELECT Id,UserName,Password,Role FROM User";
 
         User user=null;
 
@@ -486,7 +486,7 @@ public class DAO {
 
     public ArrayList<User> getUsersWithString(String contain)
     {
-        String sql = "SELECT Id,UserName,Password,Role FROM Users";
+        String sql = "SELECT Id,UserName,Password,Role FROM User";
 
         ArrayList<User> users=new ArrayList<>();
 
