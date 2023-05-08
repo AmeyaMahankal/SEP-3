@@ -809,13 +809,15 @@ public class DAO {
     }
 
 
-    public List<Review> listOfReviews(int categoryId, String categoryName) {
+    public List<Review> listOfReviews(int categoryId, String categoryName, String categoryType) {
         List<Review> listofreviews = new ArrayList<>();
         try (Connection conn = this.connect();) {
             PreparedStatement statement = conn.prepareStatement(
-                    "select * from Review where CategoryId=? and CategoryName= ?");
+                    "select * from Review where CategoryId=? and CategoryName= ? " +
+                            "and CategoryType=?");
             statement.setInt(1, categoryId);
             statement.setString(2, categoryName);
+            statement.setString(3,categoryType);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 listofreviews.add(new Review(resultSet.getInt("Id"),
