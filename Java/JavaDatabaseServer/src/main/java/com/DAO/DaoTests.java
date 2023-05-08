@@ -16,7 +16,7 @@ public class DaoTests {
 
        // System.out.println( d.getCityById(2));
 
-            System.out.println( d.listOfReviews(1,"lknlknl"));
+            System.out.println( d.listOfReviews(1,"lknlknl","ewfer"));
 
 
     }
