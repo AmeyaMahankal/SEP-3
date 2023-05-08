@@ -10,7 +10,7 @@ import java.util.List;
 public class DAO {
 
     private Connection connect() {
-        String url = "jdbc:sqlite:C:\\Users\\sarie\\OneDrive\\Dokumenter\\GitHub\\SEP-3\\Java\\JavaDatabaseServer\\identifier.sqlite";
+        String url = "jdbc:sqlite:identifier.sqlite";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -493,6 +493,20 @@ public class DAO {
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
+
+            if(contain.equals("getall"))
+            {
+                while (rs.next()) {
+                        int Id=rs.getInt("Id");
+                        String username=rs.getString("UserName");
+                        String password=rs.getString("Password");
+                        String role=rs.getString("Role");
+                        User UserFound=new User(Id,username,password,role);
+                        users.add(UserFound);
+
+                }
+                return users;
+            }
 
             // loop through the result set
             while (rs.next()) {

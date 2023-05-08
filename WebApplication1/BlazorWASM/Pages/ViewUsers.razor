@@ -42,7 +42,7 @@ else
         msg = "";
         try
         {
-            users = await userService.GetUsers();
+            users = await userService.GetUsers("getall");
             int stpher = 0;
         }
         catch (Exception e)
