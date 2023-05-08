@@ -14,7 +14,7 @@ public class DaoTests {
       //  d.insertReview("sfsdgdrgh",4,1,1,"lknlknl");
         //d.updateCityDescription("asfdfefqw",4);
 
-       // System.out.println( d.getCityById(2));
+        System.out.println( d.getCityById(2));
 
             System.out.println( d.listOfReviews(1,"lknlknl","ewfer"));
 

@@ -50,11 +50,49 @@ public class UserDAO : IUserDao
 
     public Task<User?> GetByIdAsync(int dtoOwnerId)
     {
-        throw new NotImplementedException();
+        UserGetId request = new UserGetId()
+        {
+            Id = dtoOwnerId
+        };
+
+        var send = client.GetByIdAsync(request);
+
+        User user = new User()
+        {
+            Id = send.ResponseAsync.Result.Id,
+            UserName = send.ResponseAsync.Result.Username,
+            Password = send.ResponseAsync.Result.Password,
+            Role = send.ResponseAsync.Result.Role
+        };
+
+        return Task.FromResult(user);
     }
 
     public Task<IEnumerable<User>> GetAsync(SearchUserParametersDto searchParameters)
     {
-        throw new NotImplementedException();
+        SearchUserParameters search = new SearchUserParameters()
+        {
+            Usercontains = searchParameters.UsernameContains
+        };
+
+        var send = client.GetUsersContainingAsync(search);
+
+        List<User> listofusers = new List<User>();
+        foreach (var VARIABLE in send.ResponseAsync.Result.Users)
+        {
+            User user = new User()
+            {
+                Id = VARIABLE.Id,
+                UserName = VARIABLE.Username,
+                Password = VARIABLE.Password,
+                Role = VARIABLE.Role
+            };
+            
+            listofusers.Add(user);
+        }
+
+        IEnumerable<User> ilistusers = listofusers;
+
+        return Task.FromResult(ilistusers);
     }
 }

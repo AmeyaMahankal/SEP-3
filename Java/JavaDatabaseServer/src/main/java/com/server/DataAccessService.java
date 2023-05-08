@@ -84,22 +84,20 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     @Override
     public void getUsersContaining(DataAccess.SearchUserParameters request, StreamObserver<DataAccess.listOfUsers> responseObserver) {
         //super.getUsersContaining(request, responseObserver);
+        DataAccess.listOfUsers.Builder builder = DataAccess.listOfUsers.newBuilder();
+
         ArrayList<User> users=Dao.getUsersWithString(request.getUsercontains().toString());
-        DataAccess.listOfUsers response = null;
+
         for(User user : users)
         {
-            DataAccess.User user1= DataAccess.User.newBuilder()
+            builder.addUsers(DataAccess.User.newBuilder()
+                    .setRole(user.getRole())
+                    .setPassword(user.getPassword())
+                    .setUsername(user.getUsername())
                     .setId(user.getId())
-                    .setRole(user.getRole().toString())
-                    .setPassword(user.getPassword().toString())
-                    .setUsername(user.getUsername().toString())
-                    .build();
-
-            response= DataAccess.listOfUsers.newBuilder().addUsers(user1).build();
+                    .build());
         }
-
-
-        responseObserver.onNext(response);
+        responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
     }
 }
