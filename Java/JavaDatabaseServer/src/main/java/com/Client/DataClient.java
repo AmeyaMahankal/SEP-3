@@ -2,7 +2,6 @@ package com.Client;
 
 import com.sdj3.protobuf.AccessGrpc;
 import com.sdj3.protobuf.DataAccess;
-import com.server.DataAccessService;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -17,8 +16,8 @@ public class DataClient {
         //CREATE USER--
 
         DataAccess.UserCreate request=DataAccess.UserCreate.newBuilder()
-                .setUserName("fgdgh")
-                .setPassWord("sdf").build();
+                .setUserName("sagrehygrefyhg")
+                .setPassWord("rsyhtr5uhyrth").build();
 
         DataAccess.UserCreateResponse response= blockingStub.createUser(request);
         System.out.println("Received and created ==> " + response.getUserName());

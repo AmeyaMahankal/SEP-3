@@ -1,14 +1,11 @@
 package com.server;
 
 import com.DAO.DAO;
-import com.model.Report;
 import com.model.User;
 import com.sdj3.protobuf.AccessGrpc;
 import com.sdj3.protobuf.DataAccess;
-import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class DataAccessService extends AccessGrpc.AccessImplBase {
