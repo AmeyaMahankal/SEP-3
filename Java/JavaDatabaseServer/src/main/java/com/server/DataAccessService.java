@@ -1,6 +1,7 @@
 package com.server;
 
 import com.DAO.DAO;
+import com.model.Report;
 import com.model.User;
 import com.sdj3.protobuf.AccessGrpc;
 import com.sdj3.protobuf.DataAccess;
@@ -70,7 +71,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
         Dao.insertUser(username,password,role);
 
-        System.out.println("Received request ==> " + request.toString());
+        System.out.println("Received request ==> " + request);
         DataAccess.UserCreateResponse response= DataAccess.UserCreateResponse.newBuilder()
                 .setCode(200)
                 .setUserName(request.getUserName().toString())
@@ -100,4 +101,6 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
     }
+
+
 }
