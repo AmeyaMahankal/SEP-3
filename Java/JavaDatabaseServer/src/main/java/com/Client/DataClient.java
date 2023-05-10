@@ -13,9 +13,9 @@ public class DataClient {
 
         AccessGrpc.AccessBlockingStub blockingStub=AccessGrpc.newBlockingStub(managedChannel);
 
-        //CREATE USER--
+   /*     //CREATE USER--
 
-   /*    DataAccess.UserCreate request=DataAccess.UserCreate.newBuilder()
+      DataAccess.UserCreate request=DataAccess.UserCreate.newBuilder()
                 .setUserName("sdgfagwqerqw")
                 .setPassWord("rsyhtr5uhyrth").build();
 
@@ -63,21 +63,21 @@ public class DataClient {
         System.out.println("Received and created ==> " + asfdsf.getComment() + asfdsf.getStarreview()  ) ;
 
 
-        DataAccess.ReviewsCommentToUpdate request2= DataAccess.ReviewsCommentToUpdate.newBuilder()
+        DataAccess.ReviewsCommentToUpdate reviewsCommentToUpdate= DataAccess.ReviewsCommentToUpdate.newBuilder()
                 .setId(1)
                 .setComment("very good")
                 .build();
 
-        DataAccess.ReviewCommentUpdated response2 =blockingStub.updateReviewComment(request2);
-        System.out.println(response2);
+        DataAccess.ReviewCommentUpdated reviewCommentUpdated =blockingStub.updateReviewComment(reviewsCommentToUpdate);
+        System.out.println(reviewCommentUpdated);
 
 
 
-        DataAccess.ReviewToDelete request=DataAccess.ReviewToDelete.newBuilder()
+        DataAccess.ReviewToDelete reviewToDelete=DataAccess.ReviewToDelete.newBuilder()
                 .setId(2).build();
 
-        DataAccess.ReviewDeleted response= blockingStub.deleteReview(request);
-        System.out.println("Received and created ==> " + response.getCode());
+        DataAccess.ReviewDeleted reviewDeleted= blockingStub.deleteReview(reviewToDelete);
+        System.out.println("Received and created ==> " + reviewDeleted.getCode());
 
 
         DataAccess.CategoryForReviewList categoryForReviewList= DataAccess.CategoryForReviewList.newBuilder().setCategoryid(1)
@@ -89,13 +89,13 @@ public class DataClient {
 
 
 
-        DataAccess.ReviewStarReviewToUpdate request2= DataAccess.ReviewStarReviewToUpdate.newBuilder()
+        DataAccess.ReviewStarReviewToUpdate reviewStarReviewToUpdate= DataAccess.ReviewStarReviewToUpdate.newBuilder()
                 .setId(1)
                 .setStarreview(5)
                 .build();
 
-        DataAccess.ReviewsStarReviewUpdated response2 =blockingStub.updateStarReview(request2);
-        System.out.println(response2);
+        DataAccess.ReviewsStarReviewUpdated re =blockingStub.updateStarReview(reviewStarReviewToUpdate);
+        System.out.println(re);
 
 
         //REPORTS
@@ -107,18 +107,18 @@ public class DataClient {
 
 
 
-        DataAccess.ReportToDelete request=DataAccess.ReportToDelete.newBuilder()
+        DataAccess.ReportToDelete built=DataAccess.ReportToDelete.newBuilder()
                 .setReportid(2).build();
 
-        DataAccess.ReportDeleted response= blockingStub.deleteReport(request);
-        System.out.println("Received and created ==> " + response.getCode());
+        DataAccess.ReportDeleted reportDeleted= blockingStub.deleteReport(built);
+        System.out.println("Received and created ==> " + reportDeleted.getCode());
 
-        DataAccess.ReportById request2= DataAccess.ReportById.newBuilder()
+        DataAccess.ReportById reportById= DataAccess.ReportById.newBuilder()
                 .setReportid(3)
                 .build();
 
-        DataAccess.Report response2 =blockingStub.getReportById(request2);
-        System.out.println(response2.toString());
+        DataAccess.Report whatever =blockingStub.getReportById(reportById);
+        System.out.println(whatever.toString());
 
 
 
@@ -131,7 +131,7 @@ public class DataClient {
 
         DataAccess.ReportCreated reportCreated= blockingStub.createReport(reportToCreate);
 
-        System.out.println(reportCreated);
-*/
+        System.out.println(reportCreated);*/
+
     }
 }
