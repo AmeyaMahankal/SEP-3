@@ -55837,7 +55837,7 @@ public final class DataAccess {
       "eportid\030\001 \001(\005\"\"\n\016ReportToDelete\022\020\n\010repor" +
       "tid\030\001 \001(\005\"\035\n\rReportDeleted\022\014\n\004code\030\001 \001(\005" +
       "\"(\n\rListOfReports\022\027\n\006report\030\001 \003(\0132\007.Repo" +
-      "rt\"\026\n\005Empty\022\r\n\005empty\030\001 \001(\t2\276\022\n\006Access\022.\n" +
+      "rt\"\026\n\005Empty\022\r\n\005empty\030\001 \001(\t2\300\022\n\006Access\022.\n" +
       "\nCreateUser\022\013.UserCreate\032\023.UserCreateRes" +
       "ponse\022(\n\rGetByUsername\022\020.UserGetUsername" +
       "\032\005.User\022\034\n\007GetById\022\n.UserGetId\032\005.User\0229\n" +
@@ -55895,9 +55895,9 @@ public final class DataAccess {
       "st\032\014.ReveiewList\022/\n\014CreateReport\022\017.Repor" +
       "tToCreate\032\016.ReportCreated\022%\n\rGetReportBy" +
       "Id\022\013.ReportById\032\007.Report\022/\n\014DeleteReport" +
-      "\022\017.ReportToDelete\032\016.ReportDeleted\022(\n\020Get" +
-      "ListOfReports\022\006.Empty\032\014.ReveiewListB\023\n\021c" +
-      "om.sdj3.protobufb\006proto3"
+      "\022\017.ReportToDelete\032\016.ReportDeleted\022*\n\020Get" +
+      "ListOfReports\022\006.Empty\032\016.ListOfReportsB\023\n" +
+      "\021com.sdj3.protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -1379,28 +1379,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.Empty,
-      com.sdj3.protobuf.DataAccess.ReveiewList> getGetListOfReportsMethod;
+      com.sdj3.protobuf.DataAccess.ListOfReports> getGetListOfReportsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetListOfReports",
       requestType = com.sdj3.protobuf.DataAccess.Empty.class,
-      responseType = com.sdj3.protobuf.DataAccess.ReveiewList.class,
+      responseType = com.sdj3.protobuf.DataAccess.ListOfReports.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.Empty,
-      com.sdj3.protobuf.DataAccess.ReveiewList> getGetListOfReportsMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.Empty, com.sdj3.protobuf.DataAccess.ReveiewList> getGetListOfReportsMethod;
+      com.sdj3.protobuf.DataAccess.ListOfReports> getGetListOfReportsMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.Empty, com.sdj3.protobuf.DataAccess.ListOfReports> getGetListOfReportsMethod;
     if ((getGetListOfReportsMethod = AccessGrpc.getGetListOfReportsMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getGetListOfReportsMethod = AccessGrpc.getGetListOfReportsMethod) == null) {
           AccessGrpc.getGetListOfReportsMethod = getGetListOfReportsMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.Empty, com.sdj3.protobuf.DataAccess.ReveiewList>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.Empty, com.sdj3.protobuf.DataAccess.ListOfReports>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetListOfReports"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.ReveiewList.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.ListOfReports.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("GetListOfReports"))
               .build();
         }
@@ -1771,7 +1771,7 @@ public final class AccessGrpc {
     /**
      */
     public void getListOfReports(com.sdj3.protobuf.DataAccess.Empty request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReveiewList> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ListOfReports> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetListOfReportsMethod(), responseObserver);
     }
 
@@ -2090,7 +2090,7 @@ public final class AccessGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.Empty,
-                com.sdj3.protobuf.DataAccess.ReveiewList>(
+                com.sdj3.protobuf.DataAccess.ListOfReports>(
                   this, METHODID_GET_LIST_OF_REPORTS)))
           .build();
     }
@@ -2468,7 +2468,7 @@ public final class AccessGrpc {
     /**
      */
     public void getListOfReports(com.sdj3.protobuf.DataAccess.Empty request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReveiewList> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ListOfReports> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetListOfReportsMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2801,7 +2801,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.ReveiewList getListOfReports(com.sdj3.protobuf.DataAccess.Empty request) {
+    public com.sdj3.protobuf.DataAccess.ListOfReports getListOfReports(com.sdj3.protobuf.DataAccess.Empty request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetListOfReportsMethod(), getCallOptions(), request);
     }
@@ -3178,7 +3178,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ReveiewList> getListOfReports(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ListOfReports> getListOfReports(
         com.sdj3.protobuf.DataAccess.Empty request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetListOfReportsMethod(), getCallOptions()), request);
@@ -3426,7 +3426,7 @@ public final class AccessGrpc {
           break;
         case METHODID_GET_LIST_OF_REPORTS:
           serviceImpl.getListOfReports((com.sdj3.protobuf.DataAccess.Empty) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReveiewList>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ListOfReports>) responseObserver);
           break;
         default:
           throw new AssertionError();

@@ -76,7 +76,7 @@ service Access{
   rpc CreateReport(ReportToCreate) returns (ReportCreated);
   rpc GetReportById(ReportById) returns(Report);
   rpc DeleteReport(ReportToDelete) returns(ReportDeleted);
-  rpc GetListOfReports(Empty) returns(ReveiewList);
+  rpc GetListOfReports(Empty) returns(ListOfReports);
 
 
 }

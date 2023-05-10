@@ -15,7 +15,7 @@ public class DataClient {
 
         //CREATE USER--
 
-        DataAccess.UserCreate request=DataAccess.UserCreate.newBuilder()
+       /* DataAccess.UserCreate request=DataAccess.UserCreate.newBuilder()
                 .setUserName("sagrehygrefyhg")
                 .setPassWord("rsyhtr5uhyrth").build();
 
@@ -24,11 +24,17 @@ public class DataClient {
 
         //GET USERNAME--
 
-        DataAccess.UserGetUsername request2= DataAccess.UserGetUsername.newBuilder()
+      DataAccess.UserGetUsername request2= DataAccess.UserGetUsername.newBuilder()
                 .setUsername("bobby")
                 .build();
 
         DataAccess.User response2 =blockingStub.getByUsername(request2);
         System.out.println(response2.getPassword().toString());
+       */
+        DataAccess.Empty empty= DataAccess.Empty.newBuilder().setEmpty("sadf").build();
+        DataAccess.ListOfReports reports= blockingStub.getListOfReports(empty);
+        System.out.println(reports.getReportList());
+
+
     }
 }

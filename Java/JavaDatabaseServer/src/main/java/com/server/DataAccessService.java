@@ -1,12 +1,14 @@
 package com.server;
 
 import com.DAO.DAO;
+import com.model.Report;
 import com.model.User;
 import com.sdj3.protobuf.AccessGrpc;
 import com.sdj3.protobuf.DataAccess;
 import io.grpc.stub.StreamObserver;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataAccessService extends AccessGrpc.AccessImplBase {
     private DAO Dao=new DAO();
@@ -100,4 +102,24 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     }
 
 
+    @Override
+    public void getListOfReports(DataAccess.Empty request, StreamObserver<DataAccess.ListOfReports> responseObserver) {
+
+        DataAccess.ListOfReports.Builder builder = DataAccess.ListOfReports.newBuilder();
+
+        List<Report> reports=Dao.listOfReports(request.getEmpty());
+
+        for (Report report: reports) {
+            builder.addReport(DataAccess.Report.newBuilder()
+                            .setId(report.getId())
+                    .setUserid(report.getUserId())
+                    .setDescription(report.getDescription())
+                    .setReviewid(report.getId())
+                    .build());
+
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+
+    }
 }
