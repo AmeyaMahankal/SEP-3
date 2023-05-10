@@ -42172,36 +42172,42 @@ public final class DataAccess {
         getCommentBytes();
 
     /**
-     * <code>int32 cityid = 3;</code>
-     * @return The cityid.
+     * <code>int32 starreview = 3;</code>
+     * @return The starreview.
      */
-    int getCityid();
+    int getStarreview();
 
     /**
-     * <code>int32 categoryid = 4;</code>
+     * <code>int32 userid = 4;</code>
+     * @return The userid.
+     */
+    int getUserid();
+
+    /**
+     * <code>int32 categoryid = 5;</code>
      * @return The categoryid.
      */
     int getCategoryid();
 
     /**
-     * <code>string categoryname = 5;</code>
+     * <code>string categoryname = 6;</code>
      * @return The categoryname.
      */
     java.lang.String getCategoryname();
     /**
-     * <code>string categoryname = 5;</code>
+     * <code>string categoryname = 6;</code>
      * @return The bytes for categoryname.
      */
     com.google.protobuf.ByteString
         getCategorynameBytes();
 
     /**
-     * <code>string categorytype = 6;</code>
+     * <code>string categorytype = 7;</code>
      * @return The categorytype.
      */
     java.lang.String getCategorytype();
     /**
-     * <code>string categorytype = 6;</code>
+     * <code>string categorytype = 7;</code>
      * @return The bytes for categorytype.
      */
     com.google.protobuf.ByteString
@@ -42268,21 +42274,26 @@ public final class DataAccess {
             }
             case 24: {
 
-              cityid_ = input.readInt32();
+              starreview_ = input.readInt32();
               break;
             }
             case 32: {
 
+              userid_ = input.readInt32();
+              break;
+            }
+            case 40: {
+
               categoryid_ = input.readInt32();
               break;
             }
-            case 42: {
+            case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
               categoryname_ = s;
               break;
             }
-            case 50: {
+            case 58: {
               java.lang.String s = input.readStringRequireUtf8();
 
               categorytype_ = s;
@@ -42371,21 +42382,32 @@ public final class DataAccess {
       }
     }
 
-    public static final int CITYID_FIELD_NUMBER = 3;
-    private int cityid_;
+    public static final int STARREVIEW_FIELD_NUMBER = 3;
+    private int starreview_;
     /**
-     * <code>int32 cityid = 3;</code>
-     * @return The cityid.
+     * <code>int32 starreview = 3;</code>
+     * @return The starreview.
      */
     @java.lang.Override
-    public int getCityid() {
-      return cityid_;
+    public int getStarreview() {
+      return starreview_;
     }
 
-    public static final int CATEGORYID_FIELD_NUMBER = 4;
+    public static final int USERID_FIELD_NUMBER = 4;
+    private int userid_;
+    /**
+     * <code>int32 userid = 4;</code>
+     * @return The userid.
+     */
+    @java.lang.Override
+    public int getUserid() {
+      return userid_;
+    }
+
+    public static final int CATEGORYID_FIELD_NUMBER = 5;
     private int categoryid_;
     /**
-     * <code>int32 categoryid = 4;</code>
+     * <code>int32 categoryid = 5;</code>
      * @return The categoryid.
      */
     @java.lang.Override
@@ -42393,10 +42415,10 @@ public final class DataAccess {
       return categoryid_;
     }
 
-    public static final int CATEGORYNAME_FIELD_NUMBER = 5;
+    public static final int CATEGORYNAME_FIELD_NUMBER = 6;
     private volatile java.lang.Object categoryname_;
     /**
-     * <code>string categoryname = 5;</code>
+     * <code>string categoryname = 6;</code>
      * @return The categoryname.
      */
     @java.lang.Override
@@ -42413,7 +42435,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string categoryname = 5;</code>
+     * <code>string categoryname = 6;</code>
      * @return The bytes for categoryname.
      */
     @java.lang.Override
@@ -42431,10 +42453,10 @@ public final class DataAccess {
       }
     }
 
-    public static final int CATEGORYTYPE_FIELD_NUMBER = 6;
+    public static final int CATEGORYTYPE_FIELD_NUMBER = 7;
     private volatile java.lang.Object categorytype_;
     /**
-     * <code>string categorytype = 6;</code>
+     * <code>string categorytype = 7;</code>
      * @return The categorytype.
      */
     @java.lang.Override
@@ -42451,7 +42473,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string categorytype = 6;</code>
+     * <code>string categorytype = 7;</code>
      * @return The bytes for categorytype.
      */
     @java.lang.Override
@@ -42489,17 +42511,20 @@ public final class DataAccess {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, comment_);
       }
-      if (cityid_ != 0) {
-        output.writeInt32(3, cityid_);
+      if (starreview_ != 0) {
+        output.writeInt32(3, starreview_);
+      }
+      if (userid_ != 0) {
+        output.writeInt32(4, userid_);
       }
       if (categoryid_ != 0) {
-        output.writeInt32(4, categoryid_);
+        output.writeInt32(5, categoryid_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categoryname_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, categoryname_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, categoryname_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categorytype_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, categorytype_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, categorytype_);
       }
       unknownFields.writeTo(output);
     }
@@ -42517,19 +42542,23 @@ public final class DataAccess {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, comment_);
       }
-      if (cityid_ != 0) {
+      if (starreview_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, cityid_);
+          .computeInt32Size(3, starreview_);
+      }
+      if (userid_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, userid_);
       }
       if (categoryid_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, categoryid_);
+          .computeInt32Size(5, categoryid_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categoryname_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, categoryname_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, categoryname_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categorytype_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, categorytype_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, categorytype_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -42550,8 +42579,10 @@ public final class DataAccess {
           != other.getId()) return false;
       if (!getComment()
           .equals(other.getComment())) return false;
-      if (getCityid()
-          != other.getCityid()) return false;
+      if (getStarreview()
+          != other.getStarreview()) return false;
+      if (getUserid()
+          != other.getUserid()) return false;
       if (getCategoryid()
           != other.getCategoryid()) return false;
       if (!getCategoryname()
@@ -42573,8 +42604,10 @@ public final class DataAccess {
       hash = (53 * hash) + getId();
       hash = (37 * hash) + COMMENT_FIELD_NUMBER;
       hash = (53 * hash) + getComment().hashCode();
-      hash = (37 * hash) + CITYID_FIELD_NUMBER;
-      hash = (53 * hash) + getCityid();
+      hash = (37 * hash) + STARREVIEW_FIELD_NUMBER;
+      hash = (53 * hash) + getStarreview();
+      hash = (37 * hash) + USERID_FIELD_NUMBER;
+      hash = (53 * hash) + getUserid();
       hash = (37 * hash) + CATEGORYID_FIELD_NUMBER;
       hash = (53 * hash) + getCategoryid();
       hash = (37 * hash) + CATEGORYNAME_FIELD_NUMBER;
@@ -42718,7 +42751,9 @@ public final class DataAccess {
 
         comment_ = "";
 
-        cityid_ = 0;
+        starreview_ = 0;
+
+        userid_ = 0;
 
         categoryid_ = 0;
 
@@ -42754,7 +42789,8 @@ public final class DataAccess {
         com.sdj3.protobuf.DataAccess.Review result = new com.sdj3.protobuf.DataAccess.Review(this);
         result.id_ = id_;
         result.comment_ = comment_;
-        result.cityid_ = cityid_;
+        result.starreview_ = starreview_;
+        result.userid_ = userid_;
         result.categoryid_ = categoryid_;
         result.categoryname_ = categoryname_;
         result.categorytype_ = categorytype_;
@@ -42813,8 +42849,11 @@ public final class DataAccess {
           comment_ = other.comment_;
           onChanged();
         }
-        if (other.getCityid() != 0) {
-          setCityid(other.getCityid());
+        if (other.getStarreview() != 0) {
+          setStarreview(other.getStarreview());
+        }
+        if (other.getUserid() != 0) {
+          setUserid(other.getUserid());
         }
         if (other.getCategoryid() != 0) {
           setCategoryid(other.getCategoryid());
@@ -42963,40 +43002,71 @@ public final class DataAccess {
         return this;
       }
 
-      private int cityid_ ;
+      private int starreview_ ;
       /**
-       * <code>int32 cityid = 3;</code>
-       * @return The cityid.
+       * <code>int32 starreview = 3;</code>
+       * @return The starreview.
        */
       @java.lang.Override
-      public int getCityid() {
-        return cityid_;
+      public int getStarreview() {
+        return starreview_;
       }
       /**
-       * <code>int32 cityid = 3;</code>
-       * @param value The cityid to set.
+       * <code>int32 starreview = 3;</code>
+       * @param value The starreview to set.
        * @return This builder for chaining.
        */
-      public Builder setCityid(int value) {
+      public Builder setStarreview(int value) {
         
-        cityid_ = value;
+        starreview_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 cityid = 3;</code>
+       * <code>int32 starreview = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearCityid() {
+      public Builder clearStarreview() {
         
-        cityid_ = 0;
+        starreview_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int userid_ ;
+      /**
+       * <code>int32 userid = 4;</code>
+       * @return The userid.
+       */
+      @java.lang.Override
+      public int getUserid() {
+        return userid_;
+      }
+      /**
+       * <code>int32 userid = 4;</code>
+       * @param value The userid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserid(int value) {
+        
+        userid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 userid = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserid() {
+        
+        userid_ = 0;
         onChanged();
         return this;
       }
 
       private int categoryid_ ;
       /**
-       * <code>int32 categoryid = 4;</code>
+       * <code>int32 categoryid = 5;</code>
        * @return The categoryid.
        */
       @java.lang.Override
@@ -43004,7 +43074,7 @@ public final class DataAccess {
         return categoryid_;
       }
       /**
-       * <code>int32 categoryid = 4;</code>
+       * <code>int32 categoryid = 5;</code>
        * @param value The categoryid to set.
        * @return This builder for chaining.
        */
@@ -43015,7 +43085,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>int32 categoryid = 4;</code>
+       * <code>int32 categoryid = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearCategoryid() {
@@ -43027,7 +43097,7 @@ public final class DataAccess {
 
       private java.lang.Object categoryname_ = "";
       /**
-       * <code>string categoryname = 5;</code>
+       * <code>string categoryname = 6;</code>
        * @return The categoryname.
        */
       public java.lang.String getCategoryname() {
@@ -43043,7 +43113,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string categoryname = 5;</code>
+       * <code>string categoryname = 6;</code>
        * @return The bytes for categoryname.
        */
       public com.google.protobuf.ByteString
@@ -43060,7 +43130,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string categoryname = 5;</code>
+       * <code>string categoryname = 6;</code>
        * @param value The categoryname to set.
        * @return This builder for chaining.
        */
@@ -43075,7 +43145,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string categoryname = 5;</code>
+       * <code>string categoryname = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearCategoryname() {
@@ -43085,7 +43155,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string categoryname = 5;</code>
+       * <code>string categoryname = 6;</code>
        * @param value The bytes for categoryname to set.
        * @return This builder for chaining.
        */
@@ -43103,7 +43173,7 @@ public final class DataAccess {
 
       private java.lang.Object categorytype_ = "";
       /**
-       * <code>string categorytype = 6;</code>
+       * <code>string categorytype = 7;</code>
        * @return The categorytype.
        */
       public java.lang.String getCategorytype() {
@@ -43119,7 +43189,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string categorytype = 6;</code>
+       * <code>string categorytype = 7;</code>
        * @return The bytes for categorytype.
        */
       public com.google.protobuf.ByteString
@@ -43136,7 +43206,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string categorytype = 6;</code>
+       * <code>string categorytype = 7;</code>
        * @param value The categorytype to set.
        * @return This builder for chaining.
        */
@@ -43151,7 +43221,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string categorytype = 6;</code>
+       * <code>string categorytype = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearCategorytype() {
@@ -43161,7 +43231,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string categorytype = 6;</code>
+       * <code>string categorytype = 7;</code>
        * @param value The bytes for categorytype to set.
        * @return This builder for chaining.
        */
@@ -43246,36 +43316,42 @@ public final class DataAccess {
         getCommentBytes();
 
     /**
-     * <code>int32 cityid = 2;</code>
-     * @return The cityid.
+     * <code>int32 starreview = 2;</code>
+     * @return The starreview.
      */
-    int getCityid();
+    int getStarreview();
 
     /**
-     * <code>int32 categoryid = 3;</code>
+     * <code>int32 userid = 3;</code>
+     * @return The userid.
+     */
+    int getUserid();
+
+    /**
+     * <code>int32 categoryid = 4;</code>
      * @return The categoryid.
      */
     int getCategoryid();
 
     /**
-     * <code>string categoryname = 4;</code>
+     * <code>string categoryname = 5;</code>
      * @return The categoryname.
      */
     java.lang.String getCategoryname();
     /**
-     * <code>string categoryname = 4;</code>
+     * <code>string categoryname = 5;</code>
      * @return The bytes for categoryname.
      */
     com.google.protobuf.ByteString
         getCategorynameBytes();
 
     /**
-     * <code>string categorytype = 5;</code>
+     * <code>string categorytype = 6;</code>
      * @return The categorytype.
      */
     java.lang.String getCategorytype();
     /**
-     * <code>string categorytype = 5;</code>
+     * <code>string categorytype = 6;</code>
      * @return The bytes for categorytype.
      */
     com.google.protobuf.ByteString
@@ -43337,21 +43413,26 @@ public final class DataAccess {
             }
             case 16: {
 
-              cityid_ = input.readInt32();
+              starreview_ = input.readInt32();
               break;
             }
             case 24: {
 
+              userid_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
               categoryid_ = input.readInt32();
               break;
             }
-            case 34: {
+            case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
               categoryname_ = s;
               break;
             }
-            case 42: {
+            case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
               categorytype_ = s;
@@ -43429,21 +43510,32 @@ public final class DataAccess {
       }
     }
 
-    public static final int CITYID_FIELD_NUMBER = 2;
-    private int cityid_;
+    public static final int STARREVIEW_FIELD_NUMBER = 2;
+    private int starreview_;
     /**
-     * <code>int32 cityid = 2;</code>
-     * @return The cityid.
+     * <code>int32 starreview = 2;</code>
+     * @return The starreview.
      */
     @java.lang.Override
-    public int getCityid() {
-      return cityid_;
+    public int getStarreview() {
+      return starreview_;
     }
 
-    public static final int CATEGORYID_FIELD_NUMBER = 3;
+    public static final int USERID_FIELD_NUMBER = 3;
+    private int userid_;
+    /**
+     * <code>int32 userid = 3;</code>
+     * @return The userid.
+     */
+    @java.lang.Override
+    public int getUserid() {
+      return userid_;
+    }
+
+    public static final int CATEGORYID_FIELD_NUMBER = 4;
     private int categoryid_;
     /**
-     * <code>int32 categoryid = 3;</code>
+     * <code>int32 categoryid = 4;</code>
      * @return The categoryid.
      */
     @java.lang.Override
@@ -43451,10 +43543,10 @@ public final class DataAccess {
       return categoryid_;
     }
 
-    public static final int CATEGORYNAME_FIELD_NUMBER = 4;
+    public static final int CATEGORYNAME_FIELD_NUMBER = 5;
     private volatile java.lang.Object categoryname_;
     /**
-     * <code>string categoryname = 4;</code>
+     * <code>string categoryname = 5;</code>
      * @return The categoryname.
      */
     @java.lang.Override
@@ -43471,7 +43563,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string categoryname = 4;</code>
+     * <code>string categoryname = 5;</code>
      * @return The bytes for categoryname.
      */
     @java.lang.Override
@@ -43489,10 +43581,10 @@ public final class DataAccess {
       }
     }
 
-    public static final int CATEGORYTYPE_FIELD_NUMBER = 5;
+    public static final int CATEGORYTYPE_FIELD_NUMBER = 6;
     private volatile java.lang.Object categorytype_;
     /**
-     * <code>string categorytype = 5;</code>
+     * <code>string categorytype = 6;</code>
      * @return The categorytype.
      */
     @java.lang.Override
@@ -43509,7 +43601,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string categorytype = 5;</code>
+     * <code>string categorytype = 6;</code>
      * @return The bytes for categorytype.
      */
     @java.lang.Override
@@ -43544,17 +43636,20 @@ public final class DataAccess {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, comment_);
       }
-      if (cityid_ != 0) {
-        output.writeInt32(2, cityid_);
+      if (starreview_ != 0) {
+        output.writeInt32(2, starreview_);
+      }
+      if (userid_ != 0) {
+        output.writeInt32(3, userid_);
       }
       if (categoryid_ != 0) {
-        output.writeInt32(3, categoryid_);
+        output.writeInt32(4, categoryid_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categoryname_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, categoryname_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, categoryname_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categorytype_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, categorytype_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, categorytype_);
       }
       unknownFields.writeTo(output);
     }
@@ -43568,19 +43663,23 @@ public final class DataAccess {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, comment_);
       }
-      if (cityid_ != 0) {
+      if (starreview_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, cityid_);
+          .computeInt32Size(2, starreview_);
+      }
+      if (userid_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, userid_);
       }
       if (categoryid_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, categoryid_);
+          .computeInt32Size(4, categoryid_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categoryname_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, categoryname_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, categoryname_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categorytype_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, categorytype_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, categorytype_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -43599,8 +43698,10 @@ public final class DataAccess {
 
       if (!getComment()
           .equals(other.getComment())) return false;
-      if (getCityid()
-          != other.getCityid()) return false;
+      if (getStarreview()
+          != other.getStarreview()) return false;
+      if (getUserid()
+          != other.getUserid()) return false;
       if (getCategoryid()
           != other.getCategoryid()) return false;
       if (!getCategoryname()
@@ -43620,8 +43721,10 @@ public final class DataAccess {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + COMMENT_FIELD_NUMBER;
       hash = (53 * hash) + getComment().hashCode();
-      hash = (37 * hash) + CITYID_FIELD_NUMBER;
-      hash = (53 * hash) + getCityid();
+      hash = (37 * hash) + STARREVIEW_FIELD_NUMBER;
+      hash = (53 * hash) + getStarreview();
+      hash = (37 * hash) + USERID_FIELD_NUMBER;
+      hash = (53 * hash) + getUserid();
       hash = (37 * hash) + CATEGORYID_FIELD_NUMBER;
       hash = (53 * hash) + getCategoryid();
       hash = (37 * hash) + CATEGORYNAME_FIELD_NUMBER;
@@ -43763,7 +43866,9 @@ public final class DataAccess {
         super.clear();
         comment_ = "";
 
-        cityid_ = 0;
+        starreview_ = 0;
+
+        userid_ = 0;
 
         categoryid_ = 0;
 
@@ -43798,7 +43903,8 @@ public final class DataAccess {
       public com.sdj3.protobuf.DataAccess.ReviewToCreate buildPartial() {
         com.sdj3.protobuf.DataAccess.ReviewToCreate result = new com.sdj3.protobuf.DataAccess.ReviewToCreate(this);
         result.comment_ = comment_;
-        result.cityid_ = cityid_;
+        result.starreview_ = starreview_;
+        result.userid_ = userid_;
         result.categoryid_ = categoryid_;
         result.categoryname_ = categoryname_;
         result.categorytype_ = categorytype_;
@@ -43854,8 +43960,11 @@ public final class DataAccess {
           comment_ = other.comment_;
           onChanged();
         }
-        if (other.getCityid() != 0) {
-          setCityid(other.getCityid());
+        if (other.getStarreview() != 0) {
+          setStarreview(other.getStarreview());
+        }
+        if (other.getUserid() != 0) {
+          setUserid(other.getUserid());
         }
         if (other.getCategoryid() != 0) {
           setCategoryid(other.getCategoryid());
@@ -43973,40 +44082,71 @@ public final class DataAccess {
         return this;
       }
 
-      private int cityid_ ;
+      private int starreview_ ;
       /**
-       * <code>int32 cityid = 2;</code>
-       * @return The cityid.
+       * <code>int32 starreview = 2;</code>
+       * @return The starreview.
        */
       @java.lang.Override
-      public int getCityid() {
-        return cityid_;
+      public int getStarreview() {
+        return starreview_;
       }
       /**
-       * <code>int32 cityid = 2;</code>
-       * @param value The cityid to set.
+       * <code>int32 starreview = 2;</code>
+       * @param value The starreview to set.
        * @return This builder for chaining.
        */
-      public Builder setCityid(int value) {
+      public Builder setStarreview(int value) {
         
-        cityid_ = value;
+        starreview_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 cityid = 2;</code>
+       * <code>int32 starreview = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearCityid() {
+      public Builder clearStarreview() {
         
-        cityid_ = 0;
+        starreview_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int userid_ ;
+      /**
+       * <code>int32 userid = 3;</code>
+       * @return The userid.
+       */
+      @java.lang.Override
+      public int getUserid() {
+        return userid_;
+      }
+      /**
+       * <code>int32 userid = 3;</code>
+       * @param value The userid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserid(int value) {
+        
+        userid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 userid = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserid() {
+        
+        userid_ = 0;
         onChanged();
         return this;
       }
 
       private int categoryid_ ;
       /**
-       * <code>int32 categoryid = 3;</code>
+       * <code>int32 categoryid = 4;</code>
        * @return The categoryid.
        */
       @java.lang.Override
@@ -44014,7 +44154,7 @@ public final class DataAccess {
         return categoryid_;
       }
       /**
-       * <code>int32 categoryid = 3;</code>
+       * <code>int32 categoryid = 4;</code>
        * @param value The categoryid to set.
        * @return This builder for chaining.
        */
@@ -44025,7 +44165,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>int32 categoryid = 3;</code>
+       * <code>int32 categoryid = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearCategoryid() {
@@ -44037,7 +44177,7 @@ public final class DataAccess {
 
       private java.lang.Object categoryname_ = "";
       /**
-       * <code>string categoryname = 4;</code>
+       * <code>string categoryname = 5;</code>
        * @return The categoryname.
        */
       public java.lang.String getCategoryname() {
@@ -44053,7 +44193,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string categoryname = 4;</code>
+       * <code>string categoryname = 5;</code>
        * @return The bytes for categoryname.
        */
       public com.google.protobuf.ByteString
@@ -44070,7 +44210,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string categoryname = 4;</code>
+       * <code>string categoryname = 5;</code>
        * @param value The categoryname to set.
        * @return This builder for chaining.
        */
@@ -44085,7 +44225,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string categoryname = 4;</code>
+       * <code>string categoryname = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearCategoryname() {
@@ -44095,7 +44235,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string categoryname = 4;</code>
+       * <code>string categoryname = 5;</code>
        * @param value The bytes for categoryname to set.
        * @return This builder for chaining.
        */
@@ -44113,7 +44253,7 @@ public final class DataAccess {
 
       private java.lang.Object categorytype_ = "";
       /**
-       * <code>string categorytype = 5;</code>
+       * <code>string categorytype = 6;</code>
        * @return The categorytype.
        */
       public java.lang.String getCategorytype() {
@@ -44129,7 +44269,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string categorytype = 5;</code>
+       * <code>string categorytype = 6;</code>
        * @return The bytes for categorytype.
        */
       public com.google.protobuf.ByteString
@@ -44146,7 +44286,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string categorytype = 5;</code>
+       * <code>string categorytype = 6;</code>
        * @param value The categorytype to set.
        * @return This builder for chaining.
        */
@@ -44161,7 +44301,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string categorytype = 5;</code>
+       * <code>string categorytype = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearCategorytype() {
@@ -44171,7 +44311,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string categorytype = 5;</code>
+       * <code>string categorytype = 6;</code>
        * @param value The bytes for categorytype to set.
        * @return This builder for chaining.
        */
@@ -44250,16 +44390,22 @@ public final class DataAccess {
     int getCode();
 
     /**
-     * <code>string name = 2;</code>
-     * @return The name.
+     * <code>string comment = 2;</code>
+     * @return The comment.
      */
-    java.lang.String getName();
+    java.lang.String getComment();
     /**
-     * <code>string name = 2;</code>
-     * @return The bytes for name.
+     * <code>string comment = 2;</code>
+     * @return The bytes for comment.
      */
     com.google.protobuf.ByteString
-        getNameBytes();
+        getCommentBytes();
+
+    /**
+     * <code>int32 starreview = 3;</code>
+     * @return The starreview.
+     */
+    int getStarreview();
   }
   /**
    * Protobuf type {@code ReviewCreated}
@@ -44274,7 +44420,7 @@ public final class DataAccess {
       super(builder);
     }
     private ReviewCreated() {
-      name_ = "";
+      comment_ = "";
     }
 
     @java.lang.Override
@@ -44315,7 +44461,12 @@ public final class DataAccess {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              name_ = s;
+              comment_ = s;
+              break;
+            }
+            case 24: {
+
+              starreview_ = input.readInt32();
               break;
             }
             default: {
@@ -44363,42 +44514,53 @@ public final class DataAccess {
       return code_;
     }
 
-    public static final int NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object name_;
+    public static final int COMMENT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object comment_;
     /**
-     * <code>string name = 2;</code>
-     * @return The name.
+     * <code>string comment = 2;</code>
+     * @return The comment.
      */
     @java.lang.Override
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
+    public java.lang.String getComment() {
+      java.lang.Object ref = comment_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        comment_ = s;
         return s;
       }
     }
     /**
-     * <code>string name = 2;</code>
-     * @return The bytes for name.
+     * <code>string comment = 2;</code>
+     * @return The bytes for comment.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
+        getCommentBytes() {
+      java.lang.Object ref = comment_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        name_ = b;
+        comment_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int STARREVIEW_FIELD_NUMBER = 3;
+    private int starreview_;
+    /**
+     * <code>int32 starreview = 3;</code>
+     * @return The starreview.
+     */
+    @java.lang.Override
+    public int getStarreview() {
+      return starreview_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -44418,8 +44580,11 @@ public final class DataAccess {
       if (code_ != 0) {
         output.writeInt32(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, comment_);
+      }
+      if (starreview_ != 0) {
+        output.writeInt32(3, starreview_);
       }
       unknownFields.writeTo(output);
     }
@@ -44434,8 +44599,12 @@ public final class DataAccess {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, comment_);
+      }
+      if (starreview_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, starreview_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -44454,8 +44623,10 @@ public final class DataAccess {
 
       if (getCode()
           != other.getCode()) return false;
-      if (!getName()
-          .equals(other.getName())) return false;
+      if (!getComment()
+          .equals(other.getComment())) return false;
+      if (getStarreview()
+          != other.getStarreview()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -44469,8 +44640,10 @@ public final class DataAccess {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CODE_FIELD_NUMBER;
       hash = (53 * hash) + getCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + COMMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getComment().hashCode();
+      hash = (37 * hash) + STARREVIEW_FIELD_NUMBER;
+      hash = (53 * hash) + getStarreview();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -44606,7 +44779,9 @@ public final class DataAccess {
         super.clear();
         code_ = 0;
 
-        name_ = "";
+        comment_ = "";
+
+        starreview_ = 0;
 
         return this;
       }
@@ -44635,7 +44810,8 @@ public final class DataAccess {
       public com.sdj3.protobuf.DataAccess.ReviewCreated buildPartial() {
         com.sdj3.protobuf.DataAccess.ReviewCreated result = new com.sdj3.protobuf.DataAccess.ReviewCreated(this);
         result.code_ = code_;
-        result.name_ = name_;
+        result.comment_ = comment_;
+        result.starreview_ = starreview_;
         onBuilt();
         return result;
       }
@@ -44687,9 +44863,12 @@ public final class DataAccess {
         if (other.getCode() != 0) {
           setCode(other.getCode());
         }
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
+        if (!other.getComment().isEmpty()) {
+          comment_ = other.comment_;
           onChanged();
+        }
+        if (other.getStarreview() != 0) {
+          setStarreview(other.getStarreview());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -44751,78 +44930,109 @@ public final class DataAccess {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object comment_ = "";
       /**
-       * <code>string name = 2;</code>
-       * @return The name.
+       * <code>string comment = 2;</code>
+       * @return The comment.
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
+      public java.lang.String getComment() {
+        java.lang.Object ref = comment_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          name_ = s;
+          comment_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string name = 2;</code>
-       * @return The bytes for name.
+       * <code>string comment = 2;</code>
+       * @return The bytes for comment.
        */
       public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
+          getCommentBytes() {
+        java.lang.Object ref = comment_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          name_ = b;
+          comment_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string name = 2;</code>
-       * @param value The name to set.
+       * <code>string comment = 2;</code>
+       * @param value The comment to set.
        * @return This builder for chaining.
        */
-      public Builder setName(
+      public Builder setComment(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        name_ = value;
+        comment_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>string comment = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearName() {
+      public Builder clearComment() {
         
-        name_ = getDefaultInstance().getName();
+        comment_ = getDefaultInstance().getComment();
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
-       * @param value The bytes for name to set.
+       * <code>string comment = 2;</code>
+       * @param value The bytes for comment to set.
        * @return This builder for chaining.
        */
-      public Builder setNameBytes(
+      public Builder setCommentBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        name_ = value;
+        comment_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int starreview_ ;
+      /**
+       * <code>int32 starreview = 3;</code>
+       * @return The starreview.
+       */
+      @java.lang.Override
+      public int getStarreview() {
+        return starreview_;
+      }
+      /**
+       * <code>int32 starreview = 3;</code>
+       * @param value The starreview to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStarreview(int value) {
+        
+        starreview_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 starreview = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStarreview() {
+        
+        starreview_ = 0;
         onChanged();
         return this;
       }
@@ -51835,16 +52045,16 @@ public final class DataAccess {
     int getCode();
 
     /**
-     * <code>string name = 2;</code>
-     * @return The name.
+     * <code>string description = 2;</code>
+     * @return The description.
      */
-    java.lang.String getName();
+    java.lang.String getDescription();
     /**
-     * <code>string name = 2;</code>
-     * @return The bytes for name.
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
-        getNameBytes();
+        getDescriptionBytes();
   }
   /**
    * Protobuf type {@code ReportCreated}
@@ -51859,7 +52069,7 @@ public final class DataAccess {
       super(builder);
     }
     private ReportCreated() {
-      name_ = "";
+      description_ = "";
     }
 
     @java.lang.Override
@@ -51900,7 +52110,7 @@ public final class DataAccess {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              name_ = s;
+              description_ = s;
               break;
             }
             default: {
@@ -51948,38 +52158,38 @@ public final class DataAccess {
       return code_;
     }
 
-    public static final int NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object name_;
+    public static final int DESCRIPTION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object description_;
     /**
-     * <code>string name = 2;</code>
-     * @return The name.
+     * <code>string description = 2;</code>
+     * @return The description.
      */
     @java.lang.Override
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        description_ = s;
         return s;
       }
     }
     /**
-     * <code>string name = 2;</code>
-     * @return The bytes for name.
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        name_ = b;
+        description_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -52003,8 +52213,8 @@ public final class DataAccess {
       if (code_ != 0) {
         output.writeInt32(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
       unknownFields.writeTo(output);
     }
@@ -52019,8 +52229,8 @@ public final class DataAccess {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -52039,8 +52249,8 @@ public final class DataAccess {
 
       if (getCode()
           != other.getCode()) return false;
-      if (!getName()
-          .equals(other.getName())) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -52054,8 +52264,8 @@ public final class DataAccess {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CODE_FIELD_NUMBER;
       hash = (53 * hash) + getCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -52191,7 +52401,7 @@ public final class DataAccess {
         super.clear();
         code_ = 0;
 
-        name_ = "";
+        description_ = "";
 
         return this;
       }
@@ -52220,7 +52430,7 @@ public final class DataAccess {
       public com.sdj3.protobuf.DataAccess.ReportCreated buildPartial() {
         com.sdj3.protobuf.DataAccess.ReportCreated result = new com.sdj3.protobuf.DataAccess.ReportCreated(this);
         result.code_ = code_;
-        result.name_ = name_;
+        result.description_ = description_;
         onBuilt();
         return result;
       }
@@ -52272,8 +52482,8 @@ public final class DataAccess {
         if (other.getCode() != 0) {
           setCode(other.getCode());
         }
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -52336,78 +52546,78 @@ public final class DataAccess {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object description_ = "";
       /**
-       * <code>string name = 2;</code>
-       * @return The name.
+       * <code>string description = 2;</code>
+       * @return The description.
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          name_ = s;
+          description_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string name = 2;</code>
-       * @return The bytes for name.
+       * <code>string description = 2;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          name_ = b;
+          description_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string name = 2;</code>
-       * @param value The name to set.
+       * <code>string description = 2;</code>
+       * @param value The description to set.
        * @return This builder for chaining.
        */
-      public Builder setName(
+      public Builder setDescription(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        name_ = value;
+        description_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>string description = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearName() {
+      public Builder clearDescription() {
         
-        name_ = getDefaultInstance().getName();
+        description_ = getDefaultInstance().getDescription();
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
-       * @param value The bytes for name to set.
+       * <code>string description = 2;</code>
+       * @param value The bytes for description to set.
        * @return This builder for chaining.
        */
-      public Builder setNameBytes(
+      public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        name_ = value;
+        description_ = value;
         onChanged();
         return this;
       }
@@ -55810,94 +56020,96 @@ public final class DataAccess {
       "\002 \001(\t\"!\n\021RestaurantDeleted\022\014\n\004code\030\001 \001(\005" +
       "\"*\n\030CitysIdForRestaurantList\022\016\n\006cityid\030\001" +
       " \001(\005\"4\n\021ListOfRestaurants\022\037\n\nrestaurant\030" +
-      "\001 \003(\0132\013.Restaurant\"u\n\006Review\022\n\n\002id\030\001 \001(\005" +
-      "\022\017\n\007comment\030\002 \001(\t\022\016\n\006cityid\030\003 \001(\005\022\022\n\ncat" +
-      "egoryid\030\004 \001(\005\022\024\n\014categoryname\030\005 \001(\t\022\024\n\014c" +
-      "ategorytype\030\006 \001(\t\"q\n\016ReviewToCreate\022\017\n\007c" +
-      "omment\030\001 \001(\t\022\016\n\006cityid\030\002 \001(\005\022\022\n\ncategory" +
-      "id\030\003 \001(\005\022\024\n\014categoryname\030\004 \001(\t\022\024\n\014catego" +
-      "rytype\030\005 \001(\t\"+\n\rReviewCreated\022\014\n\004code\030\001 " +
-      "\001(\005\022\014\n\004name\030\002 \001(\t\"\030\n\nReviewById\022\n\n\002id\030\001 " +
-      "\001(\005\"5\n\026ReviewsCommentToUpdate\022\n\n\002id\030\001 \001(" +
-      "\005\022\017\n\007comment\030\002 \001(\t\":\n\030ReviewStarReviewTo" +
-      "Update\022\n\n\002id\030\001 \001(\005\022\022\n\nstarreview\030\002 \001(\005\"\034" +
-      "\n\016ReviewToDelete\022\n\n\002id\030\001 \001(\005\"5\n\024ReviewCo" +
-      "mmentUpdated\022\014\n\004code\030\001 \001(\005\022\017\n\007comment\030\002 " +
-      "\001(\t\"<\n\030ReviewsStarReviewUpdated\022\014\n\004code\030" +
-      "\001 \001(\005\022\022\n\nstarreview\030\002 \001(\005\"\035\n\rReviewDelet" +
-      "ed\022\014\n\004code\030\001 \001(\005\"W\n\025CategoryForReviewLis" +
-      "t\022\022\n\ncategoryid\030\001 \001(\005\022\024\n\014categoryname\030\002 " +
-      "\001(\t\022\024\n\014categorytype\030\003 \001(\t\"\'\n\013ReveiewList" +
-      "\022\030\n\007reviews\030\001 \003(\0132\007.Review\"K\n\006Report\022\n\n\002" +
-      "id\030\001 \001(\005\022\016\n\006userid\030\002 \001(\005\022\023\n\013description\030" +
-      "\003 \001(\t\022\020\n\010reviewid\030\004 \001(\005\"G\n\016ReportToCreat" +
-      "e\022\016\n\006userid\030\001 \001(\005\022\023\n\013description\030\002 \001(\t\022\020" +
-      "\n\010reviewid\030\003 \001(\005\"+\n\rReportCreated\022\014\n\004cod" +
-      "e\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"\036\n\nReportById\022\020\n\010r" +
-      "eportid\030\001 \001(\005\"\"\n\016ReportToDelete\022\020\n\010repor" +
-      "tid\030\001 \001(\005\"\035\n\rReportDeleted\022\014\n\004code\030\001 \001(\005" +
-      "\"(\n\rListOfReports\022\027\n\006report\030\001 \003(\0132\007.Repo" +
-      "rt\"\026\n\005Empty\022\r\n\005empty\030\001 \001(\t2\300\022\n\006Access\022.\n" +
-      "\nCreateUser\022\013.UserCreate\032\023.UserCreateRes" +
-      "ponse\022(\n\rGetByUsername\022\020.UserGetUsername" +
-      "\032\005.User\022\034\n\007GetById\022\n.UserGetId\032\005.User\0229\n" +
-      "\022GetUsersContaining\022\025.SearchUserParamete" +
-      "rs\032\014.listOfUsers\022)\n\nCreateCity\022\r.CityToC" +
-      "reate\032\014.CityCreated\022#\n\rGetCitByyname\022\013.C" +
-      "ityByName\032\005.City\022\037\n\013GetCityById\022\t.CityBy" +
-      "Id\032\005.City\022,\n\013CreateHotel\022\016.HotelToCreate" +
-      "\032\r.HotelCreated\022&\n\016GetHotelByName\022\014.Hote" +
-      "lByName\032\006.Hotel\022\"\n\014GetHotelById\022\n.HotelB" +
-      "yId\032\006.Hotel\0228\n\017UpdateHotelName\022\022.HotelNa" +
-      "meToUpdate\032\021.HotelNameUpdated\022M\n\026UpdateH" +
-      "otelDescription\022\031.HotelDescriptionToUpda" +
-      "te\032\030.HotelDescriptionUpdated\022,\n\013DeleteHo" +
-      "tel\022\016.HotelToDelete\032\r.HotelDeleted\0225\n\017Ge" +
-      "tListOfHotels\022\023.CitysIdFoHotelList\032\r.Lis" +
-      "tOfHotels\022/\n\014CreateMuseum\022\017.MuseumToCrea" +
-      "te\032\016.MuseumCreated\022)\n\017GetMuseumByName\022\r." +
-      "MuseumByName\032\007.Museum\022%\n\rGetMuseumById\022\013" +
-      ".MuseumById\032\007.Museum\022;\n\020UpdateMuseumName" +
-      "\022\023.MuseumNameToUpdate\032\022.MuseumNameUpdate" +
-      "d\022P\n\027UpdateMuseumDescription\022\032.MuseumDes" +
-      "criptionToUpdate\032\031.MuseumDescriptionUpda" +
-      "ted\022/\n\014DeleteMuseum\022\017.MuseumToDelete\032\016.M" +
-      "useumDeleted\0229\n\020GetListOfMuseums\022\025.Citys" +
-      "IdForMuseumList\032\016.ListOfMuseums\022)\n\nCreat" +
-      "ePark\022\r.ParkToCreate\032\014.ParkCreated\022#\n\rGe" +
-      "tParkByName\022\013.ParkByName\032\005.Park\022\037\n\013GetPa" +
-      "rkById\022\t.ParkById\032\005.Park\0225\n\016UpdateParkNa" +
-      "me\022\021.ParkNameToUpdate\032\020.ParkNameUpdated\022" +
-      "J\n\025UpdateParkDescription\022\030.ParkDescripti" +
-      "onToUpdate\032\027.ParkDescriptionUpdated\022)\n\nD" +
-      "eletePark\022\r.ParkToDelete\032\014.ParkDeleted\0223" +
-      "\n\016GetListOfParks\022\023.CitysIdForParkList\032\014." +
-      "ListOfParks\022;\n\020CreateRestaurant\022\023.Restau" +
-      "rantToCreate\032\022.RestaurantCreated\0225\n\023GetR" +
-      "estaurantByName\022\021.RestaurantByName\032\013.Res" +
-      "taurant\0221\n\021GetRestaurantById\022\017.Restauran" +
-      "tById\032\013.Restaurant\022G\n\024UpdateRestaurantNa" +
-      "me\022\027.RestaurantNameToUpdate\032\026.Restaurant" +
-      "NameUpdated\022\\\n\033UpdateRestaurantDescripti" +
-      "on\022\036.RestaurantDescriptionToUpdate\032\035.Res" +
-      "taurantDescriptionUpdated\022;\n\020DeleteResta" +
-      "urant\022\023.RestaurantToDelete\032\022.RestaurantD" +
-      "eleted\022D\n\023GetListOfRestaurant\022\031.CitysIdF" +
-      "orRestaurantList\032\022.ListOfRestaurants\022/\n\014" +
-      "CreateReview\022\017.ReviewToCreate\032\016.ReviewCr" +
-      "eated\022%\n\rGetReviewById\022\013.ReviewById\032\007.Re" +
-      "view\022E\n\023UpdateReviewComment\022\027.ReviewsCom" +
-      "mentToUpdate\032\025.ReviewCommentUpdated\022H\n\020U" +
-      "pdateStarReview\022\031.ReviewStarReviewToUpda" +
-      "te\032\031.ReviewsStarReviewUpdated\022/\n\014DeleteR" +
-      "eview\022\017.ReviewToDelete\032\016.ReviewDeleted\0228" +
-      "\n\020GetListOfReviews\022\026.CategoryForReviewLi" +
-      "st\032\014.ReveiewList\022/\n\014CreateReport\022\017.Repor" +
-      "tToCreate\032\016.ReportCreated\022%\n\rGetReportBy" +
-      "Id\022\013.ReportById\032\007.Report\022/\n\014DeleteReport" +
-      "\022\017.ReportToDelete\032\016.ReportDeleted\022*\n\020Get" +
-      "ListOfReports\022\006.Empty\032\016.ListOfReportsB\023\n" +
-      "\021com.sdj3.protobufb\006proto3"
+      "\001 \003(\0132\013.Restaurant\"\211\001\n\006Review\022\n\n\002id\030\001 \001(" +
+      "\005\022\017\n\007comment\030\002 \001(\t\022\022\n\nstarreview\030\003 \001(\005\022\016" +
+      "\n\006userid\030\004 \001(\005\022\022\n\ncategoryid\030\005 \001(\005\022\024\n\014ca" +
+      "tegoryname\030\006 \001(\t\022\024\n\014categorytype\030\007 \001(\t\"\205" +
+      "\001\n\016ReviewToCreate\022\017\n\007comment\030\001 \001(\t\022\022\n\nst" +
+      "arreview\030\002 \001(\005\022\016\n\006userid\030\003 \001(\005\022\022\n\ncatego" +
+      "ryid\030\004 \001(\005\022\024\n\014categoryname\030\005 \001(\t\022\024\n\014cate" +
+      "gorytype\030\006 \001(\t\"B\n\rReviewCreated\022\014\n\004code\030" +
+      "\001 \001(\005\022\017\n\007comment\030\002 \001(\t\022\022\n\nstarreview\030\003 \001" +
+      "(\005\"\030\n\nReviewById\022\n\n\002id\030\001 \001(\005\"5\n\026ReviewsC" +
+      "ommentToUpdate\022\n\n\002id\030\001 \001(\005\022\017\n\007comment\030\002 " +
+      "\001(\t\":\n\030ReviewStarReviewToUpdate\022\n\n\002id\030\001 " +
+      "\001(\005\022\022\n\nstarreview\030\002 \001(\005\"\034\n\016ReviewToDelet" +
+      "e\022\n\n\002id\030\001 \001(\005\"5\n\024ReviewCommentUpdated\022\014\n" +
+      "\004code\030\001 \001(\005\022\017\n\007comment\030\002 \001(\t\"<\n\030ReviewsS" +
+      "tarReviewUpdated\022\014\n\004code\030\001 \001(\005\022\022\n\nstarre" +
+      "view\030\002 \001(\005\"\035\n\rReviewDeleted\022\014\n\004code\030\001 \001(" +
+      "\005\"W\n\025CategoryForReviewList\022\022\n\ncategoryid" +
+      "\030\001 \001(\005\022\024\n\014categoryname\030\002 \001(\t\022\024\n\014category" +
+      "type\030\003 \001(\t\"\'\n\013ReveiewList\022\030\n\007reviews\030\001 \003" +
+      "(\0132\007.Review\"K\n\006Report\022\n\n\002id\030\001 \001(\005\022\016\n\006use" +
+      "rid\030\002 \001(\005\022\023\n\013description\030\003 \001(\t\022\020\n\010review" +
+      "id\030\004 \001(\005\"G\n\016ReportToCreate\022\016\n\006userid\030\001 \001" +
+      "(\005\022\023\n\013description\030\002 \001(\t\022\020\n\010reviewid\030\003 \001(" +
+      "\005\"2\n\rReportCreated\022\014\n\004code\030\001 \001(\005\022\023\n\013desc" +
+      "ription\030\002 \001(\t\"\036\n\nReportById\022\020\n\010reportid\030" +
+      "\001 \001(\005\"\"\n\016ReportToDelete\022\020\n\010reportid\030\001 \001(" +
+      "\005\"\035\n\rReportDeleted\022\014\n\004code\030\001 \001(\005\"(\n\rList" +
+      "OfReports\022\027\n\006report\030\001 \003(\0132\007.Report\"\026\n\005Em" +
+      "pty\022\r\n\005empty\030\001 \001(\t2\300\022\n\006Access\022.\n\nCreateU" +
+      "ser\022\013.UserCreate\032\023.UserCreateResponse\022(\n" +
+      "\rGetByUsername\022\020.UserGetUsername\032\005.User\022" +
+      "\034\n\007GetById\022\n.UserGetId\032\005.User\0229\n\022GetUser" +
+      "sContaining\022\025.SearchUserParameters\032\014.lis" +
+      "tOfUsers\022)\n\nCreateCity\022\r.CityToCreate\032\014." +
+      "CityCreated\022#\n\rGetCitByyname\022\013.CityByNam" +
+      "e\032\005.City\022\037\n\013GetCityById\022\t.CityById\032\005.Cit" +
+      "y\022,\n\013CreateHotel\022\016.HotelToCreate\032\r.Hotel" +
+      "Created\022&\n\016GetHotelByName\022\014.HotelByName\032" +
+      "\006.Hotel\022\"\n\014GetHotelById\022\n.HotelById\032\006.Ho" +
+      "tel\0228\n\017UpdateHotelName\022\022.HotelNameToUpda" +
+      "te\032\021.HotelNameUpdated\022M\n\026UpdateHotelDesc" +
+      "ription\022\031.HotelDescriptionToUpdate\032\030.Hot" +
+      "elDescriptionUpdated\022,\n\013DeleteHotel\022\016.Ho" +
+      "telToDelete\032\r.HotelDeleted\0225\n\017GetListOfH" +
+      "otels\022\023.CitysIdFoHotelList\032\r.ListOfHotel" +
+      "s\022/\n\014CreateMuseum\022\017.MuseumToCreate\032\016.Mus" +
+      "eumCreated\022)\n\017GetMuseumByName\022\r.MuseumBy" +
+      "Name\032\007.Museum\022%\n\rGetMuseumById\022\013.MuseumB" +
+      "yId\032\007.Museum\022;\n\020UpdateMuseumName\022\023.Museu" +
+      "mNameToUpdate\032\022.MuseumNameUpdated\022P\n\027Upd" +
+      "ateMuseumDescription\022\032.MuseumDescription" +
+      "ToUpdate\032\031.MuseumDescriptionUpdated\022/\n\014D" +
+      "eleteMuseum\022\017.MuseumToDelete\032\016.MuseumDel" +
+      "eted\0229\n\020GetListOfMuseums\022\025.CitysIdForMus" +
+      "eumList\032\016.ListOfMuseums\022)\n\nCreatePark\022\r." +
+      "ParkToCreate\032\014.ParkCreated\022#\n\rGetParkByN" +
+      "ame\022\013.ParkByName\032\005.Park\022\037\n\013GetParkById\022\t" +
+      ".ParkById\032\005.Park\0225\n\016UpdateParkName\022\021.Par" +
+      "kNameToUpdate\032\020.ParkNameUpdated\022J\n\025Updat" +
+      "eParkDescription\022\030.ParkDescriptionToUpda" +
+      "te\032\027.ParkDescriptionUpdated\022)\n\nDeletePar" +
+      "k\022\r.ParkToDelete\032\014.ParkDeleted\0223\n\016GetLis" +
+      "tOfParks\022\023.CitysIdForParkList\032\014.ListOfPa" +
+      "rks\022;\n\020CreateRestaurant\022\023.RestaurantToCr" +
+      "eate\032\022.RestaurantCreated\0225\n\023GetRestauran" +
+      "tByName\022\021.RestaurantByName\032\013.Restaurant\022" +
+      "1\n\021GetRestaurantById\022\017.RestaurantById\032\013." +
+      "Restaurant\022G\n\024UpdateRestaurantName\022\027.Res" +
+      "taurantNameToUpdate\032\026.RestaurantNameUpda" +
+      "ted\022\\\n\033UpdateRestaurantDescription\022\036.Res" +
+      "taurantDescriptionToUpdate\032\035.RestaurantD" +
+      "escriptionUpdated\022;\n\020DeleteRestaurant\022\023." +
+      "RestaurantToDelete\032\022.RestaurantDeleted\022D" +
+      "\n\023GetListOfRestaurant\022\031.CitysIdForRestau" +
+      "rantList\032\022.ListOfRestaurants\022/\n\014CreateRe" +
+      "view\022\017.ReviewToCreate\032\016.ReviewCreated\022%\n" +
+      "\rGetReviewById\022\013.ReviewById\032\007.Review\022E\n\023" +
+      "UpdateReviewComment\022\027.ReviewsCommentToUp" +
+      "date\032\025.ReviewCommentUpdated\022H\n\020UpdateSta" +
+      "rReview\022\031.ReviewStarReviewToUpdate\032\031.Rev" +
+      "iewsStarReviewUpdated\022/\n\014DeleteReview\022\017." +
+      "ReviewToDelete\032\016.ReviewDeleted\0228\n\020GetLis" +
+      "tOfReviews\022\026.CategoryForReviewList\032\014.Rev" +
+      "eiewList\022/\n\014CreateReport\022\017.ReportToCreat" +
+      "e\032\016.ReportCreated\022%\n\rGetReportById\022\013.Rep" +
+      "ortById\032\007.Report\022/\n\014DeleteReport\022\017.Repor" +
+      "tToDelete\032\016.ReportDeleted\022*\n\020GetListOfRe" +
+      "ports\022\006.Empty\032\016.ListOfReportsB\023\n\021com.sdj" +
+      "3.protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -56292,19 +56504,19 @@ public final class DataAccess {
     internal_static_Review_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Review_descriptor,
-        new java.lang.String[] { "Id", "Comment", "Cityid", "Categoryid", "Categoryname", "Categorytype", });
+        new java.lang.String[] { "Id", "Comment", "Starreview", "Userid", "Categoryid", "Categoryname", "Categorytype", });
     internal_static_ReviewToCreate_descriptor =
       getDescriptor().getMessageTypes().get(65);
     internal_static_ReviewToCreate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewToCreate_descriptor,
-        new java.lang.String[] { "Comment", "Cityid", "Categoryid", "Categoryname", "Categorytype", });
+        new java.lang.String[] { "Comment", "Starreview", "Userid", "Categoryid", "Categoryname", "Categorytype", });
     internal_static_ReviewCreated_descriptor =
       getDescriptor().getMessageTypes().get(66);
     internal_static_ReviewCreated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewCreated_descriptor,
-        new java.lang.String[] { "Code", "Name", });
+        new java.lang.String[] { "Code", "Comment", "Starreview", });
     internal_static_ReviewById_descriptor =
       getDescriptor().getMessageTypes().get(67);
     internal_static_ReviewById_fieldAccessorTable = new
@@ -56376,7 +56588,7 @@ public final class DataAccess {
     internal_static_ReportCreated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReportCreated_descriptor,
-        new java.lang.String[] { "Code", "Name", });
+        new java.lang.String[] { "Code", "Description", });
     internal_static_ReportById_descriptor =
       getDescriptor().getMessageTypes().get(79);
     internal_static_ReportById_fieldAccessorTable = new

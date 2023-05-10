@@ -11,13 +11,13 @@ public class DaoTests {
         //d.insertMuseum("Horsens","it is one of the most beautiful cities on the face of this horrid world","photo-of-hell",1);
         //d.insertPark("Horsens","it is one of the most beautiful cities on the face of this horrid world","photo-of-hell",1);
         //d.insertRestaurant("Horsens","it is one of the most beautiful cities on the face of this horrid world","photo-of-hell",1);
-      //  d.insertReview("sfsdgdrgh",4,1,1,"lknlknl");
+      // d.insertReview("sfsdgdrgh",4,1,1,"lknlknl","sadfsdg");
         //d.updateCityDescription("asfdfefqw",4);
 
       //  System.out.println( d.getCityById(2));
 
-            System.out.println( d.listOfReports("empty"));
-
+           // System.out.println( d.listOfReports("empty"));
+        d.updateStarReview(3,1);
 
     }
 }
