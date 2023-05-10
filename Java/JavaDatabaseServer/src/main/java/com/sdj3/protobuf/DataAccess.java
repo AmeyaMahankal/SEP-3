@@ -6554,40 +6554,22 @@ public final class DataAccess {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string name = 2;</code>
      * @return The name.
      */
     java.lang.String getName();
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
-
-    /**
-     * <code>string description = 2;</code>
-     * @return The description.
-     */
-    java.lang.String getDescription();
-    /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
-     */
-    com.google.protobuf.ByteString
-        getDescriptionBytes();
-
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The imageurl.
-     */
-    java.lang.String getImageurl();
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The bytes for imageurl.
-     */
-    com.google.protobuf.ByteString
-        getImageurlBytes();
   }
   /**
    * Protobuf type {@code CityCreated}
@@ -6603,8 +6585,6 @@ public final class DataAccess {
     }
     private CityCreated() {
       name_ = "";
-      description_ = "";
-      imageurl_ = "";
     }
 
     @java.lang.Override
@@ -6637,22 +6617,15 @@ public final class DataAccess {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              name_ = s;
+              code_ = input.readInt32();
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              description_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              imageurl_ = s;
+              name_ = s;
               break;
             }
             default: {
@@ -6689,10 +6662,21 @@ public final class DataAccess {
               com.sdj3.protobuf.DataAccess.CityCreated.class, com.sdj3.protobuf.DataAccess.CityCreated.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The name.
      */
     @java.lang.Override
@@ -6709,7 +6693,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     @java.lang.Override
@@ -6721,82 +6705,6 @@ public final class DataAccess {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
-    /**
-     * <code>string description = 2;</code>
-     * @return The description.
-     */
-    @java.lang.Override
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int IMAGEURL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object imageurl_;
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The imageurl.
-     */
-    @java.lang.Override
-    public java.lang.String getImageurl() {
-      java.lang.Object ref = imageurl_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        imageurl_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The bytes for imageurl.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getImageurlBytes() {
-      java.lang.Object ref = imageurl_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        imageurl_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -6817,14 +6725,11 @@ public final class DataAccess {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageurl_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, imageurl_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
       unknownFields.writeTo(output);
     }
@@ -6835,14 +6740,12 @@ public final class DataAccess {
       if (size != -1) return size;
 
       size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageurl_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, imageurl_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6859,12 +6762,10 @@ public final class DataAccess {
       }
       com.sdj3.protobuf.DataAccess.CityCreated other = (com.sdj3.protobuf.DataAccess.CityCreated) obj;
 
+      if (getCode()
+          != other.getCode()) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!getDescription()
-          .equals(other.getDescription())) return false;
-      if (!getImageurl()
-          .equals(other.getImageurl())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6876,12 +6777,10 @@ public final class DataAccess {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDescription().hashCode();
-      hash = (37 * hash) + IMAGEURL_FIELD_NUMBER;
-      hash = (53 * hash) + getImageurl().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7015,11 +6914,9 @@ public final class DataAccess {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        code_ = 0;
+
         name_ = "";
-
-        description_ = "";
-
-        imageurl_ = "";
 
         return this;
       }
@@ -7047,9 +6944,8 @@ public final class DataAccess {
       @java.lang.Override
       public com.sdj3.protobuf.DataAccess.CityCreated buildPartial() {
         com.sdj3.protobuf.DataAccess.CityCreated result = new com.sdj3.protobuf.DataAccess.CityCreated(this);
+        result.code_ = code_;
         result.name_ = name_;
-        result.description_ = description_;
-        result.imageurl_ = imageurl_;
         onBuilt();
         return result;
       }
@@ -7098,16 +6994,11 @@ public final class DataAccess {
 
       public Builder mergeFrom(com.sdj3.protobuf.DataAccess.CityCreated other) {
         if (other == com.sdj3.protobuf.DataAccess.CityCreated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
-          onChanged();
-        }
-        if (!other.getDescription().isEmpty()) {
-          description_ = other.description_;
-          onChanged();
-        }
-        if (!other.getImageurl().isEmpty()) {
-          imageurl_ = other.imageurl_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -7139,9 +7030,40 @@ public final class DataAccess {
         return this;
       }
 
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object name_ = "";
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The name.
        */
       public java.lang.String getName() {
@@ -7157,7 +7079,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
@@ -7174,7 +7096,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The name to set.
        * @return This builder for chaining.
        */
@@ -7189,7 +7111,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearName() {
@@ -7199,7 +7121,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
@@ -7211,158 +7133,6 @@ public final class DataAccess {
   checkByteStringIsUtf8(value);
         
         name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object description_ = "";
-      /**
-       * <code>string description = 2;</code>
-       * @return The description.
-       */
-      public java.lang.String getDescription() {
-        java.lang.Object ref = description_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          description_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @return The bytes for description.
-       */
-      public com.google.protobuf.ByteString
-          getDescriptionBytes() {
-        java.lang.Object ref = description_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          description_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @param value The description to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDescription(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        description_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDescription() {
-        
-        description_ = getDefaultInstance().getDescription();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @param value The bytes for description to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDescriptionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        description_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object imageurl_ = "";
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return The imageurl.
-       */
-      public java.lang.String getImageurl() {
-        java.lang.Object ref = imageurl_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          imageurl_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return The bytes for imageurl.
-       */
-      public com.google.protobuf.ByteString
-          getImageurlBytes() {
-        java.lang.Object ref = imageurl_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          imageurl_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @param value The imageurl to set.
-       * @return This builder for chaining.
-       */
-      public Builder setImageurl(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        imageurl_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearImageurl() {
-        
-        imageurl_ = getDefaultInstance().getImageurl();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @param value The bytes for imageurl to set.
-       * @return This builder for chaining.
-       */
-      public Builder setImageurlBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        imageurl_ = value;
         onChanged();
         return this;
       }
@@ -10434,46 +10204,22 @@ public final class DataAccess {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string name = 2;</code>
      * @return The name.
      */
     java.lang.String getName();
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
-
-    /**
-     * <code>string description = 2;</code>
-     * @return The description.
-     */
-    java.lang.String getDescription();
-    /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
-     */
-    com.google.protobuf.ByteString
-        getDescriptionBytes();
-
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The imageurl.
-     */
-    java.lang.String getImageurl();
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The bytes for imageurl.
-     */
-    com.google.protobuf.ByteString
-        getImageurlBytes();
-
-    /**
-     * <code>int32 cityid = 4;</code>
-     * @return The cityid.
-     */
-    int getCityid();
   }
   /**
    * Protobuf type {@code HotelCreated}
@@ -10489,8 +10235,6 @@ public final class DataAccess {
     }
     private HotelCreated() {
       name_ = "";
-      description_ = "";
-      imageurl_ = "";
     }
 
     @java.lang.Override
@@ -10523,27 +10267,15 @@ public final class DataAccess {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              name_ = s;
+              code_ = input.readInt32();
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              description_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              imageurl_ = s;
-              break;
-            }
-            case 32: {
-
-              cityid_ = input.readInt32();
+              name_ = s;
               break;
             }
             default: {
@@ -10580,10 +10312,21 @@ public final class DataAccess {
               com.sdj3.protobuf.DataAccess.HotelCreated.class, com.sdj3.protobuf.DataAccess.HotelCreated.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The name.
      */
     @java.lang.Override
@@ -10600,7 +10343,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     @java.lang.Override
@@ -10618,93 +10361,6 @@ public final class DataAccess {
       }
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
-    /**
-     * <code>string description = 2;</code>
-     * @return The description.
-     */
-    @java.lang.Override
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int IMAGEURL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object imageurl_;
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The imageurl.
-     */
-    @java.lang.Override
-    public java.lang.String getImageurl() {
-      java.lang.Object ref = imageurl_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        imageurl_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The bytes for imageurl.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getImageurlBytes() {
-      java.lang.Object ref = imageurl_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        imageurl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CITYID_FIELD_NUMBER = 4;
-    private int cityid_;
-    /**
-     * <code>int32 cityid = 4;</code>
-     * @return The cityid.
-     */
-    @java.lang.Override
-    public int getCityid() {
-      return cityid_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -10719,17 +10375,11 @@ public final class DataAccess {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageurl_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, imageurl_);
-      }
-      if (cityid_ != 0) {
-        output.writeInt32(4, cityid_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
       unknownFields.writeTo(output);
     }
@@ -10740,18 +10390,12 @@ public final class DataAccess {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageurl_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, imageurl_);
-      }
-      if (cityid_ != 0) {
+      if (code_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, cityid_);
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10768,14 +10412,10 @@ public final class DataAccess {
       }
       com.sdj3.protobuf.DataAccess.HotelCreated other = (com.sdj3.protobuf.DataAccess.HotelCreated) obj;
 
+      if (getCode()
+          != other.getCode()) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!getDescription()
-          .equals(other.getDescription())) return false;
-      if (!getImageurl()
-          .equals(other.getImageurl())) return false;
-      if (getCityid()
-          != other.getCityid()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -10787,14 +10427,10 @@ public final class DataAccess {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDescription().hashCode();
-      hash = (37 * hash) + IMAGEURL_FIELD_NUMBER;
-      hash = (53 * hash) + getImageurl().hashCode();
-      hash = (37 * hash) + CITYID_FIELD_NUMBER;
-      hash = (53 * hash) + getCityid();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -10928,13 +10564,9 @@ public final class DataAccess {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        code_ = 0;
+
         name_ = "";
-
-        description_ = "";
-
-        imageurl_ = "";
-
-        cityid_ = 0;
 
         return this;
       }
@@ -10962,10 +10594,8 @@ public final class DataAccess {
       @java.lang.Override
       public com.sdj3.protobuf.DataAccess.HotelCreated buildPartial() {
         com.sdj3.protobuf.DataAccess.HotelCreated result = new com.sdj3.protobuf.DataAccess.HotelCreated(this);
+        result.code_ = code_;
         result.name_ = name_;
-        result.description_ = description_;
-        result.imageurl_ = imageurl_;
-        result.cityid_ = cityid_;
         onBuilt();
         return result;
       }
@@ -11014,20 +10644,12 @@ public final class DataAccess {
 
       public Builder mergeFrom(com.sdj3.protobuf.DataAccess.HotelCreated other) {
         if (other == com.sdj3.protobuf.DataAccess.HotelCreated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
-        }
-        if (!other.getDescription().isEmpty()) {
-          description_ = other.description_;
-          onChanged();
-        }
-        if (!other.getImageurl().isEmpty()) {
-          imageurl_ = other.imageurl_;
-          onChanged();
-        }
-        if (other.getCityid() != 0) {
-          setCityid(other.getCityid());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -11058,9 +10680,40 @@ public final class DataAccess {
         return this;
       }
 
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object name_ = "";
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The name.
        */
       public java.lang.String getName() {
@@ -11076,7 +10729,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
@@ -11093,7 +10746,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The name to set.
        * @return This builder for chaining.
        */
@@ -11108,7 +10761,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearName() {
@@ -11118,7 +10771,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
@@ -11130,189 +10783,6 @@ public final class DataAccess {
   checkByteStringIsUtf8(value);
         
         name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object description_ = "";
-      /**
-       * <code>string description = 2;</code>
-       * @return The description.
-       */
-      public java.lang.String getDescription() {
-        java.lang.Object ref = description_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          description_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @return The bytes for description.
-       */
-      public com.google.protobuf.ByteString
-          getDescriptionBytes() {
-        java.lang.Object ref = description_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          description_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @param value The description to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDescription(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        description_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDescription() {
-        
-        description_ = getDefaultInstance().getDescription();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @param value The bytes for description to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDescriptionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        description_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object imageurl_ = "";
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return The imageurl.
-       */
-      public java.lang.String getImageurl() {
-        java.lang.Object ref = imageurl_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          imageurl_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return The bytes for imageurl.
-       */
-      public com.google.protobuf.ByteString
-          getImageurlBytes() {
-        java.lang.Object ref = imageurl_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          imageurl_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @param value The imageurl to set.
-       * @return This builder for chaining.
-       */
-      public Builder setImageurl(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        imageurl_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearImageurl() {
-        
-        imageurl_ = getDefaultInstance().getImageurl();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @param value The bytes for imageurl to set.
-       * @return This builder for chaining.
-       */
-      public Builder setImageurlBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        imageurl_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int cityid_ ;
-      /**
-       * <code>int32 cityid = 4;</code>
-       * @return The cityid.
-       */
-      @java.lang.Override
-      public int getCityid() {
-        return cityid_;
-      }
-      /**
-       * <code>int32 cityid = 4;</code>
-       * @param value The cityid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCityid(int value) {
-        
-        cityid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 cityid = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCityid() {
-        
-        cityid_ = 0;
         onChanged();
         return this;
       }
@@ -14194,6 +13664,1776 @@ public final class DataAccess {
 
     @java.lang.Override
     public com.sdj3.protobuf.DataAccess.HotelToDelete getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface HotelNameUpdatedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:HotelNameUpdated)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+  }
+  /**
+   * Protobuf type {@code HotelNameUpdated}
+   */
+  public static final class HotelNameUpdated extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:HotelNameUpdated)
+      HotelNameUpdatedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use HotelNameUpdated.newBuilder() to construct.
+    private HotelNameUpdated(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private HotelNameUpdated() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new HotelNameUpdated();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private HotelNameUpdated(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_HotelNameUpdated_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_HotelNameUpdated_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.HotelNameUpdated.class, com.sdj3.protobuf.DataAccess.HotelNameUpdated.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.HotelNameUpdated)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.HotelNameUpdated other = (com.sdj3.protobuf.DataAccess.HotelNameUpdated) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.HotelNameUpdated prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code HotelNameUpdated}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:HotelNameUpdated)
+        com.sdj3.protobuf.DataAccess.HotelNameUpdatedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_HotelNameUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_HotelNameUpdated_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.HotelNameUpdated.class, com.sdj3.protobuf.DataAccess.HotelNameUpdated.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.HotelNameUpdated.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        name_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_HotelNameUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.HotelNameUpdated getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.HotelNameUpdated.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.HotelNameUpdated build() {
+        com.sdj3.protobuf.DataAccess.HotelNameUpdated result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.HotelNameUpdated buildPartial() {
+        com.sdj3.protobuf.DataAccess.HotelNameUpdated result = new com.sdj3.protobuf.DataAccess.HotelNameUpdated(this);
+        result.code_ = code_;
+        result.name_ = name_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.HotelNameUpdated) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.HotelNameUpdated)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.HotelNameUpdated other) {
+        if (other == com.sdj3.protobuf.DataAccess.HotelNameUpdated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.HotelNameUpdated parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.HotelNameUpdated) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 2;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:HotelNameUpdated)
+    }
+
+    // @@protoc_insertion_point(class_scope:HotelNameUpdated)
+    private static final com.sdj3.protobuf.DataAccess.HotelNameUpdated DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.HotelNameUpdated();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.HotelNameUpdated getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<HotelNameUpdated>
+        PARSER = new com.google.protobuf.AbstractParser<HotelNameUpdated>() {
+      @java.lang.Override
+      public HotelNameUpdated parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new HotelNameUpdated(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<HotelNameUpdated> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HotelNameUpdated> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.HotelNameUpdated getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface HotelDescriptionUpdatedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:HotelDescriptionUpdated)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string description = 2;</code>
+     * @return The description.
+     */
+    java.lang.String getDescription();
+    /**
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+  }
+  /**
+   * Protobuf type {@code HotelDescriptionUpdated}
+   */
+  public static final class HotelDescriptionUpdated extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:HotelDescriptionUpdated)
+      HotelDescriptionUpdatedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use HotelDescriptionUpdated.newBuilder() to construct.
+    private HotelDescriptionUpdated(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private HotelDescriptionUpdated() {
+      description_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new HotelDescriptionUpdated();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private HotelDescriptionUpdated(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_HotelDescriptionUpdated_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_HotelDescriptionUpdated_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated.class, com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object description_;
+    /**
+     * <code>string description = 2;</code>
+     * @return The description.
+     */
+    @java.lang.Override
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated other = (com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code HotelDescriptionUpdated}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:HotelDescriptionUpdated)
+        com.sdj3.protobuf.DataAccess.HotelDescriptionUpdatedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_HotelDescriptionUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_HotelDescriptionUpdated_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated.class, com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        description_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_HotelDescriptionUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated build() {
+        com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated buildPartial() {
+        com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated result = new com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated(this);
+        result.code_ = code_;
+        result.description_ = description_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated other) {
+        if (other == com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object description_ = "";
+      /**
+       * <code>string description = 2;</code>
+       * @return The description.
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          description_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @return The bytes for description.
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescription(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDescription() {
+        
+        description_ = getDefaultInstance().getDescription();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:HotelDescriptionUpdated)
+    }
+
+    // @@protoc_insertion_point(class_scope:HotelDescriptionUpdated)
+    private static final com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<HotelDescriptionUpdated>
+        PARSER = new com.google.protobuf.AbstractParser<HotelDescriptionUpdated>() {
+      @java.lang.Override
+      public HotelDescriptionUpdated parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new HotelDescriptionUpdated(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<HotelDescriptionUpdated> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HotelDescriptionUpdated> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface HotelDeletedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:HotelDeleted)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+  }
+  /**
+   * Protobuf type {@code HotelDeleted}
+   */
+  public static final class HotelDeleted extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:HotelDeleted)
+      HotelDeletedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use HotelDeleted.newBuilder() to construct.
+    private HotelDeleted(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private HotelDeleted() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new HotelDeleted();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private HotelDeleted(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_HotelDeleted_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_HotelDeleted_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.HotelDeleted.class, com.sdj3.protobuf.DataAccess.HotelDeleted.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.HotelDeleted)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.HotelDeleted other = (com.sdj3.protobuf.DataAccess.HotelDeleted) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.HotelDeleted prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code HotelDeleted}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:HotelDeleted)
+        com.sdj3.protobuf.DataAccess.HotelDeletedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_HotelDeleted_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_HotelDeleted_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.HotelDeleted.class, com.sdj3.protobuf.DataAccess.HotelDeleted.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.HotelDeleted.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_HotelDeleted_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.HotelDeleted getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.HotelDeleted.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.HotelDeleted build() {
+        com.sdj3.protobuf.DataAccess.HotelDeleted result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.HotelDeleted buildPartial() {
+        com.sdj3.protobuf.DataAccess.HotelDeleted result = new com.sdj3.protobuf.DataAccess.HotelDeleted(this);
+        result.code_ = code_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.HotelDeleted) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.HotelDeleted)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.HotelDeleted other) {
+        if (other == com.sdj3.protobuf.DataAccess.HotelDeleted.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.HotelDeleted parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.HotelDeleted) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:HotelDeleted)
+    }
+
+    // @@protoc_insertion_point(class_scope:HotelDeleted)
+    private static final com.sdj3.protobuf.DataAccess.HotelDeleted DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.HotelDeleted();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.HotelDeleted getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<HotelDeleted>
+        PARSER = new com.google.protobuf.AbstractParser<HotelDeleted>() {
+      @java.lang.Override
+      public HotelDeleted parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new HotelDeleted(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<HotelDeleted> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HotelDeleted> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.HotelDeleted getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17439,46 +18679,22 @@ public final class DataAccess {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string name = 2;</code>
      * @return The name.
      */
     java.lang.String getName();
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
-
-    /**
-     * <code>string description = 2;</code>
-     * @return The description.
-     */
-    java.lang.String getDescription();
-    /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
-     */
-    com.google.protobuf.ByteString
-        getDescriptionBytes();
-
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The imageurl.
-     */
-    java.lang.String getImageurl();
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The bytes for imageurl.
-     */
-    com.google.protobuf.ByteString
-        getImageurlBytes();
-
-    /**
-     * <code>int32 cityid = 4;</code>
-     * @return The cityid.
-     */
-    int getCityid();
   }
   /**
    * Protobuf type {@code MuseumCreated}
@@ -17494,8 +18710,6 @@ public final class DataAccess {
     }
     private MuseumCreated() {
       name_ = "";
-      description_ = "";
-      imageurl_ = "";
     }
 
     @java.lang.Override
@@ -17528,27 +18742,15 @@ public final class DataAccess {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              name_ = s;
+              code_ = input.readInt32();
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              description_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              imageurl_ = s;
-              break;
-            }
-            case 32: {
-
-              cityid_ = input.readInt32();
+              name_ = s;
               break;
             }
             default: {
@@ -17585,10 +18787,21 @@ public final class DataAccess {
               com.sdj3.protobuf.DataAccess.MuseumCreated.class, com.sdj3.protobuf.DataAccess.MuseumCreated.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The name.
      */
     @java.lang.Override
@@ -17605,7 +18818,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     @java.lang.Override
@@ -17623,93 +18836,6 @@ public final class DataAccess {
       }
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
-    /**
-     * <code>string description = 2;</code>
-     * @return The description.
-     */
-    @java.lang.Override
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int IMAGEURL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object imageurl_;
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The imageurl.
-     */
-    @java.lang.Override
-    public java.lang.String getImageurl() {
-      java.lang.Object ref = imageurl_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        imageurl_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The bytes for imageurl.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getImageurlBytes() {
-      java.lang.Object ref = imageurl_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        imageurl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CITYID_FIELD_NUMBER = 4;
-    private int cityid_;
-    /**
-     * <code>int32 cityid = 4;</code>
-     * @return The cityid.
-     */
-    @java.lang.Override
-    public int getCityid() {
-      return cityid_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -17724,17 +18850,11 @@ public final class DataAccess {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageurl_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, imageurl_);
-      }
-      if (cityid_ != 0) {
-        output.writeInt32(4, cityid_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
       unknownFields.writeTo(output);
     }
@@ -17745,18 +18865,12 @@ public final class DataAccess {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageurl_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, imageurl_);
-      }
-      if (cityid_ != 0) {
+      if (code_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, cityid_);
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -17773,14 +18887,10 @@ public final class DataAccess {
       }
       com.sdj3.protobuf.DataAccess.MuseumCreated other = (com.sdj3.protobuf.DataAccess.MuseumCreated) obj;
 
+      if (getCode()
+          != other.getCode()) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!getDescription()
-          .equals(other.getDescription())) return false;
-      if (!getImageurl()
-          .equals(other.getImageurl())) return false;
-      if (getCityid()
-          != other.getCityid()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -17792,14 +18902,10 @@ public final class DataAccess {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDescription().hashCode();
-      hash = (37 * hash) + IMAGEURL_FIELD_NUMBER;
-      hash = (53 * hash) + getImageurl().hashCode();
-      hash = (37 * hash) + CITYID_FIELD_NUMBER;
-      hash = (53 * hash) + getCityid();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -17933,13 +19039,9 @@ public final class DataAccess {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        code_ = 0;
+
         name_ = "";
-
-        description_ = "";
-
-        imageurl_ = "";
-
-        cityid_ = 0;
 
         return this;
       }
@@ -17967,10 +19069,8 @@ public final class DataAccess {
       @java.lang.Override
       public com.sdj3.protobuf.DataAccess.MuseumCreated buildPartial() {
         com.sdj3.protobuf.DataAccess.MuseumCreated result = new com.sdj3.protobuf.DataAccess.MuseumCreated(this);
+        result.code_ = code_;
         result.name_ = name_;
-        result.description_ = description_;
-        result.imageurl_ = imageurl_;
-        result.cityid_ = cityid_;
         onBuilt();
         return result;
       }
@@ -18019,20 +19119,12 @@ public final class DataAccess {
 
       public Builder mergeFrom(com.sdj3.protobuf.DataAccess.MuseumCreated other) {
         if (other == com.sdj3.protobuf.DataAccess.MuseumCreated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
-        }
-        if (!other.getDescription().isEmpty()) {
-          description_ = other.description_;
-          onChanged();
-        }
-        if (!other.getImageurl().isEmpty()) {
-          imageurl_ = other.imageurl_;
-          onChanged();
-        }
-        if (other.getCityid() != 0) {
-          setCityid(other.getCityid());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -18063,9 +19155,40 @@ public final class DataAccess {
         return this;
       }
 
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object name_ = "";
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The name.
        */
       public java.lang.String getName() {
@@ -18081,7 +19204,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
@@ -18098,7 +19221,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The name to set.
        * @return This builder for chaining.
        */
@@ -18113,7 +19236,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearName() {
@@ -18123,7 +19246,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
@@ -18135,189 +19258,6 @@ public final class DataAccess {
   checkByteStringIsUtf8(value);
         
         name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object description_ = "";
-      /**
-       * <code>string description = 2;</code>
-       * @return The description.
-       */
-      public java.lang.String getDescription() {
-        java.lang.Object ref = description_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          description_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @return The bytes for description.
-       */
-      public com.google.protobuf.ByteString
-          getDescriptionBytes() {
-        java.lang.Object ref = description_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          description_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @param value The description to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDescription(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        description_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDescription() {
-        
-        description_ = getDefaultInstance().getDescription();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @param value The bytes for description to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDescriptionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        description_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object imageurl_ = "";
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return The imageurl.
-       */
-      public java.lang.String getImageurl() {
-        java.lang.Object ref = imageurl_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          imageurl_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return The bytes for imageurl.
-       */
-      public com.google.protobuf.ByteString
-          getImageurlBytes() {
-        java.lang.Object ref = imageurl_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          imageurl_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @param value The imageurl to set.
-       * @return This builder for chaining.
-       */
-      public Builder setImageurl(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        imageurl_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearImageurl() {
-        
-        imageurl_ = getDefaultInstance().getImageurl();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @param value The bytes for imageurl to set.
-       * @return This builder for chaining.
-       */
-      public Builder setImageurlBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        imageurl_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int cityid_ ;
-      /**
-       * <code>int32 cityid = 4;</code>
-       * @return The cityid.
-       */
-      @java.lang.Override
-      public int getCityid() {
-        return cityid_;
-      }
-      /**
-       * <code>int32 cityid = 4;</code>
-       * @param value The cityid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCityid(int value) {
-        
-        cityid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 cityid = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCityid() {
-        
-        cityid_ = 0;
         onChanged();
         return this;
       }
@@ -21199,6 +22139,1776 @@ public final class DataAccess {
 
     @java.lang.Override
     public com.sdj3.protobuf.DataAccess.MuseumToDelete getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface MuseumNameUpdatedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:MuseumNameUpdated)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+  }
+  /**
+   * Protobuf type {@code MuseumNameUpdated}
+   */
+  public static final class MuseumNameUpdated extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:MuseumNameUpdated)
+      MuseumNameUpdatedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MuseumNameUpdated.newBuilder() to construct.
+    private MuseumNameUpdated(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MuseumNameUpdated() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MuseumNameUpdated();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MuseumNameUpdated(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_MuseumNameUpdated_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_MuseumNameUpdated_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.MuseumNameUpdated.class, com.sdj3.protobuf.DataAccess.MuseumNameUpdated.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.MuseumNameUpdated)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.MuseumNameUpdated other = (com.sdj3.protobuf.DataAccess.MuseumNameUpdated) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.MuseumNameUpdated prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code MuseumNameUpdated}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:MuseumNameUpdated)
+        com.sdj3.protobuf.DataAccess.MuseumNameUpdatedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_MuseumNameUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_MuseumNameUpdated_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.MuseumNameUpdated.class, com.sdj3.protobuf.DataAccess.MuseumNameUpdated.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.MuseumNameUpdated.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        name_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_MuseumNameUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.MuseumNameUpdated getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.MuseumNameUpdated.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.MuseumNameUpdated build() {
+        com.sdj3.protobuf.DataAccess.MuseumNameUpdated result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.MuseumNameUpdated buildPartial() {
+        com.sdj3.protobuf.DataAccess.MuseumNameUpdated result = new com.sdj3.protobuf.DataAccess.MuseumNameUpdated(this);
+        result.code_ = code_;
+        result.name_ = name_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.MuseumNameUpdated) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.MuseumNameUpdated)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.MuseumNameUpdated other) {
+        if (other == com.sdj3.protobuf.DataAccess.MuseumNameUpdated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.MuseumNameUpdated parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.MuseumNameUpdated) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 2;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:MuseumNameUpdated)
+    }
+
+    // @@protoc_insertion_point(class_scope:MuseumNameUpdated)
+    private static final com.sdj3.protobuf.DataAccess.MuseumNameUpdated DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.MuseumNameUpdated();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.MuseumNameUpdated getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MuseumNameUpdated>
+        PARSER = new com.google.protobuf.AbstractParser<MuseumNameUpdated>() {
+      @java.lang.Override
+      public MuseumNameUpdated parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MuseumNameUpdated(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MuseumNameUpdated> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MuseumNameUpdated> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.MuseumNameUpdated getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface MuseumDescriptionUpdatedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:MuseumDescriptionUpdated)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string description = 2;</code>
+     * @return The description.
+     */
+    java.lang.String getDescription();
+    /**
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+  }
+  /**
+   * Protobuf type {@code MuseumDescriptionUpdated}
+   */
+  public static final class MuseumDescriptionUpdated extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:MuseumDescriptionUpdated)
+      MuseumDescriptionUpdatedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MuseumDescriptionUpdated.newBuilder() to construct.
+    private MuseumDescriptionUpdated(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MuseumDescriptionUpdated() {
+      description_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MuseumDescriptionUpdated();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MuseumDescriptionUpdated(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_MuseumDescriptionUpdated_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_MuseumDescriptionUpdated_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated.class, com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object description_;
+    /**
+     * <code>string description = 2;</code>
+     * @return The description.
+     */
+    @java.lang.Override
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated other = (com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code MuseumDescriptionUpdated}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:MuseumDescriptionUpdated)
+        com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdatedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_MuseumDescriptionUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_MuseumDescriptionUpdated_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated.class, com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        description_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_MuseumDescriptionUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated build() {
+        com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated buildPartial() {
+        com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated result = new com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated(this);
+        result.code_ = code_;
+        result.description_ = description_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated other) {
+        if (other == com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object description_ = "";
+      /**
+       * <code>string description = 2;</code>
+       * @return The description.
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          description_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @return The bytes for description.
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescription(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDescription() {
+        
+        description_ = getDefaultInstance().getDescription();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:MuseumDescriptionUpdated)
+    }
+
+    // @@protoc_insertion_point(class_scope:MuseumDescriptionUpdated)
+    private static final com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MuseumDescriptionUpdated>
+        PARSER = new com.google.protobuf.AbstractParser<MuseumDescriptionUpdated>() {
+      @java.lang.Override
+      public MuseumDescriptionUpdated parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MuseumDescriptionUpdated(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MuseumDescriptionUpdated> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MuseumDescriptionUpdated> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface MuseumDeletedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:MuseumDeleted)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+  }
+  /**
+   * Protobuf type {@code MuseumDeleted}
+   */
+  public static final class MuseumDeleted extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:MuseumDeleted)
+      MuseumDeletedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MuseumDeleted.newBuilder() to construct.
+    private MuseumDeleted(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MuseumDeleted() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MuseumDeleted();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MuseumDeleted(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_MuseumDeleted_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_MuseumDeleted_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.MuseumDeleted.class, com.sdj3.protobuf.DataAccess.MuseumDeleted.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.MuseumDeleted)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.MuseumDeleted other = (com.sdj3.protobuf.DataAccess.MuseumDeleted) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.MuseumDeleted prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code MuseumDeleted}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:MuseumDeleted)
+        com.sdj3.protobuf.DataAccess.MuseumDeletedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_MuseumDeleted_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_MuseumDeleted_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.MuseumDeleted.class, com.sdj3.protobuf.DataAccess.MuseumDeleted.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.MuseumDeleted.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_MuseumDeleted_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.MuseumDeleted getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.MuseumDeleted.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.MuseumDeleted build() {
+        com.sdj3.protobuf.DataAccess.MuseumDeleted result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.MuseumDeleted buildPartial() {
+        com.sdj3.protobuf.DataAccess.MuseumDeleted result = new com.sdj3.protobuf.DataAccess.MuseumDeleted(this);
+        result.code_ = code_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.MuseumDeleted) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.MuseumDeleted)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.MuseumDeleted other) {
+        if (other == com.sdj3.protobuf.DataAccess.MuseumDeleted.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.MuseumDeleted parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.MuseumDeleted) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:MuseumDeleted)
+    }
+
+    // @@protoc_insertion_point(class_scope:MuseumDeleted)
+    private static final com.sdj3.protobuf.DataAccess.MuseumDeleted DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.MuseumDeleted();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.MuseumDeleted getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MuseumDeleted>
+        PARSER = new com.google.protobuf.AbstractParser<MuseumDeleted>() {
+      @java.lang.Override
+      public MuseumDeleted parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MuseumDeleted(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MuseumDeleted> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MuseumDeleted> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.MuseumDeleted getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -24444,46 +27154,22 @@ public final class DataAccess {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string name = 2;</code>
      * @return The name.
      */
     java.lang.String getName();
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
-
-    /**
-     * <code>string description = 2;</code>
-     * @return The description.
-     */
-    java.lang.String getDescription();
-    /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
-     */
-    com.google.protobuf.ByteString
-        getDescriptionBytes();
-
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The imageurl.
-     */
-    java.lang.String getImageurl();
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The bytes for imageurl.
-     */
-    com.google.protobuf.ByteString
-        getImageurlBytes();
-
-    /**
-     * <code>int32 cityid = 4;</code>
-     * @return The cityid.
-     */
-    int getCityid();
   }
   /**
    * Protobuf type {@code ParkCreated}
@@ -24499,8 +27185,6 @@ public final class DataAccess {
     }
     private ParkCreated() {
       name_ = "";
-      description_ = "";
-      imageurl_ = "";
     }
 
     @java.lang.Override
@@ -24533,27 +27217,15 @@ public final class DataAccess {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              name_ = s;
+              code_ = input.readInt32();
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              description_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              imageurl_ = s;
-              break;
-            }
-            case 32: {
-
-              cityid_ = input.readInt32();
+              name_ = s;
               break;
             }
             default: {
@@ -24590,10 +27262,21 @@ public final class DataAccess {
               com.sdj3.protobuf.DataAccess.ParkCreated.class, com.sdj3.protobuf.DataAccess.ParkCreated.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The name.
      */
     @java.lang.Override
@@ -24610,7 +27293,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     @java.lang.Override
@@ -24628,93 +27311,6 @@ public final class DataAccess {
       }
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
-    /**
-     * <code>string description = 2;</code>
-     * @return The description.
-     */
-    @java.lang.Override
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int IMAGEURL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object imageurl_;
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The imageurl.
-     */
-    @java.lang.Override
-    public java.lang.String getImageurl() {
-      java.lang.Object ref = imageurl_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        imageurl_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The bytes for imageurl.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getImageurlBytes() {
-      java.lang.Object ref = imageurl_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        imageurl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CITYID_FIELD_NUMBER = 4;
-    private int cityid_;
-    /**
-     * <code>int32 cityid = 4;</code>
-     * @return The cityid.
-     */
-    @java.lang.Override
-    public int getCityid() {
-      return cityid_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -24729,17 +27325,11 @@ public final class DataAccess {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageurl_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, imageurl_);
-      }
-      if (cityid_ != 0) {
-        output.writeInt32(4, cityid_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
       unknownFields.writeTo(output);
     }
@@ -24750,18 +27340,12 @@ public final class DataAccess {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageurl_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, imageurl_);
-      }
-      if (cityid_ != 0) {
+      if (code_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, cityid_);
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -24778,14 +27362,10 @@ public final class DataAccess {
       }
       com.sdj3.protobuf.DataAccess.ParkCreated other = (com.sdj3.protobuf.DataAccess.ParkCreated) obj;
 
+      if (getCode()
+          != other.getCode()) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!getDescription()
-          .equals(other.getDescription())) return false;
-      if (!getImageurl()
-          .equals(other.getImageurl())) return false;
-      if (getCityid()
-          != other.getCityid()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -24797,14 +27377,10 @@ public final class DataAccess {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDescription().hashCode();
-      hash = (37 * hash) + IMAGEURL_FIELD_NUMBER;
-      hash = (53 * hash) + getImageurl().hashCode();
-      hash = (37 * hash) + CITYID_FIELD_NUMBER;
-      hash = (53 * hash) + getCityid();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -24938,13 +27514,9 @@ public final class DataAccess {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        code_ = 0;
+
         name_ = "";
-
-        description_ = "";
-
-        imageurl_ = "";
-
-        cityid_ = 0;
 
         return this;
       }
@@ -24972,10 +27544,8 @@ public final class DataAccess {
       @java.lang.Override
       public com.sdj3.protobuf.DataAccess.ParkCreated buildPartial() {
         com.sdj3.protobuf.DataAccess.ParkCreated result = new com.sdj3.protobuf.DataAccess.ParkCreated(this);
+        result.code_ = code_;
         result.name_ = name_;
-        result.description_ = description_;
-        result.imageurl_ = imageurl_;
-        result.cityid_ = cityid_;
         onBuilt();
         return result;
       }
@@ -25024,20 +27594,12 @@ public final class DataAccess {
 
       public Builder mergeFrom(com.sdj3.protobuf.DataAccess.ParkCreated other) {
         if (other == com.sdj3.protobuf.DataAccess.ParkCreated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
-        }
-        if (!other.getDescription().isEmpty()) {
-          description_ = other.description_;
-          onChanged();
-        }
-        if (!other.getImageurl().isEmpty()) {
-          imageurl_ = other.imageurl_;
-          onChanged();
-        }
-        if (other.getCityid() != 0) {
-          setCityid(other.getCityid());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -25068,9 +27630,40 @@ public final class DataAccess {
         return this;
       }
 
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object name_ = "";
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The name.
        */
       public java.lang.String getName() {
@@ -25086,7 +27679,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
@@ -25103,7 +27696,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The name to set.
        * @return This builder for chaining.
        */
@@ -25118,7 +27711,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearName() {
@@ -25128,7 +27721,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
@@ -25140,189 +27733,6 @@ public final class DataAccess {
   checkByteStringIsUtf8(value);
         
         name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object description_ = "";
-      /**
-       * <code>string description = 2;</code>
-       * @return The description.
-       */
-      public java.lang.String getDescription() {
-        java.lang.Object ref = description_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          description_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @return The bytes for description.
-       */
-      public com.google.protobuf.ByteString
-          getDescriptionBytes() {
-        java.lang.Object ref = description_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          description_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @param value The description to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDescription(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        description_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDescription() {
-        
-        description_ = getDefaultInstance().getDescription();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @param value The bytes for description to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDescriptionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        description_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object imageurl_ = "";
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return The imageurl.
-       */
-      public java.lang.String getImageurl() {
-        java.lang.Object ref = imageurl_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          imageurl_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return The bytes for imageurl.
-       */
-      public com.google.protobuf.ByteString
-          getImageurlBytes() {
-        java.lang.Object ref = imageurl_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          imageurl_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @param value The imageurl to set.
-       * @return This builder for chaining.
-       */
-      public Builder setImageurl(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        imageurl_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearImageurl() {
-        
-        imageurl_ = getDefaultInstance().getImageurl();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @param value The bytes for imageurl to set.
-       * @return This builder for chaining.
-       */
-      public Builder setImageurlBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        imageurl_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int cityid_ ;
-      /**
-       * <code>int32 cityid = 4;</code>
-       * @return The cityid.
-       */
-      @java.lang.Override
-      public int getCityid() {
-        return cityid_;
-      }
-      /**
-       * <code>int32 cityid = 4;</code>
-       * @param value The cityid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCityid(int value) {
-        
-        cityid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 cityid = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCityid() {
-        
-        cityid_ = 0;
         onChanged();
         return this;
       }
@@ -28204,6 +30614,1776 @@ public final class DataAccess {
 
     @java.lang.Override
     public com.sdj3.protobuf.DataAccess.ParkToDelete getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ParkNameUpdatedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ParkNameUpdated)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+  }
+  /**
+   * Protobuf type {@code ParkNameUpdated}
+   */
+  public static final class ParkNameUpdated extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ParkNameUpdated)
+      ParkNameUpdatedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ParkNameUpdated.newBuilder() to construct.
+    private ParkNameUpdated(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ParkNameUpdated() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ParkNameUpdated();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ParkNameUpdated(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ParkNameUpdated_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ParkNameUpdated_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.ParkNameUpdated.class, com.sdj3.protobuf.DataAccess.ParkNameUpdated.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.ParkNameUpdated)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.ParkNameUpdated other = (com.sdj3.protobuf.DataAccess.ParkNameUpdated) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.ParkNameUpdated prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ParkNameUpdated}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ParkNameUpdated)
+        com.sdj3.protobuf.DataAccess.ParkNameUpdatedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ParkNameUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ParkNameUpdated_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.ParkNameUpdated.class, com.sdj3.protobuf.DataAccess.ParkNameUpdated.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.ParkNameUpdated.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        name_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ParkNameUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ParkNameUpdated getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.ParkNameUpdated.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ParkNameUpdated build() {
+        com.sdj3.protobuf.DataAccess.ParkNameUpdated result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ParkNameUpdated buildPartial() {
+        com.sdj3.protobuf.DataAccess.ParkNameUpdated result = new com.sdj3.protobuf.DataAccess.ParkNameUpdated(this);
+        result.code_ = code_;
+        result.name_ = name_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.ParkNameUpdated) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.ParkNameUpdated)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.ParkNameUpdated other) {
+        if (other == com.sdj3.protobuf.DataAccess.ParkNameUpdated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.ParkNameUpdated parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.ParkNameUpdated) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 2;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ParkNameUpdated)
+    }
+
+    // @@protoc_insertion_point(class_scope:ParkNameUpdated)
+    private static final com.sdj3.protobuf.DataAccess.ParkNameUpdated DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.ParkNameUpdated();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ParkNameUpdated getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ParkNameUpdated>
+        PARSER = new com.google.protobuf.AbstractParser<ParkNameUpdated>() {
+      @java.lang.Override
+      public ParkNameUpdated parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ParkNameUpdated(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ParkNameUpdated> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ParkNameUpdated> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.ParkNameUpdated getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ParkDescriptionUpdatedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ParkDescriptionUpdated)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string description = 2;</code>
+     * @return The description.
+     */
+    java.lang.String getDescription();
+    /**
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+  }
+  /**
+   * Protobuf type {@code ParkDescriptionUpdated}
+   */
+  public static final class ParkDescriptionUpdated extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ParkDescriptionUpdated)
+      ParkDescriptionUpdatedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ParkDescriptionUpdated.newBuilder() to construct.
+    private ParkDescriptionUpdated(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ParkDescriptionUpdated() {
+      description_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ParkDescriptionUpdated();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ParkDescriptionUpdated(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ParkDescriptionUpdated_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ParkDescriptionUpdated_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated.class, com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object description_;
+    /**
+     * <code>string description = 2;</code>
+     * @return The description.
+     */
+    @java.lang.Override
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated other = (com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ParkDescriptionUpdated}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ParkDescriptionUpdated)
+        com.sdj3.protobuf.DataAccess.ParkDescriptionUpdatedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ParkDescriptionUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ParkDescriptionUpdated_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated.class, com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        description_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ParkDescriptionUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated build() {
+        com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated buildPartial() {
+        com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated result = new com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated(this);
+        result.code_ = code_;
+        result.description_ = description_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated other) {
+        if (other == com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object description_ = "";
+      /**
+       * <code>string description = 2;</code>
+       * @return The description.
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          description_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @return The bytes for description.
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescription(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDescription() {
+        
+        description_ = getDefaultInstance().getDescription();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ParkDescriptionUpdated)
+    }
+
+    // @@protoc_insertion_point(class_scope:ParkDescriptionUpdated)
+    private static final com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ParkDescriptionUpdated>
+        PARSER = new com.google.protobuf.AbstractParser<ParkDescriptionUpdated>() {
+      @java.lang.Override
+      public ParkDescriptionUpdated parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ParkDescriptionUpdated(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ParkDescriptionUpdated> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ParkDescriptionUpdated> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ParkDeletedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ParkDeleted)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+  }
+  /**
+   * Protobuf type {@code ParkDeleted}
+   */
+  public static final class ParkDeleted extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ParkDeleted)
+      ParkDeletedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ParkDeleted.newBuilder() to construct.
+    private ParkDeleted(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ParkDeleted() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ParkDeleted();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ParkDeleted(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ParkDeleted_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ParkDeleted_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.ParkDeleted.class, com.sdj3.protobuf.DataAccess.ParkDeleted.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.ParkDeleted)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.ParkDeleted other = (com.sdj3.protobuf.DataAccess.ParkDeleted) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.ParkDeleted prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ParkDeleted}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ParkDeleted)
+        com.sdj3.protobuf.DataAccess.ParkDeletedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ParkDeleted_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ParkDeleted_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.ParkDeleted.class, com.sdj3.protobuf.DataAccess.ParkDeleted.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.ParkDeleted.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ParkDeleted_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ParkDeleted getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.ParkDeleted.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ParkDeleted build() {
+        com.sdj3.protobuf.DataAccess.ParkDeleted result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ParkDeleted buildPartial() {
+        com.sdj3.protobuf.DataAccess.ParkDeleted result = new com.sdj3.protobuf.DataAccess.ParkDeleted(this);
+        result.code_ = code_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.ParkDeleted) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.ParkDeleted)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.ParkDeleted other) {
+        if (other == com.sdj3.protobuf.DataAccess.ParkDeleted.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.ParkDeleted parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.ParkDeleted) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ParkDeleted)
+    }
+
+    // @@protoc_insertion_point(class_scope:ParkDeleted)
+    private static final com.sdj3.protobuf.DataAccess.ParkDeleted DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.ParkDeleted();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ParkDeleted getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ParkDeleted>
+        PARSER = new com.google.protobuf.AbstractParser<ParkDeleted>() {
+      @java.lang.Override
+      public ParkDeleted parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ParkDeleted(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ParkDeleted> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ParkDeleted> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.ParkDeleted getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -31449,46 +35629,22 @@ public final class DataAccess {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string name = 1;</code>
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string name = 2;</code>
      * @return The name.
      */
     java.lang.String getName();
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
-
-    /**
-     * <code>string description = 2;</code>
-     * @return The description.
-     */
-    java.lang.String getDescription();
-    /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
-     */
-    com.google.protobuf.ByteString
-        getDescriptionBytes();
-
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The imageurl.
-     */
-    java.lang.String getImageurl();
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The bytes for imageurl.
-     */
-    com.google.protobuf.ByteString
-        getImageurlBytes();
-
-    /**
-     * <code>int32 cityid = 4;</code>
-     * @return The cityid.
-     */
-    int getCityid();
   }
   /**
    * Protobuf type {@code RestaurantCreated}
@@ -31504,8 +35660,6 @@ public final class DataAccess {
     }
     private RestaurantCreated() {
       name_ = "";
-      description_ = "";
-      imageurl_ = "";
     }
 
     @java.lang.Override
@@ -31538,27 +35692,15 @@ public final class DataAccess {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              name_ = s;
+              code_ = input.readInt32();
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              description_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              imageurl_ = s;
-              break;
-            }
-            case 32: {
-
-              cityid_ = input.readInt32();
+              name_ = s;
               break;
             }
             default: {
@@ -31595,10 +35737,21 @@ public final class DataAccess {
               com.sdj3.protobuf.DataAccess.RestaurantCreated.class, com.sdj3.protobuf.DataAccess.RestaurantCreated.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The name.
      */
     @java.lang.Override
@@ -31615,7 +35768,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 2;</code>
      * @return The bytes for name.
      */
     @java.lang.Override
@@ -31633,93 +35786,6 @@ public final class DataAccess {
       }
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
-    /**
-     * <code>string description = 2;</code>
-     * @return The description.
-     */
-    @java.lang.Override
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int IMAGEURL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object imageurl_;
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The imageurl.
-     */
-    @java.lang.Override
-    public java.lang.String getImageurl() {
-      java.lang.Object ref = imageurl_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        imageurl_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string imageurl = 3;</code>
-     * @return The bytes for imageurl.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getImageurlBytes() {
-      java.lang.Object ref = imageurl_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        imageurl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CITYID_FIELD_NUMBER = 4;
-    private int cityid_;
-    /**
-     * <code>int32 cityid = 4;</code>
-     * @return The cityid.
-     */
-    @java.lang.Override
-    public int getCityid() {
-      return cityid_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -31734,17 +35800,11 @@ public final class DataAccess {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageurl_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, imageurl_);
-      }
-      if (cityid_ != 0) {
-        output.writeInt32(4, cityid_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
       unknownFields.writeTo(output);
     }
@@ -31755,18 +35815,12 @@ public final class DataAccess {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageurl_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, imageurl_);
-      }
-      if (cityid_ != 0) {
+      if (code_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, cityid_);
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -31783,14 +35837,10 @@ public final class DataAccess {
       }
       com.sdj3.protobuf.DataAccess.RestaurantCreated other = (com.sdj3.protobuf.DataAccess.RestaurantCreated) obj;
 
+      if (getCode()
+          != other.getCode()) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!getDescription()
-          .equals(other.getDescription())) return false;
-      if (!getImageurl()
-          .equals(other.getImageurl())) return false;
-      if (getCityid()
-          != other.getCityid()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -31802,14 +35852,10 @@ public final class DataAccess {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDescription().hashCode();
-      hash = (37 * hash) + IMAGEURL_FIELD_NUMBER;
-      hash = (53 * hash) + getImageurl().hashCode();
-      hash = (37 * hash) + CITYID_FIELD_NUMBER;
-      hash = (53 * hash) + getCityid();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -31943,13 +35989,9 @@ public final class DataAccess {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        code_ = 0;
+
         name_ = "";
-
-        description_ = "";
-
-        imageurl_ = "";
-
-        cityid_ = 0;
 
         return this;
       }
@@ -31977,10 +36019,8 @@ public final class DataAccess {
       @java.lang.Override
       public com.sdj3.protobuf.DataAccess.RestaurantCreated buildPartial() {
         com.sdj3.protobuf.DataAccess.RestaurantCreated result = new com.sdj3.protobuf.DataAccess.RestaurantCreated(this);
+        result.code_ = code_;
         result.name_ = name_;
-        result.description_ = description_;
-        result.imageurl_ = imageurl_;
-        result.cityid_ = cityid_;
         onBuilt();
         return result;
       }
@@ -32029,20 +36069,12 @@ public final class DataAccess {
 
       public Builder mergeFrom(com.sdj3.protobuf.DataAccess.RestaurantCreated other) {
         if (other == com.sdj3.protobuf.DataAccess.RestaurantCreated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
-        }
-        if (!other.getDescription().isEmpty()) {
-          description_ = other.description_;
-          onChanged();
-        }
-        if (!other.getImageurl().isEmpty()) {
-          imageurl_ = other.imageurl_;
-          onChanged();
-        }
-        if (other.getCityid() != 0) {
-          setCityid(other.getCityid());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -32073,9 +36105,40 @@ public final class DataAccess {
         return this;
       }
 
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object name_ = "";
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The name.
        */
       public java.lang.String getName() {
@@ -32091,7 +36154,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
@@ -32108,7 +36171,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The name to set.
        * @return This builder for chaining.
        */
@@ -32123,7 +36186,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearName() {
@@ -32133,7 +36196,7 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>string name = 1;</code>
+       * <code>string name = 2;</code>
        * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
@@ -32145,189 +36208,6 @@ public final class DataAccess {
   checkByteStringIsUtf8(value);
         
         name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object description_ = "";
-      /**
-       * <code>string description = 2;</code>
-       * @return The description.
-       */
-      public java.lang.String getDescription() {
-        java.lang.Object ref = description_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          description_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @return The bytes for description.
-       */
-      public com.google.protobuf.ByteString
-          getDescriptionBytes() {
-        java.lang.Object ref = description_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          description_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @param value The description to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDescription(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        description_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDescription() {
-        
-        description_ = getDefaultInstance().getDescription();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @param value The bytes for description to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDescriptionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        description_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object imageurl_ = "";
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return The imageurl.
-       */
-      public java.lang.String getImageurl() {
-        java.lang.Object ref = imageurl_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          imageurl_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return The bytes for imageurl.
-       */
-      public com.google.protobuf.ByteString
-          getImageurlBytes() {
-        java.lang.Object ref = imageurl_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          imageurl_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @param value The imageurl to set.
-       * @return This builder for chaining.
-       */
-      public Builder setImageurl(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        imageurl_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearImageurl() {
-        
-        imageurl_ = getDefaultInstance().getImageurl();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string imageurl = 3;</code>
-       * @param value The bytes for imageurl to set.
-       * @return This builder for chaining.
-       */
-      public Builder setImageurlBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        imageurl_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int cityid_ ;
-      /**
-       * <code>int32 cityid = 4;</code>
-       * @return The cityid.
-       */
-      @java.lang.Override
-      public int getCityid() {
-        return cityid_;
-      }
-      /**
-       * <code>int32 cityid = 4;</code>
-       * @param value The cityid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCityid(int value) {
-        
-        cityid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 cityid = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCityid() {
-        
-        cityid_ = 0;
         onChanged();
         return this;
       }
@@ -35209,6 +39089,1776 @@ public final class DataAccess {
 
     @java.lang.Override
     public com.sdj3.protobuf.DataAccess.RestaurantToDelete getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RestaurantNameUpdatedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RestaurantNameUpdated)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+  }
+  /**
+   * Protobuf type {@code RestaurantNameUpdated}
+   */
+  public static final class RestaurantNameUpdated extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:RestaurantNameUpdated)
+      RestaurantNameUpdatedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RestaurantNameUpdated.newBuilder() to construct.
+    private RestaurantNameUpdated(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RestaurantNameUpdated() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RestaurantNameUpdated();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RestaurantNameUpdated(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_RestaurantNameUpdated_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_RestaurantNameUpdated_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.RestaurantNameUpdated.class, com.sdj3.protobuf.DataAccess.RestaurantNameUpdated.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.RestaurantNameUpdated)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.RestaurantNameUpdated other = (com.sdj3.protobuf.DataAccess.RestaurantNameUpdated) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.RestaurantNameUpdated prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code RestaurantNameUpdated}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RestaurantNameUpdated)
+        com.sdj3.protobuf.DataAccess.RestaurantNameUpdatedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_RestaurantNameUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_RestaurantNameUpdated_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.RestaurantNameUpdated.class, com.sdj3.protobuf.DataAccess.RestaurantNameUpdated.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.RestaurantNameUpdated.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        name_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_RestaurantNameUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.RestaurantNameUpdated getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.RestaurantNameUpdated.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.RestaurantNameUpdated build() {
+        com.sdj3.protobuf.DataAccess.RestaurantNameUpdated result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.RestaurantNameUpdated buildPartial() {
+        com.sdj3.protobuf.DataAccess.RestaurantNameUpdated result = new com.sdj3.protobuf.DataAccess.RestaurantNameUpdated(this);
+        result.code_ = code_;
+        result.name_ = name_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.RestaurantNameUpdated) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.RestaurantNameUpdated)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.RestaurantNameUpdated other) {
+        if (other == com.sdj3.protobuf.DataAccess.RestaurantNameUpdated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.RestaurantNameUpdated parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.RestaurantNameUpdated) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 2;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:RestaurantNameUpdated)
+    }
+
+    // @@protoc_insertion_point(class_scope:RestaurantNameUpdated)
+    private static final com.sdj3.protobuf.DataAccess.RestaurantNameUpdated DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.RestaurantNameUpdated();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.RestaurantNameUpdated getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RestaurantNameUpdated>
+        PARSER = new com.google.protobuf.AbstractParser<RestaurantNameUpdated>() {
+      @java.lang.Override
+      public RestaurantNameUpdated parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RestaurantNameUpdated(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RestaurantNameUpdated> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RestaurantNameUpdated> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.RestaurantNameUpdated getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RestaurantDescriptionUpdatedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RestaurantDescriptionUpdated)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string description = 2;</code>
+     * @return The description.
+     */
+    java.lang.String getDescription();
+    /**
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+  }
+  /**
+   * Protobuf type {@code RestaurantDescriptionUpdated}
+   */
+  public static final class RestaurantDescriptionUpdated extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:RestaurantDescriptionUpdated)
+      RestaurantDescriptionUpdatedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RestaurantDescriptionUpdated.newBuilder() to construct.
+    private RestaurantDescriptionUpdated(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RestaurantDescriptionUpdated() {
+      description_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RestaurantDescriptionUpdated();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RestaurantDescriptionUpdated(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_RestaurantDescriptionUpdated_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_RestaurantDescriptionUpdated_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated.class, com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object description_;
+    /**
+     * <code>string description = 2;</code>
+     * @return The description.
+     */
+    @java.lang.Override
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated other = (com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code RestaurantDescriptionUpdated}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RestaurantDescriptionUpdated)
+        com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdatedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_RestaurantDescriptionUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_RestaurantDescriptionUpdated_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated.class, com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        description_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_RestaurantDescriptionUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated build() {
+        com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated buildPartial() {
+        com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated result = new com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated(this);
+        result.code_ = code_;
+        result.description_ = description_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated other) {
+        if (other == com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object description_ = "";
+      /**
+       * <code>string description = 2;</code>
+       * @return The description.
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          description_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @return The bytes for description.
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescription(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDescription() {
+        
+        description_ = getDefaultInstance().getDescription();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:RestaurantDescriptionUpdated)
+    }
+
+    // @@protoc_insertion_point(class_scope:RestaurantDescriptionUpdated)
+    private static final com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RestaurantDescriptionUpdated>
+        PARSER = new com.google.protobuf.AbstractParser<RestaurantDescriptionUpdated>() {
+      @java.lang.Override
+      public RestaurantDescriptionUpdated parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RestaurantDescriptionUpdated(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RestaurantDescriptionUpdated> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RestaurantDescriptionUpdated> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RestaurantDeletedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RestaurantDeleted)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+  }
+  /**
+   * Protobuf type {@code RestaurantDeleted}
+   */
+  public static final class RestaurantDeleted extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:RestaurantDeleted)
+      RestaurantDeletedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RestaurantDeleted.newBuilder() to construct.
+    private RestaurantDeleted(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RestaurantDeleted() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RestaurantDeleted();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RestaurantDeleted(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_RestaurantDeleted_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_RestaurantDeleted_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.RestaurantDeleted.class, com.sdj3.protobuf.DataAccess.RestaurantDeleted.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.RestaurantDeleted)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.RestaurantDeleted other = (com.sdj3.protobuf.DataAccess.RestaurantDeleted) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.RestaurantDeleted prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code RestaurantDeleted}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RestaurantDeleted)
+        com.sdj3.protobuf.DataAccess.RestaurantDeletedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_RestaurantDeleted_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_RestaurantDeleted_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.RestaurantDeleted.class, com.sdj3.protobuf.DataAccess.RestaurantDeleted.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.RestaurantDeleted.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_RestaurantDeleted_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.RestaurantDeleted getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.RestaurantDeleted.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.RestaurantDeleted build() {
+        com.sdj3.protobuf.DataAccess.RestaurantDeleted result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.RestaurantDeleted buildPartial() {
+        com.sdj3.protobuf.DataAccess.RestaurantDeleted result = new com.sdj3.protobuf.DataAccess.RestaurantDeleted(this);
+        result.code_ = code_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.RestaurantDeleted) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.RestaurantDeleted)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.RestaurantDeleted other) {
+        if (other == com.sdj3.protobuf.DataAccess.RestaurantDeleted.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.RestaurantDeleted parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.RestaurantDeleted) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:RestaurantDeleted)
+    }
+
+    // @@protoc_insertion_point(class_scope:RestaurantDeleted)
+    private static final com.sdj3.protobuf.DataAccess.RestaurantDeleted DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.RestaurantDeleted();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.RestaurantDeleted getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RestaurantDeleted>
+        PARSER = new com.google.protobuf.AbstractParser<RestaurantDeleted>() {
+      @java.lang.Override
+      public RestaurantDeleted parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RestaurantDeleted(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RestaurantDeleted> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RestaurantDeleted> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.RestaurantDeleted getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -38594,52 +44244,22 @@ public final class DataAccess {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string comment = 1;</code>
-     * @return The comment.
+     * <code>int32 code = 1;</code>
+     * @return The code.
      */
-    java.lang.String getComment();
+    int getCode();
+
     /**
-     * <code>string comment = 1;</code>
-     * @return The bytes for comment.
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
-        getCommentBytes();
-
-    /**
-     * <code>int32 cityid = 2;</code>
-     * @return The cityid.
-     */
-    int getCityid();
-
-    /**
-     * <code>int32 categoryid = 3;</code>
-     * @return The categoryid.
-     */
-    int getCategoryid();
-
-    /**
-     * <code>string categoryname = 4;</code>
-     * @return The categoryname.
-     */
-    java.lang.String getCategoryname();
-    /**
-     * <code>string categoryname = 4;</code>
-     * @return The bytes for categoryname.
-     */
-    com.google.protobuf.ByteString
-        getCategorynameBytes();
-
-    /**
-     * <code>string categorytype = 5;</code>
-     * @return The categorytype.
-     */
-    java.lang.String getCategorytype();
-    /**
-     * <code>string categorytype = 5;</code>
-     * @return The bytes for categorytype.
-     */
-    com.google.protobuf.ByteString
-        getCategorytypeBytes();
+        getNameBytes();
   }
   /**
    * Protobuf type {@code ReviewCreated}
@@ -38654,9 +44274,7 @@ public final class DataAccess {
       super(builder);
     }
     private ReviewCreated() {
-      comment_ = "";
-      categoryname_ = "";
-      categorytype_ = "";
+      name_ = "";
     }
 
     @java.lang.Override
@@ -38689,32 +44307,15 @@ public final class DataAccess {
             case 0:
               done = true;
               break;
-            case 10: {
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              comment_ = s;
-              break;
-            }
-            case 16: {
-
-              cityid_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              categoryid_ = input.readInt32();
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              categoryname_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              categorytype_ = s;
+              name_ = s;
               break;
             }
             default: {
@@ -38751,136 +44352,49 @@ public final class DataAccess {
               com.sdj3.protobuf.DataAccess.ReviewCreated.class, com.sdj3.protobuf.DataAccess.ReviewCreated.Builder.class);
     }
 
-    public static final int COMMENT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object comment_;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
     /**
-     * <code>string comment = 1;</code>
-     * @return The comment.
+     * <code>int32 code = 1;</code>
+     * @return The code.
      */
     @java.lang.Override
-    public java.lang.String getComment() {
-      java.lang.Object ref = comment_;
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        comment_ = s;
+        name_ = s;
         return s;
       }
     }
     /**
-     * <code>string comment = 1;</code>
-     * @return The bytes for comment.
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getCommentBytes() {
-      java.lang.Object ref = comment_;
+        getNameBytes() {
+      java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        comment_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CITYID_FIELD_NUMBER = 2;
-    private int cityid_;
-    /**
-     * <code>int32 cityid = 2;</code>
-     * @return The cityid.
-     */
-    @java.lang.Override
-    public int getCityid() {
-      return cityid_;
-    }
-
-    public static final int CATEGORYID_FIELD_NUMBER = 3;
-    private int categoryid_;
-    /**
-     * <code>int32 categoryid = 3;</code>
-     * @return The categoryid.
-     */
-    @java.lang.Override
-    public int getCategoryid() {
-      return categoryid_;
-    }
-
-    public static final int CATEGORYNAME_FIELD_NUMBER = 4;
-    private volatile java.lang.Object categoryname_;
-    /**
-     * <code>string categoryname = 4;</code>
-     * @return The categoryname.
-     */
-    @java.lang.Override
-    public java.lang.String getCategoryname() {
-      java.lang.Object ref = categoryname_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        categoryname_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string categoryname = 4;</code>
-     * @return The bytes for categoryname.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCategorynameBytes() {
-      java.lang.Object ref = categoryname_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        categoryname_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CATEGORYTYPE_FIELD_NUMBER = 5;
-    private volatile java.lang.Object categorytype_;
-    /**
-     * <code>string categorytype = 5;</code>
-     * @return The categorytype.
-     */
-    @java.lang.Override
-    public java.lang.String getCategorytype() {
-      java.lang.Object ref = categorytype_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        categorytype_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string categorytype = 5;</code>
-     * @return The bytes for categorytype.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCategorytypeBytes() {
-      java.lang.Object ref = categorytype_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        categorytype_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -38901,20 +44415,11 @@ public final class DataAccess {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, comment_);
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
       }
-      if (cityid_ != 0) {
-        output.writeInt32(2, cityid_);
-      }
-      if (categoryid_ != 0) {
-        output.writeInt32(3, categoryid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categoryname_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, categoryname_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categorytype_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, categorytype_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
       unknownFields.writeTo(output);
     }
@@ -38925,22 +44430,12 @@ public final class DataAccess {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, comment_);
-      }
-      if (cityid_ != 0) {
+      if (code_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, cityid_);
+          .computeInt32Size(1, code_);
       }
-      if (categoryid_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, categoryid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categoryname_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, categoryname_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categorytype_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, categorytype_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -38957,16 +44452,10 @@ public final class DataAccess {
       }
       com.sdj3.protobuf.DataAccess.ReviewCreated other = (com.sdj3.protobuf.DataAccess.ReviewCreated) obj;
 
-      if (!getComment()
-          .equals(other.getComment())) return false;
-      if (getCityid()
-          != other.getCityid()) return false;
-      if (getCategoryid()
-          != other.getCategoryid()) return false;
-      if (!getCategoryname()
-          .equals(other.getCategoryname())) return false;
-      if (!getCategorytype()
-          .equals(other.getCategorytype())) return false;
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -38978,16 +44467,10 @@ public final class DataAccess {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + COMMENT_FIELD_NUMBER;
-      hash = (53 * hash) + getComment().hashCode();
-      hash = (37 * hash) + CITYID_FIELD_NUMBER;
-      hash = (53 * hash) + getCityid();
-      hash = (37 * hash) + CATEGORYID_FIELD_NUMBER;
-      hash = (53 * hash) + getCategoryid();
-      hash = (37 * hash) + CATEGORYNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getCategoryname().hashCode();
-      hash = (37 * hash) + CATEGORYTYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getCategorytype().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -39121,15 +44604,9 @@ public final class DataAccess {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        comment_ = "";
+        code_ = 0;
 
-        cityid_ = 0;
-
-        categoryid_ = 0;
-
-        categoryname_ = "";
-
-        categorytype_ = "";
+        name_ = "";
 
         return this;
       }
@@ -39157,11 +44634,8 @@ public final class DataAccess {
       @java.lang.Override
       public com.sdj3.protobuf.DataAccess.ReviewCreated buildPartial() {
         com.sdj3.protobuf.DataAccess.ReviewCreated result = new com.sdj3.protobuf.DataAccess.ReviewCreated(this);
-        result.comment_ = comment_;
-        result.cityid_ = cityid_;
-        result.categoryid_ = categoryid_;
-        result.categoryname_ = categoryname_;
-        result.categorytype_ = categorytype_;
+        result.code_ = code_;
+        result.name_ = name_;
         onBuilt();
         return result;
       }
@@ -39210,22 +44684,11 @@ public final class DataAccess {
 
       public Builder mergeFrom(com.sdj3.protobuf.DataAccess.ReviewCreated other) {
         if (other == com.sdj3.protobuf.DataAccess.ReviewCreated.getDefaultInstance()) return this;
-        if (!other.getComment().isEmpty()) {
-          comment_ = other.comment_;
-          onChanged();
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
         }
-        if (other.getCityid() != 0) {
-          setCityid(other.getCityid());
-        }
-        if (other.getCategoryid() != 0) {
-          setCategoryid(other.getCategoryid());
-        }
-        if (!other.getCategoryname().isEmpty()) {
-          categoryname_ = other.categoryname_;
-          onChanged();
-        }
-        if (!other.getCategorytype().isEmpty()) {
-          categorytype_ = other.categorytype_;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -39257,292 +44720,109 @@ public final class DataAccess {
         return this;
       }
 
-      private java.lang.Object comment_ = "";
+      private int code_ ;
       /**
-       * <code>string comment = 1;</code>
-       * @return The comment.
-       */
-      public java.lang.String getComment() {
-        java.lang.Object ref = comment_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          comment_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string comment = 1;</code>
-       * @return The bytes for comment.
-       */
-      public com.google.protobuf.ByteString
-          getCommentBytes() {
-        java.lang.Object ref = comment_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          comment_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string comment = 1;</code>
-       * @param value The comment to set.
-       * @return This builder for chaining.
-       */
-      public Builder setComment(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        comment_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string comment = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearComment() {
-        
-        comment_ = getDefaultInstance().getComment();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string comment = 1;</code>
-       * @param value The bytes for comment to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCommentBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        comment_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int cityid_ ;
-      /**
-       * <code>int32 cityid = 2;</code>
-       * @return The cityid.
+       * <code>int32 code = 1;</code>
+       * @return The code.
        */
       @java.lang.Override
-      public int getCityid() {
-        return cityid_;
+      public int getCode() {
+        return code_;
       }
       /**
-       * <code>int32 cityid = 2;</code>
-       * @param value The cityid to set.
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
        * @return This builder for chaining.
        */
-      public Builder setCityid(int value) {
+      public Builder setCode(int value) {
         
-        cityid_ = value;
+        code_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 cityid = 2;</code>
+       * <code>int32 code = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearCityid() {
+      public Builder clearCode() {
         
-        cityid_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int categoryid_ ;
-      /**
-       * <code>int32 categoryid = 3;</code>
-       * @return The categoryid.
-       */
-      @java.lang.Override
-      public int getCategoryid() {
-        return categoryid_;
-      }
-      /**
-       * <code>int32 categoryid = 3;</code>
-       * @param value The categoryid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCategoryid(int value) {
-        
-        categoryid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 categoryid = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCategoryid() {
-        
-        categoryid_ = 0;
+        code_ = 0;
         onChanged();
         return this;
       }
 
-      private java.lang.Object categoryname_ = "";
+      private java.lang.Object name_ = "";
       /**
-       * <code>string categoryname = 4;</code>
-       * @return The categoryname.
+       * <code>string name = 2;</code>
+       * @return The name.
        */
-      public java.lang.String getCategoryname() {
-        java.lang.Object ref = categoryname_;
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          categoryname_ = s;
+          name_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string categoryname = 4;</code>
-       * @return The bytes for categoryname.
+       * <code>string name = 2;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
-          getCategorynameBytes() {
-        java.lang.Object ref = categoryname_;
+          getNameBytes() {
+        java.lang.Object ref = name_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          categoryname_ = b;
+          name_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string categoryname = 4;</code>
-       * @param value The categoryname to set.
+       * <code>string name = 2;</code>
+       * @param value The name to set.
        * @return This builder for chaining.
        */
-      public Builder setCategoryname(
+      public Builder setName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        categoryname_ = value;
+        name_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string categoryname = 4;</code>
+       * <code>string name = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearCategoryname() {
+      public Builder clearName() {
         
-        categoryname_ = getDefaultInstance().getCategoryname();
+        name_ = getDefaultInstance().getName();
         onChanged();
         return this;
       }
       /**
-       * <code>string categoryname = 4;</code>
-       * @param value The bytes for categoryname to set.
+       * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
-      public Builder setCategorynameBytes(
+      public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        categoryname_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object categorytype_ = "";
-      /**
-       * <code>string categorytype = 5;</code>
-       * @return The categorytype.
-       */
-      public java.lang.String getCategorytype() {
-        java.lang.Object ref = categorytype_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          categorytype_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string categorytype = 5;</code>
-       * @return The bytes for categorytype.
-       */
-      public com.google.protobuf.ByteString
-          getCategorytypeBytes() {
-        java.lang.Object ref = categorytype_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          categorytype_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string categorytype = 5;</code>
-       * @param value The categorytype to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCategorytype(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        categorytype_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string categorytype = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCategorytype() {
-        
-        categorytype_ = getDefaultInstance().getCategorytype();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string categorytype = 5;</code>
-       * @param value The bytes for categorytype to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCategorytypeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        categorytype_ = value;
+        name_ = value;
         onChanged();
         return this;
       }
@@ -41774,6 +47054,1696 @@ public final class DataAccess {
 
     @java.lang.Override
     public com.sdj3.protobuf.DataAccess.ReviewToDelete getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ReviewCommentUpdatedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ReviewCommentUpdated)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>string comment = 2;</code>
+     * @return The comment.
+     */
+    java.lang.String getComment();
+    /**
+     * <code>string comment = 2;</code>
+     * @return The bytes for comment.
+     */
+    com.google.protobuf.ByteString
+        getCommentBytes();
+  }
+  /**
+   * Protobuf type {@code ReviewCommentUpdated}
+   */
+  public static final class ReviewCommentUpdated extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ReviewCommentUpdated)
+      ReviewCommentUpdatedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ReviewCommentUpdated.newBuilder() to construct.
+    private ReviewCommentUpdated(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ReviewCommentUpdated() {
+      comment_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ReviewCommentUpdated();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ReviewCommentUpdated(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              comment_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ReviewCommentUpdated_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ReviewCommentUpdated_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.ReviewCommentUpdated.class, com.sdj3.protobuf.DataAccess.ReviewCommentUpdated.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int COMMENT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object comment_;
+    /**
+     * <code>string comment = 2;</code>
+     * @return The comment.
+     */
+    @java.lang.Override
+    public java.lang.String getComment() {
+      java.lang.Object ref = comment_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        comment_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string comment = 2;</code>
+     * @return The bytes for comment.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCommentBytes() {
+      java.lang.Object ref = comment_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        comment_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, comment_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, comment_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.ReviewCommentUpdated)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.ReviewCommentUpdated other = (com.sdj3.protobuf.DataAccess.ReviewCommentUpdated) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getComment()
+          .equals(other.getComment())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + COMMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getComment().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.ReviewCommentUpdated prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ReviewCommentUpdated}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ReviewCommentUpdated)
+        com.sdj3.protobuf.DataAccess.ReviewCommentUpdatedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ReviewCommentUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ReviewCommentUpdated_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.ReviewCommentUpdated.class, com.sdj3.protobuf.DataAccess.ReviewCommentUpdated.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.ReviewCommentUpdated.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        comment_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ReviewCommentUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ReviewCommentUpdated getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.ReviewCommentUpdated.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ReviewCommentUpdated build() {
+        com.sdj3.protobuf.DataAccess.ReviewCommentUpdated result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ReviewCommentUpdated buildPartial() {
+        com.sdj3.protobuf.DataAccess.ReviewCommentUpdated result = new com.sdj3.protobuf.DataAccess.ReviewCommentUpdated(this);
+        result.code_ = code_;
+        result.comment_ = comment_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.ReviewCommentUpdated) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.ReviewCommentUpdated)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.ReviewCommentUpdated other) {
+        if (other == com.sdj3.protobuf.DataAccess.ReviewCommentUpdated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getComment().isEmpty()) {
+          comment_ = other.comment_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.ReviewCommentUpdated parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.ReviewCommentUpdated) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object comment_ = "";
+      /**
+       * <code>string comment = 2;</code>
+       * @return The comment.
+       */
+      public java.lang.String getComment() {
+        java.lang.Object ref = comment_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          comment_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string comment = 2;</code>
+       * @return The bytes for comment.
+       */
+      public com.google.protobuf.ByteString
+          getCommentBytes() {
+        java.lang.Object ref = comment_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          comment_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string comment = 2;</code>
+       * @param value The comment to set.
+       * @return This builder for chaining.
+       */
+      public Builder setComment(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        comment_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string comment = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearComment() {
+        
+        comment_ = getDefaultInstance().getComment();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string comment = 2;</code>
+       * @param value The bytes for comment to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCommentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        comment_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ReviewCommentUpdated)
+    }
+
+    // @@protoc_insertion_point(class_scope:ReviewCommentUpdated)
+    private static final com.sdj3.protobuf.DataAccess.ReviewCommentUpdated DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.ReviewCommentUpdated();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ReviewCommentUpdated getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ReviewCommentUpdated>
+        PARSER = new com.google.protobuf.AbstractParser<ReviewCommentUpdated>() {
+      @java.lang.Override
+      public ReviewCommentUpdated parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ReviewCommentUpdated(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReviewCommentUpdated> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReviewCommentUpdated> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.ReviewCommentUpdated getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ReviewsStarReviewUpdatedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ReviewsStarReviewUpdated)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>int32 starreview = 2;</code>
+     * @return The starreview.
+     */
+    int getStarreview();
+  }
+  /**
+   * Protobuf type {@code ReviewsStarReviewUpdated}
+   */
+  public static final class ReviewsStarReviewUpdated extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ReviewsStarReviewUpdated)
+      ReviewsStarReviewUpdatedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ReviewsStarReviewUpdated.newBuilder() to construct.
+    private ReviewsStarReviewUpdated(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ReviewsStarReviewUpdated() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ReviewsStarReviewUpdated();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ReviewsStarReviewUpdated(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              starreview_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ReviewsStarReviewUpdated_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ReviewsStarReviewUpdated_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated.class, com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int STARREVIEW_FIELD_NUMBER = 2;
+    private int starreview_;
+    /**
+     * <code>int32 starreview = 2;</code>
+     * @return The starreview.
+     */
+    @java.lang.Override
+    public int getStarreview() {
+      return starreview_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      if (starreview_ != 0) {
+        output.writeInt32(2, starreview_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (starreview_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, starreview_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated other = (com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (getStarreview()
+          != other.getStarreview()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + STARREVIEW_FIELD_NUMBER;
+      hash = (53 * hash) + getStarreview();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ReviewsStarReviewUpdated}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ReviewsStarReviewUpdated)
+        com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdatedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ReviewsStarReviewUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ReviewsStarReviewUpdated_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated.class, com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        starreview_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ReviewsStarReviewUpdated_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated build() {
+        com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated buildPartial() {
+        com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated result = new com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated(this);
+        result.code_ = code_;
+        result.starreview_ = starreview_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated other) {
+        if (other == com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (other.getStarreview() != 0) {
+          setStarreview(other.getStarreview());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int starreview_ ;
+      /**
+       * <code>int32 starreview = 2;</code>
+       * @return The starreview.
+       */
+      @java.lang.Override
+      public int getStarreview() {
+        return starreview_;
+      }
+      /**
+       * <code>int32 starreview = 2;</code>
+       * @param value The starreview to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStarreview(int value) {
+        
+        starreview_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 starreview = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStarreview() {
+        
+        starreview_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ReviewsStarReviewUpdated)
+    }
+
+    // @@protoc_insertion_point(class_scope:ReviewsStarReviewUpdated)
+    private static final com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ReviewsStarReviewUpdated>
+        PARSER = new com.google.protobuf.AbstractParser<ReviewsStarReviewUpdated>() {
+      @java.lang.Override
+      public ReviewsStarReviewUpdated parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ReviewsStarReviewUpdated(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReviewsStarReviewUpdated> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReviewsStarReviewUpdated> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ReviewDeletedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ReviewDeleted)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+  }
+  /**
+   * Protobuf type {@code ReviewDeleted}
+   */
+  public static final class ReviewDeleted extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ReviewDeleted)
+      ReviewDeletedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ReviewDeleted.newBuilder() to construct.
+    private ReviewDeleted(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ReviewDeleted() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ReviewDeleted();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ReviewDeleted(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ReviewDeleted_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ReviewDeleted_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.ReviewDeleted.class, com.sdj3.protobuf.DataAccess.ReviewDeleted.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.ReviewDeleted)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.ReviewDeleted other = (com.sdj3.protobuf.DataAccess.ReviewDeleted) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.ReviewDeleted prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ReviewDeleted}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ReviewDeleted)
+        com.sdj3.protobuf.DataAccess.ReviewDeletedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ReviewDeleted_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ReviewDeleted_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.ReviewDeleted.class, com.sdj3.protobuf.DataAccess.ReviewDeleted.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.ReviewDeleted.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ReviewDeleted_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ReviewDeleted getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.ReviewDeleted.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ReviewDeleted build() {
+        com.sdj3.protobuf.DataAccess.ReviewDeleted result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ReviewDeleted buildPartial() {
+        com.sdj3.protobuf.DataAccess.ReviewDeleted result = new com.sdj3.protobuf.DataAccess.ReviewDeleted(this);
+        result.code_ = code_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.ReviewDeleted) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.ReviewDeleted)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.ReviewDeleted other) {
+        if (other == com.sdj3.protobuf.DataAccess.ReviewDeleted.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.ReviewDeleted parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.ReviewDeleted) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ReviewDeleted)
+    }
+
+    // @@protoc_insertion_point(class_scope:ReviewDeleted)
+    private static final com.sdj3.protobuf.DataAccess.ReviewDeleted DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.ReviewDeleted();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ReviewDeleted getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ReviewDeleted>
+        PARSER = new com.google.protobuf.AbstractParser<ReviewDeleted>() {
+      @java.lang.Override
+      public ReviewDeleted parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ReviewDeleted(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReviewDeleted> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReviewDeleted> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.ReviewDeleted getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -44859,28 +51829,22 @@ public final class DataAccess {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 userid = 1;</code>
-     * @return The userid.
+     * <code>int32 code = 1;</code>
+     * @return The code.
      */
-    int getUserid();
+    int getCode();
 
     /**
-     * <code>string description = 2;</code>
-     * @return The description.
+     * <code>string name = 2;</code>
+     * @return The name.
      */
-    java.lang.String getDescription();
+    java.lang.String getName();
     /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
-        getDescriptionBytes();
-
-    /**
-     * <code>int32 reviewid = 3;</code>
-     * @return The reviewid.
-     */
-    int getReviewid();
+        getNameBytes();
   }
   /**
    * Protobuf type {@code ReportCreated}
@@ -44895,7 +51859,7 @@ public final class DataAccess {
       super(builder);
     }
     private ReportCreated() {
-      description_ = "";
+      name_ = "";
     }
 
     @java.lang.Override
@@ -44930,18 +51894,13 @@ public final class DataAccess {
               break;
             case 8: {
 
-              userid_ = input.readInt32();
+              code_ = input.readInt32();
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              description_ = s;
-              break;
-            }
-            case 24: {
-
-              reviewid_ = input.readInt32();
+              name_ = s;
               break;
             }
             default: {
@@ -44978,64 +51937,53 @@ public final class DataAccess {
               com.sdj3.protobuf.DataAccess.ReportCreated.class, com.sdj3.protobuf.DataAccess.ReportCreated.Builder.class);
     }
 
-    public static final int USERID_FIELD_NUMBER = 1;
-    private int userid_;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
     /**
-     * <code>int32 userid = 1;</code>
-     * @return The userid.
+     * <code>int32 code = 1;</code>
+     * @return The code.
      */
     @java.lang.Override
-    public int getUserid() {
-      return userid_;
+    public int getCode() {
+      return code_;
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
     /**
-     * <code>string description = 2;</code>
-     * @return The description.
+     * <code>string name = 2;</code>
+     * @return The name.
      */
     @java.lang.Override
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        description_ = s;
+        name_ = s;
         return s;
       }
     }
     /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
+        getNameBytes() {
+      java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        description_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
-    }
-
-    public static final int REVIEWID_FIELD_NUMBER = 3;
-    private int reviewid_;
-    /**
-     * <code>int32 reviewid = 3;</code>
-     * @return The reviewid.
-     */
-    @java.lang.Override
-    public int getReviewid() {
-      return reviewid_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -45052,14 +52000,11 @@ public final class DataAccess {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (userid_ != 0) {
-        output.writeInt32(1, userid_);
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
-      }
-      if (reviewid_ != 0) {
-        output.writeInt32(3, reviewid_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
       unknownFields.writeTo(output);
     }
@@ -45070,16 +52015,12 @@ public final class DataAccess {
       if (size != -1) return size;
 
       size = 0;
-      if (userid_ != 0) {
+      if (code_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, userid_);
+          .computeInt32Size(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
-      }
-      if (reviewid_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, reviewid_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -45096,12 +52037,10 @@ public final class DataAccess {
       }
       com.sdj3.protobuf.DataAccess.ReportCreated other = (com.sdj3.protobuf.DataAccess.ReportCreated) obj;
 
-      if (getUserid()
-          != other.getUserid()) return false;
-      if (!getDescription()
-          .equals(other.getDescription())) return false;
-      if (getReviewid()
-          != other.getReviewid()) return false;
+      if (getCode()
+          != other.getCode()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -45113,12 +52052,10 @@ public final class DataAccess {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + USERID_FIELD_NUMBER;
-      hash = (53 * hash) + getUserid();
-      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDescription().hashCode();
-      hash = (37 * hash) + REVIEWID_FIELD_NUMBER;
-      hash = (53 * hash) + getReviewid();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -45252,11 +52189,9 @@ public final class DataAccess {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userid_ = 0;
+        code_ = 0;
 
-        description_ = "";
-
-        reviewid_ = 0;
+        name_ = "";
 
         return this;
       }
@@ -45284,9 +52219,8 @@ public final class DataAccess {
       @java.lang.Override
       public com.sdj3.protobuf.DataAccess.ReportCreated buildPartial() {
         com.sdj3.protobuf.DataAccess.ReportCreated result = new com.sdj3.protobuf.DataAccess.ReportCreated(this);
-        result.userid_ = userid_;
-        result.description_ = description_;
-        result.reviewid_ = reviewid_;
+        result.code_ = code_;
+        result.name_ = name_;
         onBuilt();
         return result;
       }
@@ -45335,15 +52269,12 @@ public final class DataAccess {
 
       public Builder mergeFrom(com.sdj3.protobuf.DataAccess.ReportCreated other) {
         if (other == com.sdj3.protobuf.DataAccess.ReportCreated.getDefaultInstance()) return this;
-        if (other.getUserid() != 0) {
-          setUserid(other.getUserid());
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
         }
-        if (!other.getDescription().isEmpty()) {
-          description_ = other.description_;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
           onChanged();
-        }
-        if (other.getReviewid() != 0) {
-          setReviewid(other.getReviewid());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -45374,140 +52305,109 @@ public final class DataAccess {
         return this;
       }
 
-      private int userid_ ;
+      private int code_ ;
       /**
-       * <code>int32 userid = 1;</code>
-       * @return The userid.
+       * <code>int32 code = 1;</code>
+       * @return The code.
        */
       @java.lang.Override
-      public int getUserid() {
-        return userid_;
+      public int getCode() {
+        return code_;
       }
       /**
-       * <code>int32 userid = 1;</code>
-       * @param value The userid to set.
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
        * @return This builder for chaining.
        */
-      public Builder setUserid(int value) {
+      public Builder setCode(int value) {
         
-        userid_ = value;
+        code_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 userid = 1;</code>
+       * <code>int32 code = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearUserid() {
+      public Builder clearCode() {
         
-        userid_ = 0;
+        code_ = 0;
         onChanged();
         return this;
       }
 
-      private java.lang.Object description_ = "";
+      private java.lang.Object name_ = "";
       /**
-       * <code>string description = 2;</code>
-       * @return The description.
+       * <code>string name = 2;</code>
+       * @return The name.
        */
-      public java.lang.String getDescription() {
-        java.lang.Object ref = description_;
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          description_ = s;
+          name_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string description = 2;</code>
-       * @return The bytes for description.
+       * <code>string name = 2;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
-          getDescriptionBytes() {
-        java.lang.Object ref = description_;
+          getNameBytes() {
+        java.lang.Object ref = name_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          description_ = b;
+          name_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string description = 2;</code>
-       * @param value The description to set.
+       * <code>string name = 2;</code>
+       * @param value The name to set.
        * @return This builder for chaining.
        */
-      public Builder setDescription(
+      public Builder setName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        description_ = value;
+        name_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string description = 2;</code>
+       * <code>string name = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearDescription() {
+      public Builder clearName() {
         
-        description_ = getDefaultInstance().getDescription();
+        name_ = getDefaultInstance().getName();
         onChanged();
         return this;
       }
       /**
-       * <code>string description = 2;</code>
-       * @param value The bytes for description to set.
+       * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
-      public Builder setDescriptionBytes(
+      public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        description_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int reviewid_ ;
-      /**
-       * <code>int32 reviewid = 3;</code>
-       * @return The reviewid.
-       */
-      @java.lang.Override
-      public int getReviewid() {
-        return reviewid_;
-      }
-      /**
-       * <code>int32 reviewid = 3;</code>
-       * @param value The reviewid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setReviewid(int value) {
-        
-        reviewid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 reviewid = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearReviewid() {
-        
-        reviewid_ = 0;
+        name_ = value;
         onChanged();
         return this;
       }
@@ -46054,646 +52954,6 @@ public final class DataAccess {
 
   }
 
-  public interface ReportsDescriptionToUpdateOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ReportsDescriptionToUpdate)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int32 reportid = 1;</code>
-     * @return The reportid.
-     */
-    int getReportid();
-
-    /**
-     * <code>string description = 2;</code>
-     * @return The description.
-     */
-    java.lang.String getDescription();
-    /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
-     */
-    com.google.protobuf.ByteString
-        getDescriptionBytes();
-  }
-  /**
-   * Protobuf type {@code ReportsDescriptionToUpdate}
-   */
-  public static final class ReportsDescriptionToUpdate extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ReportsDescriptionToUpdate)
-      ReportsDescriptionToUpdateOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use ReportsDescriptionToUpdate.newBuilder() to construct.
-    private ReportsDescriptionToUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private ReportsDescriptionToUpdate() {
-      description_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ReportsDescriptionToUpdate();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private ReportsDescriptionToUpdate(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              reportid_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.sdj3.protobuf.DataAccess.internal_static_ReportsDescriptionToUpdate_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.sdj3.protobuf.DataAccess.internal_static_ReportsDescriptionToUpdate_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate.class, com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate.Builder.class);
-    }
-
-    public static final int REPORTID_FIELD_NUMBER = 1;
-    private int reportid_;
-    /**
-     * <code>int32 reportid = 1;</code>
-     * @return The reportid.
-     */
-    @java.lang.Override
-    public int getReportid() {
-      return reportid_;
-    }
-
-    public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
-    /**
-     * <code>string description = 2;</code>
-     * @return The description.
-     */
-    @java.lang.Override
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string description = 2;</code>
-     * @return The bytes for description.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (reportid_ != 0) {
-        output.writeInt32(1, reportid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (reportid_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, reportid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate)) {
-        return super.equals(obj);
-      }
-      com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate other = (com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate) obj;
-
-      if (getReportid()
-          != other.getReportid()) return false;
-      if (!getDescription()
-          .equals(other.getDescription())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REPORTID_FIELD_NUMBER;
-      hash = (53 * hash) + getReportid();
-      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-      hash = (53 * hash) + getDescription().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code ReportsDescriptionToUpdate}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ReportsDescriptionToUpdate)
-        com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdateOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.sdj3.protobuf.DataAccess.internal_static_ReportsDescriptionToUpdate_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.sdj3.protobuf.DataAccess.internal_static_ReportsDescriptionToUpdate_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate.class, com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate.Builder.class);
-      }
-
-      // Construct using com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        reportid_ = 0;
-
-        description_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.sdj3.protobuf.DataAccess.internal_static_ReportsDescriptionToUpdate_descriptor;
-      }
-
-      @java.lang.Override
-      public com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate getDefaultInstanceForType() {
-        return com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate build() {
-        com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate buildPartial() {
-        com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate result = new com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate(this);
-        result.reportid_ = reportid_;
-        result.description_ = description_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate) {
-          return mergeFrom((com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate other) {
-        if (other == com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate.getDefaultInstance()) return this;
-        if (other.getReportid() != 0) {
-          setReportid(other.getReportid());
-        }
-        if (!other.getDescription().isEmpty()) {
-          description_ = other.description_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int reportid_ ;
-      /**
-       * <code>int32 reportid = 1;</code>
-       * @return The reportid.
-       */
-      @java.lang.Override
-      public int getReportid() {
-        return reportid_;
-      }
-      /**
-       * <code>int32 reportid = 1;</code>
-       * @param value The reportid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setReportid(int value) {
-        
-        reportid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 reportid = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearReportid() {
-        
-        reportid_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object description_ = "";
-      /**
-       * <code>string description = 2;</code>
-       * @return The description.
-       */
-      public java.lang.String getDescription() {
-        java.lang.Object ref = description_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          description_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @return The bytes for description.
-       */
-      public com.google.protobuf.ByteString
-          getDescriptionBytes() {
-        java.lang.Object ref = description_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          description_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @param value The description to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDescription(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        description_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDescription() {
-        
-        description_ = getDefaultInstance().getDescription();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string description = 2;</code>
-       * @param value The bytes for description to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDescriptionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        description_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:ReportsDescriptionToUpdate)
-    }
-
-    // @@protoc_insertion_point(class_scope:ReportsDescriptionToUpdate)
-    private static final com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate();
-    }
-
-    public static com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ReportsDescriptionToUpdate>
-        PARSER = new com.google.protobuf.AbstractParser<ReportsDescriptionToUpdate>() {
-      @java.lang.Override
-      public ReportsDescriptionToUpdate parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReportsDescriptionToUpdate(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<ReportsDescriptionToUpdate> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ReportsDescriptionToUpdate> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface ReportToDeleteOrBuilder extends
       // @@protoc_insertion_point(interface_extends:ReportToDelete)
       com.google.protobuf.MessageOrBuilder {
@@ -47179,6 +53439,496 @@ public final class DataAccess {
 
     @java.lang.Override
     public com.sdj3.protobuf.DataAccess.ReportToDelete getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ReportDeletedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ReportDeleted)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    int getCode();
+  }
+  /**
+   * Protobuf type {@code ReportDeleted}
+   */
+  public static final class ReportDeleted extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ReportDeleted)
+      ReportDeletedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ReportDeleted.newBuilder() to construct.
+    private ReportDeleted(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ReportDeleted() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ReportDeleted();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ReportDeleted(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ReportDeleted_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_ReportDeleted_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.ReportDeleted.class, com.sdj3.protobuf.DataAccess.ReportDeleted.Builder.class);
+    }
+
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>int32 code = 1;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (code_ != 0) {
+        output.writeInt32(1, code_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.ReportDeleted)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.ReportDeleted other = (com.sdj3.protobuf.DataAccess.ReportDeleted) obj;
+
+      if (getCode()
+          != other.getCode()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.ReportDeleted prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ReportDeleted}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ReportDeleted)
+        com.sdj3.protobuf.DataAccess.ReportDeletedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ReportDeleted_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ReportDeleted_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.ReportDeleted.class, com.sdj3.protobuf.DataAccess.ReportDeleted.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.ReportDeleted.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_ReportDeleted_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ReportDeleted getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.ReportDeleted.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ReportDeleted build() {
+        com.sdj3.protobuf.DataAccess.ReportDeleted result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.ReportDeleted buildPartial() {
+        com.sdj3.protobuf.DataAccess.ReportDeleted result = new com.sdj3.protobuf.DataAccess.ReportDeleted(this);
+        result.code_ = code_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.ReportDeleted) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.ReportDeleted)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.ReportDeleted other) {
+        if (other == com.sdj3.protobuf.DataAccess.ReportDeleted.getDefaultInstance()) return this;
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.ReportDeleted parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.ReportDeleted) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <code>int32 code = 1;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 code = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ReportDeleted)
+    }
+
+    // @@protoc_insertion_point(class_scope:ReportDeleted)
+    private static final com.sdj3.protobuf.DataAccess.ReportDeleted DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.ReportDeleted();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.ReportDeleted getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ReportDeleted>
+        PARSER = new com.google.protobuf.AbstractParser<ReportDeleted>() {
+      @java.lang.Override
+      public ReportDeleted parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ReportDeleted(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReportDeleted> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReportDeleted> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.ReportDeleted getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -47982,12 +54732,20 @@ public final class DataAccess {
   public interface EmptyOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Empty)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string empty = 1;</code>
+     * @return The empty.
+     */
+    java.lang.String getEmpty();
+    /**
+     * <code>string empty = 1;</code>
+     * @return The bytes for empty.
+     */
+    com.google.protobuf.ByteString
+        getEmptyBytes();
   }
   /**
-   * <pre>
-   *For Void methods
-   * </pre>
-   *
    * Protobuf type {@code Empty}
    */
   public static final class Empty extends
@@ -48000,6 +54758,7 @@ public final class DataAccess {
       super(builder);
     }
     private Empty() {
+      empty_ = "";
     }
 
     @java.lang.Override
@@ -48032,6 +54791,12 @@ public final class DataAccess {
             case 0:
               done = true;
               break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              empty_ = s;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -48066,6 +54831,44 @@ public final class DataAccess {
               com.sdj3.protobuf.DataAccess.Empty.class, com.sdj3.protobuf.DataAccess.Empty.Builder.class);
     }
 
+    public static final int EMPTY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object empty_;
+    /**
+     * <code>string empty = 1;</code>
+     * @return The empty.
+     */
+    @java.lang.Override
+    public java.lang.String getEmpty() {
+      java.lang.Object ref = empty_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        empty_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string empty = 1;</code>
+     * @return The bytes for empty.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getEmptyBytes() {
+      java.lang.Object ref = empty_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        empty_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -48080,6 +54883,9 @@ public final class DataAccess {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(empty_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, empty_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -48089,6 +54895,9 @@ public final class DataAccess {
       if (size != -1) return size;
 
       size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(empty_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, empty_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -48104,6 +54913,8 @@ public final class DataAccess {
       }
       com.sdj3.protobuf.DataAccess.Empty other = (com.sdj3.protobuf.DataAccess.Empty) obj;
 
+      if (!getEmpty()
+          .equals(other.getEmpty())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -48115,6 +54926,8 @@ public final class DataAccess {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + EMPTY_FIELD_NUMBER;
+      hash = (53 * hash) + getEmpty().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -48211,10 +55024,6 @@ public final class DataAccess {
       return builder;
     }
     /**
-     * <pre>
-     *For Void methods
-     * </pre>
-     *
      * Protobuf type {@code Empty}
      */
     public static final class Builder extends
@@ -48252,6 +55061,8 @@ public final class DataAccess {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        empty_ = "";
+
         return this;
       }
 
@@ -48278,6 +55089,7 @@ public final class DataAccess {
       @java.lang.Override
       public com.sdj3.protobuf.DataAccess.Empty buildPartial() {
         com.sdj3.protobuf.DataAccess.Empty result = new com.sdj3.protobuf.DataAccess.Empty(this);
+        result.empty_ = empty_;
         onBuilt();
         return result;
       }
@@ -48326,6 +55138,10 @@ public final class DataAccess {
 
       public Builder mergeFrom(com.sdj3.protobuf.DataAccess.Empty other) {
         if (other == com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()) return this;
+        if (!other.getEmpty().isEmpty()) {
+          empty_ = other.empty_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -48352,6 +55168,82 @@ public final class DataAccess {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private java.lang.Object empty_ = "";
+      /**
+       * <code>string empty = 1;</code>
+       * @return The empty.
+       */
+      public java.lang.String getEmpty() {
+        java.lang.Object ref = empty_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          empty_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string empty = 1;</code>
+       * @return The bytes for empty.
+       */
+      public com.google.protobuf.ByteString
+          getEmptyBytes() {
+        java.lang.Object ref = empty_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          empty_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string empty = 1;</code>
+       * @param value The empty to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEmpty(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        empty_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string empty = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEmpty() {
+        
+        empty_ = getDefaultInstance().getEmpty();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string empty = 1;</code>
+       * @param value The bytes for empty to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEmptyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        empty_ = value;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -48508,6 +55400,21 @@ public final class DataAccess {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_HotelToDelete_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_HotelNameUpdated_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_HotelNameUpdated_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_HotelDescriptionUpdated_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_HotelDescriptionUpdated_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_HotelDeleted_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_HotelDeleted_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CitysIdFoHotelList_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -48557,6 +55464,21 @@ public final class DataAccess {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_MuseumToDelete_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MuseumNameUpdated_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_MuseumNameUpdated_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MuseumDescriptionUpdated_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_MuseumDescriptionUpdated_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MuseumDeleted_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_MuseumDeleted_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CitysIdForMuseumList_descriptor;
   private static final 
@@ -48608,6 +55530,21 @@ public final class DataAccess {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ParkToDelete_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ParkNameUpdated_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ParkNameUpdated_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ParkDescriptionUpdated_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ParkDescriptionUpdated_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ParkDeleted_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ParkDeleted_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CitysIdForParkList_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -48658,6 +55595,21 @@ public final class DataAccess {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_RestaurantToDelete_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RestaurantNameUpdated_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_RestaurantNameUpdated_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RestaurantDescriptionUpdated_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_RestaurantDescriptionUpdated_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RestaurantDeleted_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_RestaurantDeleted_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CitysIdForRestaurantList_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -48703,6 +55655,21 @@ public final class DataAccess {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ReviewToDelete_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ReviewCommentUpdated_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ReviewCommentUpdated_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ReviewsStarReviewUpdated_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ReviewsStarReviewUpdated_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ReviewDeleted_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ReviewDeleted_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CategoryForReviewList_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -48733,15 +55700,15 @@ public final class DataAccess {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ReportById_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ReportsDescriptionToUpdate_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ReportsDescriptionToUpdate_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ReportToDelete_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ReportToDelete_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ReportDeleted_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ReportDeleted_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ListOfReports_descriptor;
   private static final 
@@ -48773,150 +55740,164 @@ public final class DataAccess {
       "\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\020\n\010imag" +
       "eurl\030\004 \001(\t\"C\n\014CityToCreate\022\014\n\004name\030\001 \001(\t" +
       "\022\023\n\013description\030\002 \001(\t\022\020\n\010imageurl\030\003 \001(\t\"" +
-      "B\n\013CityCreated\022\014\n\004name\030\001 \001(\t\022\023\n\013descript" +
-      "ion\030\002 \001(\t\022\020\n\010imageurl\030\003 \001(\t\"\036\n\nCityByNam" +
-      "e\022\020\n\010cityname\030\001 \001(\t\"\032\n\010CityById\022\016\n\006cityi" +
-      "d\030\001 \001(\005\"X\n\005Hotel\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001" +
-      "(\t\022\023\n\013description\030\003 \001(\t\022\020\n\010imageurl\030\004 \001(" +
-      "\t\022\016\n\006cityid\030\005 \001(\005\"T\n\rHotelToCreate\022\014\n\004na" +
-      "me\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022\020\n\010imageur" +
-      "l\030\003 \001(\t\022\016\n\006cityid\030\004 \001(\005\"S\n\014HotelCreated\022" +
-      "\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022\020\n\010im" +
-      "ageurl\030\003 \001(\t\022\016\n\006cityid\030\004 \001(\005\" \n\013HotelByN" +
-      "ame\022\021\n\thotelname\030\001 \001(\t\"\034\n\tHotelById\022\017\n\007h" +
-      "otelid\030\001 \001(\005\"2\n\021HotelNameToUpdate\022\017\n\007hot" +
-      "elid\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"@\n\030HotelDescrip" +
-      "tionToUpdate\022\017\n\007hotelid\030\001 \001(\005\022\023\n\013descrip" +
-      "tion\030\002 \001(\t\" \n\rHotelToDelete\022\017\n\007hotelid\030\001" +
-      " \001(\005\"$\n\022CitysIdFoHotelList\022\016\n\006cityid\030\001 \001" +
-      "(\005\"&\n\014ListOfHotels\022\026\n\006hotels\030\001 \003(\0132\006.Hot" +
-      "el\"Y\n\006Museum\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023" +
-      "\n\013description\030\003 \001(\t\022\020\n\010imageurl\030\004 \001(\t\022\016\n" +
-      "\006cityid\030\005 \001(\005\"U\n\016MuseumToCreate\022\014\n\004name\030" +
-      "\001 \001(\t\022\023\n\013description\030\002 \001(\t\022\020\n\010imageurl\030\003" +
-      " \001(\t\022\016\n\006cityid\030\004 \001(\005\"T\n\rMuseumCreated\022\014\n" +
-      "\004name\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022\020\n\010imag" +
-      "eurl\030\003 \001(\t\022\016\n\006cityid\030\004 \001(\005\"\"\n\014MuseumByNa" +
-      "me\022\022\n\nmuseumname\030\001 \001(\t\"\036\n\nMuseumById\022\020\n\010" +
-      "museumid\030\001 \001(\005\"4\n\022MuseumNameToUpdate\022\020\n\010" +
-      "museumid\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"B\n\031MuseumDe" +
-      "scriptionToUpdate\022\020\n\010museumid\030\001 \001(\005\022\023\n\013d" +
-      "escription\030\002 \001(\t\"\"\n\016MuseumToDelete\022\020\n\010mu" +
-      "seumid\030\001 \001(\005\"&\n\024CitysIdForMuseumList\022\016\n\006" +
-      "cityid\030\001 \001(\005\"(\n\rListOfMuseums\022\027\n\006museum\030" +
-      "\001 \003(\0132\007.Museum\"W\n\004Park\022\n\n\002id\030\001 \001(\005\022\014\n\004na" +
-      "me\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\020\n\010imageur" +
-      "l\030\004 \001(\t\022\016\n\006cityid\030\005 \001(\005\"S\n\014ParkToCreate\022" +
-      "\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022\020\n\010im" +
-      "ageurl\030\003 \001(\t\022\016\n\006cityid\030\004 \001(\005\"R\n\013ParkCrea" +
-      "ted\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022\020" +
-      "\n\010imageurl\030\003 \001(\t\022\016\n\006cityid\030\004 \001(\005\"\036\n\nPark" +
-      "ByName\022\020\n\010parkname\030\001 \001(\t\"\032\n\010ParkById\022\016\n\006" +
-      "parkid\030\001 \001(\005\"0\n\020ParkNameToUpdate\022\016\n\006park" +
-      "id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\">\n\027ParkDescriptio" +
-      "nToUpdate\022\016\n\006parkid\030\001 \001(\005\022\023\n\013description" +
-      "\030\002 \001(\t\"\036\n\014ParkToDelete\022\016\n\006parkid\030\001 \001(\005\"$" +
-      "\n\022CitysIdForParkList\022\016\n\006cityid\030\001 \001(\005\"\"\n\013" +
-      "ListOfParks\022\023\n\004park\030\001 \003(\0132\005.Park\"]\n\nRest" +
-      "aurant\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013desc" +
+      ")\n\013CityCreated\022\014\n\004code\030\001 \001(\005\022\014\n\004name\030\002 \001" +
+      "(\t\"\036\n\nCityByName\022\020\n\010cityname\030\001 \001(\t\"\032\n\010Ci" +
+      "tyById\022\016\n\006cityid\030\001 \001(\005\"X\n\005Hotel\022\n\n\002id\030\001 " +
+      "\001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\020" +
+      "\n\010imageurl\030\004 \001(\t\022\016\n\006cityid\030\005 \001(\005\"T\n\rHote" +
+      "lToCreate\022\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002" +
+      " \001(\t\022\020\n\010imageurl\030\003 \001(\t\022\016\n\006cityid\030\004 \001(\005\"*" +
+      "\n\014HotelCreated\022\014\n\004code\030\001 \001(\005\022\014\n\004name\030\002 \001" +
+      "(\t\" \n\013HotelByName\022\021\n\thotelname\030\001 \001(\t\"\034\n\t" +
+      "HotelById\022\017\n\007hotelid\030\001 \001(\005\"2\n\021HotelNameT" +
+      "oUpdate\022\017\n\007hotelid\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"@" +
+      "\n\030HotelDescriptionToUpdate\022\017\n\007hotelid\030\001 " +
+      "\001(\005\022\023\n\013description\030\002 \001(\t\" \n\rHotelToDelet" +
+      "e\022\017\n\007hotelid\030\001 \001(\005\".\n\020HotelNameUpdated\022\014" +
+      "\n\004code\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"<\n\027HotelDescr" +
+      "iptionUpdated\022\014\n\004code\030\001 \001(\005\022\023\n\013descripti" +
+      "on\030\002 \001(\t\"\034\n\014HotelDeleted\022\014\n\004code\030\001 \001(\005\"$" +
+      "\n\022CitysIdFoHotelList\022\016\n\006cityid\030\001 \001(\005\"&\n\014" +
+      "ListOfHotels\022\026\n\006hotels\030\001 \003(\0132\006.Hotel\"Y\n\006" +
+      "Museum\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013desc" +
       "ription\030\003 \001(\t\022\020\n\010imageurl\030\004 \001(\t\022\016\n\006cityi" +
-      "d\030\005 \001(\005\"Y\n\022RestaurantToCreate\022\014\n\004name\030\001 " +
-      "\001(\t\022\023\n\013description\030\002 \001(\t\022\020\n\010imageurl\030\003 \001" +
-      "(\t\022\016\n\006cityid\030\004 \001(\005\"X\n\021RestaurantCreated\022" +
-      "\014\n\004name\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022\020\n\010im" +
-      "ageurl\030\003 \001(\t\022\016\n\006cityid\030\004 \001(\005\"*\n\020Restaura" +
-      "ntByName\022\026\n\016restaurantname\030\001 \001(\t\"&\n\016Rest" +
-      "aurantById\022\024\n\014restaurantid\030\001 \001(\005\"<\n\026Rest" +
-      "aurantNameToUpdate\022\024\n\014restaurantid\030\001 \001(\005" +
-      "\022\014\n\004name\030\002 \001(\t\"J\n\035RestaurantDescriptionT" +
-      "oUpdate\022\024\n\014restaurantid\030\001 \001(\005\022\023\n\013descrip" +
-      "tion\030\002 \001(\t\"*\n\022RestaurantToDelete\022\024\n\014rest" +
-      "aurantid\030\001 \001(\005\"*\n\030CitysIdForRestaurantLi" +
-      "st\022\016\n\006cityid\030\001 \001(\005\"4\n\021ListOfRestaurants\022" +
-      "\037\n\nrestaurant\030\001 \003(\0132\013.Restaurant\"u\n\006Revi" +
-      "ew\022\n\n\002id\030\001 \001(\005\022\017\n\007comment\030\002 \001(\t\022\016\n\006cityi" +
-      "d\030\003 \001(\005\022\022\n\ncategoryid\030\004 \001(\005\022\024\n\014categoryn" +
-      "ame\030\005 \001(\t\022\024\n\014categorytype\030\006 \001(\t\"q\n\016Revie" +
-      "wToCreate\022\017\n\007comment\030\001 \001(\t\022\016\n\006cityid\030\002 \001" +
-      "(\005\022\022\n\ncategoryid\030\003 \001(\005\022\024\n\014categoryname\030\004" +
-      " \001(\t\022\024\n\014categorytype\030\005 \001(\t\"p\n\rReviewCrea" +
-      "ted\022\017\n\007comment\030\001 \001(\t\022\016\n\006cityid\030\002 \001(\005\022\022\n\n" +
-      "categoryid\030\003 \001(\005\022\024\n\014categoryname\030\004 \001(\t\022\024" +
-      "\n\014categorytype\030\005 \001(\t\"\030\n\nReviewById\022\n\n\002id" +
-      "\030\001 \001(\005\"5\n\026ReviewsCommentToUpdate\022\n\n\002id\030\001" +
-      " \001(\005\022\017\n\007comment\030\002 \001(\t\":\n\030ReviewStarRevie" +
-      "wToUpdate\022\n\n\002id\030\001 \001(\005\022\022\n\nstarreview\030\002 \001(" +
-      "\005\"\034\n\016ReviewToDelete\022\n\n\002id\030\001 \001(\005\"W\n\025Categ" +
-      "oryForReviewList\022\022\n\ncategoryid\030\001 \001(\005\022\024\n\014" +
-      "categoryname\030\002 \001(\t\022\024\n\014categorytype\030\003 \001(\t" +
-      "\"\'\n\013ReveiewList\022\030\n\007reviews\030\001 \003(\0132\007.Revie" +
-      "w\"K\n\006Report\022\n\n\002id\030\001 \001(\005\022\016\n\006userid\030\002 \001(\005\022" +
-      "\023\n\013description\030\003 \001(\t\022\020\n\010reviewid\030\004 \001(\005\"G" +
-      "\n\016ReportToCreate\022\016\n\006userid\030\001 \001(\005\022\023\n\013desc" +
-      "ription\030\002 \001(\t\022\020\n\010reviewid\030\003 \001(\005\"F\n\rRepor" +
-      "tCreated\022\016\n\006userid\030\001 \001(\005\022\023\n\013description\030" +
-      "\002 \001(\t\022\020\n\010reviewid\030\003 \001(\005\"\036\n\nReportById\022\020\n" +
-      "\010reportid\030\001 \001(\005\"C\n\032ReportsDescriptionToU" +
-      "pdate\022\020\n\010reportid\030\001 \001(\005\022\023\n\013description\030\002" +
-      " \001(\t\"\"\n\016ReportToDelete\022\020\n\010reportid\030\001 \001(\005" +
+      "d\030\005 \001(\005\"U\n\016MuseumToCreate\022\014\n\004name\030\001 \001(\t\022" +
+      "\023\n\013description\030\002 \001(\t\022\020\n\010imageurl\030\003 \001(\t\022\016" +
+      "\n\006cityid\030\004 \001(\005\"+\n\rMuseumCreated\022\014\n\004code\030" +
+      "\001 \001(\005\022\014\n\004name\030\002 \001(\t\"\"\n\014MuseumByName\022\022\n\nm" +
+      "useumname\030\001 \001(\t\"\036\n\nMuseumById\022\020\n\010museumi" +
+      "d\030\001 \001(\005\"4\n\022MuseumNameToUpdate\022\020\n\010museumi" +
+      "d\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"B\n\031MuseumDescripti" +
+      "onToUpdate\022\020\n\010museumid\030\001 \001(\005\022\023\n\013descript" +
+      "ion\030\002 \001(\t\"\"\n\016MuseumToDelete\022\020\n\010museumid\030" +
+      "\001 \001(\005\"/\n\021MuseumNameUpdated\022\014\n\004code\030\001 \001(\005" +
+      "\022\014\n\004name\030\002 \001(\t\"=\n\030MuseumDescriptionUpdat" +
+      "ed\022\014\n\004code\030\001 \001(\005\022\023\n\013description\030\002 \001(\t\"\035\n" +
+      "\rMuseumDeleted\022\014\n\004code\030\001 \001(\005\"&\n\024CitysIdF" +
+      "orMuseumList\022\016\n\006cityid\030\001 \001(\005\"(\n\rListOfMu" +
+      "seums\022\027\n\006museum\030\001 \003(\0132\007.Museum\"W\n\004Park\022\n" +
+      "\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030" +
+      "\003 \001(\t\022\020\n\010imageurl\030\004 \001(\t\022\016\n\006cityid\030\005 \001(\005\"" +
+      "S\n\014ParkToCreate\022\014\n\004name\030\001 \001(\t\022\023\n\013descrip" +
+      "tion\030\002 \001(\t\022\020\n\010imageurl\030\003 \001(\t\022\016\n\006cityid\030\004" +
+      " \001(\005\")\n\013ParkCreated\022\014\n\004code\030\001 \001(\005\022\014\n\004nam" +
+      "e\030\002 \001(\t\"\036\n\nParkByName\022\020\n\010parkname\030\001 \001(\t\"" +
+      "\032\n\010ParkById\022\016\n\006parkid\030\001 \001(\005\"0\n\020ParkNameT" +
+      "oUpdate\022\016\n\006parkid\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\">\n" +
+      "\027ParkDescriptionToUpdate\022\016\n\006parkid\030\001 \001(\005" +
+      "\022\023\n\013description\030\002 \001(\t\"\036\n\014ParkToDelete\022\016\n" +
+      "\006parkid\030\001 \001(\005\"-\n\017ParkNameUpdated\022\014\n\004code" +
+      "\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\";\n\026ParkDescriptionU" +
+      "pdated\022\014\n\004code\030\001 \001(\005\022\023\n\013description\030\002 \001(" +
+      "\t\"\033\n\013ParkDeleted\022\014\n\004code\030\001 \001(\005\"$\n\022CitysI" +
+      "dForParkList\022\016\n\006cityid\030\001 \001(\005\"\"\n\013ListOfPa" +
+      "rks\022\023\n\004park\030\001 \003(\0132\005.Park\"]\n\nRestaurant\022\n" +
+      "\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030" +
+      "\003 \001(\t\022\020\n\010imageurl\030\004 \001(\t\022\016\n\006cityid\030\005 \001(\005\"" +
+      "Y\n\022RestaurantToCreate\022\014\n\004name\030\001 \001(\t\022\023\n\013d" +
+      "escription\030\002 \001(\t\022\020\n\010imageurl\030\003 \001(\t\022\016\n\006ci" +
+      "tyid\030\004 \001(\005\"/\n\021RestaurantCreated\022\014\n\004code\030" +
+      "\001 \001(\005\022\014\n\004name\030\002 \001(\t\"*\n\020RestaurantByName\022" +
+      "\026\n\016restaurantname\030\001 \001(\t\"&\n\016RestaurantByI" +
+      "d\022\024\n\014restaurantid\030\001 \001(\005\"<\n\026RestaurantNam" +
+      "eToUpdate\022\024\n\014restaurantid\030\001 \001(\005\022\014\n\004name\030" +
+      "\002 \001(\t\"J\n\035RestaurantDescriptionToUpdate\022\024" +
+      "\n\014restaurantid\030\001 \001(\005\022\023\n\013description\030\002 \001(" +
+      "\t\"*\n\022RestaurantToDelete\022\024\n\014restaurantid\030" +
+      "\001 \001(\005\"3\n\025RestaurantNameUpdated\022\014\n\004code\030\001" +
+      " \001(\005\022\014\n\004name\030\002 \001(\t\"A\n\034RestaurantDescript" +
+      "ionUpdated\022\014\n\004code\030\001 \001(\005\022\023\n\013description\030" +
+      "\002 \001(\t\"!\n\021RestaurantDeleted\022\014\n\004code\030\001 \001(\005" +
+      "\"*\n\030CitysIdForRestaurantList\022\016\n\006cityid\030\001" +
+      " \001(\005\"4\n\021ListOfRestaurants\022\037\n\nrestaurant\030" +
+      "\001 \003(\0132\013.Restaurant\"u\n\006Review\022\n\n\002id\030\001 \001(\005" +
+      "\022\017\n\007comment\030\002 \001(\t\022\016\n\006cityid\030\003 \001(\005\022\022\n\ncat" +
+      "egoryid\030\004 \001(\005\022\024\n\014categoryname\030\005 \001(\t\022\024\n\014c" +
+      "ategorytype\030\006 \001(\t\"q\n\016ReviewToCreate\022\017\n\007c" +
+      "omment\030\001 \001(\t\022\016\n\006cityid\030\002 \001(\005\022\022\n\ncategory" +
+      "id\030\003 \001(\005\022\024\n\014categoryname\030\004 \001(\t\022\024\n\014catego" +
+      "rytype\030\005 \001(\t\"+\n\rReviewCreated\022\014\n\004code\030\001 " +
+      "\001(\005\022\014\n\004name\030\002 \001(\t\"\030\n\nReviewById\022\n\n\002id\030\001 " +
+      "\001(\005\"5\n\026ReviewsCommentToUpdate\022\n\n\002id\030\001 \001(" +
+      "\005\022\017\n\007comment\030\002 \001(\t\":\n\030ReviewStarReviewTo" +
+      "Update\022\n\n\002id\030\001 \001(\005\022\022\n\nstarreview\030\002 \001(\005\"\034" +
+      "\n\016ReviewToDelete\022\n\n\002id\030\001 \001(\005\"5\n\024ReviewCo" +
+      "mmentUpdated\022\014\n\004code\030\001 \001(\005\022\017\n\007comment\030\002 " +
+      "\001(\t\"<\n\030ReviewsStarReviewUpdated\022\014\n\004code\030" +
+      "\001 \001(\005\022\022\n\nstarreview\030\002 \001(\005\"\035\n\rReviewDelet" +
+      "ed\022\014\n\004code\030\001 \001(\005\"W\n\025CategoryForReviewLis" +
+      "t\022\022\n\ncategoryid\030\001 \001(\005\022\024\n\014categoryname\030\002 " +
+      "\001(\t\022\024\n\014categorytype\030\003 \001(\t\"\'\n\013ReveiewList" +
+      "\022\030\n\007reviews\030\001 \003(\0132\007.Review\"K\n\006Report\022\n\n\002" +
+      "id\030\001 \001(\005\022\016\n\006userid\030\002 \001(\005\022\023\n\013description\030" +
+      "\003 \001(\t\022\020\n\010reviewid\030\004 \001(\005\"G\n\016ReportToCreat" +
+      "e\022\016\n\006userid\030\001 \001(\005\022\023\n\013description\030\002 \001(\t\022\020" +
+      "\n\010reviewid\030\003 \001(\005\"+\n\rReportCreated\022\014\n\004cod" +
+      "e\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"\036\n\nReportById\022\020\n\010r" +
+      "eportid\030\001 \001(\005\"\"\n\016ReportToDelete\022\020\n\010repor" +
+      "tid\030\001 \001(\005\"\035\n\rReportDeleted\022\014\n\004code\030\001 \001(\005" +
       "\"(\n\rListOfReports\022\027\n\006report\030\001 \003(\0132\007.Repo" +
-      "rt\"\007\n\005Empty2\255\021\n\006Access\022.\n\nCreateUser\022\013.U" +
-      "serCreate\032\023.UserCreateResponse\022(\n\rGetByU" +
-      "sername\022\020.UserGetUsername\032\005.User\022\034\n\007GetB" +
-      "yId\022\n.UserGetId\032\005.User\0229\n\022GetUsersContai" +
-      "ning\022\025.SearchUserParameters\032\014.listOfUser" +
-      "s\022)\n\nCreateCity\022\r.CityToCreate\032\014.CityCre" +
-      "ated\022#\n\rGetCitByyname\022\013.CityByName\032\005.Cit" +
-      "y\022\037\n\013GetCityById\022\t.CityById\032\005.City\022,\n\013Cr" +
-      "eateHotel\022\016.HotelToCreate\032\r.HotelCreated" +
-      "\022&\n\016GetHotelByName\022\014.HotelByName\032\006.Hotel" +
-      "\022\"\n\014GetHotelById\022\n.HotelById\032\006.Hotel\022-\n\017" +
-      "UpdateHotelName\022\022.HotelNameToUpdate\032\006.Em" +
-      "pty\022;\n\026UpdateHotelDescription\022\031.HotelDes" +
-      "criptionToUpdate\032\006.Empty\022%\n\013DeleteHotel\022" +
-      "\016.HotelToDelete\032\006.Empty\0225\n\017GetListOfHote" +
-      "ls\022\023.CitysIdFoHotelList\032\r.ListOfHotels\022/" +
-      "\n\014CreateMuseum\022\017.MuseumToCreate\032\016.Museum" +
-      "Created\022)\n\017GetMuseumByName\022\r.MuseumByNam" +
-      "e\032\007.Museum\022%\n\rGetMuseumById\022\013.MuseumById" +
-      "\032\007.Museum\022/\n\020UpdateMuseumName\022\023.MuseumNa" +
-      "meToUpdate\032\006.Empty\022=\n\027UpdateMuseumDescri" +
-      "ption\022\032.MuseumDescriptionToUpdate\032\006.Empt" +
-      "y\022\'\n\014DeleteMuseum\022\017.MuseumToDelete\032\006.Emp" +
-      "ty\0229\n\020GetListOfMuseums\022\025.CitysIdForMuseu" +
-      "mList\032\016.ListOfMuseums\022)\n\nCreatePark\022\r.Pa" +
-      "rkToCreate\032\014.ParkCreated\022#\n\rGetParkByNam" +
-      "e\022\013.ParkByName\032\005.Park\022\037\n\013GetParkById\022\t.P" +
-      "arkById\032\005.Park\022+\n\016UpdateParkName\022\021.ParkN" +
-      "ameToUpdate\032\006.Empty\0229\n\025UpdateParkDescrip" +
-      "tion\022\030.ParkDescriptionToUpdate\032\006.Empty\022#" +
-      "\n\nDeletePark\022\r.ParkToDelete\032\006.Empty\0223\n\016G" +
-      "etListOfParks\022\023.CitysIdForParkList\032\014.Lis" +
-      "tOfParks\022;\n\020CreateRestaurant\022\023.Restauran" +
-      "tToCreate\032\022.RestaurantCreated\0225\n\023GetRest" +
-      "aurantByName\022\021.RestaurantByName\032\013.Restau" +
-      "rant\0221\n\021GetRestaurantById\022\017.RestaurantBy" +
-      "Id\032\013.Restaurant\0227\n\024UpdateRestaurantName\022" +
-      "\027.RestaurantNameToUpdate\032\006.Empty\022E\n\033Upda" +
-      "teRestaurantDescription\022\036.RestaurantDesc" +
-      "riptionToUpdate\032\006.Empty\022/\n\020DeleteRestaur" +
-      "ant\022\023.RestaurantToDelete\032\006.Empty\022D\n\023GetL" +
-      "istOfRestaurant\022\031.CitysIdForRestaurantLi" +
-      "st\032\022.ListOfRestaurants\022/\n\014CreateReview\022\017" +
-      ".ReviewToCreate\032\016.ReviewCreated\022%\n\rGetRe" +
-      "viewById\022\013.ReviewById\032\007.Review\0226\n\023Update" +
-      "ReviewComment\022\027.ReviewsCommentToUpdate\032\006" +
-      ".Empty\0225\n\020UpdateStarReview\022\031.ReviewStarR" +
-      "eviewToUpdate\032\006.Empty\022\'\n\014DeleteReview\022\017." +
-      "ReviewToDelete\032\006.Empty\0228\n\020GetListOfRevie" +
-      "ws\022\026.CategoryForReviewList\032\014.ReveiewList" +
-      "\022/\n\014CreateReport\022\017.ReportToCreate\032\016.Repo" +
-      "rtCreated\022%\n\rGetReportById\022\013.ReportById\032" +
-      "\007.Report\022>\n\027UpdateReportDescription\022\033.Re" +
-      "portsDescriptionToUpdate\032\006.Empty\022\'\n\014Dele" +
-      "teReport\022\017.ReportToDelete\032\006.Empty\022(\n\020Get" +
-      "ListOfReports\022\006.Empty\032\014.ReveiewListB\023\n\021c" +
-      "om.sdj3.protobufb\006proto3"
+      "rt\"\026\n\005Empty\022\r\n\005empty\030\001 \001(\t2\300\022\n\006Access\022.\n" +
+      "\nCreateUser\022\013.UserCreate\032\023.UserCreateRes" +
+      "ponse\022(\n\rGetByUsername\022\020.UserGetUsername" +
+      "\032\005.User\022\034\n\007GetById\022\n.UserGetId\032\005.User\0229\n" +
+      "\022GetUsersContaining\022\025.SearchUserParamete" +
+      "rs\032\014.listOfUsers\022)\n\nCreateCity\022\r.CityToC" +
+      "reate\032\014.CityCreated\022#\n\rGetCitByyname\022\013.C" +
+      "ityByName\032\005.City\022\037\n\013GetCityById\022\t.CityBy" +
+      "Id\032\005.City\022,\n\013CreateHotel\022\016.HotelToCreate" +
+      "\032\r.HotelCreated\022&\n\016GetHotelByName\022\014.Hote" +
+      "lByName\032\006.Hotel\022\"\n\014GetHotelById\022\n.HotelB" +
+      "yId\032\006.Hotel\0228\n\017UpdateHotelName\022\022.HotelNa" +
+      "meToUpdate\032\021.HotelNameUpdated\022M\n\026UpdateH" +
+      "otelDescription\022\031.HotelDescriptionToUpda" +
+      "te\032\030.HotelDescriptionUpdated\022,\n\013DeleteHo" +
+      "tel\022\016.HotelToDelete\032\r.HotelDeleted\0225\n\017Ge" +
+      "tListOfHotels\022\023.CitysIdFoHotelList\032\r.Lis" +
+      "tOfHotels\022/\n\014CreateMuseum\022\017.MuseumToCrea" +
+      "te\032\016.MuseumCreated\022)\n\017GetMuseumByName\022\r." +
+      "MuseumByName\032\007.Museum\022%\n\rGetMuseumById\022\013" +
+      ".MuseumById\032\007.Museum\022;\n\020UpdateMuseumName" +
+      "\022\023.MuseumNameToUpdate\032\022.MuseumNameUpdate" +
+      "d\022P\n\027UpdateMuseumDescription\022\032.MuseumDes" +
+      "criptionToUpdate\032\031.MuseumDescriptionUpda" +
+      "ted\022/\n\014DeleteMuseum\022\017.MuseumToDelete\032\016.M" +
+      "useumDeleted\0229\n\020GetListOfMuseums\022\025.Citys" +
+      "IdForMuseumList\032\016.ListOfMuseums\022)\n\nCreat" +
+      "ePark\022\r.ParkToCreate\032\014.ParkCreated\022#\n\rGe" +
+      "tParkByName\022\013.ParkByName\032\005.Park\022\037\n\013GetPa" +
+      "rkById\022\t.ParkById\032\005.Park\0225\n\016UpdateParkNa" +
+      "me\022\021.ParkNameToUpdate\032\020.ParkNameUpdated\022" +
+      "J\n\025UpdateParkDescription\022\030.ParkDescripti" +
+      "onToUpdate\032\027.ParkDescriptionUpdated\022)\n\nD" +
+      "eletePark\022\r.ParkToDelete\032\014.ParkDeleted\0223" +
+      "\n\016GetListOfParks\022\023.CitysIdForParkList\032\014." +
+      "ListOfParks\022;\n\020CreateRestaurant\022\023.Restau" +
+      "rantToCreate\032\022.RestaurantCreated\0225\n\023GetR" +
+      "estaurantByName\022\021.RestaurantByName\032\013.Res" +
+      "taurant\0221\n\021GetRestaurantById\022\017.Restauran" +
+      "tById\032\013.Restaurant\022G\n\024UpdateRestaurantNa" +
+      "me\022\027.RestaurantNameToUpdate\032\026.Restaurant" +
+      "NameUpdated\022\\\n\033UpdateRestaurantDescripti" +
+      "on\022\036.RestaurantDescriptionToUpdate\032\035.Res" +
+      "taurantDescriptionUpdated\022;\n\020DeleteResta" +
+      "urant\022\023.RestaurantToDelete\032\022.RestaurantD" +
+      "eleted\022D\n\023GetListOfRestaurant\022\031.CitysIdF" +
+      "orRestaurantList\032\022.ListOfRestaurants\022/\n\014" +
+      "CreateReview\022\017.ReviewToCreate\032\016.ReviewCr" +
+      "eated\022%\n\rGetReviewById\022\013.ReviewById\032\007.Re" +
+      "view\022E\n\023UpdateReviewComment\022\027.ReviewsCom" +
+      "mentToUpdate\032\025.ReviewCommentUpdated\022H\n\020U" +
+      "pdateStarReview\022\031.ReviewStarReviewToUpda" +
+      "te\032\031.ReviewsStarReviewUpdated\022/\n\014DeleteR" +
+      "eview\022\017.ReviewToDelete\032\016.ReviewDeleted\0228" +
+      "\n\020GetListOfReviews\022\026.CategoryForReviewLi" +
+      "st\032\014.ReveiewList\022/\n\014CreateReport\022\017.Repor" +
+      "tToCreate\032\016.ReportCreated\022%\n\rGetReportBy" +
+      "Id\022\013.ReportById\032\007.Report\022/\n\014DeleteReport" +
+      "\022\017.ReportToDelete\032\016.ReportDeleted\022*\n\020Get" +
+      "ListOfReports\022\006.Empty\032\016.ListOfReportsB\023\n" +
+      "\021com.sdj3.protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -48981,7 +55962,7 @@ public final class DataAccess {
     internal_static_CityCreated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CityCreated_descriptor,
-        new java.lang.String[] { "Name", "Description", "Imageurl", });
+        new java.lang.String[] { "Code", "Name", });
     internal_static_CityByName_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_CityByName_fieldAccessorTable = new
@@ -49011,7 +55992,7 @@ public final class DataAccess {
     internal_static_HotelCreated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_HotelCreated_descriptor,
-        new java.lang.String[] { "Name", "Description", "Imageurl", "Cityid", });
+        new java.lang.String[] { "Code", "Name", });
     internal_static_HotelByName_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_HotelByName_fieldAccessorTable = new
@@ -49042,300 +56023,390 @@ public final class DataAccess {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_HotelToDelete_descriptor,
         new java.lang.String[] { "Hotelid", });
-    internal_static_CitysIdFoHotelList_descriptor =
+    internal_static_HotelNameUpdated_descriptor =
       getDescriptor().getMessageTypes().get(20);
+    internal_static_HotelNameUpdated_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_HotelNameUpdated_descriptor,
+        new java.lang.String[] { "Code", "Name", });
+    internal_static_HotelDescriptionUpdated_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_HotelDescriptionUpdated_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_HotelDescriptionUpdated_descriptor,
+        new java.lang.String[] { "Code", "Description", });
+    internal_static_HotelDeleted_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_HotelDeleted_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_HotelDeleted_descriptor,
+        new java.lang.String[] { "Code", });
+    internal_static_CitysIdFoHotelList_descriptor =
+      getDescriptor().getMessageTypes().get(23);
     internal_static_CitysIdFoHotelList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CitysIdFoHotelList_descriptor,
         new java.lang.String[] { "Cityid", });
     internal_static_ListOfHotels_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_ListOfHotels_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ListOfHotels_descriptor,
         new java.lang.String[] { "Hotels", });
     internal_static_Museum_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_Museum_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Museum_descriptor,
         new java.lang.String[] { "Id", "Name", "Description", "Imageurl", "Cityid", });
     internal_static_MuseumToCreate_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_MuseumToCreate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MuseumToCreate_descriptor,
         new java.lang.String[] { "Name", "Description", "Imageurl", "Cityid", });
     internal_static_MuseumCreated_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_MuseumCreated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MuseumCreated_descriptor,
-        new java.lang.String[] { "Name", "Description", "Imageurl", "Cityid", });
+        new java.lang.String[] { "Code", "Name", });
     internal_static_MuseumByName_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_MuseumByName_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MuseumByName_descriptor,
         new java.lang.String[] { "Museumname", });
     internal_static_MuseumById_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_MuseumById_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MuseumById_descriptor,
         new java.lang.String[] { "Museumid", });
     internal_static_MuseumNameToUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_MuseumNameToUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MuseumNameToUpdate_descriptor,
         new java.lang.String[] { "Museumid", "Name", });
     internal_static_MuseumDescriptionToUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_MuseumDescriptionToUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MuseumDescriptionToUpdate_descriptor,
         new java.lang.String[] { "Museumid", "Description", });
     internal_static_MuseumToDelete_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_MuseumToDelete_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MuseumToDelete_descriptor,
         new java.lang.String[] { "Museumid", });
+    internal_static_MuseumNameUpdated_descriptor =
+      getDescriptor().getMessageTypes().get(33);
+    internal_static_MuseumNameUpdated_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MuseumNameUpdated_descriptor,
+        new java.lang.String[] { "Code", "Name", });
+    internal_static_MuseumDescriptionUpdated_descriptor =
+      getDescriptor().getMessageTypes().get(34);
+    internal_static_MuseumDescriptionUpdated_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MuseumDescriptionUpdated_descriptor,
+        new java.lang.String[] { "Code", "Description", });
+    internal_static_MuseumDeleted_descriptor =
+      getDescriptor().getMessageTypes().get(35);
+    internal_static_MuseumDeleted_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MuseumDeleted_descriptor,
+        new java.lang.String[] { "Code", });
     internal_static_CitysIdForMuseumList_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_CitysIdForMuseumList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CitysIdForMuseumList_descriptor,
         new java.lang.String[] { "Cityid", });
     internal_static_ListOfMuseums_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_ListOfMuseums_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ListOfMuseums_descriptor,
         new java.lang.String[] { "Museum", });
     internal_static_Park_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_Park_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Park_descriptor,
         new java.lang.String[] { "Id", "Name", "Description", "Imageurl", "Cityid", });
     internal_static_ParkToCreate_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_ParkToCreate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkToCreate_descriptor,
         new java.lang.String[] { "Name", "Description", "Imageurl", "Cityid", });
     internal_static_ParkCreated_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_ParkCreated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkCreated_descriptor,
-        new java.lang.String[] { "Name", "Description", "Imageurl", "Cityid", });
+        new java.lang.String[] { "Code", "Name", });
     internal_static_ParkByName_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_ParkByName_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkByName_descriptor,
         new java.lang.String[] { "Parkname", });
     internal_static_ParkById_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_ParkById_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkById_descriptor,
         new java.lang.String[] { "Parkid", });
     internal_static_ParkNameToUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_ParkNameToUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkNameToUpdate_descriptor,
         new java.lang.String[] { "Parkid", "Name", });
     internal_static_ParkDescriptionToUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_ParkDescriptionToUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkDescriptionToUpdate_descriptor,
         new java.lang.String[] { "Parkid", "Description", });
     internal_static_ParkToDelete_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_ParkToDelete_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkToDelete_descriptor,
         new java.lang.String[] { "Parkid", });
+    internal_static_ParkNameUpdated_descriptor =
+      getDescriptor().getMessageTypes().get(46);
+    internal_static_ParkNameUpdated_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ParkNameUpdated_descriptor,
+        new java.lang.String[] { "Code", "Name", });
+    internal_static_ParkDescriptionUpdated_descriptor =
+      getDescriptor().getMessageTypes().get(47);
+    internal_static_ParkDescriptionUpdated_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ParkDescriptionUpdated_descriptor,
+        new java.lang.String[] { "Code", "Description", });
+    internal_static_ParkDeleted_descriptor =
+      getDescriptor().getMessageTypes().get(48);
+    internal_static_ParkDeleted_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ParkDeleted_descriptor,
+        new java.lang.String[] { "Code", });
     internal_static_CitysIdForParkList_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_CitysIdForParkList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CitysIdForParkList_descriptor,
         new java.lang.String[] { "Cityid", });
     internal_static_ListOfParks_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(50);
     internal_static_ListOfParks_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ListOfParks_descriptor,
         new java.lang.String[] { "Park", });
     internal_static_Restaurant_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(51);
     internal_static_Restaurant_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Restaurant_descriptor,
         new java.lang.String[] { "Id", "Name", "Description", "Imageurl", "Cityid", });
     internal_static_RestaurantToCreate_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(52);
     internal_static_RestaurantToCreate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RestaurantToCreate_descriptor,
         new java.lang.String[] { "Name", "Description", "Imageurl", "Cityid", });
     internal_static_RestaurantCreated_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(53);
     internal_static_RestaurantCreated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RestaurantCreated_descriptor,
-        new java.lang.String[] { "Name", "Description", "Imageurl", "Cityid", });
+        new java.lang.String[] { "Code", "Name", });
     internal_static_RestaurantByName_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(54);
     internal_static_RestaurantByName_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RestaurantByName_descriptor,
         new java.lang.String[] { "Restaurantname", });
     internal_static_RestaurantById_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(55);
     internal_static_RestaurantById_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RestaurantById_descriptor,
         new java.lang.String[] { "Restaurantid", });
     internal_static_RestaurantNameToUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(47);
+      getDescriptor().getMessageTypes().get(56);
     internal_static_RestaurantNameToUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RestaurantNameToUpdate_descriptor,
         new java.lang.String[] { "Restaurantid", "Name", });
     internal_static_RestaurantDescriptionToUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(48);
+      getDescriptor().getMessageTypes().get(57);
     internal_static_RestaurantDescriptionToUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RestaurantDescriptionToUpdate_descriptor,
         new java.lang.String[] { "Restaurantid", "Description", });
     internal_static_RestaurantToDelete_descriptor =
-      getDescriptor().getMessageTypes().get(49);
+      getDescriptor().getMessageTypes().get(58);
     internal_static_RestaurantToDelete_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RestaurantToDelete_descriptor,
         new java.lang.String[] { "Restaurantid", });
+    internal_static_RestaurantNameUpdated_descriptor =
+      getDescriptor().getMessageTypes().get(59);
+    internal_static_RestaurantNameUpdated_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RestaurantNameUpdated_descriptor,
+        new java.lang.String[] { "Code", "Name", });
+    internal_static_RestaurantDescriptionUpdated_descriptor =
+      getDescriptor().getMessageTypes().get(60);
+    internal_static_RestaurantDescriptionUpdated_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RestaurantDescriptionUpdated_descriptor,
+        new java.lang.String[] { "Code", "Description", });
+    internal_static_RestaurantDeleted_descriptor =
+      getDescriptor().getMessageTypes().get(61);
+    internal_static_RestaurantDeleted_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RestaurantDeleted_descriptor,
+        new java.lang.String[] { "Code", });
     internal_static_CitysIdForRestaurantList_descriptor =
-      getDescriptor().getMessageTypes().get(50);
+      getDescriptor().getMessageTypes().get(62);
     internal_static_CitysIdForRestaurantList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CitysIdForRestaurantList_descriptor,
         new java.lang.String[] { "Cityid", });
     internal_static_ListOfRestaurants_descriptor =
-      getDescriptor().getMessageTypes().get(51);
+      getDescriptor().getMessageTypes().get(63);
     internal_static_ListOfRestaurants_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ListOfRestaurants_descriptor,
         new java.lang.String[] { "Restaurant", });
     internal_static_Review_descriptor =
-      getDescriptor().getMessageTypes().get(52);
+      getDescriptor().getMessageTypes().get(64);
     internal_static_Review_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Review_descriptor,
         new java.lang.String[] { "Id", "Comment", "Cityid", "Categoryid", "Categoryname", "Categorytype", });
     internal_static_ReviewToCreate_descriptor =
-      getDescriptor().getMessageTypes().get(53);
+      getDescriptor().getMessageTypes().get(65);
     internal_static_ReviewToCreate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewToCreate_descriptor,
         new java.lang.String[] { "Comment", "Cityid", "Categoryid", "Categoryname", "Categorytype", });
     internal_static_ReviewCreated_descriptor =
-      getDescriptor().getMessageTypes().get(54);
+      getDescriptor().getMessageTypes().get(66);
     internal_static_ReviewCreated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewCreated_descriptor,
-        new java.lang.String[] { "Comment", "Cityid", "Categoryid", "Categoryname", "Categorytype", });
+        new java.lang.String[] { "Code", "Name", });
     internal_static_ReviewById_descriptor =
-      getDescriptor().getMessageTypes().get(55);
+      getDescriptor().getMessageTypes().get(67);
     internal_static_ReviewById_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewById_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_ReviewsCommentToUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(56);
+      getDescriptor().getMessageTypes().get(68);
     internal_static_ReviewsCommentToUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewsCommentToUpdate_descriptor,
         new java.lang.String[] { "Id", "Comment", });
     internal_static_ReviewStarReviewToUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(57);
+      getDescriptor().getMessageTypes().get(69);
     internal_static_ReviewStarReviewToUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewStarReviewToUpdate_descriptor,
         new java.lang.String[] { "Id", "Starreview", });
     internal_static_ReviewToDelete_descriptor =
-      getDescriptor().getMessageTypes().get(58);
+      getDescriptor().getMessageTypes().get(70);
     internal_static_ReviewToDelete_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewToDelete_descriptor,
         new java.lang.String[] { "Id", });
+    internal_static_ReviewCommentUpdated_descriptor =
+      getDescriptor().getMessageTypes().get(71);
+    internal_static_ReviewCommentUpdated_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ReviewCommentUpdated_descriptor,
+        new java.lang.String[] { "Code", "Comment", });
+    internal_static_ReviewsStarReviewUpdated_descriptor =
+      getDescriptor().getMessageTypes().get(72);
+    internal_static_ReviewsStarReviewUpdated_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ReviewsStarReviewUpdated_descriptor,
+        new java.lang.String[] { "Code", "Starreview", });
+    internal_static_ReviewDeleted_descriptor =
+      getDescriptor().getMessageTypes().get(73);
+    internal_static_ReviewDeleted_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ReviewDeleted_descriptor,
+        new java.lang.String[] { "Code", });
     internal_static_CategoryForReviewList_descriptor =
-      getDescriptor().getMessageTypes().get(59);
+      getDescriptor().getMessageTypes().get(74);
     internal_static_CategoryForReviewList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CategoryForReviewList_descriptor,
         new java.lang.String[] { "Categoryid", "Categoryname", "Categorytype", });
     internal_static_ReveiewList_descriptor =
-      getDescriptor().getMessageTypes().get(60);
+      getDescriptor().getMessageTypes().get(75);
     internal_static_ReveiewList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReveiewList_descriptor,
         new java.lang.String[] { "Reviews", });
     internal_static_Report_descriptor =
-      getDescriptor().getMessageTypes().get(61);
+      getDescriptor().getMessageTypes().get(76);
     internal_static_Report_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Report_descriptor,
         new java.lang.String[] { "Id", "Userid", "Description", "Reviewid", });
     internal_static_ReportToCreate_descriptor =
-      getDescriptor().getMessageTypes().get(62);
+      getDescriptor().getMessageTypes().get(77);
     internal_static_ReportToCreate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReportToCreate_descriptor,
         new java.lang.String[] { "Userid", "Description", "Reviewid", });
     internal_static_ReportCreated_descriptor =
-      getDescriptor().getMessageTypes().get(63);
+      getDescriptor().getMessageTypes().get(78);
     internal_static_ReportCreated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReportCreated_descriptor,
-        new java.lang.String[] { "Userid", "Description", "Reviewid", });
+        new java.lang.String[] { "Code", "Name", });
     internal_static_ReportById_descriptor =
-      getDescriptor().getMessageTypes().get(64);
+      getDescriptor().getMessageTypes().get(79);
     internal_static_ReportById_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReportById_descriptor,
         new java.lang.String[] { "Reportid", });
-    internal_static_ReportsDescriptionToUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(65);
-    internal_static_ReportsDescriptionToUpdate_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ReportsDescriptionToUpdate_descriptor,
-        new java.lang.String[] { "Reportid", "Description", });
     internal_static_ReportToDelete_descriptor =
-      getDescriptor().getMessageTypes().get(66);
+      getDescriptor().getMessageTypes().get(80);
     internal_static_ReportToDelete_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReportToDelete_descriptor,
         new java.lang.String[] { "Reportid", });
+    internal_static_ReportDeleted_descriptor =
+      getDescriptor().getMessageTypes().get(81);
+    internal_static_ReportDeleted_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ReportDeleted_descriptor,
+        new java.lang.String[] { "Code", });
     internal_static_ListOfReports_descriptor =
-      getDescriptor().getMessageTypes().get(67);
+      getDescriptor().getMessageTypes().get(82);
     internal_static_ListOfReports_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ListOfReports_descriptor,
         new java.lang.String[] { "Report", });
     internal_static_Empty_descriptor =
-      getDescriptor().getMessageTypes().get(68);
+      getDescriptor().getMessageTypes().get(83);
     internal_static_Empty_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Empty_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Empty", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

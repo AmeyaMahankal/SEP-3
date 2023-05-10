@@ -325,28 +325,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelNameToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateHotelNameMethod;
+      com.sdj3.protobuf.DataAccess.HotelNameUpdated> getUpdateHotelNameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateHotelName",
       requestType = com.sdj3.protobuf.DataAccess.HotelNameToUpdate.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.HotelNameUpdated.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelNameToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateHotelNameMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelNameToUpdate, com.sdj3.protobuf.DataAccess.Empty> getUpdateHotelNameMethod;
+      com.sdj3.protobuf.DataAccess.HotelNameUpdated> getUpdateHotelNameMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelNameToUpdate, com.sdj3.protobuf.DataAccess.HotelNameUpdated> getUpdateHotelNameMethod;
     if ((getUpdateHotelNameMethod = AccessGrpc.getUpdateHotelNameMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getUpdateHotelNameMethod = AccessGrpc.getUpdateHotelNameMethod) == null) {
           AccessGrpc.getUpdateHotelNameMethod = getUpdateHotelNameMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.HotelNameToUpdate, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.HotelNameToUpdate, com.sdj3.protobuf.DataAccess.HotelNameUpdated>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateHotelName"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.HotelNameToUpdate.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.HotelNameUpdated.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("UpdateHotelName"))
               .build();
         }
@@ -356,28 +356,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateHotelDescriptionMethod;
+      com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated> getUpdateHotelDescriptionMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateHotelDescription",
       requestType = com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateHotelDescriptionMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate, com.sdj3.protobuf.DataAccess.Empty> getUpdateHotelDescriptionMethod;
+      com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated> getUpdateHotelDescriptionMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate, com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated> getUpdateHotelDescriptionMethod;
     if ((getUpdateHotelDescriptionMethod = AccessGrpc.getUpdateHotelDescriptionMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getUpdateHotelDescriptionMethod = AccessGrpc.getUpdateHotelDescriptionMethod) == null) {
           AccessGrpc.getUpdateHotelDescriptionMethod = getUpdateHotelDescriptionMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate, com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateHotelDescription"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("UpdateHotelDescription"))
               .build();
         }
@@ -387,28 +387,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelToDelete,
-      com.sdj3.protobuf.DataAccess.Empty> getDeleteHotelMethod;
+      com.sdj3.protobuf.DataAccess.HotelDeleted> getDeleteHotelMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "DeleteHotel",
       requestType = com.sdj3.protobuf.DataAccess.HotelToDelete.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.HotelDeleted.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelToDelete,
-      com.sdj3.protobuf.DataAccess.Empty> getDeleteHotelMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelToDelete, com.sdj3.protobuf.DataAccess.Empty> getDeleteHotelMethod;
+      com.sdj3.protobuf.DataAccess.HotelDeleted> getDeleteHotelMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelToDelete, com.sdj3.protobuf.DataAccess.HotelDeleted> getDeleteHotelMethod;
     if ((getDeleteHotelMethod = AccessGrpc.getDeleteHotelMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getDeleteHotelMethod = AccessGrpc.getDeleteHotelMethod) == null) {
           AccessGrpc.getDeleteHotelMethod = getDeleteHotelMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.HotelToDelete, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.HotelToDelete, com.sdj3.protobuf.DataAccess.HotelDeleted>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteHotel"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.HotelToDelete.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.HotelDeleted.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("DeleteHotel"))
               .build();
         }
@@ -542,28 +542,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.MuseumNameToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateMuseumNameMethod;
+      com.sdj3.protobuf.DataAccess.MuseumNameUpdated> getUpdateMuseumNameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateMuseumName",
       requestType = com.sdj3.protobuf.DataAccess.MuseumNameToUpdate.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.MuseumNameUpdated.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.MuseumNameToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateMuseumNameMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.MuseumNameToUpdate, com.sdj3.protobuf.DataAccess.Empty> getUpdateMuseumNameMethod;
+      com.sdj3.protobuf.DataAccess.MuseumNameUpdated> getUpdateMuseumNameMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.MuseumNameToUpdate, com.sdj3.protobuf.DataAccess.MuseumNameUpdated> getUpdateMuseumNameMethod;
     if ((getUpdateMuseumNameMethod = AccessGrpc.getUpdateMuseumNameMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getUpdateMuseumNameMethod = AccessGrpc.getUpdateMuseumNameMethod) == null) {
           AccessGrpc.getUpdateMuseumNameMethod = getUpdateMuseumNameMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.MuseumNameToUpdate, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.MuseumNameToUpdate, com.sdj3.protobuf.DataAccess.MuseumNameUpdated>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateMuseumName"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.MuseumNameToUpdate.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.MuseumNameUpdated.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("UpdateMuseumName"))
               .build();
         }
@@ -573,28 +573,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateMuseumDescriptionMethod;
+      com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated> getUpdateMuseumDescriptionMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateMuseumDescription",
       requestType = com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateMuseumDescriptionMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate, com.sdj3.protobuf.DataAccess.Empty> getUpdateMuseumDescriptionMethod;
+      com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated> getUpdateMuseumDescriptionMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate, com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated> getUpdateMuseumDescriptionMethod;
     if ((getUpdateMuseumDescriptionMethod = AccessGrpc.getUpdateMuseumDescriptionMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getUpdateMuseumDescriptionMethod = AccessGrpc.getUpdateMuseumDescriptionMethod) == null) {
           AccessGrpc.getUpdateMuseumDescriptionMethod = getUpdateMuseumDescriptionMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate, com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateMuseumDescription"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("UpdateMuseumDescription"))
               .build();
         }
@@ -604,28 +604,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.MuseumToDelete,
-      com.sdj3.protobuf.DataAccess.Empty> getDeleteMuseumMethod;
+      com.sdj3.protobuf.DataAccess.MuseumDeleted> getDeleteMuseumMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "DeleteMuseum",
       requestType = com.sdj3.protobuf.DataAccess.MuseumToDelete.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.MuseumDeleted.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.MuseumToDelete,
-      com.sdj3.protobuf.DataAccess.Empty> getDeleteMuseumMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.MuseumToDelete, com.sdj3.protobuf.DataAccess.Empty> getDeleteMuseumMethod;
+      com.sdj3.protobuf.DataAccess.MuseumDeleted> getDeleteMuseumMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.MuseumToDelete, com.sdj3.protobuf.DataAccess.MuseumDeleted> getDeleteMuseumMethod;
     if ((getDeleteMuseumMethod = AccessGrpc.getDeleteMuseumMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getDeleteMuseumMethod = AccessGrpc.getDeleteMuseumMethod) == null) {
           AccessGrpc.getDeleteMuseumMethod = getDeleteMuseumMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.MuseumToDelete, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.MuseumToDelete, com.sdj3.protobuf.DataAccess.MuseumDeleted>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteMuseum"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.MuseumToDelete.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.MuseumDeleted.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("DeleteMuseum"))
               .build();
         }
@@ -759,28 +759,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ParkNameToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateParkNameMethod;
+      com.sdj3.protobuf.DataAccess.ParkNameUpdated> getUpdateParkNameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateParkName",
       requestType = com.sdj3.protobuf.DataAccess.ParkNameToUpdate.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.ParkNameUpdated.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ParkNameToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateParkNameMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ParkNameToUpdate, com.sdj3.protobuf.DataAccess.Empty> getUpdateParkNameMethod;
+      com.sdj3.protobuf.DataAccess.ParkNameUpdated> getUpdateParkNameMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ParkNameToUpdate, com.sdj3.protobuf.DataAccess.ParkNameUpdated> getUpdateParkNameMethod;
     if ((getUpdateParkNameMethod = AccessGrpc.getUpdateParkNameMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getUpdateParkNameMethod = AccessGrpc.getUpdateParkNameMethod) == null) {
           AccessGrpc.getUpdateParkNameMethod = getUpdateParkNameMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ParkNameToUpdate, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ParkNameToUpdate, com.sdj3.protobuf.DataAccess.ParkNameUpdated>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateParkName"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.ParkNameToUpdate.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.ParkNameUpdated.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("UpdateParkName"))
               .build();
         }
@@ -790,28 +790,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateParkDescriptionMethod;
+      com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated> getUpdateParkDescriptionMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateParkDescription",
       requestType = com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateParkDescriptionMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate, com.sdj3.protobuf.DataAccess.Empty> getUpdateParkDescriptionMethod;
+      com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated> getUpdateParkDescriptionMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate, com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated> getUpdateParkDescriptionMethod;
     if ((getUpdateParkDescriptionMethod = AccessGrpc.getUpdateParkDescriptionMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getUpdateParkDescriptionMethod = AccessGrpc.getUpdateParkDescriptionMethod) == null) {
           AccessGrpc.getUpdateParkDescriptionMethod = getUpdateParkDescriptionMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate, com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateParkDescription"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("UpdateParkDescription"))
               .build();
         }
@@ -821,28 +821,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ParkToDelete,
-      com.sdj3.protobuf.DataAccess.Empty> getDeleteParkMethod;
+      com.sdj3.protobuf.DataAccess.ParkDeleted> getDeleteParkMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "DeletePark",
       requestType = com.sdj3.protobuf.DataAccess.ParkToDelete.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.ParkDeleted.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ParkToDelete,
-      com.sdj3.protobuf.DataAccess.Empty> getDeleteParkMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ParkToDelete, com.sdj3.protobuf.DataAccess.Empty> getDeleteParkMethod;
+      com.sdj3.protobuf.DataAccess.ParkDeleted> getDeleteParkMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ParkToDelete, com.sdj3.protobuf.DataAccess.ParkDeleted> getDeleteParkMethod;
     if ((getDeleteParkMethod = AccessGrpc.getDeleteParkMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getDeleteParkMethod = AccessGrpc.getDeleteParkMethod) == null) {
           AccessGrpc.getDeleteParkMethod = getDeleteParkMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ParkToDelete, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ParkToDelete, com.sdj3.protobuf.DataAccess.ParkDeleted>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeletePark"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.ParkToDelete.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.ParkDeleted.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("DeletePark"))
               .build();
         }
@@ -976,28 +976,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateRestaurantNameMethod;
+      com.sdj3.protobuf.DataAccess.RestaurantNameUpdated> getUpdateRestaurantNameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateRestaurantName",
       requestType = com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.RestaurantNameUpdated.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateRestaurantNameMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate, com.sdj3.protobuf.DataAccess.Empty> getUpdateRestaurantNameMethod;
+      com.sdj3.protobuf.DataAccess.RestaurantNameUpdated> getUpdateRestaurantNameMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate, com.sdj3.protobuf.DataAccess.RestaurantNameUpdated> getUpdateRestaurantNameMethod;
     if ((getUpdateRestaurantNameMethod = AccessGrpc.getUpdateRestaurantNameMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getUpdateRestaurantNameMethod = AccessGrpc.getUpdateRestaurantNameMethod) == null) {
           AccessGrpc.getUpdateRestaurantNameMethod = getUpdateRestaurantNameMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate, com.sdj3.protobuf.DataAccess.RestaurantNameUpdated>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateRestaurantName"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.RestaurantNameUpdated.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("UpdateRestaurantName"))
               .build();
         }
@@ -1007,28 +1007,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateRestaurantDescriptionMethod;
+      com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated> getUpdateRestaurantDescriptionMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateRestaurantDescription",
       requestType = com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateRestaurantDescriptionMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate, com.sdj3.protobuf.DataAccess.Empty> getUpdateRestaurantDescriptionMethod;
+      com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated> getUpdateRestaurantDescriptionMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate, com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated> getUpdateRestaurantDescriptionMethod;
     if ((getUpdateRestaurantDescriptionMethod = AccessGrpc.getUpdateRestaurantDescriptionMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getUpdateRestaurantDescriptionMethod = AccessGrpc.getUpdateRestaurantDescriptionMethod) == null) {
           AccessGrpc.getUpdateRestaurantDescriptionMethod = getUpdateRestaurantDescriptionMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate, com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateRestaurantDescription"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("UpdateRestaurantDescription"))
               .build();
         }
@@ -1038,28 +1038,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.RestaurantToDelete,
-      com.sdj3.protobuf.DataAccess.Empty> getDeleteRestaurantMethod;
+      com.sdj3.protobuf.DataAccess.RestaurantDeleted> getDeleteRestaurantMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "DeleteRestaurant",
       requestType = com.sdj3.protobuf.DataAccess.RestaurantToDelete.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.RestaurantDeleted.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.RestaurantToDelete,
-      com.sdj3.protobuf.DataAccess.Empty> getDeleteRestaurantMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.RestaurantToDelete, com.sdj3.protobuf.DataAccess.Empty> getDeleteRestaurantMethod;
+      com.sdj3.protobuf.DataAccess.RestaurantDeleted> getDeleteRestaurantMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.RestaurantToDelete, com.sdj3.protobuf.DataAccess.RestaurantDeleted> getDeleteRestaurantMethod;
     if ((getDeleteRestaurantMethod = AccessGrpc.getDeleteRestaurantMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getDeleteRestaurantMethod = AccessGrpc.getDeleteRestaurantMethod) == null) {
           AccessGrpc.getDeleteRestaurantMethod = getDeleteRestaurantMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.RestaurantToDelete, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.RestaurantToDelete, com.sdj3.protobuf.DataAccess.RestaurantDeleted>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteRestaurant"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.RestaurantToDelete.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.RestaurantDeleted.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("DeleteRestaurant"))
               .build();
         }
@@ -1162,28 +1162,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateReviewCommentMethod;
+      com.sdj3.protobuf.DataAccess.ReviewCommentUpdated> getUpdateReviewCommentMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateReviewComment",
       requestType = com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.ReviewCommentUpdated.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateReviewCommentMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate, com.sdj3.protobuf.DataAccess.Empty> getUpdateReviewCommentMethod;
+      com.sdj3.protobuf.DataAccess.ReviewCommentUpdated> getUpdateReviewCommentMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate, com.sdj3.protobuf.DataAccess.ReviewCommentUpdated> getUpdateReviewCommentMethod;
     if ((getUpdateReviewCommentMethod = AccessGrpc.getUpdateReviewCommentMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getUpdateReviewCommentMethod = AccessGrpc.getUpdateReviewCommentMethod) == null) {
           AccessGrpc.getUpdateReviewCommentMethod = getUpdateReviewCommentMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate, com.sdj3.protobuf.DataAccess.ReviewCommentUpdated>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateReviewComment"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.ReviewCommentUpdated.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("UpdateReviewComment"))
               .build();
         }
@@ -1193,28 +1193,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateStarReviewMethod;
+      com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated> getUpdateStarReviewMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateStarReview",
       requestType = com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateStarReviewMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate, com.sdj3.protobuf.DataAccess.Empty> getUpdateStarReviewMethod;
+      com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated> getUpdateStarReviewMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate, com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated> getUpdateStarReviewMethod;
     if ((getUpdateStarReviewMethod = AccessGrpc.getUpdateStarReviewMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getUpdateStarReviewMethod = AccessGrpc.getUpdateStarReviewMethod) == null) {
           AccessGrpc.getUpdateStarReviewMethod = getUpdateStarReviewMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate, com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateStarReview"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("UpdateStarReview"))
               .build();
         }
@@ -1224,28 +1224,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReviewToDelete,
-      com.sdj3.protobuf.DataAccess.Empty> getDeleteReviewMethod;
+      com.sdj3.protobuf.DataAccess.ReviewDeleted> getDeleteReviewMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "DeleteReview",
       requestType = com.sdj3.protobuf.DataAccess.ReviewToDelete.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.ReviewDeleted.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReviewToDelete,
-      com.sdj3.protobuf.DataAccess.Empty> getDeleteReviewMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReviewToDelete, com.sdj3.protobuf.DataAccess.Empty> getDeleteReviewMethod;
+      com.sdj3.protobuf.DataAccess.ReviewDeleted> getDeleteReviewMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReviewToDelete, com.sdj3.protobuf.DataAccess.ReviewDeleted> getDeleteReviewMethod;
     if ((getDeleteReviewMethod = AccessGrpc.getDeleteReviewMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getDeleteReviewMethod = AccessGrpc.getDeleteReviewMethod) == null) {
           AccessGrpc.getDeleteReviewMethod = getDeleteReviewMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ReviewToDelete, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ReviewToDelete, com.sdj3.protobuf.DataAccess.ReviewDeleted>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteReview"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.ReviewToDelete.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.ReviewDeleted.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("DeleteReview"))
               .build();
         }
@@ -1347,60 +1347,29 @@ public final class AccessGrpc {
     return getGetReportByIdMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateReportDescriptionMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "UpdateReportDescription",
-      requestType = com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate,
-      com.sdj3.protobuf.DataAccess.Empty> getUpdateReportDescriptionMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate, com.sdj3.protobuf.DataAccess.Empty> getUpdateReportDescriptionMethod;
-    if ((getUpdateReportDescriptionMethod = AccessGrpc.getUpdateReportDescriptionMethod) == null) {
-      synchronized (AccessGrpc.class) {
-        if ((getUpdateReportDescriptionMethod = AccessGrpc.getUpdateReportDescriptionMethod) == null) {
-          AccessGrpc.getUpdateReportDescriptionMethod = getUpdateReportDescriptionMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateReportDescription"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
-              .setSchemaDescriptor(new AccessMethodDescriptorSupplier("UpdateReportDescription"))
-              .build();
-        }
-      }
-    }
-    return getUpdateReportDescriptionMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReportToDelete,
-      com.sdj3.protobuf.DataAccess.Empty> getDeleteReportMethod;
+      com.sdj3.protobuf.DataAccess.ReportDeleted> getDeleteReportMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "DeleteReport",
       requestType = com.sdj3.protobuf.DataAccess.ReportToDelete.class,
-      responseType = com.sdj3.protobuf.DataAccess.Empty.class,
+      responseType = com.sdj3.protobuf.DataAccess.ReportDeleted.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReportToDelete,
-      com.sdj3.protobuf.DataAccess.Empty> getDeleteReportMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReportToDelete, com.sdj3.protobuf.DataAccess.Empty> getDeleteReportMethod;
+      com.sdj3.protobuf.DataAccess.ReportDeleted> getDeleteReportMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReportToDelete, com.sdj3.protobuf.DataAccess.ReportDeleted> getDeleteReportMethod;
     if ((getDeleteReportMethod = AccessGrpc.getDeleteReportMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getDeleteReportMethod = AccessGrpc.getDeleteReportMethod) == null) {
           AccessGrpc.getDeleteReportMethod = getDeleteReportMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ReportToDelete, com.sdj3.protobuf.DataAccess.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.ReportToDelete, com.sdj3.protobuf.DataAccess.ReportDeleted>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteReport"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.ReportToDelete.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.ReportDeleted.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("DeleteReport"))
               .build();
         }
@@ -1410,28 +1379,28 @@ public final class AccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.Empty,
-      com.sdj3.protobuf.DataAccess.ReveiewList> getGetListOfReportsMethod;
+      com.sdj3.protobuf.DataAccess.ListOfReports> getGetListOfReportsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetListOfReports",
       requestType = com.sdj3.protobuf.DataAccess.Empty.class,
-      responseType = com.sdj3.protobuf.DataAccess.ReveiewList.class,
+      responseType = com.sdj3.protobuf.DataAccess.ListOfReports.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.Empty,
-      com.sdj3.protobuf.DataAccess.ReveiewList> getGetListOfReportsMethod() {
-    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.Empty, com.sdj3.protobuf.DataAccess.ReveiewList> getGetListOfReportsMethod;
+      com.sdj3.protobuf.DataAccess.ListOfReports> getGetListOfReportsMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.Empty, com.sdj3.protobuf.DataAccess.ListOfReports> getGetListOfReportsMethod;
     if ((getGetListOfReportsMethod = AccessGrpc.getGetListOfReportsMethod) == null) {
       synchronized (AccessGrpc.class) {
         if ((getGetListOfReportsMethod = AccessGrpc.getGetListOfReportsMethod) == null) {
           AccessGrpc.getGetListOfReportsMethod = getGetListOfReportsMethod =
-              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.Empty, com.sdj3.protobuf.DataAccess.ReveiewList>newBuilder()
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.Empty, com.sdj3.protobuf.DataAccess.ListOfReports>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetListOfReports"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.sdj3.protobuf.DataAccess.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sdj3.protobuf.DataAccess.ReveiewList.getDefaultInstance()))
+                  com.sdj3.protobuf.DataAccess.ListOfReports.getDefaultInstance()))
               .setSchemaDescriptor(new AccessMethodDescriptorSupplier("GetListOfReports"))
               .build();
         }
@@ -1564,21 +1533,21 @@ public final class AccessGrpc {
     /**
      */
     public void updateHotelName(com.sdj3.protobuf.DataAccess.HotelNameToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.HotelNameUpdated> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateHotelNameMethod(), responseObserver);
     }
 
     /**
      */
     public void updateHotelDescription(com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateHotelDescriptionMethod(), responseObserver);
     }
 
     /**
      */
     public void deleteHotel(com.sdj3.protobuf.DataAccess.HotelToDelete request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.HotelDeleted> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteHotelMethod(), responseObserver);
     }
 
@@ -1613,21 +1582,21 @@ public final class AccessGrpc {
     /**
      */
     public void updateMuseumName(com.sdj3.protobuf.DataAccess.MuseumNameToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.MuseumNameUpdated> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateMuseumNameMethod(), responseObserver);
     }
 
     /**
      */
     public void updateMuseumDescription(com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateMuseumDescriptionMethod(), responseObserver);
     }
 
     /**
      */
     public void deleteMuseum(com.sdj3.protobuf.DataAccess.MuseumToDelete request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.MuseumDeleted> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteMuseumMethod(), responseObserver);
     }
 
@@ -1662,21 +1631,21 @@ public final class AccessGrpc {
     /**
      */
     public void updateParkName(com.sdj3.protobuf.DataAccess.ParkNameToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ParkNameUpdated> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateParkNameMethod(), responseObserver);
     }
 
     /**
      */
     public void updateParkDescription(com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateParkDescriptionMethod(), responseObserver);
     }
 
     /**
      */
     public void deletePark(com.sdj3.protobuf.DataAccess.ParkToDelete request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ParkDeleted> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteParkMethod(), responseObserver);
     }
 
@@ -1711,21 +1680,21 @@ public final class AccessGrpc {
     /**
      */
     public void updateRestaurantName(com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.RestaurantNameUpdated> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateRestaurantNameMethod(), responseObserver);
     }
 
     /**
      */
     public void updateRestaurantDescription(com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateRestaurantDescriptionMethod(), responseObserver);
     }
 
     /**
      */
     public void deleteRestaurant(com.sdj3.protobuf.DataAccess.RestaurantToDelete request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.RestaurantDeleted> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteRestaurantMethod(), responseObserver);
     }
 
@@ -1753,21 +1722,21 @@ public final class AccessGrpc {
     /**
      */
     public void updateReviewComment(com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReviewCommentUpdated> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateReviewCommentMethod(), responseObserver);
     }
 
     /**
      */
     public void updateStarReview(com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateStarReviewMethod(), responseObserver);
     }
 
     /**
      */
     public void deleteReview(com.sdj3.protobuf.DataAccess.ReviewToDelete request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReviewDeleted> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteReviewMethod(), responseObserver);
     }
 
@@ -1794,22 +1763,15 @@ public final class AccessGrpc {
 
     /**
      */
-    public void updateReportDescription(com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateReportDescriptionMethod(), responseObserver);
-    }
-
-    /**
-     */
     public void deleteReport(com.sdj3.protobuf.DataAccess.ReportToDelete request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReportDeleted> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteReportMethod(), responseObserver);
     }
 
     /**
      */
     public void getListOfReports(com.sdj3.protobuf.DataAccess.Empty request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReveiewList> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ListOfReports> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetListOfReportsMethod(), responseObserver);
     }
 
@@ -1890,21 +1852,21 @@ public final class AccessGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.HotelNameToUpdate,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.HotelNameUpdated>(
                   this, METHODID_UPDATE_HOTEL_NAME)))
           .addMethod(
             getUpdateHotelDescriptionMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated>(
                   this, METHODID_UPDATE_HOTEL_DESCRIPTION)))
           .addMethod(
             getDeleteHotelMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.HotelToDelete,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.HotelDeleted>(
                   this, METHODID_DELETE_HOTEL)))
           .addMethod(
             getGetListOfHotelsMethod(),
@@ -1939,21 +1901,21 @@ public final class AccessGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.MuseumNameToUpdate,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.MuseumNameUpdated>(
                   this, METHODID_UPDATE_MUSEUM_NAME)))
           .addMethod(
             getUpdateMuseumDescriptionMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated>(
                   this, METHODID_UPDATE_MUSEUM_DESCRIPTION)))
           .addMethod(
             getDeleteMuseumMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.MuseumToDelete,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.MuseumDeleted>(
                   this, METHODID_DELETE_MUSEUM)))
           .addMethod(
             getGetListOfMuseumsMethod(),
@@ -1988,21 +1950,21 @@ public final class AccessGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.ParkNameToUpdate,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.ParkNameUpdated>(
                   this, METHODID_UPDATE_PARK_NAME)))
           .addMethod(
             getUpdateParkDescriptionMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated>(
                   this, METHODID_UPDATE_PARK_DESCRIPTION)))
           .addMethod(
             getDeleteParkMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.ParkToDelete,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.ParkDeleted>(
                   this, METHODID_DELETE_PARK)))
           .addMethod(
             getGetListOfParksMethod(),
@@ -2037,21 +1999,21 @@ public final class AccessGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.RestaurantNameUpdated>(
                   this, METHODID_UPDATE_RESTAURANT_NAME)))
           .addMethod(
             getUpdateRestaurantDescriptionMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated>(
                   this, METHODID_UPDATE_RESTAURANT_DESCRIPTION)))
           .addMethod(
             getDeleteRestaurantMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.RestaurantToDelete,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.RestaurantDeleted>(
                   this, METHODID_DELETE_RESTAURANT)))
           .addMethod(
             getGetListOfRestaurantMethod(),
@@ -2079,21 +2041,21 @@ public final class AccessGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.ReviewCommentUpdated>(
                   this, METHODID_UPDATE_REVIEW_COMMENT)))
           .addMethod(
             getUpdateStarReviewMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated>(
                   this, METHODID_UPDATE_STAR_REVIEW)))
           .addMethod(
             getDeleteReviewMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.ReviewToDelete,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.ReviewDeleted>(
                   this, METHODID_DELETE_REVIEW)))
           .addMethod(
             getGetListOfReviewsMethod(),
@@ -2117,25 +2079,18 @@ public final class AccessGrpc {
                 com.sdj3.protobuf.DataAccess.Report>(
                   this, METHODID_GET_REPORT_BY_ID)))
           .addMethod(
-            getUpdateReportDescriptionMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate,
-                com.sdj3.protobuf.DataAccess.Empty>(
-                  this, METHODID_UPDATE_REPORT_DESCRIPTION)))
-          .addMethod(
             getDeleteReportMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.ReportToDelete,
-                com.sdj3.protobuf.DataAccess.Empty>(
+                com.sdj3.protobuf.DataAccess.ReportDeleted>(
                   this, METHODID_DELETE_REPORT)))
           .addMethod(
             getGetListOfReportsMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.sdj3.protobuf.DataAccess.Empty,
-                com.sdj3.protobuf.DataAccess.ReveiewList>(
+                com.sdj3.protobuf.DataAccess.ListOfReports>(
                   this, METHODID_GET_LIST_OF_REPORTS)))
           .build();
     }
@@ -2241,7 +2196,7 @@ public final class AccessGrpc {
     /**
      */
     public void updateHotelName(com.sdj3.protobuf.DataAccess.HotelNameToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.HotelNameUpdated> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateHotelNameMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2249,7 +2204,7 @@ public final class AccessGrpc {
     /**
      */
     public void updateHotelDescription(com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateHotelDescriptionMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2257,7 +2212,7 @@ public final class AccessGrpc {
     /**
      */
     public void deleteHotel(com.sdj3.protobuf.DataAccess.HotelToDelete request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.HotelDeleted> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteHotelMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2297,7 +2252,7 @@ public final class AccessGrpc {
     /**
      */
     public void updateMuseumName(com.sdj3.protobuf.DataAccess.MuseumNameToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.MuseumNameUpdated> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateMuseumNameMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2305,7 +2260,7 @@ public final class AccessGrpc {
     /**
      */
     public void updateMuseumDescription(com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateMuseumDescriptionMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2313,7 +2268,7 @@ public final class AccessGrpc {
     /**
      */
     public void deleteMuseum(com.sdj3.protobuf.DataAccess.MuseumToDelete request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.MuseumDeleted> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteMuseumMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2353,7 +2308,7 @@ public final class AccessGrpc {
     /**
      */
     public void updateParkName(com.sdj3.protobuf.DataAccess.ParkNameToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ParkNameUpdated> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateParkNameMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2361,7 +2316,7 @@ public final class AccessGrpc {
     /**
      */
     public void updateParkDescription(com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateParkDescriptionMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2369,7 +2324,7 @@ public final class AccessGrpc {
     /**
      */
     public void deletePark(com.sdj3.protobuf.DataAccess.ParkToDelete request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ParkDeleted> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteParkMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2409,7 +2364,7 @@ public final class AccessGrpc {
     /**
      */
     public void updateRestaurantName(com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.RestaurantNameUpdated> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateRestaurantNameMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2417,7 +2372,7 @@ public final class AccessGrpc {
     /**
      */
     public void updateRestaurantDescription(com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateRestaurantDescriptionMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2425,7 +2380,7 @@ public final class AccessGrpc {
     /**
      */
     public void deleteRestaurant(com.sdj3.protobuf.DataAccess.RestaurantToDelete request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.RestaurantDeleted> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteRestaurantMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2457,7 +2412,7 @@ public final class AccessGrpc {
     /**
      */
     public void updateReviewComment(com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReviewCommentUpdated> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateReviewCommentMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2465,7 +2420,7 @@ public final class AccessGrpc {
     /**
      */
     public void updateStarReview(com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateStarReviewMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2473,7 +2428,7 @@ public final class AccessGrpc {
     /**
      */
     public void deleteReview(com.sdj3.protobuf.DataAccess.ReviewToDelete request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReviewDeleted> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteReviewMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2504,16 +2459,8 @@ public final class AccessGrpc {
 
     /**
      */
-    public void updateReportDescription(com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getUpdateReportDescriptionMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
     public void deleteReport(com.sdj3.protobuf.DataAccess.ReportToDelete request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReportDeleted> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteReportMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2521,7 +2468,7 @@ public final class AccessGrpc {
     /**
      */
     public void getListOfReports(com.sdj3.protobuf.DataAccess.Empty request,
-        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReveiewList> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ListOfReports> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetListOfReportsMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2616,21 +2563,21 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty updateHotelName(com.sdj3.protobuf.DataAccess.HotelNameToUpdate request) {
+    public com.sdj3.protobuf.DataAccess.HotelNameUpdated updateHotelName(com.sdj3.protobuf.DataAccess.HotelNameToUpdate request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateHotelNameMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty updateHotelDescription(com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate request) {
+    public com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated updateHotelDescription(com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateHotelDescriptionMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty deleteHotel(com.sdj3.protobuf.DataAccess.HotelToDelete request) {
+    public com.sdj3.protobuf.DataAccess.HotelDeleted deleteHotel(com.sdj3.protobuf.DataAccess.HotelToDelete request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteHotelMethod(), getCallOptions(), request);
     }
@@ -2665,21 +2612,21 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty updateMuseumName(com.sdj3.protobuf.DataAccess.MuseumNameToUpdate request) {
+    public com.sdj3.protobuf.DataAccess.MuseumNameUpdated updateMuseumName(com.sdj3.protobuf.DataAccess.MuseumNameToUpdate request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateMuseumNameMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty updateMuseumDescription(com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate request) {
+    public com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated updateMuseumDescription(com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateMuseumDescriptionMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty deleteMuseum(com.sdj3.protobuf.DataAccess.MuseumToDelete request) {
+    public com.sdj3.protobuf.DataAccess.MuseumDeleted deleteMuseum(com.sdj3.protobuf.DataAccess.MuseumToDelete request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteMuseumMethod(), getCallOptions(), request);
     }
@@ -2714,21 +2661,21 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty updateParkName(com.sdj3.protobuf.DataAccess.ParkNameToUpdate request) {
+    public com.sdj3.protobuf.DataAccess.ParkNameUpdated updateParkName(com.sdj3.protobuf.DataAccess.ParkNameToUpdate request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateParkNameMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty updateParkDescription(com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate request) {
+    public com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated updateParkDescription(com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateParkDescriptionMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty deletePark(com.sdj3.protobuf.DataAccess.ParkToDelete request) {
+    public com.sdj3.protobuf.DataAccess.ParkDeleted deletePark(com.sdj3.protobuf.DataAccess.ParkToDelete request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteParkMethod(), getCallOptions(), request);
     }
@@ -2763,21 +2710,21 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty updateRestaurantName(com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate request) {
+    public com.sdj3.protobuf.DataAccess.RestaurantNameUpdated updateRestaurantName(com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateRestaurantNameMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty updateRestaurantDescription(com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate request) {
+    public com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated updateRestaurantDescription(com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateRestaurantDescriptionMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty deleteRestaurant(com.sdj3.protobuf.DataAccess.RestaurantToDelete request) {
+    public com.sdj3.protobuf.DataAccess.RestaurantDeleted deleteRestaurant(com.sdj3.protobuf.DataAccess.RestaurantToDelete request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteRestaurantMethod(), getCallOptions(), request);
     }
@@ -2805,21 +2752,21 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty updateReviewComment(com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate request) {
+    public com.sdj3.protobuf.DataAccess.ReviewCommentUpdated updateReviewComment(com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateReviewCommentMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty updateStarReview(com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate request) {
+    public com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated updateStarReview(com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateStarReviewMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty deleteReview(com.sdj3.protobuf.DataAccess.ReviewToDelete request) {
+    public com.sdj3.protobuf.DataAccess.ReviewDeleted deleteReview(com.sdj3.protobuf.DataAccess.ReviewToDelete request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteReviewMethod(), getCallOptions(), request);
     }
@@ -2847,21 +2794,14 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.Empty updateReportDescription(com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getUpdateReportDescriptionMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public com.sdj3.protobuf.DataAccess.Empty deleteReport(com.sdj3.protobuf.DataAccess.ReportToDelete request) {
+    public com.sdj3.protobuf.DataAccess.ReportDeleted deleteReport(com.sdj3.protobuf.DataAccess.ReportToDelete request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteReportMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sdj3.protobuf.DataAccess.ReveiewList getListOfReports(com.sdj3.protobuf.DataAccess.Empty request) {
+    public com.sdj3.protobuf.DataAccess.ListOfReports getListOfReports(com.sdj3.protobuf.DataAccess.Empty request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetListOfReportsMethod(), getCallOptions(), request);
     }
@@ -2966,7 +2906,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> updateHotelName(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.HotelNameUpdated> updateHotelName(
         com.sdj3.protobuf.DataAccess.HotelNameToUpdate request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateHotelNameMethod(), getCallOptions()), request);
@@ -2974,7 +2914,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> updateHotelDescription(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated> updateHotelDescription(
         com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateHotelDescriptionMethod(), getCallOptions()), request);
@@ -2982,7 +2922,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> deleteHotel(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.HotelDeleted> deleteHotel(
         com.sdj3.protobuf.DataAccess.HotelToDelete request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteHotelMethod(), getCallOptions()), request);
@@ -3022,7 +2962,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> updateMuseumName(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.MuseumNameUpdated> updateMuseumName(
         com.sdj3.protobuf.DataAccess.MuseumNameToUpdate request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateMuseumNameMethod(), getCallOptions()), request);
@@ -3030,7 +2970,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> updateMuseumDescription(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated> updateMuseumDescription(
         com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateMuseumDescriptionMethod(), getCallOptions()), request);
@@ -3038,7 +2978,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> deleteMuseum(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.MuseumDeleted> deleteMuseum(
         com.sdj3.protobuf.DataAccess.MuseumToDelete request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteMuseumMethod(), getCallOptions()), request);
@@ -3078,7 +3018,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> updateParkName(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ParkNameUpdated> updateParkName(
         com.sdj3.protobuf.DataAccess.ParkNameToUpdate request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateParkNameMethod(), getCallOptions()), request);
@@ -3086,7 +3026,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> updateParkDescription(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated> updateParkDescription(
         com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateParkDescriptionMethod(), getCallOptions()), request);
@@ -3094,7 +3034,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> deletePark(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ParkDeleted> deletePark(
         com.sdj3.protobuf.DataAccess.ParkToDelete request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteParkMethod(), getCallOptions()), request);
@@ -3134,7 +3074,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> updateRestaurantName(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.RestaurantNameUpdated> updateRestaurantName(
         com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateRestaurantNameMethod(), getCallOptions()), request);
@@ -3142,7 +3082,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> updateRestaurantDescription(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated> updateRestaurantDescription(
         com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateRestaurantDescriptionMethod(), getCallOptions()), request);
@@ -3150,7 +3090,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> deleteRestaurant(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.RestaurantDeleted> deleteRestaurant(
         com.sdj3.protobuf.DataAccess.RestaurantToDelete request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteRestaurantMethod(), getCallOptions()), request);
@@ -3182,7 +3122,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> updateReviewComment(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ReviewCommentUpdated> updateReviewComment(
         com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateReviewCommentMethod(), getCallOptions()), request);
@@ -3190,7 +3130,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> updateStarReview(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated> updateStarReview(
         com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateStarReviewMethod(), getCallOptions()), request);
@@ -3198,7 +3138,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> deleteReview(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ReviewDeleted> deleteReview(
         com.sdj3.protobuf.DataAccess.ReviewToDelete request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteReviewMethod(), getCallOptions()), request);
@@ -3230,15 +3170,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> updateReportDescription(
-        com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getUpdateReportDescriptionMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.Empty> deleteReport(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ReportDeleted> deleteReport(
         com.sdj3.protobuf.DataAccess.ReportToDelete request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteReportMethod(), getCallOptions()), request);
@@ -3246,7 +3178,7 @@ public final class AccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ReveiewList> getListOfReports(
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ListOfReports> getListOfReports(
         com.sdj3.protobuf.DataAccess.Empty request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetListOfReportsMethod(), getCallOptions()), request);
@@ -3296,9 +3228,8 @@ public final class AccessGrpc {
   private static final int METHODID_GET_LIST_OF_REVIEWS = 40;
   private static final int METHODID_CREATE_REPORT = 41;
   private static final int METHODID_GET_REPORT_BY_ID = 42;
-  private static final int METHODID_UPDATE_REPORT_DESCRIPTION = 43;
-  private static final int METHODID_DELETE_REPORT = 44;
-  private static final int METHODID_GET_LIST_OF_REPORTS = 45;
+  private static final int METHODID_DELETE_REPORT = 43;
+  private static final int METHODID_GET_LIST_OF_REPORTS = 44;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -3359,15 +3290,15 @@ public final class AccessGrpc {
           break;
         case METHODID_UPDATE_HOTEL_NAME:
           serviceImpl.updateHotelName((com.sdj3.protobuf.DataAccess.HotelNameToUpdate) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.HotelNameUpdated>) responseObserver);
           break;
         case METHODID_UPDATE_HOTEL_DESCRIPTION:
           serviceImpl.updateHotelDescription((com.sdj3.protobuf.DataAccess.HotelDescriptionToUpdate) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.HotelDescriptionUpdated>) responseObserver);
           break;
         case METHODID_DELETE_HOTEL:
           serviceImpl.deleteHotel((com.sdj3.protobuf.DataAccess.HotelToDelete) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.HotelDeleted>) responseObserver);
           break;
         case METHODID_GET_LIST_OF_HOTELS:
           serviceImpl.getListOfHotels((com.sdj3.protobuf.DataAccess.CitysIdFoHotelList) request,
@@ -3387,15 +3318,15 @@ public final class AccessGrpc {
           break;
         case METHODID_UPDATE_MUSEUM_NAME:
           serviceImpl.updateMuseumName((com.sdj3.protobuf.DataAccess.MuseumNameToUpdate) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.MuseumNameUpdated>) responseObserver);
           break;
         case METHODID_UPDATE_MUSEUM_DESCRIPTION:
           serviceImpl.updateMuseumDescription((com.sdj3.protobuf.DataAccess.MuseumDescriptionToUpdate) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.MuseumDescriptionUpdated>) responseObserver);
           break;
         case METHODID_DELETE_MUSEUM:
           serviceImpl.deleteMuseum((com.sdj3.protobuf.DataAccess.MuseumToDelete) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.MuseumDeleted>) responseObserver);
           break;
         case METHODID_GET_LIST_OF_MUSEUMS:
           serviceImpl.getListOfMuseums((com.sdj3.protobuf.DataAccess.CitysIdForMuseumList) request,
@@ -3415,15 +3346,15 @@ public final class AccessGrpc {
           break;
         case METHODID_UPDATE_PARK_NAME:
           serviceImpl.updateParkName((com.sdj3.protobuf.DataAccess.ParkNameToUpdate) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ParkNameUpdated>) responseObserver);
           break;
         case METHODID_UPDATE_PARK_DESCRIPTION:
           serviceImpl.updateParkDescription((com.sdj3.protobuf.DataAccess.ParkDescriptionToUpdate) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ParkDescriptionUpdated>) responseObserver);
           break;
         case METHODID_DELETE_PARK:
           serviceImpl.deletePark((com.sdj3.protobuf.DataAccess.ParkToDelete) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ParkDeleted>) responseObserver);
           break;
         case METHODID_GET_LIST_OF_PARKS:
           serviceImpl.getListOfParks((com.sdj3.protobuf.DataAccess.CitysIdForParkList) request,
@@ -3443,15 +3374,15 @@ public final class AccessGrpc {
           break;
         case METHODID_UPDATE_RESTAURANT_NAME:
           serviceImpl.updateRestaurantName((com.sdj3.protobuf.DataAccess.RestaurantNameToUpdate) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.RestaurantNameUpdated>) responseObserver);
           break;
         case METHODID_UPDATE_RESTAURANT_DESCRIPTION:
           serviceImpl.updateRestaurantDescription((com.sdj3.protobuf.DataAccess.RestaurantDescriptionToUpdate) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.RestaurantDescriptionUpdated>) responseObserver);
           break;
         case METHODID_DELETE_RESTAURANT:
           serviceImpl.deleteRestaurant((com.sdj3.protobuf.DataAccess.RestaurantToDelete) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.RestaurantDeleted>) responseObserver);
           break;
         case METHODID_GET_LIST_OF_RESTAURANT:
           serviceImpl.getListOfRestaurant((com.sdj3.protobuf.DataAccess.CitysIdForRestaurantList) request,
@@ -3467,15 +3398,15 @@ public final class AccessGrpc {
           break;
         case METHODID_UPDATE_REVIEW_COMMENT:
           serviceImpl.updateReviewComment((com.sdj3.protobuf.DataAccess.ReviewsCommentToUpdate) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReviewCommentUpdated>) responseObserver);
           break;
         case METHODID_UPDATE_STAR_REVIEW:
           serviceImpl.updateStarReview((com.sdj3.protobuf.DataAccess.ReviewStarReviewToUpdate) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReviewsStarReviewUpdated>) responseObserver);
           break;
         case METHODID_DELETE_REVIEW:
           serviceImpl.deleteReview((com.sdj3.protobuf.DataAccess.ReviewToDelete) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReviewDeleted>) responseObserver);
           break;
         case METHODID_GET_LIST_OF_REVIEWS:
           serviceImpl.getListOfReviews((com.sdj3.protobuf.DataAccess.CategoryForReviewList) request,
@@ -3489,17 +3420,13 @@ public final class AccessGrpc {
           serviceImpl.getReportById((com.sdj3.protobuf.DataAccess.ReportById) request,
               (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Report>) responseObserver);
           break;
-        case METHODID_UPDATE_REPORT_DESCRIPTION:
-          serviceImpl.updateReportDescription((com.sdj3.protobuf.DataAccess.ReportsDescriptionToUpdate) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
-          break;
         case METHODID_DELETE_REPORT:
           serviceImpl.deleteReport((com.sdj3.protobuf.DataAccess.ReportToDelete) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReportDeleted>) responseObserver);
           break;
         case METHODID_GET_LIST_OF_REPORTS:
           serviceImpl.getListOfReports((com.sdj3.protobuf.DataAccess.Empty) request,
-              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReveiewList>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ListOfReports>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -3605,7 +3532,6 @@ public final class AccessGrpc {
               .addMethod(getGetListOfReviewsMethod())
               .addMethod(getCreateReportMethod())
               .addMethod(getGetReportByIdMethod())
-              .addMethod(getUpdateReportDescriptionMethod())
               .addMethod(getDeleteReportMethod())
               .addMethod(getGetListOfReportsMethod())
               .build();

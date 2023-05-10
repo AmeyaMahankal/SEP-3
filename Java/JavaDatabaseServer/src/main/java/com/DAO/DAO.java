@@ -903,12 +903,11 @@ public class DAO {
     }
 
 
-    public List<Report> listOfReports(/*int reportId*/) {
+    public List<Report> listOfReports(String empty) {
         List<Report> listofreports = new ArrayList<>();
         try (Connection conn = this.connect();) {
             PreparedStatement statement = conn.prepareStatement(
-                    "select * from Report ");
-            //statement.setInt(1, reportId);
+                    "SELECT Id,UserId,Description,ReviewId from Report ");
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 listofreports.add(new Report(resultSet.getInt("Id"),
