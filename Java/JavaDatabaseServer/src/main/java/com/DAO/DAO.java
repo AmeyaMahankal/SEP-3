@@ -738,8 +738,8 @@ public class DAO {
     }
 
     public void insertReview(String comment, int starReview, int userId,
-                             int categoryId, String categoryName) {
-        String sql = "INSERT INTO Review(Comment,StarReview,UserId,CategoryId,CategoryName) VALUES(?,?,?,?,?)";
+                             int categoryId, String categoryName, String categoryType) {
+        String sql = "INSERT INTO Review(Comment,StarReview,UserId,CategoryId,CategoryName, CategoryType) VALUES(?,?,?,?,?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -748,6 +748,7 @@ public class DAO {
             pstmt.setInt(3, userId);
             pstmt.setInt(4, categoryId);
             pstmt.setString(5, categoryName);
+            pstmt.setString(6,categoryType);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

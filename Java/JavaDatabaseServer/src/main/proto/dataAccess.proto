@@ -515,25 +515,28 @@ message Review{
 
   int32 id = 1;
   string comment = 2;
-  int32 cityid = 3;
-  int32 categoryid = 4;
-  string categoryname = 5;
-  string categorytype = 6;
+  int32 starreview=3;
+  int32 userid = 4;
+  int32 categoryid = 5;
+  string categoryname = 6;
+  string categorytype = 7;
 }
 
 
 message ReviewToCreate{
 
   string comment = 1;
-  int32 cityid = 2;
-  int32 categoryid = 3;
-  string categoryname = 4;
-  string categorytype = 5;
+  int32 starreview=2;
+  int32 userid = 3;
+  int32 categoryid = 4;
+  string categoryname = 5;
+  string categorytype = 6;
 }
 
 message ReviewCreated{
   int32 code = 1;
-  string name = 2;
+  string comment = 2;
+  int32 starreview=3;
 
 }
 
