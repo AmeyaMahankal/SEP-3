@@ -106,18 +106,18 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     public void createReview(DataAccess.ReviewToCreate request, StreamObserver<DataAccess.ReviewCreated> responseObserver) {
         String comment = request.getComment();
         int starreveiw = request.getStarreview();
-        int userid= request.getUserid();
-        int categoryid= request.getCategoryid();
-        String categoryname= request.getCategoryname();
-        String categorytype= request.getCategorytype();
+        int userid = request.getUserid();
+        int categoryid = request.getCategoryid();
+        String categoryname = request.getCategoryname();
+        String categorytype = request.getCategorytype();
 
-        Dao.insertReview(comment,starreveiw,userid,categoryid,categoryname,categorytype);
+        Dao.insertReview(comment, starreveiw, userid, categoryid, categoryname, categorytype);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewCreated response = DataAccess.ReviewCreated.newBuilder()
                 .setCode(200)
                 .setComment(request.getComment())
-                        .setStarreview(request.getStarreview()).build();
+                .setStarreview(request.getStarreview()).build();
 
 
         responseObserver.onNext(response);
@@ -145,11 +145,11 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     @Override
     public void updateReviewComment(DataAccess.ReviewsCommentToUpdate request, StreamObserver<DataAccess.ReviewCommentUpdated> responseObserver) {
 
-        int id= request.getId();
+        int id = request.getId();
         String comment = request.getComment();
 
 
-        Dao.updateReviewComment(comment,id);
+        Dao.updateReviewComment(comment, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewCommentUpdated response = DataAccess.ReviewCommentUpdated.newBuilder()
@@ -165,14 +165,27 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     @Override
     public void updateStarReview(DataAccess.ReviewStarReviewToUpdate request, StreamObserver<DataAccess.ReviewsStarReviewUpdated> responseObserver) {
-        super.updateStarReview(request, responseObserver);
+        int id = request.getId();
+        int starreview = request.getStarreview();
+
+
+        Dao.updateStarReview(starreview, id);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.ReviewsStarReviewUpdated response = DataAccess.ReviewsStarReviewUpdated.newBuilder()
+                .setCode(200)
+                .setStarreview(request.getStarreview())
+                .build();
+
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 
     @Override
     public void deleteReview(DataAccess.ReviewToDelete request, StreamObserver<DataAccess.ReviewDeleted> responseObserver) {
 
-        int id= request.getId();
-
+        int id = request.getId();
 
 
         Dao.deleteReview(id);
@@ -188,29 +201,82 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     }
 
     @Override
-    public void getListOfReviews(DataAccess.CategoryForReviewList request, StreamObserver<DataAccess.ReveiewList> responseObserver) {/*
-        DataAccess.CategoryForReviewList.Builder builder = DataAccess.CategoryForReviewList.newBuilder();
+    public void getListOfReviews(DataAccess.CategoryForReviewList request, StreamObserver<DataAccess.ReveiewList> responseObserver) {
+        DataAccess.ReveiewList.Builder builder = DataAccess.ReveiewList.newBuilder();
 
-
-
-        List<Review> reviews = Dao.listOfReviews(request.getCategoryid(),request.getCategoryname(),request.getCategorytype());
+        List<Review> reviews = Dao.listOfReviews(request.getCategoryid(), request.getCategoryname(), request.getCategorytype());
 
         for (Review review : reviews) {
-
-            builder.(DataAccess.Review.newBuilder()
-                    .setId(report.getId())
-                    .setUserid(report.getUserId())
-                    .setDescription(report.getDescription())
-                    .setReviewid(report.getId())
+            builder.addReviews(DataAccess.Review.newBuilder()
+                    .setId(review.getId())
+                    .setComment(review.getComment())
+                    .setUserid(review.getUserId())
+                    .setCategoryid(review.getCategoryId())
+                    .setCategoryname(review.getCategoryName())
+                    .setCategorytype(review.getCategoryType())
                     .build());
+
 
         }
         responseObserver.onNext(builder.build());
-        responseObserver.onCompleted();*/
+        responseObserver.onCompleted();
     }
 
 
     //Report
+
+
+    @Override
+    public void createReport(DataAccess.ReportToCreate request, StreamObserver<DataAccess.ReportCreated> responseObserver) {
+        int userid = request.getUserid();
+        String description = request.getDescription();
+        int reviewid = request.getReviewid();
+
+        Dao.insertReport( userid,description,reviewid);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.ReportCreated response = DataAccess.ReportCreated.newBuilder()
+                .setCode(200)
+                .setDescription(request.getDescription())
+                .build();
+
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getReportById(DataAccess.ReportById request, StreamObserver<DataAccess.Report> responseObserver) {
+        Report report = Dao.getReportById(request.getReportid());
+
+        DataAccess.Report response = DataAccess.Report.newBuilder()
+                .setId(report.getId())
+                .setDescription(report.getDescription())
+                .setUserid(report.getUserId())
+                .setReviewid(report.getReviewId())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void deleteReport(DataAccess.ReportToDelete request, StreamObserver<DataAccess.ReportDeleted> responseObserver) {
+        int id = request.getReportid();
+
+
+        Dao.deleteReport(id);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.ReportDeleted response = DataAccess.ReportDeleted.newBuilder()
+                .setCode(200).build();
+
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+
     @Override
     public void getListOfReports(DataAccess.Empty request, StreamObserver<DataAccess.ListOfReports> responseObserver) {
 

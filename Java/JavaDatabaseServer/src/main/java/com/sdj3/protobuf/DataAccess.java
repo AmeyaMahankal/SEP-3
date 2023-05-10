@@ -52045,16 +52045,16 @@ public final class DataAccess {
     int getCode();
 
     /**
-     * <code>string name = 2;</code>
-     * @return The name.
+     * <code>string description = 2;</code>
+     * @return The description.
      */
-    java.lang.String getName();
+    java.lang.String getDescription();
     /**
-     * <code>string name = 2;</code>
-     * @return The bytes for name.
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
-        getNameBytes();
+        getDescriptionBytes();
   }
   /**
    * Protobuf type {@code ReportCreated}
@@ -52069,7 +52069,7 @@ public final class DataAccess {
       super(builder);
     }
     private ReportCreated() {
-      name_ = "";
+      description_ = "";
     }
 
     @java.lang.Override
@@ -52110,7 +52110,7 @@ public final class DataAccess {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              name_ = s;
+              description_ = s;
               break;
             }
             default: {
@@ -52158,38 +52158,38 @@ public final class DataAccess {
       return code_;
     }
 
-    public static final int NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object name_;
+    public static final int DESCRIPTION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object description_;
     /**
-     * <code>string name = 2;</code>
-     * @return The name.
+     * <code>string description = 2;</code>
+     * @return The description.
      */
     @java.lang.Override
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        description_ = s;
         return s;
       }
     }
     /**
-     * <code>string name = 2;</code>
-     * @return The bytes for name.
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        name_ = b;
+        description_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -52213,8 +52213,8 @@ public final class DataAccess {
       if (code_ != 0) {
         output.writeInt32(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
       unknownFields.writeTo(output);
     }
@@ -52229,8 +52229,8 @@ public final class DataAccess {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -52249,8 +52249,8 @@ public final class DataAccess {
 
       if (getCode()
           != other.getCode()) return false;
-      if (!getName()
-          .equals(other.getName())) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -52264,8 +52264,8 @@ public final class DataAccess {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CODE_FIELD_NUMBER;
       hash = (53 * hash) + getCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -52401,7 +52401,7 @@ public final class DataAccess {
         super.clear();
         code_ = 0;
 
-        name_ = "";
+        description_ = "";
 
         return this;
       }
@@ -52430,7 +52430,7 @@ public final class DataAccess {
       public com.sdj3.protobuf.DataAccess.ReportCreated buildPartial() {
         com.sdj3.protobuf.DataAccess.ReportCreated result = new com.sdj3.protobuf.DataAccess.ReportCreated(this);
         result.code_ = code_;
-        result.name_ = name_;
+        result.description_ = description_;
         onBuilt();
         return result;
       }
@@ -52482,8 +52482,8 @@ public final class DataAccess {
         if (other.getCode() != 0) {
           setCode(other.getCode());
         }
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -52546,78 +52546,78 @@ public final class DataAccess {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object description_ = "";
       /**
-       * <code>string name = 2;</code>
-       * @return The name.
+       * <code>string description = 2;</code>
+       * @return The description.
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          name_ = s;
+          description_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string name = 2;</code>
-       * @return The bytes for name.
+       * <code>string description = 2;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          name_ = b;
+          description_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string name = 2;</code>
-       * @param value The name to set.
+       * <code>string description = 2;</code>
+       * @param value The description to set.
        * @return This builder for chaining.
        */
-      public Builder setName(
+      public Builder setDescription(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        name_ = value;
+        description_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>string description = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearName() {
+      public Builder clearDescription() {
         
-        name_ = getDefaultInstance().getName();
+        description_ = getDefaultInstance().getDescription();
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
-       * @param value The bytes for name to set.
+       * <code>string description = 2;</code>
+       * @param value The bytes for description to set.
        * @return This builder for chaining.
        */
-      public Builder setNameBytes(
+      public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        name_ = value;
+        description_ = value;
         onChanged();
         return this;
       }
@@ -56044,72 +56044,72 @@ public final class DataAccess {
       "rid\030\002 \001(\005\022\023\n\013description\030\003 \001(\t\022\020\n\010review" +
       "id\030\004 \001(\005\"G\n\016ReportToCreate\022\016\n\006userid\030\001 \001" +
       "(\005\022\023\n\013description\030\002 \001(\t\022\020\n\010reviewid\030\003 \001(" +
-      "\005\"+\n\rReportCreated\022\014\n\004code\030\001 \001(\005\022\014\n\004name" +
-      "\030\002 \001(\t\"\036\n\nReportById\022\020\n\010reportid\030\001 \001(\005\"\"" +
-      "\n\016ReportToDelete\022\020\n\010reportid\030\001 \001(\005\"\035\n\rRe" +
-      "portDeleted\022\014\n\004code\030\001 \001(\005\"(\n\rListOfRepor" +
-      "ts\022\027\n\006report\030\001 \003(\0132\007.Report\"\026\n\005Empty\022\r\n\005" +
-      "empty\030\001 \001(\t2\300\022\n\006Access\022.\n\nCreateUser\022\013.U" +
-      "serCreate\032\023.UserCreateResponse\022(\n\rGetByU" +
-      "sername\022\020.UserGetUsername\032\005.User\022\034\n\007GetB" +
-      "yId\022\n.UserGetId\032\005.User\0229\n\022GetUsersContai" +
-      "ning\022\025.SearchUserParameters\032\014.listOfUser" +
-      "s\022)\n\nCreateCity\022\r.CityToCreate\032\014.CityCre" +
-      "ated\022#\n\rGetCitByyname\022\013.CityByName\032\005.Cit" +
-      "y\022\037\n\013GetCityById\022\t.CityById\032\005.City\022,\n\013Cr" +
-      "eateHotel\022\016.HotelToCreate\032\r.HotelCreated" +
-      "\022&\n\016GetHotelByName\022\014.HotelByName\032\006.Hotel" +
-      "\022\"\n\014GetHotelById\022\n.HotelById\032\006.Hotel\0228\n\017" +
-      "UpdateHotelName\022\022.HotelNameToUpdate\032\021.Ho" +
-      "telNameUpdated\022M\n\026UpdateHotelDescription" +
-      "\022\031.HotelDescriptionToUpdate\032\030.HotelDescr" +
-      "iptionUpdated\022,\n\013DeleteHotel\022\016.HotelToDe" +
-      "lete\032\r.HotelDeleted\0225\n\017GetListOfHotels\022\023" +
-      ".CitysIdFoHotelList\032\r.ListOfHotels\022/\n\014Cr" +
-      "eateMuseum\022\017.MuseumToCreate\032\016.MuseumCrea" +
-      "ted\022)\n\017GetMuseumByName\022\r.MuseumByName\032\007." +
-      "Museum\022%\n\rGetMuseumById\022\013.MuseumById\032\007.M" +
-      "useum\022;\n\020UpdateMuseumName\022\023.MuseumNameTo" +
-      "Update\032\022.MuseumNameUpdated\022P\n\027UpdateMuse" +
-      "umDescription\022\032.MuseumDescriptionToUpdat" +
-      "e\032\031.MuseumDescriptionUpdated\022/\n\014DeleteMu" +
-      "seum\022\017.MuseumToDelete\032\016.MuseumDeleted\0229\n" +
-      "\020GetListOfMuseums\022\025.CitysIdForMuseumList" +
-      "\032\016.ListOfMuseums\022)\n\nCreatePark\022\r.ParkToC" +
-      "reate\032\014.ParkCreated\022#\n\rGetParkByName\022\013.P" +
-      "arkByName\032\005.Park\022\037\n\013GetParkById\022\t.ParkBy" +
-      "Id\032\005.Park\0225\n\016UpdateParkName\022\021.ParkNameTo" +
-      "Update\032\020.ParkNameUpdated\022J\n\025UpdateParkDe" +
-      "scription\022\030.ParkDescriptionToUpdate\032\027.Pa" +
-      "rkDescriptionUpdated\022)\n\nDeletePark\022\r.Par" +
-      "kToDelete\032\014.ParkDeleted\0223\n\016GetListOfPark" +
-      "s\022\023.CitysIdForParkList\032\014.ListOfParks\022;\n\020" +
-      "CreateRestaurant\022\023.RestaurantToCreate\032\022." +
-      "RestaurantCreated\0225\n\023GetRestaurantByName" +
-      "\022\021.RestaurantByName\032\013.Restaurant\0221\n\021GetR" +
-      "estaurantById\022\017.RestaurantById\032\013.Restaur" +
-      "ant\022G\n\024UpdateRestaurantName\022\027.Restaurant" +
-      "NameToUpdate\032\026.RestaurantNameUpdated\022\\\n\033" +
-      "UpdateRestaurantDescription\022\036.Restaurant" +
-      "DescriptionToUpdate\032\035.RestaurantDescript" +
-      "ionUpdated\022;\n\020DeleteRestaurant\022\023.Restaur" +
-      "antToDelete\032\022.RestaurantDeleted\022D\n\023GetLi" +
-      "stOfRestaurant\022\031.CitysIdForRestaurantLis" +
-      "t\032\022.ListOfRestaurants\022/\n\014CreateReview\022\017." +
-      "ReviewToCreate\032\016.ReviewCreated\022%\n\rGetRev" +
-      "iewById\022\013.ReviewById\032\007.Review\022E\n\023UpdateR" +
-      "eviewComment\022\027.ReviewsCommentToUpdate\032\025." +
-      "ReviewCommentUpdated\022H\n\020UpdateStarReview" +
-      "\022\031.ReviewStarReviewToUpdate\032\031.ReviewsSta" +
-      "rReviewUpdated\022/\n\014DeleteReview\022\017.ReviewT" +
-      "oDelete\032\016.ReviewDeleted\0228\n\020GetListOfRevi" +
-      "ews\022\026.CategoryForReviewList\032\014.ReveiewLis" +
-      "t\022/\n\014CreateReport\022\017.ReportToCreate\032\016.Rep" +
-      "ortCreated\022%\n\rGetReportById\022\013.ReportById" +
-      "\032\007.Report\022/\n\014DeleteReport\022\017.ReportToDele" +
-      "te\032\016.ReportDeleted\022*\n\020GetListOfReports\022\006" +
-      ".Empty\032\016.ListOfReportsB\023\n\021com.sdj3.proto" +
-      "bufb\006proto3"
+      "\005\"2\n\rReportCreated\022\014\n\004code\030\001 \001(\005\022\023\n\013desc" +
+      "ription\030\002 \001(\t\"\036\n\nReportById\022\020\n\010reportid\030" +
+      "\001 \001(\005\"\"\n\016ReportToDelete\022\020\n\010reportid\030\001 \001(" +
+      "\005\"\035\n\rReportDeleted\022\014\n\004code\030\001 \001(\005\"(\n\rList" +
+      "OfReports\022\027\n\006report\030\001 \003(\0132\007.Report\"\026\n\005Em" +
+      "pty\022\r\n\005empty\030\001 \001(\t2\300\022\n\006Access\022.\n\nCreateU" +
+      "ser\022\013.UserCreate\032\023.UserCreateResponse\022(\n" +
+      "\rGetByUsername\022\020.UserGetUsername\032\005.User\022" +
+      "\034\n\007GetById\022\n.UserGetId\032\005.User\0229\n\022GetUser" +
+      "sContaining\022\025.SearchUserParameters\032\014.lis" +
+      "tOfUsers\022)\n\nCreateCity\022\r.CityToCreate\032\014." +
+      "CityCreated\022#\n\rGetCitByyname\022\013.CityByNam" +
+      "e\032\005.City\022\037\n\013GetCityById\022\t.CityById\032\005.Cit" +
+      "y\022,\n\013CreateHotel\022\016.HotelToCreate\032\r.Hotel" +
+      "Created\022&\n\016GetHotelByName\022\014.HotelByName\032" +
+      "\006.Hotel\022\"\n\014GetHotelById\022\n.HotelById\032\006.Ho" +
+      "tel\0228\n\017UpdateHotelName\022\022.HotelNameToUpda" +
+      "te\032\021.HotelNameUpdated\022M\n\026UpdateHotelDesc" +
+      "ription\022\031.HotelDescriptionToUpdate\032\030.Hot" +
+      "elDescriptionUpdated\022,\n\013DeleteHotel\022\016.Ho" +
+      "telToDelete\032\r.HotelDeleted\0225\n\017GetListOfH" +
+      "otels\022\023.CitysIdFoHotelList\032\r.ListOfHotel" +
+      "s\022/\n\014CreateMuseum\022\017.MuseumToCreate\032\016.Mus" +
+      "eumCreated\022)\n\017GetMuseumByName\022\r.MuseumBy" +
+      "Name\032\007.Museum\022%\n\rGetMuseumById\022\013.MuseumB" +
+      "yId\032\007.Museum\022;\n\020UpdateMuseumName\022\023.Museu" +
+      "mNameToUpdate\032\022.MuseumNameUpdated\022P\n\027Upd" +
+      "ateMuseumDescription\022\032.MuseumDescription" +
+      "ToUpdate\032\031.MuseumDescriptionUpdated\022/\n\014D" +
+      "eleteMuseum\022\017.MuseumToDelete\032\016.MuseumDel" +
+      "eted\0229\n\020GetListOfMuseums\022\025.CitysIdForMus" +
+      "eumList\032\016.ListOfMuseums\022)\n\nCreatePark\022\r." +
+      "ParkToCreate\032\014.ParkCreated\022#\n\rGetParkByN" +
+      "ame\022\013.ParkByName\032\005.Park\022\037\n\013GetParkById\022\t" +
+      ".ParkById\032\005.Park\0225\n\016UpdateParkName\022\021.Par" +
+      "kNameToUpdate\032\020.ParkNameUpdated\022J\n\025Updat" +
+      "eParkDescription\022\030.ParkDescriptionToUpda" +
+      "te\032\027.ParkDescriptionUpdated\022)\n\nDeletePar" +
+      "k\022\r.ParkToDelete\032\014.ParkDeleted\0223\n\016GetLis" +
+      "tOfParks\022\023.CitysIdForParkList\032\014.ListOfPa" +
+      "rks\022;\n\020CreateRestaurant\022\023.RestaurantToCr" +
+      "eate\032\022.RestaurantCreated\0225\n\023GetRestauran" +
+      "tByName\022\021.RestaurantByName\032\013.Restaurant\022" +
+      "1\n\021GetRestaurantById\022\017.RestaurantById\032\013." +
+      "Restaurant\022G\n\024UpdateRestaurantName\022\027.Res" +
+      "taurantNameToUpdate\032\026.RestaurantNameUpda" +
+      "ted\022\\\n\033UpdateRestaurantDescription\022\036.Res" +
+      "taurantDescriptionToUpdate\032\035.RestaurantD" +
+      "escriptionUpdated\022;\n\020DeleteRestaurant\022\023." +
+      "RestaurantToDelete\032\022.RestaurantDeleted\022D" +
+      "\n\023GetListOfRestaurant\022\031.CitysIdForRestau" +
+      "rantList\032\022.ListOfRestaurants\022/\n\014CreateRe" +
+      "view\022\017.ReviewToCreate\032\016.ReviewCreated\022%\n" +
+      "\rGetReviewById\022\013.ReviewById\032\007.Review\022E\n\023" +
+      "UpdateReviewComment\022\027.ReviewsCommentToUp" +
+      "date\032\025.ReviewCommentUpdated\022H\n\020UpdateSta" +
+      "rReview\022\031.ReviewStarReviewToUpdate\032\031.Rev" +
+      "iewsStarReviewUpdated\022/\n\014DeleteReview\022\017." +
+      "ReviewToDelete\032\016.ReviewDeleted\0228\n\020GetLis" +
+      "tOfReviews\022\026.CategoryForReviewList\032\014.Rev" +
+      "eiewList\022/\n\014CreateReport\022\017.ReportToCreat" +
+      "e\032\016.ReportCreated\022%\n\rGetReportById\022\013.Rep" +
+      "ortById\032\007.Report\022/\n\014DeleteReport\022\017.Repor" +
+      "tToDelete\032\016.ReportDeleted\022*\n\020GetListOfRe" +
+      "ports\022\006.Empty\032\016.ListOfReportsB\023\n\021com.sdj" +
+      "3.protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -56588,7 +56588,7 @@ public final class DataAccess {
     internal_static_ReportCreated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReportCreated_descriptor,
-        new java.lang.String[] { "Code", "Name", });
+        new java.lang.String[] { "Code", "Description", });
     internal_static_ReportById_descriptor =
       getDescriptor().getMessageTypes().get(79);
     internal_static_ReportById_fieldAccessorTable = new

@@ -624,7 +624,7 @@ message ReportToCreate{
 
 message ReportCreated{
   int32 code = 1;
-  string name = 2;
+  string description = 2;
 
 }
 

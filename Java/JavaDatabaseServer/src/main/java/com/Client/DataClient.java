@@ -33,12 +33,6 @@ public class DataClient {
 
 
 
-        // GET ALL REPORTS
-
-        DataAccess.Empty empty= DataAccess.Empty.newBuilder().setEmpty("sadf").build();
-        DataAccess.ListOfReports reports= blockingStub.getListOfReports(empty);
-        System.out.println(reports.getReportList());
-
 
 
 
@@ -76,7 +70,7 @@ public class DataClient {
 
         DataAccess.ReviewCommentUpdated response2 =blockingStub.updateReviewComment(request2);
         System.out.println(response2);
-*/
+
 
 
         DataAccess.ReviewToDelete request=DataAccess.ReviewToDelete.newBuilder()
@@ -86,5 +80,58 @@ public class DataClient {
         System.out.println("Received and created ==> " + response.getCode());
 
 
+        DataAccess.CategoryForReviewList categoryForReviewList= DataAccess.CategoryForReviewList.newBuilder().setCategoryid(1)
+                .setCategoryname("lknlknl")
+                .setCategorytype("sadfsdg")
+                .build();
+        DataAccess.ReveiewList reveiewList= blockingStub.getListOfReviews(categoryForReviewList);
+        System.out.println(reveiewList.getReviewsList());
+
+
+
+        DataAccess.ReviewStarReviewToUpdate request2= DataAccess.ReviewStarReviewToUpdate.newBuilder()
+                .setId(1)
+                .setStarreview(5)
+                .build();
+
+        DataAccess.ReviewsStarReviewUpdated response2 =blockingStub.updateStarReview(request2);
+        System.out.println(response2);
+
+
+        //REPORTS
+
+        DataAccess.Empty empty= DataAccess.Empty.newBuilder().setEmpty("sadf").build();
+        DataAccess.ListOfReports reports= blockingStub.getListOfReports(empty);
+        System.out.println(reports.getReportList());
+
+
+
+
+        DataAccess.ReportToDelete request=DataAccess.ReportToDelete.newBuilder()
+                .setReportid(2).build();
+
+        DataAccess.ReportDeleted response= blockingStub.deleteReport(request);
+        System.out.println("Received and created ==> " + response.getCode());
+
+        DataAccess.ReportById request2= DataAccess.ReportById.newBuilder()
+                .setReportid(3)
+                .build();
+
+        DataAccess.Report response2 =blockingStub.getReportById(request2);
+        System.out.println(response2.toString());
+
+
+
+
+        DataAccess.ReportToCreate reportToCreate= DataAccess.ReportToCreate.newBuilder()
+                .setUserid(1)
+                .setDescription("sdafsdg")
+                .setReviewid(2)
+                .build();
+
+        DataAccess.ReportCreated reportCreated= blockingStub.createReport(reportToCreate);
+
+        System.out.println(reportCreated);
+*/
     }
 }
