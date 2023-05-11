@@ -1,14 +1,13 @@
 package com.server;
 
 import com.DAO.DAO;
-import com.model.Report;
-import com.model.Review;
-import com.model.User;
+import com.model.*;
 import com.sdj3.protobuf.AccessGrpc;
 import com.sdj3.protobuf.DataAccess;
 import io.grpc.stub.StreamObserver;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DataAccessService extends AccessGrpc.AccessImplBase {
@@ -100,6 +99,484 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         responseObserver.onCompleted();
     }
 
+    // Zsolt
+
+
+    //Museum
+
+    @Override
+    public void createMuseum(DataAccess.MuseumToCreate request, StreamObserver<DataAccess.MuseumCreated> responseObserver) {
+
+
+        String name = request.getName();
+        String Description = request.getDescription();
+        String imageURL = request.getImageurl();
+        int cityId = request.getCityid();
+
+
+        Dao.insertMuseum(name, Description, imageURL, cityId);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.MuseumCreated response = DataAccess.MuseumCreated.newBuilder()
+                .setCode(200)
+                .setName(request.getName())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+    @Override
+    public void getMuseumByName(DataAccess.MuseumByName request, StreamObserver<DataAccess.Museum> responseObserver) {
+            Museum museum = Dao.getMuseumByName(request.getMuseumname());
+
+            if (museum == null) {
+                DataAccess.Museum nullresponse = DataAccess.Museum.newBuilder()
+                        .setId(0)
+                        .setName("notfound")
+                        .setDescription("notfound")
+                        .setImageurl("notfound")
+                        .setCityid(0)
+                        .build();
+
+                responseObserver.onNext(nullresponse);
+                responseObserver.onCompleted();
+            }
+
+            DataAccess.Museum response = DataAccess.Museum.newBuilder()
+                    .setId(museum.getId())
+                    .setName(museum.getName())
+                    .setDescription(museum.getDescription())
+                    .setImageurl(museum.getImageURL())
+                    .setCityid(museum.getCityId())
+                    .build();
+
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+
+    }
+
+    @Override
+    public void getMuseumById(DataAccess.MuseumById request, StreamObserver<DataAccess.Museum> responseObserver) {
+
+        Museum museum = Dao.getMuseumyById(request.getMuseumid());
+
+        DataAccess.Museum response = DataAccess.Museum.newBuilder()
+                .setId(museum.getId())
+                .setName(museum.getName())
+                .setDescription(museum.getDescription())
+                .setImageurl(museum.getImageURL())
+                .setCityid(museum.getCityId())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void updateMuseumName(DataAccess.MuseumNameToUpdate request, StreamObserver<DataAccess.MuseumNameUpdated> responseObserver) {
+
+
+        String name = request.getName();
+        int id = request.getMuseumid();
+
+
+        Dao.updateMuseumName(name, id);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.MuseumNameUpdated response = DataAccess.MuseumNameUpdated.newBuilder()
+                .setCode(200)
+                .setName(request.getName())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+
+    }
+
+    @Override
+    public void updateMuseumDescription(DataAccess.MuseumDescriptionToUpdate request, StreamObserver<DataAccess.MuseumDescriptionUpdated> responseObserver) {
+
+
+        String Description = request.getDescription();
+        int id = request.getMuseumid();
+
+
+        Dao.updateMuseumDescription(Description, id);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.MuseumDescriptionUpdated response = DataAccess.MuseumDescriptionUpdated.newBuilder()
+                .setCode(200)
+                .setDescription(request.getDescription())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+
+    }
+
+    @Override
+    public void deleteMuseum(DataAccess.MuseumToDelete request, StreamObserver<DataAccess.MuseumDeleted> responseObserver) {
+
+        int id = request.getMuseumid();
+
+
+        Dao.deleteMuseum(id);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.MuseumDeleted response = DataAccess.MuseumDeleted.newBuilder()
+                .setCode(200)
+                .build();
+
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+
+
+    }
+
+    @Override
+    public void getListOfMuseums(DataAccess.CitysIdForMuseumList request, StreamObserver<DataAccess.ListOfMuseums> responseObserver) {
+
+        DataAccess.ListOfMuseums.Builder builder = DataAccess.ListOfMuseums.newBuilder();
+
+        List<Museum> museums = Dao.listOfMuseums(request.getCityid());
+
+        for (Museum museum : museums) {
+            builder.addMuseum(DataAccess.Museum.newBuilder()
+                    .setId(museum.getId())
+                    .setName(museum.getName())
+                    .setDescription(museum.getDescription())
+                    .setImageurl(museum.getImageURL())
+                    .setCityid(museum.getCityId())
+                    .build());
+
+
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+
+    }
+
+
+    //Park
+
+
+    @Override
+    public void createPark(DataAccess.ParkToCreate request, StreamObserver<DataAccess.ParkCreated> responseObserver) {
+
+
+        String name = request.getName();
+        String Description = request.getDescription();
+        String imageURL = request.getImageurl();
+        int cityId = request.getCityid();
+
+
+        Dao.insertPark(name, Description, imageURL, cityId);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.ParkCreated response = DataAccess.ParkCreated.newBuilder()
+                .setCode(200)
+                .setName(request.getName())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getParkByName(DataAccess.ParkByName request, StreamObserver<DataAccess.Park> responseObserver) {
+
+        Park park = Dao.getParkByName(request.getParkname());
+
+        if (park == null) {
+            DataAccess.Park nullresponse = DataAccess.Park.newBuilder()
+                    .setId(0)
+                    .setName("notfound")
+                    .setDescription("notfound")
+                    .setImageurl("notfound")
+                    .setCityid(0)
+                    .build();
+
+            responseObserver.onNext(nullresponse);
+            responseObserver.onCompleted();
+        }
+
+        DataAccess.Park response = DataAccess.Park.newBuilder()
+                .setId(park.getId())
+                .setName(park.getName())
+                .setDescription(park.getDescription())
+                .setImageurl(park.getImageURL())
+                .setCityid(park.getCityId())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+
+    }
+
+    @Override
+    public void getParkById(DataAccess.ParkById request, StreamObserver<DataAccess.Park> responseObserver) {
+
+        Park park = Dao.getParkById(request.getParkid());
+
+        DataAccess.Park response = DataAccess.Park.newBuilder()
+                .setId(park.getId())
+                .setName(park.getName())
+                .setDescription(park.getDescription())
+                .setImageurl(park.getImageURL())
+                .setCityid(park.getCityId())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+    }
+
+    @Override
+    public void updateParkName(DataAccess.ParkNameToUpdate request, StreamObserver<DataAccess.ParkNameUpdated> responseObserver) {
+
+        String name = request.getName();
+        int id = request.getParkid();
+
+
+        Dao.updateParkName(name, id);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.ParkNameUpdated response = DataAccess.ParkNameUpdated.newBuilder()
+                .setCode(200)
+                .setName(request.getName())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+
+    }
+
+    @Override
+    public void updateParkDescription(DataAccess.ParkDescriptionToUpdate request, StreamObserver<DataAccess.ParkDescriptionUpdated> responseObserver) {
+
+
+        String Description = request.getDescription();
+        int id = request.getParkid();
+
+
+        Dao.updateParkDescription(Description, id);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.ParkDescriptionUpdated response = DataAccess.ParkDescriptionUpdated.newBuilder()
+                .setCode(200)
+                .setDescription(request.getDescription())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+    }
+
+    @Override
+    public void deletePark(DataAccess.ParkToDelete request, StreamObserver<DataAccess.ParkDeleted> responseObserver) {
+
+        int id = request.getParkid();
+
+
+        Dao.deletePark(id);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.ParkDeleted response = DataAccess.ParkDeleted.newBuilder()
+                .setCode(200)
+                .build();
+
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+
+    }
+
+    @Override
+    public void getListOfParks(DataAccess.CitysIdForParkList request, StreamObserver<DataAccess.ListOfParks> responseObserver) {
+
+        DataAccess.ListOfParks.Builder builder = DataAccess.ListOfParks.newBuilder();
+
+        List<Park> parks = Dao.listOfParks(request.getCityid());
+
+        for (Park park : parks) {
+            builder.addPark(DataAccess.Park.newBuilder()
+                    .setId(park.getId())
+                    .setName(park.getName())
+                    .setDescription(park.getDescription())
+                    .setImageurl(park.getImageURL())
+                    .setCityid(park.getCityId())
+                    .build());
+
+
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+
+    }
+
+
+    //Restaurant
+
+
+
+    @Override
+    public void createRestaurant(DataAccess.RestaurantToCreate request, StreamObserver<DataAccess.RestaurantCreated> responseObserver) {
+
+        String name = request.getName();
+        String Description = request.getDescription();
+        String imageURL = request.getImageurl();
+        int cityId = request.getCityid();
+
+
+        Dao.insertRestaurant(name, Description, imageURL, cityId);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.RestaurantCreated response = DataAccess.RestaurantCreated.newBuilder()
+                .setCode(200)
+                .setName(request.getName())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getRestaurantByName(DataAccess.RestaurantByName request, StreamObserver<DataAccess.Restaurant> responseObserver) {
+
+        Restaurant restaurant = Dao.getRestaurantByName(request.getRestaurantname());
+
+        if (restaurant == null) {
+            DataAccess.Restaurant nullresponse = DataAccess.Restaurant.newBuilder()
+                    .setId(0)
+                    .setName("notfound")
+                    .setDescription("notfound")
+                    .setImageurl("notfound")
+                    .setCityid(0)
+                    .build();
+
+            responseObserver.onNext(nullresponse);
+            responseObserver.onCompleted();
+        }
+
+        DataAccess.Restaurant response = DataAccess.Restaurant.newBuilder()
+                .setId(restaurant.getId())
+                .setName(restaurant.getName())
+                .setDescription(restaurant.getDescription())
+                .setImageurl(restaurant.getImageURL())
+                .setCityid(restaurant.getCityId())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+
+    }
+
+    @Override
+    public void getRestaurantById(DataAccess.RestaurantById request, StreamObserver<DataAccess.Restaurant> responseObserver) {
+
+       Restaurant restaurant = Dao.getRestaurantById(request.getRestaurantid());
+
+        DataAccess.Restaurant response = DataAccess.Restaurant.newBuilder()
+                .setId(restaurant.getId())
+                .setName(restaurant.getName())
+                .setDescription(restaurant.getDescription())
+                .setImageurl(restaurant.getImageURL())
+                .setCityid(restaurant.getCityId())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+    }
+
+    @Override
+    public void updateRestaurantName(DataAccess.RestaurantNameToUpdate request, StreamObserver<DataAccess.RestaurantNameUpdated> responseObserver) {
+
+        String name = request.getName();
+        int id = request.getRestaurantid();
+
+
+        Dao.updateRestaurantName(name, id);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.RestaurantNameUpdated response = DataAccess.RestaurantNameUpdated.newBuilder()
+                .setCode(200)
+                .setName(request.getName())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+    }
+
+    @Override
+    public void updateRestaurantDescription(DataAccess.RestaurantDescriptionToUpdate request, StreamObserver<DataAccess.RestaurantDescriptionUpdated> responseObserver) {
+
+        String Description = request.getDescription();
+        int id = request.getRestaurantid();
+
+
+        Dao.updateRestaurantDescription(Description, id);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.RestaurantDescriptionUpdated response = DataAccess.RestaurantDescriptionUpdated.newBuilder()
+                .setCode(200)
+                .setDescription(request.getDescription())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+    }
+
+    @Override
+    public void deleteRestaurant(DataAccess.RestaurantToDelete request, StreamObserver<DataAccess.RestaurantDeleted> responseObserver) {
+
+        int id = request.getRestaurantid();
+
+
+        Dao.deleteRestaurant(id);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.RestaurantDeleted response = DataAccess.RestaurantDeleted.newBuilder()
+                .setCode(200)
+                .build();
+
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+    }
+
+    @Override
+    public void getListOfRestaurant(DataAccess.CitysIdForRestaurantList request, StreamObserver<DataAccess.ListOfRestaurants> responseObserver) {
+        DataAccess.ListOfRestaurants.Builder builder = DataAccess.ListOfRestaurants.newBuilder();
+
+        List<Restaurant> restaurants = Dao.listOfRestaurant(request.getCityid());
+
+        for (Restaurant restaurant : restaurants) {
+            builder.addRestaurant(DataAccess.Restaurant.newBuilder()
+                    .setId(restaurant.getId())
+                    .setName(restaurant.getName())
+                    .setDescription(restaurant.getDescription())
+                    .setImageurl(restaurant.getImageURL())
+                    .setCityid(restaurant.getCityId())
+                    .build());
+
+
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+
+    }
 
     //Review
     @Override
@@ -210,6 +687,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
             builder.addReviews(DataAccess.Review.newBuilder()
                     .setId(review.getId())
                     .setComment(review.getComment())
+                    .setStarreview(review.getStarReview())
                     .setUserid(review.getUserId())
                     .setCategoryid(review.getCategoryId())
                     .setCategoryname(review.getCategoryName())
