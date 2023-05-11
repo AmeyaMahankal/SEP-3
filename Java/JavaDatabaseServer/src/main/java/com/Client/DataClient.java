@@ -131,7 +131,54 @@ public class DataClient {
 
         DataAccess.ReportCreated reportCreated= blockingStub.createReport(reportToCreate);
 
-        System.out.println(reportCreated);*/
+        System.out.println(reportCreated);
+
+
+        // MUSEUM
+
+        DataAccess.MuseumToCreate museumToCreate= DataAccess.MuseumToCreate.newBuilder()
+                .setName("safasf")
+                .setDescription("sdafsdg")
+                .setImageurl("wadwrf")
+                .setCityid(1)
+                .build();
+
+        DataAccess.MuseumCreated museumCreated= blockingStub.createMuseum(museumToCreate);
+
+        System.out.println(museumCreated);
+
+
+
+
+
+       // PARK
+
+        DataAccess.ParkToCreate parkToCreate= DataAccess.ParkToCreate.newBuilder()
+                .setName("lulululu")
+                .setDescription("dododo")
+                .setImageurl("wtf")
+                .setCityid(1)
+                .build();
+
+        DataAccess.ParkCreated parkCreated= blockingStub.createPark(parkToCreate);
+
+        System.out.println(parkCreated);
+
+*/
+
+        // RESTAURANT
+
+        DataAccess.RestaurantToCreate restaurantToCreate= DataAccess.RestaurantToCreate.newBuilder()
+                .setName("doda")
+                .setDescription("lula")
+                .setImageurl("mimi")
+                .setCityid(1)
+                .build();
+
+        DataAccess.RestaurantCreated restaurantCreated= blockingStub.createRestaurant(restaurantToCreate);
+
+        System.out.println(restaurantCreated);
+
 
     }
 }
