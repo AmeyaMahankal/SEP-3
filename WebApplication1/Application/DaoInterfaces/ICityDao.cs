@@ -10,6 +10,7 @@ public interface ICityDao
     Task<IEnumerable<City>> GetAsync(SearchCityParametersDto dto);
 
     Task<City?> GetByIdAsync(int id);
+    
     Task UpdateAsync(City updated);
 
     Task DeleteAsync(int id);

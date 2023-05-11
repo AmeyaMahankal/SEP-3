@@ -24,11 +24,11 @@ builder.Services.AddScoped<ICityLogic, CityLogic>();
 
 builder.Services.AddScoped<IHotelDao, HotelFileDao>();
 builder.Services.AddScoped<IHotelLogic, HotelLogic>();
-builder.Services.AddScoped<IMuseumDao, MuseumFileDao>();
+builder.Services.AddScoped<IMuseumDao, MuseumDAO>();
 builder.Services.AddScoped<IMuseumLogic, MuseumLogic>();
-builder.Services.AddScoped<IParkDao, ParkFileDao>();
+builder.Services.AddScoped<IParkDao, ParkDAO>();
 builder.Services.AddScoped<IParkLogic, ParkLogic>();
-builder.Services.AddScoped<IRestaurantDao, RestaurantFileDao>();
+builder.Services.AddScoped<IRestaurantDao, RestaurantDAO>();
 builder.Services.AddScoped<IRestaurantLogic, RestaurantLogic>();
 
 builder.Services.AddScoped<IReviewDao, ReviewDAO>(); //HERE
