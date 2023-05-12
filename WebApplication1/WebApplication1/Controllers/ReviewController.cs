@@ -53,12 +53,12 @@ public class ReviewController: ControllerBase
     
     
 
-    [HttpPatch]
-    public async Task<ActionResult> UpdateAsync([FromBody] ReviewUpdateDto dto)
+    [HttpPatch("UpdateComment")]
+    public async Task<ActionResult> UpdateAsync([FromBody] ReviewUpdateCommentDto commentDto)
     {
         try
         {
-            await reviewLogic.UpdateAsync(dto);
+            await reviewLogic.UpdateReviewCommentAsync(commentDto);
             return Ok();
         }
         catch (Exception e)
@@ -68,6 +68,24 @@ public class ReviewController: ControllerBase
         }
     }
   
+    [HttpPatch("UpdateStarReview")]
+    public async Task<ActionResult> UpdateAsync([FromBody] ReviewUpdateStarReviewDto starReviewDto)
+    {
+        try
+        {
+            await reviewLogic.UpdateReviewStarReviewAsync(starReviewDto);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+    
+    
+    
+    
     [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteAsync([FromRoute] int id)
     {

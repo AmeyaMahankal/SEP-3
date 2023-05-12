@@ -86,18 +86,49 @@ public class ReviewDAO: IReviewDao
         return Task.FromResult(review);
     }
 
-    public Task<Review?> GetByCategory(int dtoCategoryId, string dtoCategoryName, string dtoCategoryType)
+
+
+    public Task UpdateReviewCommentAsync(Review updated)
     {
-        throw new NotImplementedException();
+        ReviewsCommentToUpdate request = new ReviewsCommentToUpdate()
+        {
+            Comment = updated.Comment,
+            Id = updated.Id
+        };
+        var send = client.UpdateReviewComment(request);
+
+        Review review = new Review()
+        {
+            Comment = send.Comment
+        };
+        return Task.FromResult(review);
     }
 
-    public Task UpdateAsync(Review updated)
+    public Task UpdateReviewStarReviewAsync(Review updated)
     {
-        throw new NotImplementedException();
+        ReviewStarReviewToUpdate request = new ReviewStarReviewToUpdate()
+        {
+            Starreview = updated.StarReview,
+            Id = updated.Id
+        };
+        var send = client.UpdateStarReview(request);
+
+        Review review = new Review()
+        {
+            StarReview = send.Starreview
+        };
+        return Task.FromResult(review);
     }
 
     public Task DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        ReviewToDelete request = new ReviewToDelete()
+        {
+           Id = id
+        };
+
+        var send = client.DeleteReview(request);
+
+        return Task.CompletedTask;
     }
 }

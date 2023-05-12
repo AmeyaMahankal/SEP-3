@@ -6,10 +6,9 @@ namespace Application.LogicInterface;
 public interface IReviewLogic
 {
     Task<Review> CreateAsync(ReviewCreationDto reviewCreation);
-    //public Task<Review> GetAsync(SearchReviewByIdDto searchReviewByIdDto);
     Task<IEnumerable<Review>> GetByCategory(SearchReviewParameterDto searchReviewParameterDto); 
-      Task UpdateAsync(ReviewUpdateDto dto);
-
+      Task UpdateReviewCommentAsync(ReviewUpdateCommentDto commentDto);
+      Task UpdateReviewStarReviewAsync(ReviewUpdateStarReviewDto starReviewDto);
     Task DeleteAsync(int id);
 
 }
