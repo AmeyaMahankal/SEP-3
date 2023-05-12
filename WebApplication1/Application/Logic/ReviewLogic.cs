@@ -34,8 +34,15 @@ public class ReviewLogic : IReviewLogic
 
     public async Task<Review> CreateAsync(ReviewCreationDto dto)
     {
-        Review review = new Review( dto.CreateComment,dto.CreateStarReview, dto.UserId
-        , dto.CategoryId, dto.CategoryName, dto.CategoryType);
+        Review review = new Review()
+        { 
+           Comment = dto.CreateComment,
+          StarReview = dto.CreateStarReview,
+          UserId = dto.UserId, 
+          CategoryId = dto.CategoryId, 
+         CategoryName = dto.CategoryName, 
+        CategoryType = dto.CategoryType
+        };
         Review created = await ReviewDao.CreateAsync(review);
         return created;
     }
@@ -71,8 +78,7 @@ public class ReviewLogic : IReviewLogic
         
         string commentToUse = dto.ReviewsComment ?? existing.Comment;
         string starReviewToUse = IntToString(dto.ReviewsStarReview) ?? IntToString(existing.StarReview);
-        Review updated = new( commentToUse, StringToInt(starReviewToUse),existing.UserId,
-            existing.CategoryId,existing.CategoryName,existing.CategoryType);
+        Review updated = new();
         {
             updated.Comment = commentToUse;
             updated.StarReview = StringToInt(starReviewToUse);

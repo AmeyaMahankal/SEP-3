@@ -18,7 +18,6 @@ service Access{
   //hotel
 
   rpc CreateHotel(HotelToCreate) returns (HotelCreated);
-  rpc GetHotelByName(HotelByName) returns(Hotel);
   rpc GetHotelById(HotelById) returns(Hotel);
   rpc UpdateHotelName(HotelNameToUpdate) returns(HotelNameUpdated);
   rpc UpdateHotelDescription(HotelDescriptionToUpdate) returns(HotelDescriptionUpdated);
@@ -28,7 +27,6 @@ service Access{
   //museum
 
   rpc CreateMuseum(MuseumToCreate) returns (MuseumCreated);
-  rpc GetMuseumByName(MuseumByName) returns(Museum);
   rpc GetMuseumById(MuseumById) returns(Museum);
   rpc UpdateMuseumName(MuseumNameToUpdate) returns(MuseumNameUpdated);
   rpc UpdateMuseumDescription(MuseumDescriptionToUpdate) returns(MuseumDescriptionUpdated);
@@ -41,7 +39,6 @@ service Access{
   //park
 
   rpc CreatePark(ParkToCreate) returns (ParkCreated);
-  rpc GetParkByName(ParkByName) returns(Park);
   rpc GetParkById(ParkById) returns(Park);
   rpc UpdateParkName(ParkNameToUpdate) returns(ParkNameUpdated);
   rpc UpdateParkDescription(ParkDescriptionToUpdate) returns(ParkDescriptionUpdated);
@@ -51,7 +48,6 @@ service Access{
   //restaurant
 
   rpc CreateRestaurant(RestaurantToCreate) returns (RestaurantCreated);
-  rpc GetRestaurantByName(RestaurantByName) returns(Restaurant);
   rpc GetRestaurantById(RestaurantById) returns(Restaurant);
   rpc UpdateRestaurantName(RestaurantNameToUpdate) returns(RestaurantNameUpdated);
   rpc UpdateRestaurantDescription(RestaurantDescriptionToUpdate) returns(RestaurantDescriptionUpdated);
@@ -66,7 +62,6 @@ service Access{
   rpc UpdateReviewComment(ReviewsCommentToUpdate) returns(ReviewCommentUpdated);
   rpc UpdateStarReview(ReviewStarReviewToUpdate) returns(ReviewsStarReviewUpdated);
   rpc DeleteReview(ReviewToDelete) returns(ReviewDeleted);
-  rpc GetListOfReviews(CategoryForReviewList) returns(ReveiewList);
   //ADD THIS EVERYWHERE
   rpc GetReviewsContaining(SearchReviewPeremetars) returns (ReveiewList);
 
@@ -179,10 +174,6 @@ message HotelCreated{
 
 }
 
-message HotelByName{
-  string hotelname = 1;
-}
-
 message HotelById{
   int32 hotelid = 1;
 }
@@ -266,9 +257,6 @@ message MuseumCreated{
 
 }
 
-message MuseumByName{
-  string museumname = 1;
-}
 
 message MuseumById{
   int32 museumid = 1;
@@ -353,9 +341,7 @@ message ParkCreated{
 
 }
 
-message ParkByName{
-  string parkname = 1;
-}
+
 
 message ParkById{
   int32 parkid = 1;
@@ -441,10 +427,6 @@ message RestaurantCreated{
   int32 code = 1;
   string name = 2;
 
-}
-
-message RestaurantByName{
-  string restaurantname = 1;
 }
 
 message RestaurantById{
@@ -543,10 +525,9 @@ message ReviewCreated{
 }
 
 message SearchReviewPeremetars{
-  int32 id=1;
-  int32 categoryid = 2;
-  string categoryname = 3;
-  string categorytype = 4;
+  int32 categoryid = 1;
+  string categoryname = 2;
+  string categorytype = 3;
 
 }
 
@@ -605,11 +586,7 @@ message ReviewDeleted{
 
 
 
-message CategoryForReviewList{
-  int32 categoryid = 1;
-  string categoryname = 2;
-  string categorytype = 3;
-}
+
 message ReveiewList{
   repeated Review reviews = 1;
 }

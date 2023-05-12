@@ -38,7 +38,7 @@ public class ReviewDAO: IReviewDao
     {
         SearchReviewPeremetars search = new SearchReviewPeremetars()
         {
-            Id = (int) searchReviewParameterDto.ReviewContainsId,
+ 
             Categoryid = (int) searchReviewParameterDto.ReviewContainsCategoryId,
             Categoryname = searchReviewParameterDto.ReviewContainsCategoryName,
             Categorytype = searchReviewParameterDto.ReviewContainsCategoryType
@@ -49,8 +49,16 @@ public class ReviewDAO: IReviewDao
         List<Review> listofreviews = new List<Review>();
         foreach (var VARIABLE in send.ResponseAsync.Result.Reviews)
         {
-            Review review = new Review(VARIABLE.Comment, VARIABLE.Starreview, VARIABLE.Userid,
-                VARIABLE.Categoryid, VARIABLE.Categoryname, VARIABLE.Categorytype);
+            Review review = new Review()
+            {
+               Id = VARIABLE.Id,
+               Comment=VARIABLE.Comment,
+               StarReview = VARIABLE.Starreview,
+               UserId = VARIABLE.Userid,
+              CategoryId = VARIABLE.Categoryid, 
+               CategoryName = VARIABLE.Categoryname,
+               CategoryType = VARIABLE.Categorytype 
+            };
             listofreviews.Add(review);
         }
         IEnumerable<Review> ilistreviews = listofreviews;
@@ -65,8 +73,16 @@ public class ReviewDAO: IReviewDao
         };
 
         var send = client.GetReviewById(request);
-        Review review = new Review(send.Comment, send.Starreview, send.Userid,
-            send.Categoryid, send.Categoryname, send.Categorytype);
+        Review review = new Review()
+        {
+         Id = send.Id, 
+         Comment = send.Comment, 
+        StarReview = send.Starreview,
+        UserId = send.Userid,
+           CategoryId = send.Categoryid,
+           CategoryName = send.Categoryname,
+           CategoryType = send.Categorytype
+        };
         return Task.FromResult(review);
     }
 

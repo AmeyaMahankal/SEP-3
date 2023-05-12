@@ -125,35 +125,6 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
-    @Override
-    public void getMuseumByName(DataAccess.MuseumByName request, StreamObserver<DataAccess.Museum> responseObserver) {
-            Museum museum = Dao.getMuseumByName(request.getMuseumname());
-
-            if (museum == null) {
-                DataAccess.Museum nullresponse = DataAccess.Museum.newBuilder()
-                        .setId(0)
-                        .setName("notfound")
-                        .setDescription("notfound")
-                        .setImageurl("notfound")
-                        .setCityid(0)
-                        .build();
-
-                responseObserver.onNext(nullresponse);
-                responseObserver.onCompleted();
-            }
-
-            DataAccess.Museum response = DataAccess.Museum.newBuilder()
-                    .setId(museum.getId())
-                    .setName(museum.getName())
-                    .setDescription(museum.getDescription())
-                    .setImageurl(museum.getImageURL())
-                    .setCityid(museum.getCityId())
-                    .build();
-
-            responseObserver.onNext(response);
-            responseObserver.onCompleted();
-
-    }
 
     @Override
     public void getMuseumById(DataAccess.MuseumById request, StreamObserver<DataAccess.Museum> responseObserver) {
@@ -286,37 +257,6 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         responseObserver.onCompleted();
     }
 
-    @Override
-    public void getParkByName(DataAccess.ParkByName request, StreamObserver<DataAccess.Park> responseObserver) {
-
-        Park park = Dao.getParkByName(request.getParkname());
-
-        if (park == null) {
-            DataAccess.Park nullresponse = DataAccess.Park.newBuilder()
-                    .setId(0)
-                    .setName("notfound")
-                    .setDescription("notfound")
-                    .setImageurl("notfound")
-                    .setCityid(0)
-                    .build();
-
-            responseObserver.onNext(nullresponse);
-            responseObserver.onCompleted();
-        }
-
-        DataAccess.Park response = DataAccess.Park.newBuilder()
-                .setId(park.getId())
-                .setName(park.getName())
-                .setDescription(park.getDescription())
-                .setImageurl(park.getImageURL())
-                .setCityid(park.getCityId())
-                .build();
-
-        responseObserver.onNext(response);
-        responseObserver.onCompleted();
-
-
-    }
 
     @Override
     public void getParkById(DataAccess.ParkById request, StreamObserver<DataAccess.Park> responseObserver) {
@@ -447,37 +387,6 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         responseObserver.onCompleted();
     }
 
-    @Override
-    public void getRestaurantByName(DataAccess.RestaurantByName request, StreamObserver<DataAccess.Restaurant> responseObserver) {
-
-        Restaurant restaurant = Dao.getRestaurantByName(request.getRestaurantname());
-
-        if (restaurant == null) {
-            DataAccess.Restaurant nullresponse = DataAccess.Restaurant.newBuilder()
-                    .setId(0)
-                    .setName("notfound")
-                    .setDescription("notfound")
-                    .setImageurl("notfound")
-                    .setCityid(0)
-                    .build();
-
-            responseObserver.onNext(nullresponse);
-            responseObserver.onCompleted();
-        }
-
-        DataAccess.Restaurant response = DataAccess.Restaurant.newBuilder()
-                .setId(restaurant.getId())
-                .setName(restaurant.getName())
-                .setDescription(restaurant.getDescription())
-                .setImageurl(restaurant.getImageURL())
-                .setCityid(restaurant.getCityId())
-                .build();
-
-        responseObserver.onNext(response);
-        responseObserver.onCompleted();
-
-
-    }
 
     @Override
     public void getRestaurantById(DataAccess.RestaurantById request, StreamObserver<DataAccess.Restaurant> responseObserver) {
@@ -606,7 +515,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     public void getReviewsContaining(DataAccess.SearchReviewPeremetars request, StreamObserver<DataAccess.ReveiewList> responseObserver) {
         DataAccess.ReveiewList.Builder builder = DataAccess.ReveiewList.newBuilder();
 
-        ArrayList<Review> reviews = Dao.getReviewssWithParameters(request.getId(),request.getCategoryid(),request.getCategoryname(),request.getCategorytype());
+        ArrayList<Review> reviews = Dao.getReviewssWithParameters(request.getCategoryid(),request.getCategoryname(),request.getCategorytype());
 
         for (Review review : reviews) {
             builder.addReviews(DataAccess.Review.newBuilder()
@@ -699,28 +608,6 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     }
 
-    @Override
-    public void getListOfReviews(DataAccess.CategoryForReviewList request, StreamObserver<DataAccess.ReveiewList> responseObserver) {
-        DataAccess.ReveiewList.Builder builder = DataAccess.ReveiewList.newBuilder();
-
-        List<Review> reviews = Dao.listOfReviews(request.getCategoryid(), request.getCategoryname(), request.getCategorytype());
-
-        for (Review review : reviews) {
-            builder.addReviews(DataAccess.Review.newBuilder()
-                    .setId(review.getId())
-                    .setComment(review.getComment())
-                    .setStarreview(review.getStarReview())
-                    .setUserid(review.getUserId())
-                    .setCategoryid(review.getCategoryId())
-                    .setCategoryname(review.getCategoryName())
-                    .setCategorytype(review.getCategoryType())
-                    .build());
-
-
-        }
-        responseObserver.onNext(builder.build());
-        responseObserver.onCompleted();
-    }
 
 
     //Report
