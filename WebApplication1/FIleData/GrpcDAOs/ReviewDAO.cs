@@ -36,10 +36,41 @@ public class ReviewDAO: IReviewDao
 
     public Task<IEnumerable<Review>> GetAsync(SearchReviewParameterDto searchReviewParameterDto)
     {
-        throw new NotImplementedException();
+        SearchReviewPeremetars search = new SearchReviewPeremetars()
+        {
+            Id = (int) searchReviewParameterDto.ReviewContainsId,
+            Categoryid = (int) searchReviewParameterDto.ReviewContainsCategoryId,
+            Categoryname = searchReviewParameterDto.ReviewContainsCategoryName,
+            Categorytype = searchReviewParameterDto.ReviewContainsCategoryType
+        };
+
+        var send = client.GetReviewsContainingAsync(search);
+
+        List<Review> listofreviews = new List<Review>();
+        foreach (var VARIABLE in send.ResponseAsync.Result.Reviews)
+        {
+            Review review = new Review(VARIABLE.Comment, VARIABLE.Starreview, VARIABLE.Userid,
+                VARIABLE.Categoryid, VARIABLE.Categoryname, VARIABLE.Categorytype);
+            listofreviews.Add(review);
+        }
+        IEnumerable<Review> ilistreviews = listofreviews;
+        return Task.FromResult(ilistreviews);
     }
 
     public Task<Review?> GetByIdAsync(int dtoReviewId)
+    {
+        ReviewById  request = new ReviewById()
+        {
+            Id = dtoReviewId
+        };
+
+        var send = client.GetReviewById(request);
+        Review review = new Review(send.Comment, send.Starreview, send.Userid,
+            send.Categoryid, send.Categoryname, send.Categorytype);
+        return Task.FromResult(review);
+    }
+
+    public Task<Review?> GetByCategory(int dtoCategoryId, string dtoCategoryName, string dtoCategoryType)
     {
         throw new NotImplementedException();
     }

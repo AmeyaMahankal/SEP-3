@@ -34,19 +34,21 @@ public class ReviewLogic : IReviewLogic
 
     public async Task<Review> CreateAsync(ReviewCreationDto dto)
     {
-     
-
         Review review = new Review( dto.CreateComment,dto.CreateStarReview, dto.UserId
         , dto.CategoryId, dto.CategoryName, dto.CategoryType);
         Review created = await ReviewDao.CreateAsync(review);
         return created;
     }
 
-    public Task<IEnumerable<Review>> GetAsync(SearchReviewParameterDto searchReviewParameterDto)
+   /* public Task<Review> GetAsync(SearchReviewByIdDto searchReviewByIdDto)
+    {
+        return ReviewDao.GetAsync(searchReviewByIdDto);
+    }
+*/
+    public Task<IEnumerable<Review>> GetByCategory(SearchReviewParameterDto searchReviewParameterDto)
     {
         return ReviewDao.GetAsync(searchReviewParameterDto);
     }
-
 
     public async Task UpdateAsync(ReviewUpdateDto dto)
     {

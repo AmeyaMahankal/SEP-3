@@ -45089,6 +45089,866 @@ public final class DataAccess {
 
   }
 
+  public interface SearchReviewPeremetarsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SearchReviewPeremetars)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 id = 1;</code>
+     * @return The id.
+     */
+    int getId();
+
+    /**
+     * <code>int32 categoryid = 2;</code>
+     * @return The categoryid.
+     */
+    int getCategoryid();
+
+    /**
+     * <code>string categoryname = 3;</code>
+     * @return The categoryname.
+     */
+    java.lang.String getCategoryname();
+    /**
+     * <code>string categoryname = 3;</code>
+     * @return The bytes for categoryname.
+     */
+    com.google.protobuf.ByteString
+        getCategorynameBytes();
+
+    /**
+     * <code>string categorytype = 4;</code>
+     * @return The categorytype.
+     */
+    java.lang.String getCategorytype();
+    /**
+     * <code>string categorytype = 4;</code>
+     * @return The bytes for categorytype.
+     */
+    com.google.protobuf.ByteString
+        getCategorytypeBytes();
+  }
+  /**
+   * Protobuf type {@code SearchReviewPeremetars}
+   */
+  public static final class SearchReviewPeremetars extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SearchReviewPeremetars)
+      SearchReviewPeremetarsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SearchReviewPeremetars.newBuilder() to construct.
+    private SearchReviewPeremetars(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SearchReviewPeremetars() {
+      categoryname_ = "";
+      categorytype_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SearchReviewPeremetars();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SearchReviewPeremetars(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              id_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              categoryid_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              categoryname_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              categorytype_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.sdj3.protobuf.DataAccess.internal_static_SearchReviewPeremetars_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.sdj3.protobuf.DataAccess.internal_static_SearchReviewPeremetars_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.sdj3.protobuf.DataAccess.SearchReviewPeremetars.class, com.sdj3.protobuf.DataAccess.SearchReviewPeremetars.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>int32 id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public int getId() {
+      return id_;
+    }
+
+    public static final int CATEGORYID_FIELD_NUMBER = 2;
+    private int categoryid_;
+    /**
+     * <code>int32 categoryid = 2;</code>
+     * @return The categoryid.
+     */
+    @java.lang.Override
+    public int getCategoryid() {
+      return categoryid_;
+    }
+
+    public static final int CATEGORYNAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object categoryname_;
+    /**
+     * <code>string categoryname = 3;</code>
+     * @return The categoryname.
+     */
+    @java.lang.Override
+    public java.lang.String getCategoryname() {
+      java.lang.Object ref = categoryname_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        categoryname_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string categoryname = 3;</code>
+     * @return The bytes for categoryname.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCategorynameBytes() {
+      java.lang.Object ref = categoryname_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        categoryname_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CATEGORYTYPE_FIELD_NUMBER = 4;
+    private volatile java.lang.Object categorytype_;
+    /**
+     * <code>string categorytype = 4;</code>
+     * @return The categorytype.
+     */
+    @java.lang.Override
+    public java.lang.String getCategorytype() {
+      java.lang.Object ref = categorytype_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        categorytype_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string categorytype = 4;</code>
+     * @return The bytes for categorytype.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCategorytypeBytes() {
+      java.lang.Object ref = categorytype_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        categorytype_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (id_ != 0) {
+        output.writeInt32(1, id_);
+      }
+      if (categoryid_ != 0) {
+        output.writeInt32(2, categoryid_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categoryname_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, categoryname_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categorytype_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, categorytype_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
+      }
+      if (categoryid_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, categoryid_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categoryname_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, categoryname_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categorytype_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, categorytype_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.sdj3.protobuf.DataAccess.SearchReviewPeremetars)) {
+        return super.equals(obj);
+      }
+      com.sdj3.protobuf.DataAccess.SearchReviewPeremetars other = (com.sdj3.protobuf.DataAccess.SearchReviewPeremetars) obj;
+
+      if (getId()
+          != other.getId()) return false;
+      if (getCategoryid()
+          != other.getCategoryid()) return false;
+      if (!getCategoryname()
+          .equals(other.getCategoryname())) return false;
+      if (!getCategorytype()
+          .equals(other.getCategorytype())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId();
+      hash = (37 * hash) + CATEGORYID_FIELD_NUMBER;
+      hash = (53 * hash) + getCategoryid();
+      hash = (37 * hash) + CATEGORYNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getCategoryname().hashCode();
+      hash = (37 * hash) + CATEGORYTYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getCategorytype().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.sdj3.protobuf.DataAccess.SearchReviewPeremetars prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SearchReviewPeremetars}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SearchReviewPeremetars)
+        com.sdj3.protobuf.DataAccess.SearchReviewPeremetarsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.sdj3.protobuf.DataAccess.internal_static_SearchReviewPeremetars_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.sdj3.protobuf.DataAccess.internal_static_SearchReviewPeremetars_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.sdj3.protobuf.DataAccess.SearchReviewPeremetars.class, com.sdj3.protobuf.DataAccess.SearchReviewPeremetars.Builder.class);
+      }
+
+      // Construct using com.sdj3.protobuf.DataAccess.SearchReviewPeremetars.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0;
+
+        categoryid_ = 0;
+
+        categoryname_ = "";
+
+        categorytype_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.sdj3.protobuf.DataAccess.internal_static_SearchReviewPeremetars_descriptor;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.SearchReviewPeremetars getDefaultInstanceForType() {
+        return com.sdj3.protobuf.DataAccess.SearchReviewPeremetars.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.SearchReviewPeremetars build() {
+        com.sdj3.protobuf.DataAccess.SearchReviewPeremetars result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.sdj3.protobuf.DataAccess.SearchReviewPeremetars buildPartial() {
+        com.sdj3.protobuf.DataAccess.SearchReviewPeremetars result = new com.sdj3.protobuf.DataAccess.SearchReviewPeremetars(this);
+        result.id_ = id_;
+        result.categoryid_ = categoryid_;
+        result.categoryname_ = categoryname_;
+        result.categorytype_ = categorytype_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.sdj3.protobuf.DataAccess.SearchReviewPeremetars) {
+          return mergeFrom((com.sdj3.protobuf.DataAccess.SearchReviewPeremetars)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.sdj3.protobuf.DataAccess.SearchReviewPeremetars other) {
+        if (other == com.sdj3.protobuf.DataAccess.SearchReviewPeremetars.getDefaultInstance()) return this;
+        if (other.getId() != 0) {
+          setId(other.getId());
+        }
+        if (other.getCategoryid() != 0) {
+          setCategoryid(other.getCategoryid());
+        }
+        if (!other.getCategoryname().isEmpty()) {
+          categoryname_ = other.categoryname_;
+          onChanged();
+        }
+        if (!other.getCategorytype().isEmpty()) {
+          categorytype_ = other.categorytype_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.sdj3.protobuf.DataAccess.SearchReviewPeremetars parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.sdj3.protobuf.DataAccess.SearchReviewPeremetars) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int id_ ;
+      /**
+       * <code>int32 id = 1;</code>
+       * @return The id.
+       */
+      @java.lang.Override
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>int32 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(int value) {
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int categoryid_ ;
+      /**
+       * <code>int32 categoryid = 2;</code>
+       * @return The categoryid.
+       */
+      @java.lang.Override
+      public int getCategoryid() {
+        return categoryid_;
+      }
+      /**
+       * <code>int32 categoryid = 2;</code>
+       * @param value The categoryid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCategoryid(int value) {
+        
+        categoryid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 categoryid = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCategoryid() {
+        
+        categoryid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object categoryname_ = "";
+      /**
+       * <code>string categoryname = 3;</code>
+       * @return The categoryname.
+       */
+      public java.lang.String getCategoryname() {
+        java.lang.Object ref = categoryname_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          categoryname_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string categoryname = 3;</code>
+       * @return The bytes for categoryname.
+       */
+      public com.google.protobuf.ByteString
+          getCategorynameBytes() {
+        java.lang.Object ref = categoryname_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          categoryname_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string categoryname = 3;</code>
+       * @param value The categoryname to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCategoryname(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        categoryname_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string categoryname = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCategoryname() {
+        
+        categoryname_ = getDefaultInstance().getCategoryname();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string categoryname = 3;</code>
+       * @param value The bytes for categoryname to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCategorynameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        categoryname_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object categorytype_ = "";
+      /**
+       * <code>string categorytype = 4;</code>
+       * @return The categorytype.
+       */
+      public java.lang.String getCategorytype() {
+        java.lang.Object ref = categorytype_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          categorytype_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string categorytype = 4;</code>
+       * @return The bytes for categorytype.
+       */
+      public com.google.protobuf.ByteString
+          getCategorytypeBytes() {
+        java.lang.Object ref = categorytype_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          categorytype_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string categorytype = 4;</code>
+       * @param value The categorytype to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCategorytype(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        categorytype_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string categorytype = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCategorytype() {
+        
+        categorytype_ = getDefaultInstance().getCategorytype();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string categorytype = 4;</code>
+       * @param value The bytes for categorytype to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCategorytypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        categorytype_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SearchReviewPeremetars)
+    }
+
+    // @@protoc_insertion_point(class_scope:SearchReviewPeremetars)
+    private static final com.sdj3.protobuf.DataAccess.SearchReviewPeremetars DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.sdj3.protobuf.DataAccess.SearchReviewPeremetars();
+    }
+
+    public static com.sdj3.protobuf.DataAccess.SearchReviewPeremetars getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SearchReviewPeremetars>
+        PARSER = new com.google.protobuf.AbstractParser<SearchReviewPeremetars>() {
+      @java.lang.Override
+      public SearchReviewPeremetars parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SearchReviewPeremetars(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SearchReviewPeremetars> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SearchReviewPeremetars> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.sdj3.protobuf.DataAccess.SearchReviewPeremetars getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ReviewByIdOrBuilder extends
       // @@protoc_insertion_point(interface_extends:ReviewById)
       com.google.protobuf.MessageOrBuilder {
@@ -55845,6 +56705,11 @@ public final class DataAccess {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ReviewCreated_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SearchReviewPeremetars_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SearchReviewPeremetars_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ReviewById_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -56029,87 +56894,91 @@ public final class DataAccess {
       "ryid\030\004 \001(\005\022\024\n\014categoryname\030\005 \001(\t\022\024\n\014cate" +
       "gorytype\030\006 \001(\t\"B\n\rReviewCreated\022\014\n\004code\030" +
       "\001 \001(\005\022\017\n\007comment\030\002 \001(\t\022\022\n\nstarreview\030\003 \001" +
-      "(\005\"\030\n\nReviewById\022\n\n\002id\030\001 \001(\005\"5\n\026ReviewsC" +
-      "ommentToUpdate\022\n\n\002id\030\001 \001(\005\022\017\n\007comment\030\002 " +
-      "\001(\t\":\n\030ReviewStarReviewToUpdate\022\n\n\002id\030\001 " +
-      "\001(\005\022\022\n\nstarreview\030\002 \001(\005\"\034\n\016ReviewToDelet" +
-      "e\022\n\n\002id\030\001 \001(\005\"5\n\024ReviewCommentUpdated\022\014\n" +
-      "\004code\030\001 \001(\005\022\017\n\007comment\030\002 \001(\t\"<\n\030ReviewsS" +
-      "tarReviewUpdated\022\014\n\004code\030\001 \001(\005\022\022\n\nstarre" +
-      "view\030\002 \001(\005\"\035\n\rReviewDeleted\022\014\n\004code\030\001 \001(" +
-      "\005\"W\n\025CategoryForReviewList\022\022\n\ncategoryid" +
-      "\030\001 \001(\005\022\024\n\014categoryname\030\002 \001(\t\022\024\n\014category" +
-      "type\030\003 \001(\t\"\'\n\013ReveiewList\022\030\n\007reviews\030\001 \003" +
-      "(\0132\007.Review\"K\n\006Report\022\n\n\002id\030\001 \001(\005\022\016\n\006use" +
-      "rid\030\002 \001(\005\022\023\n\013description\030\003 \001(\t\022\020\n\010review" +
-      "id\030\004 \001(\005\"G\n\016ReportToCreate\022\016\n\006userid\030\001 \001" +
-      "(\005\022\023\n\013description\030\002 \001(\t\022\020\n\010reviewid\030\003 \001(" +
-      "\005\"2\n\rReportCreated\022\014\n\004code\030\001 \001(\005\022\023\n\013desc" +
-      "ription\030\002 \001(\t\"\036\n\nReportById\022\020\n\010reportid\030" +
-      "\001 \001(\005\"\"\n\016ReportToDelete\022\020\n\010reportid\030\001 \001(" +
-      "\005\"\035\n\rReportDeleted\022\014\n\004code\030\001 \001(\005\"(\n\rList" +
-      "OfReports\022\027\n\006report\030\001 \003(\0132\007.Report\"\026\n\005Em" +
-      "pty\022\r\n\005empty\030\001 \001(\t2\300\022\n\006Access\022.\n\nCreateU" +
-      "ser\022\013.UserCreate\032\023.UserCreateResponse\022(\n" +
-      "\rGetByUsername\022\020.UserGetUsername\032\005.User\022" +
-      "\034\n\007GetById\022\n.UserGetId\032\005.User\0229\n\022GetUser" +
-      "sContaining\022\025.SearchUserParameters\032\014.lis" +
-      "tOfUsers\022)\n\nCreateCity\022\r.CityToCreate\032\014." +
-      "CityCreated\022#\n\rGetCitByyname\022\013.CityByNam" +
-      "e\032\005.City\022\037\n\013GetCityById\022\t.CityById\032\005.Cit" +
-      "y\022,\n\013CreateHotel\022\016.HotelToCreate\032\r.Hotel" +
-      "Created\022&\n\016GetHotelByName\022\014.HotelByName\032" +
-      "\006.Hotel\022\"\n\014GetHotelById\022\n.HotelById\032\006.Ho" +
-      "tel\0228\n\017UpdateHotelName\022\022.HotelNameToUpda" +
-      "te\032\021.HotelNameUpdated\022M\n\026UpdateHotelDesc" +
-      "ription\022\031.HotelDescriptionToUpdate\032\030.Hot" +
-      "elDescriptionUpdated\022,\n\013DeleteHotel\022\016.Ho" +
-      "telToDelete\032\r.HotelDeleted\0225\n\017GetListOfH" +
-      "otels\022\023.CitysIdFoHotelList\032\r.ListOfHotel" +
-      "s\022/\n\014CreateMuseum\022\017.MuseumToCreate\032\016.Mus" +
-      "eumCreated\022)\n\017GetMuseumByName\022\r.MuseumBy" +
-      "Name\032\007.Museum\022%\n\rGetMuseumById\022\013.MuseumB" +
-      "yId\032\007.Museum\022;\n\020UpdateMuseumName\022\023.Museu" +
-      "mNameToUpdate\032\022.MuseumNameUpdated\022P\n\027Upd" +
-      "ateMuseumDescription\022\032.MuseumDescription" +
-      "ToUpdate\032\031.MuseumDescriptionUpdated\022/\n\014D" +
-      "eleteMuseum\022\017.MuseumToDelete\032\016.MuseumDel" +
-      "eted\0229\n\020GetListOfMuseums\022\025.CitysIdForMus" +
-      "eumList\032\016.ListOfMuseums\022)\n\nCreatePark\022\r." +
-      "ParkToCreate\032\014.ParkCreated\022#\n\rGetParkByN" +
-      "ame\022\013.ParkByName\032\005.Park\022\037\n\013GetParkById\022\t" +
-      ".ParkById\032\005.Park\0225\n\016UpdateParkName\022\021.Par" +
-      "kNameToUpdate\032\020.ParkNameUpdated\022J\n\025Updat" +
-      "eParkDescription\022\030.ParkDescriptionToUpda" +
-      "te\032\027.ParkDescriptionUpdated\022)\n\nDeletePar" +
-      "k\022\r.ParkToDelete\032\014.ParkDeleted\0223\n\016GetLis" +
-      "tOfParks\022\023.CitysIdForParkList\032\014.ListOfPa" +
-      "rks\022;\n\020CreateRestaurant\022\023.RestaurantToCr" +
-      "eate\032\022.RestaurantCreated\0225\n\023GetRestauran" +
-      "tByName\022\021.RestaurantByName\032\013.Restaurant\022" +
-      "1\n\021GetRestaurantById\022\017.RestaurantById\032\013." +
-      "Restaurant\022G\n\024UpdateRestaurantName\022\027.Res" +
-      "taurantNameToUpdate\032\026.RestaurantNameUpda" +
-      "ted\022\\\n\033UpdateRestaurantDescription\022\036.Res" +
-      "taurantDescriptionToUpdate\032\035.RestaurantD" +
-      "escriptionUpdated\022;\n\020DeleteRestaurant\022\023." +
-      "RestaurantToDelete\032\022.RestaurantDeleted\022D" +
-      "\n\023GetListOfRestaurant\022\031.CitysIdForRestau" +
-      "rantList\032\022.ListOfRestaurants\022/\n\014CreateRe" +
-      "view\022\017.ReviewToCreate\032\016.ReviewCreated\022%\n" +
-      "\rGetReviewById\022\013.ReviewById\032\007.Review\022E\n\023" +
-      "UpdateReviewComment\022\027.ReviewsCommentToUp" +
-      "date\032\025.ReviewCommentUpdated\022H\n\020UpdateSta" +
-      "rReview\022\031.ReviewStarReviewToUpdate\032\031.Rev" +
-      "iewsStarReviewUpdated\022/\n\014DeleteReview\022\017." +
-      "ReviewToDelete\032\016.ReviewDeleted\0228\n\020GetLis" +
-      "tOfReviews\022\026.CategoryForReviewList\032\014.Rev" +
-      "eiewList\022/\n\014CreateReport\022\017.ReportToCreat" +
-      "e\032\016.ReportCreated\022%\n\rGetReportById\022\013.Rep" +
-      "ortById\032\007.Report\022/\n\014DeleteReport\022\017.Repor" +
-      "tToDelete\032\016.ReportDeleted\022*\n\020GetListOfRe" +
-      "ports\022\006.Empty\032\016.ListOfReportsB\023\n\021com.sdj" +
-      "3.protobufb\006proto3"
+      "(\005\"d\n\026SearchReviewPeremetars\022\n\n\002id\030\001 \001(\005" +
+      "\022\022\n\ncategoryid\030\002 \001(\005\022\024\n\014categoryname\030\003 \001" +
+      "(\t\022\024\n\014categorytype\030\004 \001(\t\"\030\n\nReviewById\022\n" +
+      "\n\002id\030\001 \001(\005\"5\n\026ReviewsCommentToUpdate\022\n\n\002" +
+      "id\030\001 \001(\005\022\017\n\007comment\030\002 \001(\t\":\n\030ReviewStarR" +
+      "eviewToUpdate\022\n\n\002id\030\001 \001(\005\022\022\n\nstarreview\030" +
+      "\002 \001(\005\"\034\n\016ReviewToDelete\022\n\n\002id\030\001 \001(\005\"5\n\024R" +
+      "eviewCommentUpdated\022\014\n\004code\030\001 \001(\005\022\017\n\007com" +
+      "ment\030\002 \001(\t\"<\n\030ReviewsStarReviewUpdated\022\014" +
+      "\n\004code\030\001 \001(\005\022\022\n\nstarreview\030\002 \001(\005\"\035\n\rRevi" +
+      "ewDeleted\022\014\n\004code\030\001 \001(\005\"W\n\025CategoryForRe" +
+      "viewList\022\022\n\ncategoryid\030\001 \001(\005\022\024\n\014category" +
+      "name\030\002 \001(\t\022\024\n\014categorytype\030\003 \001(\t\"\'\n\013Reve" +
+      "iewList\022\030\n\007reviews\030\001 \003(\0132\007.Review\"K\n\006Rep" +
+      "ort\022\n\n\002id\030\001 \001(\005\022\016\n\006userid\030\002 \001(\005\022\023\n\013descr" +
+      "iption\030\003 \001(\t\022\020\n\010reviewid\030\004 \001(\005\"G\n\016Report" +
+      "ToCreate\022\016\n\006userid\030\001 \001(\005\022\023\n\013description\030" +
+      "\002 \001(\t\022\020\n\010reviewid\030\003 \001(\005\"2\n\rReportCreated" +
+      "\022\014\n\004code\030\001 \001(\005\022\023\n\013description\030\002 \001(\t\"\036\n\nR" +
+      "eportById\022\020\n\010reportid\030\001 \001(\005\"\"\n\016ReportToD" +
+      "elete\022\020\n\010reportid\030\001 \001(\005\"\035\n\rReportDeleted" +
+      "\022\014\n\004code\030\001 \001(\005\"(\n\rListOfReports\022\027\n\006repor" +
+      "t\030\001 \003(\0132\007.Report\"\026\n\005Empty\022\r\n\005empty\030\001 \001(\t" +
+      "2\377\022\n\006Access\022.\n\nCreateUser\022\013.UserCreate\032\023" +
+      ".UserCreateResponse\022(\n\rGetByUsername\022\020.U" +
+      "serGetUsername\032\005.User\022\034\n\007GetById\022\n.UserG" +
+      "etId\032\005.User\0229\n\022GetUsersContaining\022\025.Sear" +
+      "chUserParameters\032\014.listOfUsers\022)\n\nCreate" +
+      "City\022\r.CityToCreate\032\014.CityCreated\022#\n\rGet" +
+      "CitByyname\022\013.CityByName\032\005.City\022\037\n\013GetCit" +
+      "yById\022\t.CityById\032\005.City\022,\n\013CreateHotel\022\016" +
+      ".HotelToCreate\032\r.HotelCreated\022&\n\016GetHote" +
+      "lByName\022\014.HotelByName\032\006.Hotel\022\"\n\014GetHote" +
+      "lById\022\n.HotelById\032\006.Hotel\0228\n\017UpdateHotel" +
+      "Name\022\022.HotelNameToUpdate\032\021.HotelNameUpda" +
+      "ted\022M\n\026UpdateHotelDescription\022\031.HotelDes" +
+      "criptionToUpdate\032\030.HotelDescriptionUpdat" +
+      "ed\022,\n\013DeleteHotel\022\016.HotelToDelete\032\r.Hote" +
+      "lDeleted\0225\n\017GetListOfHotels\022\023.CitysIdFoH" +
+      "otelList\032\r.ListOfHotels\022/\n\014CreateMuseum\022" +
+      "\017.MuseumToCreate\032\016.MuseumCreated\022)\n\017GetM" +
+      "useumByName\022\r.MuseumByName\032\007.Museum\022%\n\rG" +
+      "etMuseumById\022\013.MuseumById\032\007.Museum\022;\n\020Up" +
+      "dateMuseumName\022\023.MuseumNameToUpdate\032\022.Mu" +
+      "seumNameUpdated\022P\n\027UpdateMuseumDescripti" +
+      "on\022\032.MuseumDescriptionToUpdate\032\031.MuseumD" +
+      "escriptionUpdated\022/\n\014DeleteMuseum\022\017.Muse" +
+      "umToDelete\032\016.MuseumDeleted\0229\n\020GetListOfM" +
+      "useums\022\025.CitysIdForMuseumList\032\016.ListOfMu" +
+      "seums\022)\n\nCreatePark\022\r.ParkToCreate\032\014.Par" +
+      "kCreated\022#\n\rGetParkByName\022\013.ParkByName\032\005" +
+      ".Park\022\037\n\013GetParkById\022\t.ParkById\032\005.Park\0225" +
+      "\n\016UpdateParkName\022\021.ParkNameToUpdate\032\020.Pa" +
+      "rkNameUpdated\022J\n\025UpdateParkDescription\022\030" +
+      ".ParkDescriptionToUpdate\032\027.ParkDescripti" +
+      "onUpdated\022)\n\nDeletePark\022\r.ParkToDelete\032\014" +
+      ".ParkDeleted\0223\n\016GetListOfParks\022\023.CitysId" +
+      "ForParkList\032\014.ListOfParks\022;\n\020CreateResta" +
+      "urant\022\023.RestaurantToCreate\032\022.RestaurantC" +
+      "reated\0225\n\023GetRestaurantByName\022\021.Restaura" +
+      "ntByName\032\013.Restaurant\0221\n\021GetRestaurantBy" +
+      "Id\022\017.RestaurantById\032\013.Restaurant\022G\n\024Upda" +
+      "teRestaurantName\022\027.RestaurantNameToUpdat" +
+      "e\032\026.RestaurantNameUpdated\022\\\n\033UpdateResta" +
+      "urantDescription\022\036.RestaurantDescription" +
+      "ToUpdate\032\035.RestaurantDescriptionUpdated\022" +
+      ";\n\020DeleteRestaurant\022\023.RestaurantToDelete" +
+      "\032\022.RestaurantDeleted\022D\n\023GetListOfRestaur" +
+      "ant\022\031.CitysIdForRestaurantList\032\022.ListOfR" +
+      "estaurants\022/\n\014CreateReview\022\017.ReviewToCre" +
+      "ate\032\016.ReviewCreated\022%\n\rGetReviewById\022\013.R" +
+      "eviewById\032\007.Review\022E\n\023UpdateReviewCommen" +
+      "t\022\027.ReviewsCommentToUpdate\032\025.ReviewComme" +
+      "ntUpdated\022H\n\020UpdateStarReview\022\031.ReviewSt" +
+      "arReviewToUpdate\032\031.ReviewsStarReviewUpda" +
+      "ted\022/\n\014DeleteReview\022\017.ReviewToDelete\032\016.R" +
+      "eviewDeleted\0228\n\020GetListOfReviews\022\026.Categ" +
+      "oryForReviewList\032\014.ReveiewList\022=\n\024GetRev" +
+      "iewsContaining\022\027.SearchReviewPeremetars\032" +
+      "\014.ReveiewList\022/\n\014CreateReport\022\017.ReportTo" +
+      "Create\032\016.ReportCreated\022%\n\rGetReportById\022" +
+      "\013.ReportById\032\007.Report\022/\n\014DeleteReport\022\017." +
+      "ReportToDelete\032\016.ReportDeleted\022*\n\020GetLis" +
+      "tOfReports\022\006.Empty\032\016.ListOfReportsB\023\n\021co" +
+      "m.sdj3.protobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -56517,104 +57386,110 @@ public final class DataAccess {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewCreated_descriptor,
         new java.lang.String[] { "Code", "Comment", "Starreview", });
-    internal_static_ReviewById_descriptor =
+    internal_static_SearchReviewPeremetars_descriptor =
       getDescriptor().getMessageTypes().get(67);
+    internal_static_SearchReviewPeremetars_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SearchReviewPeremetars_descriptor,
+        new java.lang.String[] { "Id", "Categoryid", "Categoryname", "Categorytype", });
+    internal_static_ReviewById_descriptor =
+      getDescriptor().getMessageTypes().get(68);
     internal_static_ReviewById_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewById_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_ReviewsCommentToUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(68);
+      getDescriptor().getMessageTypes().get(69);
     internal_static_ReviewsCommentToUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewsCommentToUpdate_descriptor,
         new java.lang.String[] { "Id", "Comment", });
     internal_static_ReviewStarReviewToUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(69);
+      getDescriptor().getMessageTypes().get(70);
     internal_static_ReviewStarReviewToUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewStarReviewToUpdate_descriptor,
         new java.lang.String[] { "Id", "Starreview", });
     internal_static_ReviewToDelete_descriptor =
-      getDescriptor().getMessageTypes().get(70);
+      getDescriptor().getMessageTypes().get(71);
     internal_static_ReviewToDelete_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewToDelete_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_ReviewCommentUpdated_descriptor =
-      getDescriptor().getMessageTypes().get(71);
+      getDescriptor().getMessageTypes().get(72);
     internal_static_ReviewCommentUpdated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewCommentUpdated_descriptor,
         new java.lang.String[] { "Code", "Comment", });
     internal_static_ReviewsStarReviewUpdated_descriptor =
-      getDescriptor().getMessageTypes().get(72);
+      getDescriptor().getMessageTypes().get(73);
     internal_static_ReviewsStarReviewUpdated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewsStarReviewUpdated_descriptor,
         new java.lang.String[] { "Code", "Starreview", });
     internal_static_ReviewDeleted_descriptor =
-      getDescriptor().getMessageTypes().get(73);
+      getDescriptor().getMessageTypes().get(74);
     internal_static_ReviewDeleted_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReviewDeleted_descriptor,
         new java.lang.String[] { "Code", });
     internal_static_CategoryForReviewList_descriptor =
-      getDescriptor().getMessageTypes().get(74);
+      getDescriptor().getMessageTypes().get(75);
     internal_static_CategoryForReviewList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CategoryForReviewList_descriptor,
         new java.lang.String[] { "Categoryid", "Categoryname", "Categorytype", });
     internal_static_ReveiewList_descriptor =
-      getDescriptor().getMessageTypes().get(75);
+      getDescriptor().getMessageTypes().get(76);
     internal_static_ReveiewList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReveiewList_descriptor,
         new java.lang.String[] { "Reviews", });
     internal_static_Report_descriptor =
-      getDescriptor().getMessageTypes().get(76);
+      getDescriptor().getMessageTypes().get(77);
     internal_static_Report_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Report_descriptor,
         new java.lang.String[] { "Id", "Userid", "Description", "Reviewid", });
     internal_static_ReportToCreate_descriptor =
-      getDescriptor().getMessageTypes().get(77);
+      getDescriptor().getMessageTypes().get(78);
     internal_static_ReportToCreate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReportToCreate_descriptor,
         new java.lang.String[] { "Userid", "Description", "Reviewid", });
     internal_static_ReportCreated_descriptor =
-      getDescriptor().getMessageTypes().get(78);
+      getDescriptor().getMessageTypes().get(79);
     internal_static_ReportCreated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReportCreated_descriptor,
         new java.lang.String[] { "Code", "Description", });
     internal_static_ReportById_descriptor =
-      getDescriptor().getMessageTypes().get(79);
+      getDescriptor().getMessageTypes().get(80);
     internal_static_ReportById_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReportById_descriptor,
         new java.lang.String[] { "Reportid", });
     internal_static_ReportToDelete_descriptor =
-      getDescriptor().getMessageTypes().get(80);
+      getDescriptor().getMessageTypes().get(81);
     internal_static_ReportToDelete_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReportToDelete_descriptor,
         new java.lang.String[] { "Reportid", });
     internal_static_ReportDeleted_descriptor =
-      getDescriptor().getMessageTypes().get(81);
+      getDescriptor().getMessageTypes().get(82);
     internal_static_ReportDeleted_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReportDeleted_descriptor,
         new java.lang.String[] { "Code", });
     internal_static_ListOfReports_descriptor =
-      getDescriptor().getMessageTypes().get(82);
+      getDescriptor().getMessageTypes().get(83);
     internal_static_ListOfReports_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ListOfReports_descriptor,
         new java.lang.String[] { "Report", });
     internal_static_Empty_descriptor =
-      getDescriptor().getMessageTypes().get(83);
+      getDescriptor().getMessageTypes().get(84);
     internal_static_Empty_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Empty_descriptor,

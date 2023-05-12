@@ -1285,6 +1285,37 @@ public final class AccessGrpc {
     return getGetListOfReviewsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.SearchReviewPeremetars,
+      com.sdj3.protobuf.DataAccess.ReveiewList> getGetReviewsContainingMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetReviewsContaining",
+      requestType = com.sdj3.protobuf.DataAccess.SearchReviewPeremetars.class,
+      responseType = com.sdj3.protobuf.DataAccess.ReveiewList.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.SearchReviewPeremetars,
+      com.sdj3.protobuf.DataAccess.ReveiewList> getGetReviewsContainingMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.SearchReviewPeremetars, com.sdj3.protobuf.DataAccess.ReveiewList> getGetReviewsContainingMethod;
+    if ((getGetReviewsContainingMethod = AccessGrpc.getGetReviewsContainingMethod) == null) {
+      synchronized (AccessGrpc.class) {
+        if ((getGetReviewsContainingMethod = AccessGrpc.getGetReviewsContainingMethod) == null) {
+          AccessGrpc.getGetReviewsContainingMethod = getGetReviewsContainingMethod =
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.SearchReviewPeremetars, com.sdj3.protobuf.DataAccess.ReveiewList>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetReviewsContaining"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sdj3.protobuf.DataAccess.SearchReviewPeremetars.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sdj3.protobuf.DataAccess.ReveiewList.getDefaultInstance()))
+              .setSchemaDescriptor(new AccessMethodDescriptorSupplier("GetReviewsContaining"))
+              .build();
+        }
+      }
+    }
+    return getGetReviewsContainingMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.ReportToCreate,
       com.sdj3.protobuf.DataAccess.ReportCreated> getCreateReportMethod;
 
@@ -1748,6 +1779,16 @@ public final class AccessGrpc {
     }
 
     /**
+     * <pre>
+     *ADD THIS EVERYWHERE
+     * </pre>
+     */
+    public void getReviewsContaining(com.sdj3.protobuf.DataAccess.SearchReviewPeremetars request,
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReveiewList> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetReviewsContainingMethod(), responseObserver);
+    }
+
+    /**
      */
     public void createReport(com.sdj3.protobuf.DataAccess.ReportToCreate request,
         io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReportCreated> responseObserver) {
@@ -2064,6 +2105,13 @@ public final class AccessGrpc {
                 com.sdj3.protobuf.DataAccess.CategoryForReviewList,
                 com.sdj3.protobuf.DataAccess.ReveiewList>(
                   this, METHODID_GET_LIST_OF_REVIEWS)))
+          .addMethod(
+            getGetReviewsContainingMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.sdj3.protobuf.DataAccess.SearchReviewPeremetars,
+                com.sdj3.protobuf.DataAccess.ReveiewList>(
+                  this, METHODID_GET_REVIEWS_CONTAINING)))
           .addMethod(
             getCreateReportMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -2442,6 +2490,17 @@ public final class AccessGrpc {
     }
 
     /**
+     * <pre>
+     *ADD THIS EVERYWHERE
+     * </pre>
+     */
+    public void getReviewsContaining(com.sdj3.protobuf.DataAccess.SearchReviewPeremetars request,
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReveiewList> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetReviewsContainingMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
      */
     public void createReport(com.sdj3.protobuf.DataAccess.ReportToCreate request,
         io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReportCreated> responseObserver) {
@@ -2776,6 +2835,16 @@ public final class AccessGrpc {
     public com.sdj3.protobuf.DataAccess.ReveiewList getListOfReviews(com.sdj3.protobuf.DataAccess.CategoryForReviewList request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetListOfReviewsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *ADD THIS EVERYWHERE
+     * </pre>
+     */
+    public com.sdj3.protobuf.DataAccess.ReveiewList getReviewsContaining(com.sdj3.protobuf.DataAccess.SearchReviewPeremetars request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetReviewsContainingMethod(), getCallOptions(), request);
     }
 
     /**
@@ -3153,6 +3222,17 @@ public final class AccessGrpc {
     }
 
     /**
+     * <pre>
+     *ADD THIS EVERYWHERE
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ReveiewList> getReviewsContaining(
+        com.sdj3.protobuf.DataAccess.SearchReviewPeremetars request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetReviewsContainingMethod(), getCallOptions()), request);
+    }
+
+    /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.ReportCreated> createReport(
         com.sdj3.protobuf.DataAccess.ReportToCreate request) {
@@ -3226,10 +3306,11 @@ public final class AccessGrpc {
   private static final int METHODID_UPDATE_STAR_REVIEW = 38;
   private static final int METHODID_DELETE_REVIEW = 39;
   private static final int METHODID_GET_LIST_OF_REVIEWS = 40;
-  private static final int METHODID_CREATE_REPORT = 41;
-  private static final int METHODID_GET_REPORT_BY_ID = 42;
-  private static final int METHODID_DELETE_REPORT = 43;
-  private static final int METHODID_GET_LIST_OF_REPORTS = 44;
+  private static final int METHODID_GET_REVIEWS_CONTAINING = 41;
+  private static final int METHODID_CREATE_REPORT = 42;
+  private static final int METHODID_GET_REPORT_BY_ID = 43;
+  private static final int METHODID_DELETE_REPORT = 44;
+  private static final int METHODID_GET_LIST_OF_REPORTS = 45;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -3412,6 +3493,10 @@ public final class AccessGrpc {
           serviceImpl.getListOfReviews((com.sdj3.protobuf.DataAccess.CategoryForReviewList) request,
               (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReveiewList>) responseObserver);
           break;
+        case METHODID_GET_REVIEWS_CONTAINING:
+          serviceImpl.getReviewsContaining((com.sdj3.protobuf.DataAccess.SearchReviewPeremetars) request,
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReveiewList>) responseObserver);
+          break;
         case METHODID_CREATE_REPORT:
           serviceImpl.createReport((com.sdj3.protobuf.DataAccess.ReportToCreate) request,
               (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.ReportCreated>) responseObserver);
@@ -3530,6 +3615,7 @@ public final class AccessGrpc {
               .addMethod(getUpdateStarReviewMethod())
               .addMethod(getDeleteReviewMethod())
               .addMethod(getGetListOfReviewsMethod())
+              .addMethod(getGetReviewsContainingMethod())
               .addMethod(getCreateReportMethod())
               .addMethod(getGetReportByIdMethod())
               .addMethod(getDeleteReportMethod())
