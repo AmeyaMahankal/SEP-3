@@ -46,49 +46,59 @@ public class ReviewLogic : IReviewLogic
         Review created = await ReviewDao.CreateAsync(review);
         return created;
     }
-
-   /* public Task<Review> GetAsync(SearchReviewByIdDto searchReviewByIdDto)
-    {
-        return ReviewDao.GetAsync(searchReviewByIdDto);
-    }
-*/
     public Task<IEnumerable<Review>> GetByCategory(SearchReviewParameterDto searchReviewParameterDto)
     {
         return ReviewDao.GetAsync(searchReviewParameterDto);
     }
 
-    public async Task UpdateAsync(ReviewUpdateDto dto)
+    public async Task UpdateReviewCommentAsync(ReviewUpdateCommentDto commentDto)
     {
-        Review? existing = await ReviewDao.GetByIdAsync(dto.ReviewsId);
+        Review? existing = await ReviewDao.GetByIdAsync(commentDto.ReviewsId);
         if (existing == null)
         {
-            throw new Exception($"Review with ID {dto.ReviewsId} not found!");
+            throw new Exception($"Review with ID {commentDto.ReviewsId} not found!");
         }
-
         Review? review = null;
-        if (dto.ReviewsId != null)
+        if (commentDto.ReviewsId != null)
         {
-            review = await ReviewDao.GetByIdAsync((int)dto.ReviewsId);
+            review = await ReviewDao.GetByIdAsync((int)commentDto.ReviewsId);
             if (review == null)
             {
-                throw new Exception($"Review with id {dto.ReviewsId} was not found.");
+                throw new Exception($"Review with id {commentDto.ReviewsId} was not found.");
             }
         }
-
-        
-        string commentToUse = dto.ReviewsComment ?? existing.Comment;
-        string starReviewToUse = IntToString(dto.ReviewsStarReview) ?? IntToString(existing.StarReview);
+        string commentToUse = commentDto.ReviewsComment ?? existing.Comment;
         Review updated = new();
         {
             updated.Comment = commentToUse;
-            updated.StarReview = StringToInt(starReviewToUse);
             updated.Id = existing.Id;
-            updated.UserId = existing.UserId;
-            updated.CategoryId = existing.CategoryId;
-            updated.CategoryName = existing.CategoryName;
-            updated.CategoryType = existing.CategoryType;
         }
-        await ReviewDao.UpdateAsync(updated);
+        await ReviewDao.UpdateReviewCommentAsync(updated);
+    }
+
+    public async Task UpdateReviewStarReviewAsync(ReviewUpdateStarReviewDto starReviewDto)
+    {
+        Review? existing = await ReviewDao.GetByIdAsync(starReviewDto.ReviewsId);
+        if (existing == null)
+        {
+            throw new Exception($"Review with ID {starReviewDto.ReviewsId} not found!");
+        }
+        Review? review = null;
+        if (starReviewDto.ReviewsId != null)
+        {
+            review = await ReviewDao.GetByIdAsync(starReviewDto.ReviewsId);
+            if (review == null)
+            {
+                throw new Exception($"Review with id {starReviewDto.ReviewsId} was not found.");
+            }
+        }
+        string starReviewToUse = IntToString(starReviewDto.ReviewsStarReview) ?? IntToString(existing.StarReview);
+        Review updated = new();
+        {
+            updated.StarReview = StringToInt(starReviewToUse) ;
+            updated.Id = existing.Id;
+        }
+        await ReviewDao.UpdateReviewStarReviewAsync(updated);
     }
 
     public async Task DeleteAsync(int id)

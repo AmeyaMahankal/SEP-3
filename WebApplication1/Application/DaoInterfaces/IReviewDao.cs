@@ -6,12 +6,10 @@ namespace Application.DaoInterfaces;
 public interface IReviewDao
 {
     Task<Review> CreateAsync(Review review);
-  //  public Task<Review> GetAsync(SearchReviewByIdDto searchReviewByIdDto);
     Task<IEnumerable<Review>> GetAsync(SearchReviewParameterDto searchReviewParameterDto); 
-    Task<Review?> GetByIdAsync(int dtoReviewId); 
-    
-    Task UpdateAsync(Review updated);
-    
+    Task<Review?> GetByIdAsync(int dtoReviewId);
+    Task UpdateReviewCommentAsync(Review updated);
+    Task UpdateReviewStarReviewAsync(Review updated);
     Task DeleteAsync(int id);
 
 }
