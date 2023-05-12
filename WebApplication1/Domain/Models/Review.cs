@@ -11,13 +11,5 @@ public class Review
     public string CategoryName { get; set; }
     public string CategoryType { get; set; }
 
-    public Review(string comment, int starReview, int userId, int categoryId, string categoryName, string categoryType)
-    {
-        Comment = comment;
-        StarReview = starReview;
-        UserId = userId;
-        CategoryId = categoryId;
-        CategoryName = categoryName;
-        CategoryType = categoryType;
-    }
+    
 }

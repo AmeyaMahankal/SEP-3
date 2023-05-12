@@ -34,12 +34,12 @@ public class ReviewController: ControllerBase
     
     
     
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<Review>>> GetListOfReviews([FromQuery] int? id, [FromQuery] int? categoryid,[FromQuery] string? categoryname, string? categorytype )
+    [HttpGet("CategorySearch")]
+    public async Task<ActionResult<IEnumerable<Review>>> GetListOfReviews( [FromQuery] int? categoryid,[FromQuery] string? categoryname, string? categorytype )
     {
         try
         {
-            SearchReviewParameterDto parameters = new( id,categoryid,categoryname,categorytype);
+            SearchReviewParameterDto parameters = new( categoryid,categoryname,categorytype);
             IEnumerable<Review> reviews = await reviewLogic.GetByCategory(parameters);
             return Ok(reviews);
         }
@@ -49,20 +49,9 @@ public class ReviewController: ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-  /*  public async Task<ActionResult<Review>> GetAsync([FromQuery]int id,[FromQuery] int? categoryid,[FromQuery] string? categoryname, string? categorytype )
-    {
-        try
-        {
-            SearchReviewByIdDto parameters = new(id);
-            Review reviews = await reviewLogic.GetAsync(parameters);
-            return Ok(reviews);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return StatusCode(500, e.Message);
-        }
-    }*/
+    
+    
+    
 
     [HttpPatch]
     public async Task<ActionResult> UpdateAsync([FromBody] ReviewUpdateDto dto)

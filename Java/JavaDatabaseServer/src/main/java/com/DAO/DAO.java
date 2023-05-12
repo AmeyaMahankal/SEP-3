@@ -250,30 +250,6 @@ public class DAO {
     }
 
 
-    public Hotel getHotelByName(String HotelName) {
-        String sql = "SELECT Id,Name,Description,ImageURL, CityId FROM Hotel";
-
-        Hotel hotel = null;
-
-        try (Connection conn = this.connect();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                if (rs.getString("Name").equals(HotelName)) {
-                    int id = rs.getInt("Id");
-                    String hotelname = rs.getString("Name");
-                    String description = rs.getString("Description");
-                    String imageurl = rs.getString("ImageURL");
-                    int cityId = rs.getInt("CityId");
-                    Hotel HotelFound = new Hotel(id, hotelname, description, imageurl, cityId);
-                    return HotelFound;
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return hotel;
-    }
 
 
     public Hotel getHotelyById(int HotelId) {
@@ -376,30 +352,6 @@ public class DAO {
     }
 
 
-    public Museum getMuseumByName(String MuseumName) {
-        String sql = "SELECT Id,Name,Description,ImageURL, CityId FROM Museum";
-
-        Museum museum = null;
-
-        try (Connection conn = this.connect();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                if (rs.getString("Name").equals(MuseumName)) {
-                    int id = rs.getInt("Id");
-                    String museumname = rs.getString("Name");
-                    String description = rs.getString("Description");
-                    String imageurl = rs.getString("ImageURL");
-                    int cityId = rs.getInt("CityId");
-                    Museum MuseumFound = new Museum(id, museumname, description, imageurl, cityId);
-                    return MuseumFound;
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return museum;
-    }
 
 
     public Museum getMuseumyById(int MuseumId) {
@@ -502,34 +454,6 @@ public class DAO {
     }
 
 
-    public Park getParkByName(String ParkName) {
-        String sql = "SELECT Id,Name,Description,ImageURL, CityId FROM Park";
-
-        Park park = null;
-
-        try (Connection conn = this.connect();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                if (rs.getString("Name").equals(ParkName)) {
-                    int id = rs.getInt("Id");
-                    String parkname = rs.getString("Name");
-                    String description = rs.getString("Description");
-                    String imageurl = rs.getString("ImageURL");
-                    int cityId = rs.getInt("CityId");
-                    Park ParkFound = new Park(id, parkname, description, imageurl, cityId);
-                    return ParkFound;
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return park;
-    }
-
-
-
-
     public Park getParkById(int ParkId) {
         String sql = "SELECT Id,Name,Description,ImageURL, CityId FROM Park";
 
@@ -628,33 +552,6 @@ public class DAO {
             System.out.println(e.getMessage());
         }
     }
-
-
-    public Restaurant getRestaurantByName(String RestaurantName) {
-        String sql = "SELECT Id,Name,Description,ImageURL, CityId FROM Restaurant";
-
-        Restaurant restaurant = null;
-
-        try (Connection conn = this.connect();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                if (rs.getString("Name").equals(RestaurantName)) {
-                    int id = rs.getInt("Id");
-                    String restaurantname = rs.getString("Name");
-                    String description = rs.getString("Description");
-                    String imageurl = rs.getString("ImageURL");
-                    int cityId = rs.getInt("CityId");
-                    Restaurant RestaurantFound = new Restaurant(id, restaurantname, description, imageurl, cityId);
-                    return RestaurantFound;
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return restaurant;
-    }
-
 
     public Restaurant getRestaurantById(int RestaurantId) {
         String sql = "SELECT Id,Name,Description,ImageURL, CityId FROM Restaurant";
@@ -758,7 +655,7 @@ public class DAO {
     }
 
 
-    public ArrayList<Review> getReviewssWithParameters(int ReviewsId, int CategoryId, String CategoryName, String CategoryType)
+    public ArrayList<Review> getReviewssWithParameters( int CategoryId, String CategoryName, String CategoryType)
     {
         String sql = "SELECT * FROM Review";
 
@@ -767,7 +664,6 @@ public class DAO {
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
-
 
             while (rs.next()) {
                 if(CategoryId==rs.getInt("CategoryId")&&
@@ -784,20 +680,6 @@ public class DAO {
                     Review ReviewFound=new Review(id,comment,starreview,userid,categoryid,categoryname,categoryType);
                     reviews.add(ReviewFound);
                 }}
-
-                else if (ReviewsId==rs.getInt("Id"))
-                {
-                    int id = rs.getInt("Id");
-                    String comment = rs.getString("Comment");
-                    int starreview = rs.getInt("StarReview");
-                    int userid = rs.getInt("UserId");
-                    int categoryid = rs.getInt("CategoryId");
-                    String categoryname = rs.getString("CategoryName");
-                    String categoryType = rs.getString("CategoryType");
-                    Review ReviewFound=new Review(id,comment,starreview,userid,categoryid,categoryname,categoryType);
-                    reviews.add(ReviewFound);
-                }
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
