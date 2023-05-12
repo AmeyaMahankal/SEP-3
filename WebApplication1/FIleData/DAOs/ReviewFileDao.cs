@@ -4,7 +4,7 @@ using Domain.Models;
 
 namespace FileData.DAOs;
 
-public class ReviewFileDao:IReviewDao
+public class ReviewFileDao//:IReviewDao
 {
     
     private readonly FileContext context;
@@ -32,12 +32,12 @@ public class ReviewFileDao:IReviewDao
         return Task.FromResult(review);
     }
 
-    public Task<IEnumerable<Review>> GetAsync(SearchReviewParameterDto searchReviewParameterDto)
+   /* public Task<IEnumerable<Review>> GetAsync(SearchReviewsByCategoryDto searchReviewsByCategoryDto)
     {
         IEnumerable<Review> reviews = context.Reviews.AsEnumerable();
-        if (searchReviewParameterDto.ReviewContainsId != null)
+        if (searchReviewsByCategoryDto.ReviewContainsId != null)
         {
-            reviews = context.Reviews.Where(u => u.Id.Equals(searchReviewParameterDto.ReviewContainsId));
+            reviews = context.Reviews.Where(u => u.Id.Equals(searchReviewsByCategoryDto.ReviewContainsId));
         }
 
         return Task.FromResult(reviews);
@@ -48,7 +48,7 @@ public class ReviewFileDao:IReviewDao
         Review? existing = context.Reviews.FirstOrDefault(u => u.Id == dtoReviewId);
         return Task.FromResult(existing);
     }
-
+*/
     
     public Task UpdateAsync(Review updated)
     {

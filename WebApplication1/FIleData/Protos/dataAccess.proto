@@ -68,7 +68,8 @@ service Access{
   rpc UpdateStarReview(ReviewStarReviewToUpdate) returns(ReviewsStarReviewUpdated);
   rpc DeleteReview(ReviewToDelete) returns(ReviewDeleted);
   rpc GetListOfReviews(CategoryForReviewList) returns(ReveiewList);
-
+  //ADD THIS EVERYWHERE
+  rpc GetReviewsContaining(SearchReviewPeremetars) returns (ReveiewList);
 
 
 
@@ -540,6 +541,15 @@ message ReviewCreated{
   int32 starreview=3;
 
 }
+
+message SearchReviewPeremetars{
+  int32 id=1;
+  int32 categoryid = 2;
+  string categoryname = 3;
+  string categorytype = 4;
+
+}
+
 
 message ReviewById{
   int32 id = 1;

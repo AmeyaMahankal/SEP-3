@@ -601,6 +601,28 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         responseObserver.onCompleted();
     }
 
+
+    @Override
+    public void getReviewsContaining(DataAccess.SearchReviewPeremetars request, StreamObserver<DataAccess.ReveiewList> responseObserver) {
+        DataAccess.ReveiewList.Builder builder = DataAccess.ReveiewList.newBuilder();
+
+        ArrayList<Review> reviews = Dao.getReviewssWithParameters(request.getId(),request.getCategoryid(),request.getCategoryname(),request.getCategorytype());
+
+        for (Review review : reviews) {
+            builder.addReviews(DataAccess.Review.newBuilder()
+                    .setId(review.getId())
+                    .setComment(review.getComment())
+                    .setStarreview(review.getStarReview())
+                    .setUserid(review.getUserId())
+                    .setCategoryid(review.getCategoryId())
+                    .setCategoryname(review.getCategoryName())
+                    .setCategorytype(review.getCategoryType())
+                    .build());
+        }
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+    }
+
     @Override
     public void getReviewById(DataAccess.ReviewById request, StreamObserver<DataAccess.Review> responseObserver) {
         Review review = Dao.getReviewById(request.getId());

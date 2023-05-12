@@ -758,6 +758,55 @@ public class DAO {
     }
 
 
+    public ArrayList<Review> getReviewssWithParameters(int ReviewsId, int CategoryId, String CategoryName, String CategoryType)
+    {
+        String sql = "SELECT * FROM Review";
+
+        ArrayList<Review> reviews=new ArrayList<>();
+
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+
+            while (rs.next()) {
+                if(CategoryId==rs.getInt("CategoryId")&&
+                        CategoryName.equals(rs.getString("CategoryName"))
+                        && CategoryType.equals(rs.getString("CategoryType"))){
+                {
+                    int id = rs.getInt("Id");
+                    String comment = rs.getString("Comment");
+                    int starreview = rs.getInt("StarReview");
+                    int userid = rs.getInt("UserId");
+                    int categoryid = rs.getInt("CategoryId");
+                    String categoryname = rs.getString("CategoryName");
+                    String categoryType = rs.getString("CategoryType");
+                    Review ReviewFound=new Review(id,comment,starreview,userid,categoryid,categoryname,categoryType);
+                    reviews.add(ReviewFound);
+                }}
+
+                else if (ReviewsId==rs.getInt("Id"))
+                {
+                    int id = rs.getInt("Id");
+                    String comment = rs.getString("Comment");
+                    int starreview = rs.getInt("StarReview");
+                    int userid = rs.getInt("UserId");
+                    int categoryid = rs.getInt("CategoryId");
+                    String categoryname = rs.getString("CategoryName");
+                    String categoryType = rs.getString("CategoryType");
+                    Review ReviewFound=new Review(id,comment,starreview,userid,categoryid,categoryname,categoryType);
+                    reviews.add(ReviewFound);
+                }
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return reviews;
+    }
+
+
     public Review getReviewById(int ReviewId) {
         String sql = "SELECT Id,Comment,StarReview,UserId, CategoryId, CategoryName, CategoryType FROM Review";
 
