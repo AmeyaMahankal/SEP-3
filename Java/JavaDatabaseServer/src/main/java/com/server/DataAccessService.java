@@ -103,6 +103,29 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     //City
 
+
+    @Override
+    public void getCities(DataAccess.CityByName request, StreamObserver<DataAccess.listofcity> responseObserver) {
+        //super.getCities(request, responseObserver);
+
+        DataAccess.listofcity.Builder builder = DataAccess.listofcity.newBuilder();
+
+        ArrayList<City> cities=Dao.getCities(request.getCityname());
+
+        for(City city : cities)
+        {
+            builder.addCities(DataAccess.City.newBuilder()
+                    .setId(city.getId())
+                    .setName(city.getName())
+                    .setDescription(city.getDescription())
+                    .setImageurl(city.getImageURL())
+                    .build());
+        }
+
+        responseObserver.onNext(builder.build());
+        responseObserver.onCompleted();
+    }
+
     @Override
     public void createCity(DataAccess.CityToCreate request, StreamObserver<DataAccess.CityCreated> responseObserver) {
 
