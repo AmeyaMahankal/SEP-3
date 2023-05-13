@@ -131,6 +131,49 @@ public class DAO {
         return users;
     }
 
+    public ArrayList<City> getCities(String contain)
+    {
+        String sql="SELECT Id,Name,Description,ImageURL FROM City";
+
+        ArrayList<City> cities = new ArrayList<>();
+
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            if(contain.equals("getall"))
+            {
+                while(rs.next())
+                {
+                    int id= rs.getInt("Id");
+                    String name=rs.getString("Name");
+                    String desc=rs.getString("Description");
+                    String imageurl = rs.getString("ImageURL");
+                    City city=new City(id,name,desc,imageurl);
+                    cities.add(city);
+                }
+                return cities;
+            }
+
+            while(rs.next())
+            {
+                if(rs.getString("Name").contains(contain))
+                {
+                    int id= rs.getInt("Id");
+                    String name=rs.getString("Name");
+                    String desc=rs.getString("Description");
+                    String imageurl = rs.getString("ImageURL");
+                    City partialcity=new City(id,name,desc,imageurl);
+                    cities.add(partialcity);
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return cities;
+    }
+
     public void insertCity(String name, String description, String imageUrl) {
         String sql = "INSERT INTO City(Name,Description,ImageURL) VALUES(?,?,?)";
 

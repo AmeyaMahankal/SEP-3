@@ -12,6 +12,7 @@ service Access{
   rpc CreateCity(CityToCreate) returns (CityCreated);
   rpc GetCitByyname(CityByName) returns (City);
   rpc GetCityById(CityById) returns (City);
+  rpc GetCities(CityByName) returns (listofcity);
 
 
 
@@ -122,6 +123,10 @@ message City{
   string name = 2;
   string description = 3;
   string imageurl = 4;
+}
+
+message listofcity{
+  repeated City cities=1;
 }
 
 

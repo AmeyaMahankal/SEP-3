@@ -17,7 +17,8 @@ public class DaoTests {
       //  System.out.println( d.getCityById(2));
 
            // System.out.println( d.listOfReports("empty"));
-        d.updateStarReview(3,1);
+        //d.updateStarReview(3,1);
+        System.out.println(d.getCities("DF"));
 
     }
 }
