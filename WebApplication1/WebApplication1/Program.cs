@@ -19,7 +19,7 @@ builder.Services.AddScoped<IUserLogic, UserLogic>();
 
 builder.Services.AddScoped<IPostDao, PostFileDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();
-builder.Services.AddScoped<ICityDao, CityFileDao>();
+builder.Services.AddScoped<ICityDao, CityDAO>();
 builder.Services.AddScoped<ICityLogic, CityLogic>();
 
 builder.Services.AddScoped<IHotelDao, HotelFileDao>();
