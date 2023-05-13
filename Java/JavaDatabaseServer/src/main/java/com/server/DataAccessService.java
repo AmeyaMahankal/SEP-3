@@ -99,7 +99,185 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         responseObserver.onCompleted();
     }
 
-    // Zsolt
+
+
+    //City
+
+    @Override
+    public void createCity(DataAccess.CityToCreate request, StreamObserver<DataAccess.CityCreated> responseObserver) {
+
+
+        String name = request.getName();
+        String description = request.getDescription();
+        String ImageURL = request.getImageurl();
+
+        Dao.insertCity(name, description, ImageURL);
+
+        System.out.println("Received request ==> " + request);
+        DataAccess.CityCreated response = DataAccess.CityCreated.newBuilder()
+                .setCode(200)
+                .setName(request.getName())
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+    }
+
+
+    @Override
+        public void getCityById(DataAccess.CityById request, StreamObserver<DataAccess.City> responseObserver) {
+
+            City city = Dao.getCityById(request.getCityid());
+
+            DataAccess.City response = DataAccess.City.newBuilder()
+                    .setId(city.getId())
+                    .setName(city.getName())
+                    .setDescription(city.getDescription())
+                    .setImageurl(city.getImageURL())
+                    .build();
+
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+    
+
+    
+    //Hotel
+    
+       @Override
+            public void createHotel(DataAccess.HotelToCreate request, StreamObserver<DataAccess.HotelCreated> responseObserver) {
+
+
+
+           String name = request.getName();
+           String Description = request.getDescription();
+           String imageURL = request.getImageurl();
+           int cityId = request.getCityid();
+
+
+           Dao.insertHotel(name, Description, imageURL, cityId);
+
+           System.out.println("Received request ==> " + request);
+           DataAccess.HotelCreated response = DataAccess.HotelCreated.newBuilder()
+                   .setCode(200)
+                   .setName(request.getName())
+                   .build();
+
+           responseObserver.onNext(response);
+           responseObserver.onCompleted();
+        
+            }
+        
+        
+
+        
+            @Override
+            public void getHotelById(DataAccess.HotelById request, StreamObserver<DataAccess.Hotel> responseObserver) {
+
+                Hotel hotel = Dao.getHotelyById(request.getHotelid());
+
+                DataAccess.Hotel response = DataAccess.Hotel.newBuilder()
+                        .setId(hotel.getId())
+                        .setName(hotel.getName())
+                        .setDescription(hotel.getDescription())
+                        .setImageurl(hotel.getImageURL())
+                        .setCityid(hotel.getCityId())
+                        .build();
+
+                responseObserver.onNext(response);
+                responseObserver.onCompleted();
+            }
+
+
+             @Override
+            public void updateHotelName(DataAccess.HotelNameToUpdate request, StreamObserver<DataAccess.HotelNameUpdated> responseObserver) {
+        
+        
+                String name = request.getName();
+                int id = request.getHotelid();
+        
+        
+                Dao.updateHotelName(name, id);
+        
+                System.out.println("Received request ==> " + request);
+                DataAccess.HotelNameUpdated response = DataAccess.HotelNameUpdated.newBuilder()
+                        .setCode(200)
+                        .setName(request.getName())
+                        .build();
+        
+                responseObserver.onNext(response);
+                responseObserver.onCompleted();
+        
+        
+            }
+        
+             @Override
+            public void updateHotelDescription(DataAccess.HotelDescriptionToUpdate request, StreamObserver<DataAccess.HotelDescriptionUpdated> responseObserver) {
+        
+        
+                String Description = request.getDescription();
+                int id = request.getHotelid();
+        
+        
+                Dao.updateHotelDescription(Description, id);
+        
+                System.out.println("Received request ==> " + request);
+                DataAccess.HotelDescriptionUpdated response = DataAccess.HotelDescriptionUpdated.newBuilder()
+                        .setCode(200)
+                        .setDescription(request.getDescription())
+                        .build();
+        
+                responseObserver.onNext(response);
+                responseObserver.onCompleted();
+        
+        
+            }
+        
+             @Override
+            public void deleteHotel(DataAccess.HotelToDelete request, StreamObserver<DataAccess.HotelDeleted> responseObserver) {
+        
+                int id = request.getHotelid();
+        
+        
+                Dao.deleteHotel(id);
+        
+                System.out.println("Received request ==> " + request);
+                DataAccess.HotelDeleted response = DataAccess.HotelDeleted.newBuilder()
+                        .setCode(200)
+                        .build();
+        
+        
+                responseObserver.onNext(response);
+                responseObserver.onCompleted();
+        
+        
+        
+            }
+        
+             @Override
+            public void getListOfHotels(DataAccess.CitysIdFoHotelList request, StreamObserver<DataAccess.ListOfHotels> responseObserver) {
+
+                 DataAccess.ListOfHotels.Builder builder = DataAccess.ListOfHotels.newBuilder();
+
+                 List<Hotel> hotels = Dao.listOfHotels(request.getCityid());
+
+                 for (Hotel hotel : hotels) {
+                     builder.addHotels(DataAccess.Hotel.newBuilder()
+                             .setId(hotel.getId())
+                             .setName(hotel.getName())
+                             .setDescription(hotel.getDescription())
+                             .setImageurl(hotel.getImageURL())
+                             .setCityid(hotel.getCityId())
+                             .build());
+
+
+                 }
+                 responseObserver.onNext(builder.build());
+                 responseObserver.onCompleted();
+        
+            } 
+    
 
 
     //Museum
