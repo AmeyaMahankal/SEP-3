@@ -231,6 +231,37 @@ public final class AccessGrpc {
     return getGetCityByIdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.CityByName,
+      com.sdj3.protobuf.DataAccess.listofcity> getGetCitiesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetCities",
+      requestType = com.sdj3.protobuf.DataAccess.CityByName.class,
+      responseType = com.sdj3.protobuf.DataAccess.listofcity.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.CityByName,
+      com.sdj3.protobuf.DataAccess.listofcity> getGetCitiesMethod() {
+    io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.CityByName, com.sdj3.protobuf.DataAccess.listofcity> getGetCitiesMethod;
+    if ((getGetCitiesMethod = AccessGrpc.getGetCitiesMethod) == null) {
+      synchronized (AccessGrpc.class) {
+        if ((getGetCitiesMethod = AccessGrpc.getGetCitiesMethod) == null) {
+          AccessGrpc.getGetCitiesMethod = getGetCitiesMethod =
+              io.grpc.MethodDescriptor.<com.sdj3.protobuf.DataAccess.CityByName, com.sdj3.protobuf.DataAccess.listofcity>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetCities"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sdj3.protobuf.DataAccess.CityByName.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.sdj3.protobuf.DataAccess.listofcity.getDefaultInstance()))
+              .setSchemaDescriptor(new AccessMethodDescriptorSupplier("GetCities"))
+              .build();
+        }
+      }
+    }
+    return getGetCitiesMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.sdj3.protobuf.DataAccess.HotelToCreate,
       com.sdj3.protobuf.DataAccess.HotelCreated> getCreateHotelMethod;
 
@@ -1387,6 +1418,13 @@ public final class AccessGrpc {
 
     /**
      */
+    public void getCities(com.sdj3.protobuf.DataAccess.CityByName request,
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.listofcity> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetCitiesMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void createHotel(com.sdj3.protobuf.DataAccess.HotelToCreate request,
         io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.HotelCreated> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateHotelMethod(), responseObserver);
@@ -1677,6 +1715,13 @@ public final class AccessGrpc {
                 com.sdj3.protobuf.DataAccess.CityById,
                 com.sdj3.protobuf.DataAccess.City>(
                   this, METHODID_GET_CITY_BY_ID)))
+          .addMethod(
+            getGetCitiesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.sdj3.protobuf.DataAccess.CityByName,
+                com.sdj3.protobuf.DataAccess.listofcity>(
+                  this, METHODID_GET_CITIES)))
           .addMethod(
             getCreateHotelMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1990,6 +2035,14 @@ public final class AccessGrpc {
         io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.City> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetCityByIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getCities(com.sdj3.protobuf.DataAccess.CityByName request,
+        io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.listofcity> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetCitiesMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -2336,6 +2389,13 @@ public final class AccessGrpc {
 
     /**
      */
+    public com.sdj3.protobuf.DataAccess.listofcity getCities(com.sdj3.protobuf.DataAccess.CityByName request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetCitiesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public com.sdj3.protobuf.DataAccess.HotelCreated createHotel(com.sdj3.protobuf.DataAccess.HotelToCreate request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateHotelMethod(), getCallOptions(), request);
@@ -2651,6 +2711,14 @@ public final class AccessGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.listofcity> getCities(
+        com.sdj3.protobuf.DataAccess.CityByName request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetCitiesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.sdj3.protobuf.DataAccess.HotelCreated> createHotel(
         com.sdj3.protobuf.DataAccess.HotelToCreate request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -2932,40 +3000,41 @@ public final class AccessGrpc {
   private static final int METHODID_CREATE_CITY = 4;
   private static final int METHODID_GET_CIT_BYYNAME = 5;
   private static final int METHODID_GET_CITY_BY_ID = 6;
-  private static final int METHODID_CREATE_HOTEL = 7;
-  private static final int METHODID_GET_HOTEL_BY_ID = 8;
-  private static final int METHODID_UPDATE_HOTEL_NAME = 9;
-  private static final int METHODID_UPDATE_HOTEL_DESCRIPTION = 10;
-  private static final int METHODID_DELETE_HOTEL = 11;
-  private static final int METHODID_GET_LIST_OF_HOTELS = 12;
-  private static final int METHODID_CREATE_MUSEUM = 13;
-  private static final int METHODID_GET_MUSEUM_BY_ID = 14;
-  private static final int METHODID_UPDATE_MUSEUM_NAME = 15;
-  private static final int METHODID_UPDATE_MUSEUM_DESCRIPTION = 16;
-  private static final int METHODID_DELETE_MUSEUM = 17;
-  private static final int METHODID_GET_LIST_OF_MUSEUMS = 18;
-  private static final int METHODID_CREATE_PARK = 19;
-  private static final int METHODID_GET_PARK_BY_ID = 20;
-  private static final int METHODID_UPDATE_PARK_NAME = 21;
-  private static final int METHODID_UPDATE_PARK_DESCRIPTION = 22;
-  private static final int METHODID_DELETE_PARK = 23;
-  private static final int METHODID_GET_LIST_OF_PARKS = 24;
-  private static final int METHODID_CREATE_RESTAURANT = 25;
-  private static final int METHODID_GET_RESTAURANT_BY_ID = 26;
-  private static final int METHODID_UPDATE_RESTAURANT_NAME = 27;
-  private static final int METHODID_UPDATE_RESTAURANT_DESCRIPTION = 28;
-  private static final int METHODID_DELETE_RESTAURANT = 29;
-  private static final int METHODID_GET_LIST_OF_RESTAURANT = 30;
-  private static final int METHODID_CREATE_REVIEW = 31;
-  private static final int METHODID_GET_REVIEW_BY_ID = 32;
-  private static final int METHODID_UPDATE_REVIEW_COMMENT = 33;
-  private static final int METHODID_UPDATE_STAR_REVIEW = 34;
-  private static final int METHODID_DELETE_REVIEW = 35;
-  private static final int METHODID_GET_REVIEWS_CONTAINING = 36;
-  private static final int METHODID_CREATE_REPORT = 37;
-  private static final int METHODID_GET_REPORT_BY_ID = 38;
-  private static final int METHODID_DELETE_REPORT = 39;
-  private static final int METHODID_GET_LIST_OF_REPORTS = 40;
+  private static final int METHODID_GET_CITIES = 7;
+  private static final int METHODID_CREATE_HOTEL = 8;
+  private static final int METHODID_GET_HOTEL_BY_ID = 9;
+  private static final int METHODID_UPDATE_HOTEL_NAME = 10;
+  private static final int METHODID_UPDATE_HOTEL_DESCRIPTION = 11;
+  private static final int METHODID_DELETE_HOTEL = 12;
+  private static final int METHODID_GET_LIST_OF_HOTELS = 13;
+  private static final int METHODID_CREATE_MUSEUM = 14;
+  private static final int METHODID_GET_MUSEUM_BY_ID = 15;
+  private static final int METHODID_UPDATE_MUSEUM_NAME = 16;
+  private static final int METHODID_UPDATE_MUSEUM_DESCRIPTION = 17;
+  private static final int METHODID_DELETE_MUSEUM = 18;
+  private static final int METHODID_GET_LIST_OF_MUSEUMS = 19;
+  private static final int METHODID_CREATE_PARK = 20;
+  private static final int METHODID_GET_PARK_BY_ID = 21;
+  private static final int METHODID_UPDATE_PARK_NAME = 22;
+  private static final int METHODID_UPDATE_PARK_DESCRIPTION = 23;
+  private static final int METHODID_DELETE_PARK = 24;
+  private static final int METHODID_GET_LIST_OF_PARKS = 25;
+  private static final int METHODID_CREATE_RESTAURANT = 26;
+  private static final int METHODID_GET_RESTAURANT_BY_ID = 27;
+  private static final int METHODID_UPDATE_RESTAURANT_NAME = 28;
+  private static final int METHODID_UPDATE_RESTAURANT_DESCRIPTION = 29;
+  private static final int METHODID_DELETE_RESTAURANT = 30;
+  private static final int METHODID_GET_LIST_OF_RESTAURANT = 31;
+  private static final int METHODID_CREATE_REVIEW = 32;
+  private static final int METHODID_GET_REVIEW_BY_ID = 33;
+  private static final int METHODID_UPDATE_REVIEW_COMMENT = 34;
+  private static final int METHODID_UPDATE_STAR_REVIEW = 35;
+  private static final int METHODID_DELETE_REVIEW = 36;
+  private static final int METHODID_GET_REVIEWS_CONTAINING = 37;
+  private static final int METHODID_CREATE_REPORT = 38;
+  private static final int METHODID_GET_REPORT_BY_ID = 39;
+  private static final int METHODID_DELETE_REPORT = 40;
+  private static final int METHODID_GET_LIST_OF_REPORTS = 41;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -3011,6 +3080,10 @@ public final class AccessGrpc {
         case METHODID_GET_CITY_BY_ID:
           serviceImpl.getCityById((com.sdj3.protobuf.DataAccess.CityById) request,
               (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.City>) responseObserver);
+          break;
+        case METHODID_GET_CITIES:
+          serviceImpl.getCities((com.sdj3.protobuf.DataAccess.CityByName) request,
+              (io.grpc.stub.StreamObserver<com.sdj3.protobuf.DataAccess.listofcity>) responseObserver);
           break;
         case METHODID_CREATE_HOTEL:
           serviceImpl.createHotel((com.sdj3.protobuf.DataAccess.HotelToCreate) request,
@@ -3216,6 +3289,7 @@ public final class AccessGrpc {
               .addMethod(getCreateCityMethod())
               .addMethod(getGetCitByynameMethod())
               .addMethod(getGetCityByIdMethod())
+              .addMethod(getGetCitiesMethod())
               .addMethod(getCreateHotelMethod())
               .addMethod(getGetHotelByIdMethod())
               .addMethod(getUpdateHotelNameMethod())
