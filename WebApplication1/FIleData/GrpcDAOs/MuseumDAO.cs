@@ -33,12 +33,44 @@ public class MuseumDAO : IMuseumDao
 
     public Task<IEnumerable<Museum>> GetAsync(SearchMuseumParametersDto searchMuseumParameters)
     {
-        throw new NotImplementedException();
+        CitysIdForMuseumList request = new CitysIdForMuseumList()
+        {
+            Cityid = searchMuseumParameters.Id
+        };
+
+        var send  = client.GetListOfMuseums(request);
+
+        List<Museum> listofMuseums = new List<Museum>();
+        foreach (var VARIABLE in send.Museum)
+        {
+            Museum museum = new Museum(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Id)
+            {
+                Id = VARIABLE.Id
+            };
+            listofMuseums.Add(museum);
+        }
+
+        IEnumerable<Museum> iMuseums = listofMuseums;
+
+        return Task.FromResult(iMuseums);
     }
+    
 
     public Task<Museum?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        MuseumById request = new MuseumById()
+        {
+            Museumid = id
+        };
+
+        var send = client.GetMuseumById(request);
+
+        Museum museum = new Museum(send.Name, send.Description, send.Imageurl,send.Cityid)
+        {
+            Id = send.Id
+        };
+
+        return Task.FromResult(museum);
     }
 
     public Task UpdateAsync(Museum updated)
@@ -48,6 +80,14 @@ public class MuseumDAO : IMuseumDao
 
     public Task DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        MuseumToDelete request = new MuseumToDelete()
+        {
+            Museumid = id
+        };
+
+        var send = client.DeleteMuseum(request);
+
+        return Task.CompletedTask;
     }
+    
 }
