@@ -34,12 +34,44 @@ public class RestaurantDAO : IRestaurantDao
 
     public Task<IEnumerable<Restaurant>> GetAsync(SearchRestaurantParametersDto searchRestaurantParameters)
     {
-        throw new NotImplementedException();
+        CitysIdForRestaurantList request = new CitysIdForRestaurantList()
+        {
+            Cityid = searchRestaurantParameters.Id
+        };
+
+        var send  = client.GetListOfRestaurant(request);
+
+        List<Restaurant> listofRestaurants = new List<Restaurant>();
+        foreach (var VARIABLE in send.Restaurant)
+        {
+            Restaurant restaurant = new Restaurant(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Id)
+            {
+                Id = VARIABLE.Id
+            };
+            listofRestaurants.Add(restaurant);
+        }
+
+        IEnumerable<Restaurant> iRestaurants = listofRestaurants;
+
+        return Task.FromResult(iRestaurants);
+    
     }
 
     public Task<Restaurant?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        RestaurantById request = new RestaurantById()
+        {
+            Restaurantid = id
+        };
+
+        var send = client.GetRestaurantById(request);
+
+        Restaurant restaurant = new Restaurant(send.Name, send.Description, send.Imageurl,send.Cityid)
+        {
+            Id = send.Id
+        };
+
+        return Task.FromResult(restaurant);
     }
 
     public Task UpdateAsync(Restaurant updated)
@@ -49,6 +81,13 @@ public class RestaurantDAO : IRestaurantDao
 
     public Task DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        RestaurantToDelete request = new RestaurantToDelete()
+        {
+            Restaurantid = id
+        };
+
+        var send = client.DeleteRestaurant(request);
+
+        return Task.CompletedTask;
     }
 }

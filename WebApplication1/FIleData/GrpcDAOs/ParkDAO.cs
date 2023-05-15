@@ -33,13 +33,44 @@ public class ParkDAO : IParkDao
 
     public Task<IEnumerable<Park>> GetAsync(SearchParkParametersDto searchParameters)
     {
-        throw new NotImplementedException();
+        CitysIdForParkList request = new CitysIdForParkList()
+        {
+            Cityid = searchParameters.Id
+        };
+
+        var send  = client.GetListOfParks(request);
+
+        List<Park> listofParks = new List<Park>();
+        foreach (var VARIABLE in send.Park)
+        {
+            Park park = new Park(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Id)
+            {
+                Id = VARIABLE.Id
+            };
+            listofParks.Add(park);
+        }
+
+        IEnumerable<Park> iParks = listofParks;
+
+        return Task.FromResult(iParks);
        }
    
    
    public Task<Park?> GetByIdAsync(int id)
        {
-           throw new NotImplementedException(); 
+           ParkById request = new ParkById()
+           {
+               Parkid = id
+           };
+
+           var send = client.GetParkById(request);
+
+           Park park = new Park(send.Name, send.Description, send.Imageurl,send.Cityid)
+           {
+               Id = send.Id
+           };
+
+           return Task.FromResult(park); 
        }
 
    public Task UpdateAsync(Park updated)
@@ -49,7 +80,15 @@ public class ParkDAO : IParkDao
 
    public Task DeleteAsync(int id)
        {
-           throw new NotImplementedException();
+           ParkToDelete request = new ParkToDelete()
+           {
+               Parkid = id
+           };
+
+           var send = client.DeletePark(request);
+
+           return Task.CompletedTask;
+       
        }
       
     
