@@ -1,0 +1,44 @@
+﻿@page "/OpenCity/{id:int}"
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@inject ICityService cityService
+
+<h3>OpenCity @id</h3>
+<h3>@title</h3>
+<h3>@desc</h3>
+<img src=@imsrc/>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    private IEnumerable<City> cities;
+    private City theCity;
+
+    private string title;
+    private string desc;
+    private string imsrc;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            cities = await cityService.getCities("getall");
+            theCity = cities.FirstOrDefault(city => city.Id == id);
+
+            title = theCity.Name;
+            desc = theCity.Description;
+            imsrc = theCity.ImageURL;
+            
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+
+
+
+}

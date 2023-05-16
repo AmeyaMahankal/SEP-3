@@ -1,0 +1,46 @@
+﻿@page "/ViewCities"
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@inject NavigationManager NavMgr
+@inject ICityService cityService
+
+<h3>ViewCities</h3>
+@if (cities == null)
+{
+    <span>Loading..</span>
+}
+else if (!cities.Any())
+{
+    <span>No cities found</span>
+}
+else
+{
+    <div class="users-container">
+        @foreach (City city in cities)
+        {
+            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/OpenCity/{city.Id}")))" >
+                <label>@city.Name</label>
+                <img src=@city.ImageURL height=20% width=20%/>
+            </div>
+        }
+    </div>
+}
+@code {
+    private IEnumerable<City> cities;
+    private string msg = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        msg = "";
+        try
+        {
+            cities = await cityService.getCities("getall");
+            int stpher = 0;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+}
