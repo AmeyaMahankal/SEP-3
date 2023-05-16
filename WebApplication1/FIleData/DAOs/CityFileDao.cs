@@ -38,10 +38,7 @@ public class CityFileDao: ICityDao
         {
             cities = context.Cities.Where(u => u.Name.Equals(searchCityParameters.CityContainsName));
         }
-        if (searchCityParameters.CityContainsId != null)
-        {
-            cities = context.Cities.Where(u => u.Id.Equals(searchCityParameters.CityContainsId));
-        }
+
 
         return Task.FromResult(cities);
     }
