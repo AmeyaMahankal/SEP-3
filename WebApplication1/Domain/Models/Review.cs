@@ -8,8 +8,7 @@ public class Review
     public int StarReview { get; set; }
     public int UserId { get; set; }
     public int CategoryId { get; set; }
-    public string CategoryName { get; set; }
-    public string CategoryType { get; set; }
+
 
     
 }

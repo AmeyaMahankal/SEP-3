@@ -35,11 +35,11 @@ public class ReviewController: ControllerBase
     
     
     [HttpGet("CategorySearch")]
-    public async Task<ActionResult<IEnumerable<Review>>> GetListOfReviews( [FromQuery] int? categoryid,[FromQuery] string? categoryname, string? categorytype )
+    public async Task<ActionResult<IEnumerable<Review>>> GetListOfReviews( [FromQuery] int? categoryid)
     {
         try
         {
-            SearchReviewParameterDto parameters = new( categoryid,categoryname,categorytype);
+            SearchReviewParameterDto parameters = new( categoryid);
             IEnumerable<Review> reviews = await reviewLogic.GetByCategory(parameters);
             return Ok(reviews);
         }

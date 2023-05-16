@@ -20,7 +20,7 @@ public class RestaurantDAO : IRestaurantDao
     
     public Task<Restaurant> CreateAsync(Restaurant restaurant)
     {
-        RestaurantToCreate request = new RestaurantToCreate()
+        CategoryToCreate request = new CategoryToCreate()
         {
             Name = restaurant.Name,
             Description = restaurant.Description,

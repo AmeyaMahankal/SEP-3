@@ -19,7 +19,7 @@ public class MuseumDAO : IMuseumDao
     
     public Task<Museum> CreateAsync(Museum museum)
     {
-        MuseumToCreate request = new MuseumToCreate()
+        CategoryToCreate request = new CategoryToCreate()
         {
             Name = museum.Name,
             Description = museum.Description,

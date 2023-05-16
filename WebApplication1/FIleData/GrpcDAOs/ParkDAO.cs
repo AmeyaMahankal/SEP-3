@@ -19,7 +19,7 @@ public class ParkDAO : IParkDao
 
     public Task<Park> CreateAsync(Park park)
     {
-        ParkToCreate request = new ParkToCreate()
+        CategoryToCreate request = new CategoryToCreate()
         {
             Name = park.Name,
             Description = park.Description,

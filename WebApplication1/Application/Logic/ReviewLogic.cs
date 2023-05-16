@@ -39,9 +39,7 @@ public class ReviewLogic : IReviewLogic
            Comment = dto.CreateComment,
           StarReview = dto.CreateStarReview,
           UserId = dto.UserId, 
-          CategoryId = dto.CategoryId, 
-         CategoryName = dto.CategoryName, 
-        CategoryType = dto.CategoryType
+          CategoryId = dto.CategoryId,
         };
         Review created = await ReviewDao.CreateAsync(review);
         return created;

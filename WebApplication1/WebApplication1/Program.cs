@@ -31,7 +31,8 @@ builder.Services.AddScoped<IParkLogic, ParkLogic>();
 builder.Services.AddScoped<IRestaurantDao, RestaurantDAO>();
 builder.Services.AddScoped<IRestaurantLogic, RestaurantLogic>();
 
-builder.Services.AddScoped<IReviewDao, ReviewDAO>(); //HERE
+builder.Services.AddScoped<IReviewDao, HotelsReviewDAO>(); //HERE
+builder.Services.AddScoped<IReviewDao, MuseumReviewDAO>();
 builder.Services.AddScoped<IReviewLogic, ReviewLogic>();
 
 builder.Services.AddScoped<IReportDao, ReportDAO>();
