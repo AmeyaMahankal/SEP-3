@@ -35,10 +35,7 @@ public class RestaurantFileDao : IRestaurantDao
     public Task<IEnumerable<Restaurant>> GetAsync(SearchRestaurantParametersDto searchRestaurantParameters)
     {
         IEnumerable<Restaurant> restaurants = context.Restaurants.AsEnumerable();
-        if (searchRestaurantParameters.NameContains != null)
-        {
-            restaurants = context.Restaurants.Where(u => u.Name.Equals(searchRestaurantParameters.NameContains));
-        }
+        
         if (searchRestaurantParameters.Id != null)
         {
             restaurants = context.Restaurants.Where(u => u.Id.Equals(searchRestaurantParameters.Id));

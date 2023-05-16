@@ -1,6 +1,8 @@
 ﻿@page "/OpenCity/{id:int}"
 @using Domain.Models
 @using HttpClients.ClientInterfaces
+@using SEP3lu
+@inject IRestaurantService RestaurantService
 @inject ICityService cityService
 
 <h3>OpenCity @id</h3>
@@ -8,11 +10,31 @@
 <h3>@desc</h3>
 <img src=@imsrc/>
 
+@if (restaurants == null)
+{
+    <span>Loading..</span>
+}
+else if (!restaurants.Any())
+{
+    <span>No cities found</span>
+}
+else
+{
+    <div class="users-container">
+        @foreach (Restaurant restaurant in restaurants)
+        {
+            <p>@restaurant.ImageURL</p>
+
+        }
+    </div>
+}
+
 @code {
     [Parameter]
     public int id { get; set; }
 
     private IEnumerable<City> cities;
+    private IEnumerable<Restaurant> restaurants;
     private City theCity;
 
     private string title;
@@ -24,6 +46,7 @@
         try
         {
             cities = await cityService.getCities("getall");
+            restaurants = await RestaurantService.getRestaurants(id);
             theCity = cities.FirstOrDefault(city => city.Id == id);
 
             title = theCity.Name;
