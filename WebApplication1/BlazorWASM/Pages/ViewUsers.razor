@@ -3,6 +3,7 @@
 @using Domain.Models
 @using HttpClients.ClientInterfaces
 @inject IUserService userService
+@inject ICityService cityService
 
 <h3 style="text-align: center">Overview of all users</h3>
 
@@ -31,10 +32,23 @@ else
             </div>
         }
     </div>
+    
+    <div class="users-container">
+        @foreach (City city in cities)
+        {
+            <div class="user-card">
+                <label>@city.Name</label>
+                <img src=@city.ImageURL height=20% width=20%/>
+            </div>
+        }
+    </div>
 }
+
 
 @code {
     private IEnumerable<User>? users;
+    private IEnumerable<City> cities;
+    
     private string msg = "";
 
     protected override async Task OnInitializedAsync()
@@ -43,6 +57,7 @@ else
         try
         {
             users = await userService.GetUsers("getall");
+            cities = await cityService.getCities("getall");
             int stpher = 0;
         }
         catch (Exception e)

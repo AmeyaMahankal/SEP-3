@@ -32,12 +32,12 @@ public class CityController: ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<City>>> GetAsync([FromQuery] int? id, [FromQuery] String? name)
+    public async Task<ActionResult<IEnumerable<City>>> GetAsync([FromQuery] String? name)
     {
         try
         {
             
-            SearchCityParametersDto parameters = new(id,name);
+            SearchCityParametersDto parameters = new(name);
             IEnumerable<City> cities = await cityLogic.GetAsync(parameters);
             return Ok(cities);
         }
