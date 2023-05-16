@@ -164,7 +164,7 @@ public class DataClient {
 
         System.out.println(parkCreated);
 
-*/
+
 
         // RESTAURANT
 
@@ -178,7 +178,7 @@ public class DataClient {
         DataAccess.RestaurantCreated restaurantCreated= blockingStub.createRestaurant(restaurantToCreate);
 
         System.out.println(restaurantCreated);
-
+*/
 
     }
 }

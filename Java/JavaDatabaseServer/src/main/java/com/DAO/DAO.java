@@ -61,24 +61,23 @@ public class DAO {
         return user;
     }
 
-    public User selectUserWithId(int id){
+    public User selectUserWithId(int id) {
         String sql = "SELECT Id,UserName,Password,Role FROM User";
 
-        User user=null;
+        User user = null;
 
         try (Connection conn = this.connect();
-             Statement stmt  = conn.createStatement();
-             ResultSet rs    = stmt.executeQuery(sql)){
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
 
             // loop through the result set
             while (rs.next()) {
-                if(rs.getInt("Id")==id)
-                {
-                    int Id=rs.getInt("Id");
-                    String username=rs.getString("UserName");
-                    String password=rs.getString("Password");
-                    String role=rs.getString("Role");
-                    User UserFound=new User(Id,username,password,role);
+                if (rs.getInt("Id") == id) {
+                    int Id = rs.getInt("Id");
+                    String username = rs.getString("UserName");
+                    String password = rs.getString("Password");
+                    String role = rs.getString("Role");
+                    User UserFound = new User(Id, username, password, role);
                     return UserFound;
                 }
             }
@@ -88,24 +87,22 @@ public class DAO {
         return user;
     }
 
-    public ArrayList<User> getUsersWithString(String contain)
-    {
+    public ArrayList<User> getUsersWithString(String contain) {
         String sql = "SELECT Id,UserName,Password,Role FROM User";
 
-        ArrayList<User> users=new ArrayList<>();
+        ArrayList<User> users = new ArrayList<>();
 
         try (Connection conn = this.connect();
-             Statement stmt  = conn.createStatement();
-             ResultSet rs    = stmt.executeQuery(sql)){
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
 
-            if(contain.equals("getall"))
-            {
+            if (contain.equals("getall")) {
                 while (rs.next()) {
-                    int Id=rs.getInt("Id");
-                    String username=rs.getString("UserName");
-                    String password=rs.getString("Password");
-                    String role=rs.getString("Role");
-                    User UserFound=new User(Id,username,password,role);
+                    int Id = rs.getInt("Id");
+                    String username = rs.getString("UserName");
+                    String password = rs.getString("Password");
+                    String role = rs.getString("Role");
+                    User UserFound = new User(Id, username, password, role);
                     users.add(UserFound);
 
                 }
@@ -114,13 +111,12 @@ public class DAO {
 
             // loop through the result set
             while (rs.next()) {
-                if(rs.getString("UserName").toString().contains(contain))
-                {
-                    int Id=rs.getInt("Id");
-                    String username=rs.getString("UserName");
-                    String password=rs.getString("Password");
-                    String role=rs.getString("Role");
-                    User UserFound=new User(Id,username,password,role);
+                if (rs.getString("UserName").toString().contains(contain)) {
+                    int Id = rs.getInt("Id");
+                    String username = rs.getString("UserName");
+                    String password = rs.getString("Password");
+                    String role = rs.getString("Role");
+                    User UserFound = new User(Id, username, password, role);
                     users.add(UserFound);
                 }
             }
@@ -250,8 +246,6 @@ public class DAO {
     }
 
 
-
-
     public Hotel getHotelyById(int HotelId) {
         String sql = "SELECT Id,Name,Description,ImageURL, CityId FROM Hotel";
 
@@ -336,6 +330,126 @@ public class DAO {
     }
 
 
+    //Hotel Reviews
+
+
+    public void insertHotelReview(String comment, int starReview, int userId,
+                                  int hotelId) {
+        String sql = "INSERT INTO HotelsReview(Comment,StarReview,UserId,HotelId) VALUES(?,?,?,?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, comment);
+            pstmt.setInt(2, starReview);
+            pstmt.setInt(3, userId);
+            pstmt.setInt(4, hotelId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public ArrayList<Review> getHotelReviewsWithHotelId(int HotelId) {
+        String sql = "SELECT * FROM HotelsReview";
+
+        ArrayList<Review> reviews = new ArrayList<>();
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                if (HotelId == rs.getInt("HotelId")) {
+                    {
+                        int id = rs.getInt("Id");
+                        String comment = rs.getString("Comment");
+                        int starreview = rs.getInt("StarReview");
+                        int userid = rs.getInt("UserId");
+                        int categoryid = rs.getInt("HotelId");
+
+                        Review ReviewFound = new Review(id, comment, starreview, userid, categoryid);
+                        reviews.add(ReviewFound);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return reviews;
+    }
+
+
+    public Review getHotelsReviewById(int ReviewId) {
+        String sql = "SELECT Id,Comment,StarReview,UserId, HotelId FROM HotelsReview";
+
+        Review review = null;
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                if (rs.getInt("Id") == ReviewId) {
+                    int id = rs.getInt("Id");
+                    String comment = rs.getString("Comment");
+                    int starreview = rs.getInt("StarReview");
+                    int userid = rs.getInt("UserId");
+                    int categoryid = rs.getInt("HotelId");
+
+                    Review ReviewFound = new Review(id, comment, starreview,
+                            userid, categoryid);
+                    return ReviewFound;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return review;
+    }
+
+
+    public void updateHotelsReviewComment(String comment, int id) {
+        String sql = "UPDATE HotelsReview SET Comment = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, comment);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void updateHotelsStarReview(int star, int id) {
+        String sql = "UPDATE HotelsReview SET StarReview = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, star);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deleteHotelReview(int id) {
+        String sql = "DELETE from HotelsReview WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+//Museum
+
     public void insertMuseum(String name, String description, String imageUrl, int cityId) {
         String sql = "INSERT INTO Museum(Name,Description,ImageURL,CityId) VALUES(?,?,?,?)";
 
@@ -350,8 +464,6 @@ public class DAO {
             System.out.println(e.getMessage());
         }
     }
-
-
 
 
     public Museum getMuseumyById(int MuseumId) {
@@ -437,6 +549,125 @@ public class DAO {
         return listofmuseums;
     }
 
+
+    //Museum Reviews
+
+    public void insertMuseumReview(String comment, int starReview, int userId,
+                                   int museumId) {
+        String sql = "INSERT INTO MuseumsReview(Comment,StarReview,UserId,MuseumId) VALUES(?,?,?,?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, comment);
+            pstmt.setInt(2, starReview);
+            pstmt.setInt(3, userId);
+            pstmt.setInt(4, museumId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public ArrayList<Review> getMuseumReviewsWithMuseumsId(int museumId) {
+        String sql = "SELECT * FROM MuseumsReview";
+
+        ArrayList<Review> reviews = new ArrayList<>();
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                if (museumId == rs.getInt("MuseumId")) {
+                    {
+                        int id = rs.getInt("Id");
+                        String comment = rs.getString("Comment");
+                        int starreview = rs.getInt("StarReview");
+                        int userid = rs.getInt("UserId");
+                        int categoryid = rs.getInt("MuseumId");
+
+                        Review ReviewFound = new Review(id, comment, starreview, userid, categoryid);
+                        reviews.add(ReviewFound);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return reviews;
+    }
+
+
+    public Review getMuseumsReviewById(int ReviewId) {
+        String sql = "SELECT Id,Comment,StarReview,UserId, MuseumId FROM MuseumsReview";
+
+        Review review = null;
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                if (rs.getInt("Id") == ReviewId) {
+                    int id = rs.getInt("Id");
+                    String comment = rs.getString("Comment");
+                    int starreview = rs.getInt("StarReview");
+                    int userid = rs.getInt("UserId");
+                    int categoryid = rs.getInt("MuseumId");
+
+                    Review ReviewFound = new Review(id, comment, starreview,
+                            userid, categoryid);
+                    return ReviewFound;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return review;
+    }
+
+
+    public void updateMuseumsReviewComment(String comment, int id) {
+        String sql = "UPDATE MuseumsReview SET Comment = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, comment);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void updateMuseumsStarReview(int star, int id) {
+        String sql = "UPDATE MuseumsReview SET StarReview = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, star);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deleteMuseumReview(int id) {
+        String sql = "DELETE from MuseumsReview WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+//Park
 
     public void insertPark(String name, String description, String imageUrl, int cityId) {
         String sql = "INSERT INTO Park(Name,Description,ImageURL,CityId) VALUES(?,?,?,?)";
@@ -537,6 +768,127 @@ public class DAO {
         return listofparks;
     }
 
+    //Park Reviews
+
+
+    //Museum Reviews
+
+    public void insertParkReview(String comment, int starReview, int userId,
+                                 int parkId) {
+        String sql = "INSERT INTO ParksReview(Comment,StarReview,UserId,ParkId) VALUES(?,?,?,?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, comment);
+            pstmt.setInt(2, starReview);
+            pstmt.setInt(3, userId);
+            pstmt.setInt(4, parkId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public ArrayList<Review> getParkReviewsWithParksId(int parkId) {
+        String sql = "SELECT * FROM ParksReview";
+
+        ArrayList<Review> reviews = new ArrayList<>();
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                if (parkId == rs.getInt("ParkId")) {
+                    {
+                        int id = rs.getInt("Id");
+                        String comment = rs.getString("Comment");
+                        int starreview = rs.getInt("StarReview");
+                        int userid = rs.getInt("UserId");
+                        int categoryid = rs.getInt("ParkId");
+
+                        Review ReviewFound = new Review(id, comment, starreview, userid, categoryid);
+                        reviews.add(ReviewFound);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return reviews;
+    }
+
+
+    public Review getParksReviewById(int ReviewId) {
+        String sql = "SELECT Id,Comment,StarReview,UserId, ParkId FROM ParksReview";
+
+        Review review = null;
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                if (rs.getInt("Id") == ReviewId) {
+                    int id = rs.getInt("Id");
+                    String comment = rs.getString("Comment");
+                    int starreview = rs.getInt("StarReview");
+                    int userid = rs.getInt("UserId");
+                    int categoryid = rs.getInt("ParkId");
+
+                    Review ReviewFound = new Review(id, comment, starreview,
+                            userid, categoryid);
+                    return ReviewFound;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return review;
+    }
+
+
+    public void updateParksReviewComment(String comment, int id) {
+        String sql = "UPDATE ParksReview SET Comment = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, comment);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void updateParksStarReview(int star, int id) {
+        String sql = "UPDATE ParksReview SET StarReview = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, star);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deleteParkReview(int id) {
+        String sql = "DELETE from ParksReview WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    //Restaurant
 
     public void insertRestaurant(String name, String description, String imageUrl, int cityId) {
         String sql = "INSERT INTO Restaurant(Name,Description,ImageURL,CityId) VALUES(?,?,?,?)";
@@ -636,6 +988,127 @@ public class DAO {
         return listofrestaurant;
     }
 
+
+
+
+    //Restaurant Reviews
+
+    public void insertRestaurantReview(String comment, int starReview, int userId,
+                                   int restaurantId) {
+        String sql = "INSERT INTO RestaurantsReview(Comment,StarReview,UserId,RestaurantId) VALUES(?,?,?,?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, comment);
+            pstmt.setInt(2, starReview);
+            pstmt.setInt(3, userId);
+            pstmt.setInt(4, restaurantId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public ArrayList<Review> getRestaurantReviewsWithRestaurantsId(int museumId) {
+        String sql = "SELECT * FROM RestaurantsReview";
+
+        ArrayList<Review> reviews = new ArrayList<>();
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                if (museumId == rs.getInt("RestaurantId")) {
+                    {
+                        int id = rs.getInt("Id");
+                        String comment = rs.getString("Comment");
+                        int starreview = rs.getInt("StarReview");
+                        int userid = rs.getInt("UserId");
+                        int categoryid = rs.getInt("RestaurantId");
+
+                        Review ReviewFound = new Review(id, comment, starreview, userid, categoryid);
+                        reviews.add(ReviewFound);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return reviews;
+    }
+
+
+    public Review getRestaurantsReviewById(int ReviewId) {
+        String sql = "SELECT Id,Comment,StarReview,UserId, RestaurantId FROM RestaurantsReview";
+
+        Review review = null;
+
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                if (rs.getInt("Id") == ReviewId) {
+                    int id = rs.getInt("Id");
+                    String comment = rs.getString("Comment");
+                    int starreview = rs.getInt("StarReview");
+                    int userid = rs.getInt("UserId");
+                    int categoryid = rs.getInt("RestaurantId");
+
+                    Review ReviewFound = new Review(id, comment, starreview,
+                            userid, categoryid);
+                    return ReviewFound;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return review;
+    }
+
+
+    public void updateRestaurantsReviewComment(String comment, int id) {
+        String sql = "UPDATE RestaurantsReview SET Comment = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, comment);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void updateRestaurantsStarReview(int star, int id) {
+        String sql = "UPDATE RestaurantsReview SET StarReview = ? WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, star);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deleteRestaurantReview(int id) {
+        String sql = "DELETE from RestaurantsReview WHERE Id=?;";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+/*
     public void insertReview(String comment, int starReview, int userId,
                              int categoryId, String categoryName, String categoryType) {
         String sql = "INSERT INTO Review(Comment,StarReview,UserId,CategoryId,CategoryName, CategoryType) VALUES(?,?,?,?,?,?)";
@@ -784,6 +1257,10 @@ public class DAO {
     }
 
 
+
+*/
+
+
     public void insertReport(int userId, String description, int reviewId) {
         String sql = "INSERT INTO Report(UserId,Description,ReviewId) VALUES(?,?,?)";
 
@@ -855,9 +1332,6 @@ public class DAO {
         }
         return listofreports;
     }
-
-
-
 
 
 }
