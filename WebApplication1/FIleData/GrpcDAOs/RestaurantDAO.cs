@@ -44,7 +44,7 @@ public class RestaurantDAO : IRestaurantDao
         List<Restaurant> listofRestaurants = new List<Restaurant>();
         foreach (var VARIABLE in send.Restaurant)
         {
-            Restaurant restaurant = new Restaurant(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Id)
+            Restaurant restaurant = new Restaurant(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Cityid)
             {
                 Id = VARIABLE.Id
             };

@@ -43,7 +43,7 @@ public class ParkDAO : IParkDao
         List<Park> listofParks = new List<Park>();
         foreach (var VARIABLE in send.Park)
         {
-            Park park = new Park(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Id)
+            Park park = new Park(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Cityid)
             {
                 Id = VARIABLE.Id
             };
