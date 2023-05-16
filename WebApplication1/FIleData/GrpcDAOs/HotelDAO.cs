@@ -33,7 +33,7 @@ public class HotelDAO:IHotelDao
         List<Hotel> listofhotels = new List<Hotel>();
         foreach (var VARIABLE in send.Hotels)
         {
-            Hotel hotel = new Hotel(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Id)
+            Hotel hotel = new Hotel(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Cityid)
             {
                 Id = VARIABLE.Id
             };

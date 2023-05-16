@@ -43,7 +43,7 @@ public class MuseumDAO : IMuseumDao
         List<Museum> listofMuseums = new List<Museum>();
         foreach (var VARIABLE in send.Museum)
         {
-            Museum museum = new Museum(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Id)
+            Museum museum = new Museum(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Cityid)
             {
                 Id = VARIABLE.Id
             };
