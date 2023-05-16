@@ -10,64 +10,83 @@ service Access{
   rpc GetUsersContaining(SearchUserParameters) returns (listOfUsers);
 
   //city
+
   rpc CreateCity(CityToCreate) returns (CityCreated);
   rpc GetCitByyname(CityByName) returns (City);
   rpc GetCityById(CityById) returns (City);
 
-
-
   //hotel
 
-  rpc CreateHotel(HotelToCreate) returns (HotelCreated);
-  rpc GetHotelById(HotelById) returns(Hotel);
-  rpc UpdateHotelName(HotelNameToUpdate) returns(HotelNameUpdated);
-  rpc UpdateHotelDescription(HotelDescriptionToUpdate) returns(HotelDescriptionUpdated);
-  rpc DeleteHotel(HotelToDelete) returns(HotelDeleted);
-  rpc GetListOfHotels(CitysIdFoHotelList) returns(ListOfHotels);
+  rpc CreateHotel(CategoryToCreate ) returns (CategoryCreated);
+  rpc GetHotelById(CategoryById) returns(Category);
+  rpc UpdateHotelName(CategoryNameToUpdate) returns(CategoryNameUpdated);
+  rpc UpdateHotelDescription(CategoryDescriptionToUpdate) returns(CategoryDescriptionUpdated);
+  rpc DeleteHotel(CategoryToDelete) returns(CategoryDeleted);
+  rpc GetListOfHotels(CitysIdForCategoryList) returns(ListOfACategory);
+
+  //hotels review
+
+  rpc CreateHotelsReview(ReviewToCreate) returns (ReviewCreated);
+  rpc GetHotelsReviewById(ReviewById) returns(Review);
+  rpc UpdateHotelsReviewComment(ReviewsCommentToUpdate) returns(ReviewCommentUpdated);
+  rpc UpdateHotelsStarReview(ReviewStarReviewToUpdate) returns(ReviewsStarReviewUpdated);
+  rpc DeleteHotelReview(ReviewToDelete) returns(ReviewDeleted);
+  rpc GetHotelReviewsContaining(SearchReviewPeremetars) returns (ReveiewList);
 
   //museum
 
-  rpc CreateMuseum(MuseumToCreate) returns (MuseumCreated);
-  rpc GetMuseumById(MuseumById) returns(Museum);
-  rpc UpdateMuseumName(MuseumNameToUpdate) returns(MuseumNameUpdated);
-  rpc UpdateMuseumDescription(MuseumDescriptionToUpdate) returns(MuseumDescriptionUpdated);
-  rpc DeleteMuseum(MuseumToDelete) returns(MuseumDeleted);
-  rpc GetListOfMuseums(CitysIdForMuseumList) returns(ListOfMuseums);
+  rpc CreateMuseum(CategoryToCreate) returns (CategoryCreated);
+  rpc GetMuseumById(CategoryById) returns(Category);
+  rpc UpdateMuseumName(CategoryNameToUpdate) returns(CategoryNameUpdated);
+  rpc UpdateMuseumDescription(CategoryDescriptionToUpdate) returns(CategoryDescriptionUpdated);
+  rpc DeleteMuseum(CategoryToDelete) returns(CategoryDeleted);
+  rpc GetListOfMuseums(CitysIdForCategoryList) returns(ListOfACategory);
 
+  //museums review
 
-
+  rpc CreateMuseumsReview(ReviewToCreate) returns (ReviewCreated);
+  rpc GetMuseumsReviewById(ReviewById) returns(Review);
+  rpc UpdateMuseumsReviewComment(ReviewsCommentToUpdate) returns(ReviewCommentUpdated);
+  rpc UpdateMuseumsStarReview(ReviewStarReviewToUpdate) returns(ReviewsStarReviewUpdated);
+  rpc DeleteMuseumsReview(ReviewToDelete) returns(ReviewDeleted);
+  rpc GetMuseumsReviewsContaining(SearchReviewPeremetars) returns (ReveiewList);
 
   //park
 
-  rpc CreatePark(ParkToCreate) returns (ParkCreated);
-  rpc GetParkById(ParkById) returns(Park);
-  rpc UpdateParkName(ParkNameToUpdate) returns(ParkNameUpdated);
-  rpc UpdateParkDescription(ParkDescriptionToUpdate) returns(ParkDescriptionUpdated);
-  rpc DeletePark(ParkToDelete) returns(ParkDeleted);
-  rpc GetListOfParks(CitysIdForParkList) returns(ListOfParks);
+  rpc CreatePark(CategoryToCreate) returns (CategoryCreated);
+  rpc GetParkById(CategoryById) returns(Category);
+  rpc UpdateParkName(CategoryNameToUpdate) returns(CategoryNameUpdated);
+  rpc UpdateParkDescription(CategoryDescriptionToUpdate) returns(CategoryDescriptionUpdated);
+  rpc DeletePark(CategoryToDelete) returns(CategoryDeleted);
+  rpc GetListOfParks(CitysIdForCategoryList) returns(ListOfACategory);
+
+  //parks review
+
+  rpc CreateParksReview(ReviewToCreate) returns (ReviewCreated);
+  rpc GetParksReviewById(ReviewById) returns(Review);
+  rpc UpdateParksReviewComment(ReviewsCommentToUpdate) returns(ReviewCommentUpdated);
+  rpc UpdateParksStarReview(ReviewStarReviewToUpdate) returns(ReviewsStarReviewUpdated);
+  rpc DeleteParksReview(ReviewToDelete) returns(ReviewDeleted);
+  rpc GetParksReviewsContaining(SearchReviewPeremetars) returns (ReveiewList);
 
   //restaurant
 
-  rpc CreateRestaurant(RestaurantToCreate) returns (RestaurantCreated);
-  rpc GetRestaurantById(RestaurantById) returns(Restaurant);
-  rpc UpdateRestaurantName(RestaurantNameToUpdate) returns(RestaurantNameUpdated);
-  rpc UpdateRestaurantDescription(RestaurantDescriptionToUpdate) returns(RestaurantDescriptionUpdated);
-  rpc DeleteRestaurant(RestaurantToDelete) returns(RestaurantDeleted);
-  rpc GetListOfRestaurant(CitysIdForRestaurantList) returns(ListOfRestaurants);
+  rpc CreateRestaurant(CategoryToCreate) returns (CategoryCreated);
+  rpc GetRestaurantById(CategoryById) returns(Category);
+  rpc UpdateRestaurantName(CategoryNameToUpdate) returns(CategoryNameUpdated);
+  rpc UpdateRestaurantDescription(CategoryDescriptionToUpdate) returns(CategoryDescriptionUpdated);
+  rpc DeleteRestaurant(CategoryToDelete) returns(CategoryDeleted);
+  rpc GetListOfRestaurant(CitysIdForCategoryList) returns(ListOfACategory);
 
 
-  //review
+  //restaurants review
 
-  rpc CreateReview(ReviewToCreate) returns (ReviewCreated);
-  rpc GetReviewById(ReviewById) returns(Review);
-  rpc UpdateReviewComment(ReviewsCommentToUpdate) returns(ReviewCommentUpdated);
-  rpc UpdateStarReview(ReviewStarReviewToUpdate) returns(ReviewsStarReviewUpdated);
-  rpc DeleteReview(ReviewToDelete) returns(ReviewDeleted);
-  //ADD THIS EVERYWHERE
-  rpc GetReviewsContaining(SearchReviewPeremetars) returns (ReveiewList);
-
-
-
+  rpc CreateRestaurantsReview(ReviewToCreate) returns (ReviewCreated);
+  rpc GetRestaurantsReviewById(ReviewById) returns(Review);
+  rpc UpdateRestaurantsReviewComment(ReviewsCommentToUpdate) returns(ReviewCommentUpdated);
+  rpc UpdateRestaurantsStarReview(ReviewStarReviewToUpdate) returns(ReviewsStarReviewUpdated);
+  rpc DeleteRestaurantsReview(ReviewToDelete) returns(ReviewDeleted);
+  rpc GetRestaurantsReviewsContaining(SearchReviewPeremetars) returns (ReveiewList);
 
   //report
 
@@ -75,9 +94,10 @@ service Access{
   rpc GetReportById(ReportById) returns(Report);
   rpc DeleteReport(ReportToDelete) returns(ReportDeleted);
   rpc GetListOfReports(Empty) returns(ListOfReports);
-
-
 }
+
+//User
+
 message User{
   int32 id = 1;
   string username = 2;
@@ -111,12 +131,7 @@ message UserCreateResponse{
   string userName = 2;
 }
 
-
-
-
 //City
-
-
 
 message City{
   int32 id = 1;
@@ -124,7 +139,6 @@ message City{
   string description = 3;
   string imageurl = 4;
 }
-
 
 message CityToCreate{
   string name = 1;
@@ -135,7 +149,6 @@ message CityToCreate{
 message CityCreated{
   int32 code = 1;
   string name = 2;
-
 }
 
 message CityByName{
@@ -146,22 +159,9 @@ message CityById{
   int32 cityid = 1;
 }
 
+//Category
 
-
-
-
-//HOTEL
-
-
-message Hotel{
-  int32 id = 1;
-  string name = 2;
-  string description = 3;
-  string imageurl = 4;
-  int32 cityid = 5;
-}
-
-message HotelToCreate{
+message CategoryToCreate{
   string name = 1;
   string description = 2;
   string imageurl = 3;
@@ -169,74 +169,49 @@ message HotelToCreate{
 }
 
 
-message HotelCreated{
+message CategoryCreated{
   int32 code = 1;
   string name = 2;
-
 }
 
-message HotelById{
-  int32 hotelid = 1;
+message CategoryById{
+  int32 categoryid = 1;
 }
 
-message HotelNameToUpdate{
-  int32 hotelid = 1;
+message CategoryNameToUpdate{
+  int32 categoryid = 1;
   string name = 2;
 }
 
 
-message HotelDescriptionToUpdate{
-  int32 hotelid = 1;
+message CategoryDescriptionToUpdate{
+  int32 categoryid = 1;
   string description = 2;
 }
 
-
-message HotelToDelete{
-  int32 hotelid = 1;
+message CategoryToDelete{
+  int32 categoryid = 1;
 }
 
-
-message HotelNameUpdated{
-
+message CategoryNameUpdated{
   int32 code = 1;
   string name = 2;
-
 }
 
-
-
-message HotelDescriptionUpdated{
-
+message CategoryDescriptionUpdated{
   int32 code = 1;
   string description = 2;
-
 }
 
-
-
-message HotelDeleted{
-
+message CategoryDeleted{
   int32 code = 1;
-
 }
 
-
-
-message CitysIdFoHotelList{
+message CitysIdForCategoryList{
   int32 cityid = 1;
 }
 
-message ListOfHotels{
-  repeated Hotel hotels = 1;
-}
-
-
-
-//Museum
-
-
-
-message Museum{
+message Category{
   int32 id = 1;
   string name = 2;
   string description = 3;
@@ -244,292 +219,35 @@ message Museum{
   int32 cityid = 5;
 }
 
-message MuseumToCreate{
-  string name = 1;
-  string description = 2;
-  string imageurl = 3;
-  int32 cityid = 4;
+message ListOfACategory{
+  repeated Category categories = 1;
 }
-
-
-message MuseumCreated{
-  int32 code = 1;
-  string name = 2;
-
-}
-
-
-message MuseumById{
-  int32 museumid = 1;
-}
-
-message MuseumNameToUpdate{
-  int32 museumid = 1;
-  string name = 2;
-}
-
-message MuseumDescriptionToUpdate{
-  int32 museumid = 1;
-  string description = 2;
-}
-
-
-message MuseumToDelete{
-  int32 museumid = 1;
-}
-
-
-message MuseumNameUpdated{
-
-  int32 code = 1;
-  string name = 2;
-
-}
-
-
-
-message MuseumDescriptionUpdated{
-
-  int32 code = 1;
-  string description = 2;
-
-}
-
-
-
-message MuseumDeleted{
-
-  int32 code = 1;
-
-}
-
-
-
-
-message CitysIdForMuseumList{
-  int32 cityid = 1;
-}
-
-message ListOfMuseums{
-  repeated Museum museum = 1;
-}
-
-
-
-//Park
-
-
-
-message Park{
-  int32 id = 1;
-  string name = 2;
-  string description = 3;
-  string imageurl = 4;
-  int32 cityid = 5;
-}
-
-message ParkToCreate{
-  string name = 1;
-  string description = 2;
-  string imageurl = 3;
-  int32 cityid = 4;
-}
-
-
-message ParkCreated{
-  int32 code = 1;
-  string name = 2;
-
-}
-
-
-
-message ParkById{
-  int32 parkid = 1;
-}
-
-message ParkNameToUpdate{
-  int32 parkid = 1;
-  string name = 2;
-}
-
-message ParkDescriptionToUpdate{
-  int32 parkid = 1;
-  string description = 2;
-}
-
-
-message ParkToDelete{
-  int32 parkid = 1;
-}
-
-
-
-message ParkNameUpdated{
-
-  int32 code = 1;
-  string name = 2;
-
-}
-
-
-
-message ParkDescriptionUpdated{
-
-  int32 code = 1;
-  string description = 2;
-
-}
-
-
-
-message ParkDeleted{
-
-  int32 code = 1;
-
-}
-
-
-
-
-
-message CitysIdForParkList{
-  int32 cityid = 1;
-}
-
-message ListOfParks{
-  repeated Park park = 1;
-}
-
-
-
-
-//Restaurant
-
-
-
-message Restaurant{
-  int32 id = 1;
-  string name = 2;
-  string description = 3;
-  string imageurl = 4;
-  int32 cityid = 5;
-}
-
-message RestaurantToCreate{
-  string name = 1;
-  string description = 2;
-  string imageurl = 3;
-  int32 cityid = 4;
-}
-
-
-message RestaurantCreated{
-  int32 code = 1;
-  string name = 2;
-
-}
-
-message RestaurantById{
-  int32 restaurantid = 1;
-}
-
-message RestaurantNameToUpdate{
-  int32 restaurantid = 1;
-  string name = 2;
-}
-
-message RestaurantDescriptionToUpdate{
-  int32 restaurantid = 1;
-  string description = 2;
-}
-
-
-message RestaurantToDelete{
-  int32 restaurantid = 1;
-}
-
-
-
-
-
-message RestaurantNameUpdated{
-
-  int32 code = 1;
-  string name = 2;
-
-}
-
-
-
-message RestaurantDescriptionUpdated{
-
-  int32 code = 1;
-  string description = 2;
-
-}
-
-
-
-message RestaurantDeleted{
-
-  int32 code = 1;
-
-}
-
-
-
-
-
-
-
-message CitysIdForRestaurantList{
-  int32 cityid = 1;
-}
-
-message ListOfRestaurants{
-  repeated Restaurant restaurant = 1;
-}
-
-
 
 //Review
 
-
 message Review{
-
   int32 id = 1;
   string comment = 2;
-  int32 starreview=3;
+  int32 starreview = 3;
   int32 userid = 4;
   int32 categoryid = 5;
-  string categoryname = 6;
-  string categorytype = 7;
 }
 
-
 message ReviewToCreate{
-
   string comment = 1;
-  int32 starreview=2;
+  int32 starreview = 2;
   int32 userid = 3;
   int32 categoryid = 4;
-  string categoryname = 5;
-  string categorytype = 6;
 }
 
 message ReviewCreated{
   int32 code = 1;
   string comment = 2;
-  int32 starreview=3;
-
+  int32 starreview = 3;
 }
 
 message SearchReviewPeremetars{
   int32 categoryid = 1;
-  string categoryname = 2;
-  string categorytype = 3;
-
 }
 
 message ReviewById{
@@ -541,9 +259,17 @@ message ReviewsCommentToUpdate{
   string comment = 2;
 }
 
+message ReviewCommentUpdated{
+  int32 code = 1;
+  string comment = 2;
+}
 
 message ReviewStarReviewToUpdate{
   int32 id = 1;
+  int32 starreview = 2;
+}
+message ReviewsStarReviewUpdated{
+  int32 code = 1;
   int32 starreview = 2;
 }
 
@@ -551,39 +277,14 @@ message ReviewToDelete{
   int32 id = 1;
 }
 
-
-
-
-
-message ReviewCommentUpdated{
-
-  int32 code = 1;
-  string comment = 2;
-
-}
-
-
-
-message ReviewsStarReviewUpdated{
-
-  int32 code = 1;
-  int32 starreview = 2;
-
-}
-
-
-
 message ReviewDeleted{
-
   int32 code = 1;
-
 }
+
 
 message ReveiewList{
   repeated Review reviews = 1;
 }
-
-
 
 //Report
 
@@ -600,11 +301,9 @@ message ReportToCreate{
   int32 reviewid = 3;
 }
 
-
 message ReportCreated{
   int32 code = 1;
   string description = 2;
-
 }
 
 message ReportById{
@@ -615,23 +314,14 @@ message ReportToDelete{
   int32 reportid = 1;
 }
 
-
-
-
 message ReportDeleted{
-
   int32 code = 1;
-
 }
-
-
-
 
 message ListOfReports{
   repeated Report report = 1;
 }
 
 message Empty {
-  string empty=1;
-
+  string empty = 1;
 }
