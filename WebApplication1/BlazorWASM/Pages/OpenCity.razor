@@ -4,6 +4,7 @@
 @using SEP3lu
 @inject IRestaurantService RestaurantService
 @inject ICityService cityService
+@inject NavigationManager NavMgr
 
 <h3>OpenCity @id</h3>
 <h3>@title</h3>
@@ -23,13 +24,20 @@ else
     <div class="users-container">
         @foreach (Restaurant restaurant in restaurants)
         {
-            <p>@restaurant.ImageURL</p>
-
+            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/OpenRestaurant/{id}/{restaurant.Id}")))">
+                <p>@restaurant.ImageURL</p>
+            </div>
         }
+        <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreateRestaurant/{id}")))">
+            <label>Create Restaurant</label>
+        </div>
     </div>
 }
 
+
+
 @code {
+
     [Parameter]
     public int id { get; set; }
 
@@ -52,7 +60,6 @@ else
             title = theCity.Name;
             desc = theCity.Description;
             imsrc = theCity.ImageURL;
-            
         }
         catch (Exception e)
         {

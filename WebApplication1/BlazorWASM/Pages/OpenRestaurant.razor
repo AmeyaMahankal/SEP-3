@@ -1,0 +1,9 @@
+﻿@page "/OpenRestaurant/{cityid:int}/{id:int}"
+<h3>OpenRestaurant city id @cityid restaurant @id</h3>
+
+@code {
+    [Parameter]
+    public int cityid { get; set; }
+    [Parameter]
+    public int id { get; set; }
+}
