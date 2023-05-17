@@ -1,5 +1,7 @@
-﻿using System.Text.Json;
+﻿using System.Net.Http.Json;
+using System.Text.Json;
 using HttpClients.ClientInterfaces;
+using sep3.DTOs;
 using SEP3lu;
 
 namespace HttpClients.Implementations;
@@ -35,5 +37,18 @@ public class RestaurantHttpClient : IRestaurantService
 
         return restaurants;
 
+    }
+
+    public async Task<Restaurant> CreateRestaurant(RestaurantCreationDto dto)
+    {
+        HttpResponseMessage response = await client.PostAsJsonAsync("/restaurant", dto);
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        Restaurant restaurant = JsonSerializer.Deserialize<Restaurant>(result)!;
+        return restaurant;
     }
 }
