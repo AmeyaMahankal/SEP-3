@@ -22,7 +22,7 @@ builder.Services.AddScoped<IPostLogic, PostLogic>();
 builder.Services.AddScoped<ICityDao, CityDAO>();
 builder.Services.AddScoped<ICityLogic, CityLogic>();
 
-builder.Services.AddScoped<IHotelDao, HotelFileDao>();
+builder.Services.AddScoped<IHotelDao, HotelDAO>();
 builder.Services.AddScoped<IHotelLogic, HotelLogic>();
 builder.Services.AddScoped<IMuseumDao, MuseumDAO>();
 builder.Services.AddScoped<IMuseumLogic, MuseumLogic>();
