@@ -1,4 +1,5 @@
-﻿using Application.LogicInterface;
+﻿using Application.DaoInterfaces;
+using Application.LogicInterface;
 using Domain.DTOs;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -7,13 +8,13 @@ namespace WebApplication1.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class HotelsReviewController: ControllerBase
+public class MuseumsReviewController: ControllerBase
 {
-    private readonly IHotelsReviewLogic _hotelsReviewLogic;
+    private readonly IMuseumsReviewLogic musemusReviewLogic;
 
-    public HotelsReviewController(IHotelsReviewLogic hotelsReviewLogic)
+    public MuseumsReviewController(IMuseumsReviewLogic musemusReviewLogic)
     {
-        this._hotelsReviewLogic = hotelsReviewLogic;
+        this.musemusReviewLogic = musemusReviewLogic;
     }
 
     [HttpPost]
@@ -21,7 +22,7 @@ public class HotelsReviewController: ControllerBase
     {
         try
         {
-            Review review = await _hotelsReviewLogic.CreateAsync(dto);
+            Review review = await musemusReviewLogic.CreateAsync(dto);
             return Created($"/reviews/{review.Id}", review);
         }
         catch (Exception e)
@@ -40,7 +41,7 @@ public class HotelsReviewController: ControllerBase
         try
         {
             SearchReviewParameterDto parameters = new( categoryid);
-            IEnumerable<Review> reviews = await _hotelsReviewLogic.GetByCategory(parameters);
+            IEnumerable<Review> reviews = await musemusReviewLogic.GetByCategory(parameters);
             return Ok(reviews);
         }
         catch (Exception e)
@@ -58,7 +59,7 @@ public class HotelsReviewController: ControllerBase
     {
         try
         {
-            await _hotelsReviewLogic.UpdateReviewCommentAsync(commentDto);
+            await musemusReviewLogic.UpdateReviewCommentAsync(commentDto);
             return Ok();
         }
         catch (Exception e)
@@ -73,7 +74,7 @@ public class HotelsReviewController: ControllerBase
     {
         try
         {
-            await _hotelsReviewLogic.UpdateReviewStarReviewAsync(starReviewDto);
+            await musemusReviewLogic.UpdateReviewStarReviewAsync(starReviewDto);
             return Ok();
         }
         catch (Exception e)
@@ -91,7 +92,7 @@ public class HotelsReviewController: ControllerBase
     {
         try
         {
-            await _hotelsReviewLogic.DeleteAsync(id);
+            await musemusReviewLogic.DeleteAsync(id);
             return Ok();
         }
         catch (Exception e)

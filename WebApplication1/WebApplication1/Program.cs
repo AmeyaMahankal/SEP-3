@@ -14,7 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<FileContext>();
-builder.Services.AddScoped<IUserDao, UserDAO>();  //HERE
+
+builder.Services.AddScoped<IUserDao, UserDAO>();  
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 
 builder.Services.AddScoped<IPostDao, PostFileDao>();
@@ -22,19 +23,31 @@ builder.Services.AddScoped<IPostLogic, PostLogic>();
 builder.Services.AddScoped<ICityDao, CityFileDao>();
 builder.Services.AddScoped<ICityLogic, CityLogic>();
 
+//Hotels controllers
 builder.Services.AddScoped<IHotelDao, HotelFileDao>();
 builder.Services.AddScoped<IHotelLogic, HotelLogic>();
+builder.Services.AddScoped<IHotelsReviewDao, HotelsReviewDao>(); 
+builder.Services.AddScoped<IHotelsReviewLogic, HotelsReviewLogic>();
+
+//Museums controllers
 builder.Services.AddScoped<IMuseumDao, MuseumDAO>();
 builder.Services.AddScoped<IMuseumLogic, MuseumLogic>();
+builder.Services.AddScoped<IMuseumsReviewDao, MuseumsReviewDao>(); 
+builder.Services.AddScoped<IMuseumsReviewLogic, MuseumsReviewLogic>();
+
+//Parks controllers
 builder.Services.AddScoped<IParkDao, ParkDAO>();
 builder.Services.AddScoped<IParkLogic, ParkLogic>();
+builder.Services.AddScoped<IParksReviewDao, ParksReviewDao>(); 
+builder.Services.AddScoped<IParksReviewLogic, ParksReviewLogic>();
+
+//Restaurants controllers
 builder.Services.AddScoped<IRestaurantDao, RestaurantDAO>();
 builder.Services.AddScoped<IRestaurantLogic, RestaurantLogic>();
+builder.Services.AddScoped<IRestaurantsReviewDao, RestaurantsReviewDao>(); 
+builder.Services.AddScoped<IRestaurantsReviewLogic, RestaurantsReviewLogic>();
 
-builder.Services.AddScoped<IReviewDao, HotelsReviewDAO>(); //HERE
-builder.Services.AddScoped<IReviewDao, MuseumReviewDAO>();
-builder.Services.AddScoped<IReviewLogic, ReviewLogic>();
-
+//Reports controllers
 builder.Services.AddScoped<IReportDao, ReportDAO>();
 builder.Services.AddScoped<IReportLogic, ReportLogic>();
 

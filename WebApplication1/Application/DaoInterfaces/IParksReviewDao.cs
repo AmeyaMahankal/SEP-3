@@ -3,7 +3,7 @@ using Domain.Models;
 
 namespace Application.DaoInterfaces;
 
-public interface IReviewDao
+public interface IParksReviewDao
 {
     Task<Review> CreateAsync(Review review);
     Task<IEnumerable<Review>> GetAsync(SearchReviewParameterDto searchReviewParameterDto); 

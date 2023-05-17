@@ -7,13 +7,13 @@ namespace WebApplication1.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class HotelsReviewController: ControllerBase
+public class RestaurantsReviewController: ControllerBase
 {
-    private readonly IHotelsReviewLogic _hotelsReviewLogic;
+    private readonly IRestaurantsReviewLogic restaurantsReviewLogic;
 
-    public HotelsReviewController(IHotelsReviewLogic hotelsReviewLogic)
+    public RestaurantsReviewController(IRestaurantsReviewLogic restaurantsReviewLogic)
     {
-        this._hotelsReviewLogic = hotelsReviewLogic;
+        this.restaurantsReviewLogic = restaurantsReviewLogic;
     }
 
     [HttpPost]
@@ -21,7 +21,7 @@ public class HotelsReviewController: ControllerBase
     {
         try
         {
-            Review review = await _hotelsReviewLogic.CreateAsync(dto);
+            Review review = await restaurantsReviewLogic.CreateAsync(dto);
             return Created($"/reviews/{review.Id}", review);
         }
         catch (Exception e)
@@ -40,7 +40,7 @@ public class HotelsReviewController: ControllerBase
         try
         {
             SearchReviewParameterDto parameters = new( categoryid);
-            IEnumerable<Review> reviews = await _hotelsReviewLogic.GetByCategory(parameters);
+            IEnumerable<Review> reviews = await restaurantsReviewLogic.GetByCategory(parameters);
             return Ok(reviews);
         }
         catch (Exception e)
@@ -58,7 +58,7 @@ public class HotelsReviewController: ControllerBase
     {
         try
         {
-            await _hotelsReviewLogic.UpdateReviewCommentAsync(commentDto);
+            await restaurantsReviewLogic.UpdateReviewCommentAsync(commentDto);
             return Ok();
         }
         catch (Exception e)
@@ -73,7 +73,7 @@ public class HotelsReviewController: ControllerBase
     {
         try
         {
-            await _hotelsReviewLogic.UpdateReviewStarReviewAsync(starReviewDto);
+            await restaurantsReviewLogic.UpdateReviewStarReviewAsync(starReviewDto);
             return Ok();
         }
         catch (Exception e)
@@ -91,7 +91,7 @@ public class HotelsReviewController: ControllerBase
     {
         try
         {
-            await _hotelsReviewLogic.DeleteAsync(id);
+            await restaurantsReviewLogic.DeleteAsync(id);
             return Ok();
         }
         catch (Exception e)

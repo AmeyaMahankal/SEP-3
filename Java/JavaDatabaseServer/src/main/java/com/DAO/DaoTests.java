@@ -20,7 +20,7 @@ public class DaoTests {
        // d.insertHotelReview("asfsaf",5,1,1);
 
 
-      /*
+
         //Hotel Test
 
         d.insertHotelReview("good",5,1,1);
@@ -30,7 +30,7 @@ public class DaoTests {
         System.out.println(d.getHotelsReviewById(2));
         System.out.println(d.getHotelReviewsWithHotelId(1));
         d.deleteHotelReview(4);
-
+ /*
 
         //Museum Test
 
@@ -48,7 +48,7 @@ public class DaoTests {
 
         d.deleteMuseumReview(4);
 
-*/
+
 
         //Park Test
 
@@ -80,7 +80,7 @@ public class DaoTests {
         d.updateRestaurantsStarReview(2,2);
         System.out.println(d.getRestaurantReviewsWithRestaurantsId(1));
         d.deleteRestaurantReview(4);
-
+*/
 
     }
 }

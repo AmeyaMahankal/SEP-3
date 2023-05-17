@@ -6,18 +6,17 @@ using Review = Domain.Models.Review;
 
 namespace FileData.GrpcDAOs;
 
-public class HotelsReviewDAO: IReviewDao
+public class MuseumsReviewDao:IMuseumsReviewDao
 {
+        private Access.AccessClient client;
 
-    private Access.AccessClient client;
-
-    public HotelsReviewDAO()
+    public MuseumsReviewDao()
     {
         var channel = GrpcChannel.ForAddress("http://localhost:9090");
         client = new Access.AccessClient(channel);
     }
     
-    public Task<Review> CreateAsync(Review review)
+      public Task<Review> CreateAsync(Review review)
     {
         ReviewToCreate request = new ReviewToCreate()
         {
@@ -27,7 +26,7 @@ public class HotelsReviewDAO: IReviewDao
             Userid = review.UserId
         };
 
-        var send = client.CreateHotelsReviewAsync(request);
+        var send = client.CreateMuseumsReviewAsync(request);
 
         return Task.FromResult(review);
     }
@@ -38,7 +37,7 @@ public class HotelsReviewDAO: IReviewDao
             Id = dtoReviewId
         };
 
-        var send = client.GetHotelsReviewByIdAsync(request);
+        var send = client.GetMuseumsReviewByIdAsync(request);
         Review review = new Review()
         {
             Id = send.ResponseAsync.Result.Id, 
@@ -58,7 +57,7 @@ public class HotelsReviewDAO: IReviewDao
 
         };
 
-        var send = client.GetHotelReviewsContainingAsync(search);
+        var send = client.GetMuseumsReviewsContainingAsync(search);
 
         List<Review> listofreviews = new List<Review>();
         foreach (var VARIABLE in send.ResponseAsync.Result.Reviews)
@@ -88,7 +87,7 @@ public class HotelsReviewDAO: IReviewDao
             Comment = updated.Comment,
             Id = updated.Id
         };
-        var send = client.UpdateHotelsReviewCommentAsync(request);
+        var send = client.UpdateMuseumsReviewCommentAsync(request);
 
         Review review = new Review()
         {
@@ -104,7 +103,7 @@ public class HotelsReviewDAO: IReviewDao
             Starreview = updated.StarReview,
             Id = updated.Id
         };
-        var send = client.UpdateHotelsStarReviewAsync(request);
+        var send = client.UpdateMuseumsStarReviewAsync(request);
 
         Review review = new Review()
         {
@@ -120,7 +119,7 @@ public class HotelsReviewDAO: IReviewDao
            Id = id
         };
 
-        var send = client.DeleteHotelReviewAsync(request);
+        var send = client.DeleteMuseumsReviewAsync(request);
 
         return Task.CompletedTask;
     }

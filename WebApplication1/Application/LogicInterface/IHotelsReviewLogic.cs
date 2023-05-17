@@ -3,7 +3,7 @@ using Domain.Models;
 
 namespace Application.LogicInterface;
 
-public interface IReviewLogic
+public interface IHotelsReviewLogic
 {
     Task<Review> CreateAsync(ReviewCreationDto reviewCreation);
     Task<IEnumerable<Review>> GetByCategory(SearchReviewParameterDto searchReviewParameterDto); 
