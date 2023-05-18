@@ -1,9 +1,65 @@
 ﻿@page "/OpenRestaurant/{cityid:int}/{id:int}"
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@using SEP3lu
+@inject IRestaurantsReviewService RestaurantsReviewService;
 <h3>OpenRestaurant city id @cityid restaurant @id</h3>
+
+
+
+@if (reviews == null)
+{
+    <span>Loading..</span>
+}
+else if (!reviews.Any())
+{
+    <span>No reviews found</span>
+}
+else
+{
+    <div class="users-container">
+        @foreach (Review review in reviews)
+        {
+            <div class="user-card">
+                <p>@review.Comment</p>
+                <p>@review.StarReview</p>
+            </div>
+        }
+    </div>
+}
+
 
 @code {
     [Parameter]
     public int cityid { get; set; }
     [Parameter]
     public int id { get; set; }
+    private IEnumerable<Review> reviews;
+    private IEnumerable<Restaurant> restaurants; 
+    private Review theReview;
+
+    private string comment;
+    private int starreview;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            reviews = await RestaurantsReviewService.getRestaurantsReviews(id);
+            theReview = reviews.FirstOrDefault(review => review.CategoryId == id);
+            comment = theReview.Comment;
+            starreview = theReview.StarReview;
+           
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    
+    
+    
+    
 }
