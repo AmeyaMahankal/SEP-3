@@ -23,15 +23,15 @@ public class HotelDAO:IHotelDao
 
     public Task<IEnumerable<Hotel>> GetAsync(SearchHotelParametersDto searchHotelParameters)
     {
-        CitysIdFoHotelList request = new CitysIdFoHotelList()
+        CitysIdForCategoryList request = new CitysIdForCategoryList()
         {
         Cityid = searchHotelParameters.Id
         };
 
-        var send  = client.GetListOfHotels(request);
+        var send  = client.GetListOfHotelsAsync(request);
 
         List<Hotel> listofhotels = new List<Hotel>();
-        foreach (var VARIABLE in send.Hotels)
+        foreach (var VARIABLE in send.ResponseAsync.Result.Categories)
         {
             Hotel hotel = new Hotel(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Cityid)
             {
@@ -48,16 +48,16 @@ public class HotelDAO:IHotelDao
 
     public Task<Hotel?> GetByIdAsync(int id)
     {
-        HotelById request = new HotelById()
+        CategoryById request = new CategoryById()
         {
-            Hotelid  = id
+            Categoryid  = id
         };
 
-        var send = client.GetHotelById(request);
+        var send = client.GetHotelByIdAsync(request);
 
-        Hotel hotel = new Hotel(send.Name, send.Description, send.Imageurl, send.Cityid)
+        Hotel hotel = new Hotel(send.ResponseAsync.Result.Name, send.ResponseAsync.Result.Description, send.ResponseAsync.Result.Imageurl, send.ResponseAsync.Result.Cityid)
         {
-            Id = send.Id
+            Id = send.ResponseAsync.Result.Id
         };
 
         return Task.FromResult(hotel);
@@ -70,12 +70,12 @@ public class HotelDAO:IHotelDao
 
     public Task DeleteAsync(int id)
     {
-        HotelToDelete request = new HotelToDelete()
+        CategoryToDelete request = new CategoryToDelete()
         {
-            Hotelid = id
+          Categoryid = id
         };
 
-        var send = client.DeleteHotel(request);
+        var send = client.DeleteHotelAsync(request);
 
         return Task.CompletedTask;
     }

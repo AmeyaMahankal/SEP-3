@@ -22,18 +22,30 @@ builder.Services.AddScoped<IPostLogic, PostLogic>();
 builder.Services.AddScoped<ICityDao, CityDAO>();
 builder.Services.AddScoped<ICityLogic, CityLogic>();
 
-builder.Services.AddScoped<IHotelDao, HotelDAO>();
+
+//Hotels controllers
+builder.Services.AddScoped<IHotelDao, HotelFileDao>();
 builder.Services.AddScoped<IHotelLogic, HotelLogic>();
+builder.Services.AddScoped<IHotelsReviewDao, HotelsReviewDao>(); 
+builder.Services.AddScoped<IHotelsReviewLogic, HotelsReviewLogic>();
+
+//Museums controllers
 builder.Services.AddScoped<IMuseumDao, MuseumDAO>();
 builder.Services.AddScoped<IMuseumLogic, MuseumLogic>();
+builder.Services.AddScoped<IMuseumsReviewDao, MuseumsReviewDao>(); 
+builder.Services.AddScoped<IMuseumsReviewLogic, MuseumsReviewLogic>();
+
+//Parks controllers
 builder.Services.AddScoped<IParkDao, ParkDAO>();
 builder.Services.AddScoped<IParkLogic, ParkLogic>();
+builder.Services.AddScoped<IParksReviewDao, ParksReviewDao>(); 
+builder.Services.AddScoped<IParksReviewLogic, ParksReviewLogic>();
+
+//Restaurants controllers
 builder.Services.AddScoped<IRestaurantDao, RestaurantDAO>();
 builder.Services.AddScoped<IRestaurantLogic, RestaurantLogic>();
-
-builder.Services.AddScoped<IReviewDao, ReviewDAO>(); //HERE
-builder.Services.AddScoped<IReviewLogic, ReviewLogic>();
-
+builder.Services.AddScoped<IRestaurantsReviewDao, RestaurantsReviewDao>(); 
+builder.Services.AddScoped<IRestaurantsReviewLogic, RestaurantsReviewLogic>();
 builder.Services.AddScoped<IReportDao, ReportDAO>();
 builder.Services.AddScoped<IReportLogic, ReportLogic>();
 

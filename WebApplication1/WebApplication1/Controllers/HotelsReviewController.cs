@@ -7,13 +7,13 @@ namespace WebApplication1.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ReviewController: ControllerBase
+public class HotelsReviewController: ControllerBase
 {
-    private readonly IReviewLogic reviewLogic;
+    private readonly IHotelsReviewLogic _hotelsReviewLogic;
 
-    public ReviewController(IReviewLogic reviewLogic)
+    public HotelsReviewController(IHotelsReviewLogic hotelsReviewLogic)
     {
-        this.reviewLogic = reviewLogic;
+        this._hotelsReviewLogic = hotelsReviewLogic;
     }
 
     [HttpPost]
@@ -21,7 +21,7 @@ public class ReviewController: ControllerBase
     {
         try
         {
-            Review review = await reviewLogic.CreateAsync(dto);
+            Review review = await _hotelsReviewLogic.CreateAsync(dto);
             return Created($"/reviews/{review.Id}", review);
         }
         catch (Exception e)
@@ -35,12 +35,12 @@ public class ReviewController: ControllerBase
     
     
     [HttpGet("CategorySearch")]
-    public async Task<ActionResult<IEnumerable<Review>>> GetListOfReviews( [FromQuery] int? categoryid,[FromQuery] string? categoryname, string? categorytype )
+    public async Task<ActionResult<IEnumerable<Review>>> GetListOfReviews( [FromQuery] int? categoryid)
     {
         try
         {
-            SearchReviewParameterDto parameters = new( categoryid,categoryname,categorytype);
-            IEnumerable<Review> reviews = await reviewLogic.GetByCategory(parameters);
+            SearchReviewParameterDto parameters = new( categoryid);
+            IEnumerable<Review> reviews = await _hotelsReviewLogic.GetByCategory(parameters);
             return Ok(reviews);
         }
         catch (Exception e)
@@ -58,7 +58,7 @@ public class ReviewController: ControllerBase
     {
         try
         {
-            await reviewLogic.UpdateReviewCommentAsync(commentDto);
+            await _hotelsReviewLogic.UpdateReviewCommentAsync(commentDto);
             return Ok();
         }
         catch (Exception e)
@@ -73,7 +73,7 @@ public class ReviewController: ControllerBase
     {
         try
         {
-            await reviewLogic.UpdateReviewStarReviewAsync(starReviewDto);
+            await _hotelsReviewLogic.UpdateReviewStarReviewAsync(starReviewDto);
             return Ok();
         }
         catch (Exception e)
@@ -91,7 +91,7 @@ public class ReviewController: ControllerBase
     {
         try
         {
-            await reviewLogic.DeleteAsync(id);
+            await _hotelsReviewLogic.DeleteAsync(id);
             return Ok();
         }
         catch (Exception e)

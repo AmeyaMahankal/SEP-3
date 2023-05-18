@@ -1,19 +1,17 @@
 package com.Client;
 
-import com.sdj3.protobuf.AccessGrpc;
-import com.sdj3.protobuf.DataAccess;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
 public class DataClient {
     public static void main(String[] args) {
-        ManagedChannel managedChannel = ManagedChannelBuilder
+  /*          ManagedChannel managedChannel = ManagedChannelBuilder
                 .forAddress("localhost",9090)
                 .usePlaintext().build();
 
         AccessGrpc.AccessBlockingStub blockingStub=AccessGrpc.newBlockingStub(managedChannel);
 
-   /*     //CREATE USER--
+    //CREATE USER--
 
       DataAccess.UserCreate request=DataAccess.UserCreate.newBuilder()
                 .setUserName("sdgfagwqerqw")
@@ -164,7 +162,7 @@ public class DataClient {
 
         System.out.println(parkCreated);
 
-*/
+
 
         // RESTAURANT
 
@@ -178,7 +176,7 @@ public class DataClient {
         DataAccess.RestaurantCreated restaurantCreated= blockingStub.createRestaurant(restaurantToCreate);
 
         System.out.println(restaurantCreated);
-
+*/
 
     }
 }
