@@ -6,45 +6,58 @@ using Review = Domain.Models.Review;
 
 namespace FileData.GrpcDAOs;
 
-public class ReviewDAO: IReviewDao
+public class MuseumsReviewDao:IMuseumsReviewDao
 {
+        private Access.AccessClient client;
 
-    private Access.AccessClient client;
-
-    public ReviewDAO()
+    public MuseumsReviewDao()
     {
         var channel = GrpcChannel.ForAddress("http://localhost:9090");
         client = new Access.AccessClient(channel);
     }
     
-    public Task<Review> CreateAsync(Review review)
+      public Task<Review> CreateAsync(Review review)
     {
         ReviewToCreate request = new ReviewToCreate()
         {
             Categoryid = review.CategoryId,
-            Categoryname = review.CategoryName,
-            Categorytype = review.CategoryType,
             Comment = review.Comment,
             Starreview = review.StarReview,
             Userid = review.UserId
         };
 
-        var send = client.CreateReview(request);
+        var send = client.CreateMuseumsReviewAsync(request);
 
         return Task.FromResult(review);
     }
+    public Task<Review?> GetByIdAsync(int dtoReviewId)
+    {
+        ReviewById  request = new ReviewById()
+        {
+            Id = dtoReviewId
+        };
 
+        var send = client.GetMuseumsReviewByIdAsync(request);
+        Review review = new Review()
+        {
+            Id = send.ResponseAsync.Result.Id, 
+            Comment = send.ResponseAsync.Result.Comment,
+            StarReview = send.ResponseAsync.Result.Starreview,
+            UserId = send.ResponseAsync.Result.Userid,
+            CategoryId = send.ResponseAsync.Result.Categoryid
+        };
+        return Task.FromResult(review);
+    }
     public Task<IEnumerable<Review>> GetAsync(SearchReviewParameterDto searchReviewParameterDto)
     {
         SearchReviewPeremetars search = new SearchReviewPeremetars()
         {
  
             Categoryid = (int) searchReviewParameterDto.ReviewContainsCategoryId,
-            Categoryname = searchReviewParameterDto.ReviewContainsCategoryName,
-            Categorytype = searchReviewParameterDto.ReviewContainsCategoryType
+
         };
 
-        var send = client.GetReviewsContainingAsync(search);
+        var send = client.GetMuseumsReviewsContainingAsync(search);
 
         List<Review> listofreviews = new List<Review>();
         foreach (var VARIABLE in send.ResponseAsync.Result.Reviews)
@@ -55,9 +68,7 @@ public class ReviewDAO: IReviewDao
                Comment=VARIABLE.Comment,
                StarReview = VARIABLE.Starreview,
                UserId = VARIABLE.Userid,
-              CategoryId = VARIABLE.Categoryid, 
-               CategoryName = VARIABLE.Categoryname,
-               CategoryType = VARIABLE.Categorytype 
+              CategoryId = VARIABLE.Categoryid 
             };
             listofreviews.Add(review);
         }
@@ -65,26 +76,7 @@ public class ReviewDAO: IReviewDao
         return Task.FromResult(ilistreviews);
     }
 
-    public Task<Review?> GetByIdAsync(int dtoReviewId)
-    {
-        ReviewById  request = new ReviewById()
-        {
-            Id = dtoReviewId
-        };
-
-        var send = client.GetReviewById(request);
-        Review review = new Review()
-        {
-         Id = send.Id, 
-         Comment = send.Comment, 
-        StarReview = send.Starreview,
-        UserId = send.Userid,
-           CategoryId = send.Categoryid,
-           CategoryName = send.Categoryname,
-           CategoryType = send.Categorytype
-        };
-        return Task.FromResult(review);
-    }
+   
 
 
 
@@ -95,11 +87,11 @@ public class ReviewDAO: IReviewDao
             Comment = updated.Comment,
             Id = updated.Id
         };
-        var send = client.UpdateReviewComment(request);
+        var send = client.UpdateMuseumsReviewCommentAsync(request);
 
         Review review = new Review()
         {
-            Comment = send.Comment
+            Comment = send.ResponseAsync.Result.Comment
         };
         return Task.FromResult(review);
     }
@@ -111,11 +103,11 @@ public class ReviewDAO: IReviewDao
             Starreview = updated.StarReview,
             Id = updated.Id
         };
-        var send = client.UpdateStarReview(request);
+        var send = client.UpdateMuseumsStarReviewAsync(request);
 
         Review review = new Review()
         {
-            StarReview = send.Starreview
+            StarReview = send.ResponseAsync.Result.Starreview
         };
         return Task.FromResult(review);
     }
@@ -127,7 +119,7 @@ public class ReviewDAO: IReviewDao
            Id = id
         };
 
-        var send = client.DeleteReview(request);
+        var send = client.DeleteMuseumsReviewAsync(request);
 
         return Task.CompletedTask;
     }

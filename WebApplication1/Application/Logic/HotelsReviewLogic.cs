@@ -5,14 +5,14 @@ using Domain.Models;
 
 namespace Application.Logic;
 
-public class ReviewLogic : IReviewLogic
+public class HotelsReviewLogic : IHotelsReviewLogic
 {
-    private readonly IReviewDao ReviewDao;
+    private readonly IHotelsReviewDao _hotelsReviewDao;
   
 
-    public ReviewLogic(IReviewDao reviewDao)
+    public HotelsReviewLogic(IHotelsReviewDao hotelsReviewDao)
     {
-        this.ReviewDao = reviewDao;
+        this._hotelsReviewDao = hotelsReviewDao;
        
     }
 
@@ -39,21 +39,19 @@ public class ReviewLogic : IReviewLogic
            Comment = dto.CreateComment,
           StarReview = dto.CreateStarReview,
           UserId = dto.UserId, 
-          CategoryId = dto.CategoryId, 
-         CategoryName = dto.CategoryName, 
-        CategoryType = dto.CategoryType
+          CategoryId = dto.CategoryId,
         };
-        Review created = await ReviewDao.CreateAsync(review);
+        Review created = await _hotelsReviewDao.CreateAsync(review);
         return created;
     }
     public Task<IEnumerable<Review>> GetByCategory(SearchReviewParameterDto searchReviewParameterDto)
     {
-        return ReviewDao.GetAsync(searchReviewParameterDto);
+        return _hotelsReviewDao.GetAsync(searchReviewParameterDto);
     }
 
     public async Task UpdateReviewCommentAsync(ReviewUpdateCommentDto commentDto)
     {
-        Review? existing = await ReviewDao.GetByIdAsync(commentDto.ReviewsId);
+        Review? existing = await _hotelsReviewDao.GetByIdAsync(commentDto.ReviewsId);
         if (existing == null)
         {
             throw new Exception($"Review with ID {commentDto.ReviewsId} not found!");
@@ -61,7 +59,7 @@ public class ReviewLogic : IReviewLogic
         Review? review = null;
         if (commentDto.ReviewsId != null)
         {
-            review = await ReviewDao.GetByIdAsync((int)commentDto.ReviewsId);
+            review = await _hotelsReviewDao.GetByIdAsync((int)commentDto.ReviewsId);
             if (review == null)
             {
                 throw new Exception($"Review with id {commentDto.ReviewsId} was not found.");
@@ -73,12 +71,12 @@ public class ReviewLogic : IReviewLogic
             updated.Comment = commentToUse;
             updated.Id = existing.Id;
         }
-        await ReviewDao.UpdateReviewCommentAsync(updated);
+        await _hotelsReviewDao.UpdateReviewCommentAsync(updated);
     }
 
     public async Task UpdateReviewStarReviewAsync(ReviewUpdateStarReviewDto starReviewDto)
     {
-        Review? existing = await ReviewDao.GetByIdAsync(starReviewDto.ReviewsId);
+        Review? existing = await _hotelsReviewDao.GetByIdAsync(starReviewDto.ReviewsId);
         if (existing == null)
         {
             throw new Exception($"Review with ID {starReviewDto.ReviewsId} not found!");
@@ -86,7 +84,7 @@ public class ReviewLogic : IReviewLogic
         Review? review = null;
         if (starReviewDto.ReviewsId != null)
         {
-            review = await ReviewDao.GetByIdAsync(starReviewDto.ReviewsId);
+            review = await _hotelsReviewDao.GetByIdAsync(starReviewDto.ReviewsId);
             if (review == null)
             {
                 throw new Exception($"Review with id {starReviewDto.ReviewsId} was not found.");
@@ -98,18 +96,18 @@ public class ReviewLogic : IReviewLogic
             updated.StarReview = StringToInt(starReviewToUse) ;
             updated.Id = existing.Id;
         }
-        await ReviewDao.UpdateReviewStarReviewAsync(updated);
+        await _hotelsReviewDao.UpdateReviewStarReviewAsync(updated);
     }
 
     public async Task DeleteAsync(int id)
     {
-        Review? report = await ReviewDao.GetByIdAsync(id);
+        Review? report = await _hotelsReviewDao.GetByIdAsync(id);
         if (report == null)
         {
             throw new Exception($"Review with ID {id} was not found!");
         }
 
-        await ReviewDao.DeleteAsync(id);
+        await _hotelsReviewDao.DeleteAsync(id);
     }
 
 

@@ -20,7 +20,7 @@ public class RestaurantDAO : IRestaurantDao
     
     public Task<Restaurant> CreateAsync(Restaurant restaurant)
     {
-        RestaurantToCreate request = new RestaurantToCreate()
+        CategoryToCreate request = new CategoryToCreate()
         {
             Name = restaurant.Name,
             Description = restaurant.Description,
@@ -34,15 +34,15 @@ public class RestaurantDAO : IRestaurantDao
 
     public Task<IEnumerable<Restaurant>> GetAsync(SearchRestaurantParametersDto searchRestaurantParameters)
     {
-        CitysIdForRestaurantList request = new CitysIdForRestaurantList()
+        CitysIdForCategoryList request = new CitysIdForCategoryList()
         {
             Cityid = searchRestaurantParameters.Id
         };
 
-        var send  = client.GetListOfRestaurant(request);
+        var send  = client.GetListOfRestaurantAsync(request);
 
         List<Restaurant> listofRestaurants = new List<Restaurant>();
-        foreach (var VARIABLE in send.Restaurant)
+        foreach (var VARIABLE in send.ResponseAsync.Result.Categories)
         {
             Restaurant restaurant = new Restaurant(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Cityid)
             {
@@ -59,16 +59,16 @@ public class RestaurantDAO : IRestaurantDao
 
     public Task<Restaurant?> GetByIdAsync(int id)
     {
-        RestaurantById request = new RestaurantById()
+        CategoryById request = new CategoryById()
         {
-            Restaurantid = id
+            Categoryid = id
         };
 
-        var send = client.GetRestaurantById(request);
+        var send = client.GetRestaurantByIdAsync(request);
 
-        Restaurant restaurant = new Restaurant(send.Name, send.Description, send.Imageurl,send.Cityid)
+        Restaurant restaurant = new Restaurant(send.ResponseAsync.Result.Name, send.ResponseAsync.Result.Description, send.ResponseAsync.Result.Imageurl,send.ResponseAsync.Result.Cityid)
         {
-            Id = send.Id
+            Id = send.ResponseAsync.Result.Id
         };
 
         return Task.FromResult(restaurant);
@@ -81,12 +81,12 @@ public class RestaurantDAO : IRestaurantDao
 
     public Task DeleteAsync(int id)
     {
-        RestaurantToDelete request = new RestaurantToDelete()
+        CategoryToDelete request = new CategoryToDelete()
         {
-            Restaurantid = id
+            Categoryid = id
         };
 
-        var send = client.DeleteRestaurant(request);
+        var send = client.DeleteRestaurantAsync(request);
 
         return Task.CompletedTask;
     }

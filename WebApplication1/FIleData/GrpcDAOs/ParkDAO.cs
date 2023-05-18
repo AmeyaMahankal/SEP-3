@@ -19,29 +19,29 @@ public class ParkDAO : IParkDao
 
     public Task<Park> CreateAsync(Park park)
     {
-        ParkToCreate request = new ParkToCreate()
+        CategoryToCreate request = new CategoryToCreate()
         {
             Name = park.Name,
             Description = park.Description,
             Imageurl = park.ImageURL,
             Cityid = park.CityId
         };
-        var send = client.CreatePark(request);
+        var send = client.CreateParkAsync(request);
 
         return Task.FromResult(park);
     }
 
     public Task<IEnumerable<Park>> GetAsync(SearchParkParametersDto searchParameters)
     {
-        CitysIdForParkList request = new CitysIdForParkList()
+        CitysIdForCategoryList request = new CitysIdForCategoryList()
         {
             Cityid = searchParameters.Id
         };
 
-        var send  = client.GetListOfParks(request);
+        var send  = client.GetListOfParksAsync(request);
 
         List<Park> listofParks = new List<Park>();
-        foreach (var VARIABLE in send.Park)
+        foreach (var VARIABLE in send.ResponseAsync.Result.Categories)
         {
             Park park = new Park(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Cityid)
             {
@@ -58,16 +58,16 @@ public class ParkDAO : IParkDao
    
    public Task<Park?> GetByIdAsync(int id)
        {
-           ParkById request = new ParkById()
+           CategoryById request = new CategoryById()
            {
-               Parkid = id
+               Categoryid = id
            };
 
-           var send = client.GetParkById(request);
+           var send = client.GetParkByIdAsync(request);
 
-           Park park = new Park(send.Name, send.Description, send.Imageurl,send.Cityid)
+           Park park = new Park(send.ResponseAsync.Result.Name, send.ResponseAsync.Result.Description, send.ResponseAsync.Result.Imageurl,send.ResponseAsync.Result.Cityid)
            {
-               Id = send.Id
+               Id = send.ResponseAsync.Result.Id
            };
 
            return Task.FromResult(park); 
@@ -80,12 +80,12 @@ public class ParkDAO : IParkDao
 
    public Task DeleteAsync(int id)
        {
-           ParkToDelete request = new ParkToDelete()
+           CategoryToDelete request = new CategoryToDelete()
            {
-               Parkid = id
+               Categoryid = id
            };
 
-           var send = client.DeletePark(request);
+           var send = client.DeleteParkAsync(request);
 
            return Task.CompletedTask;
        
