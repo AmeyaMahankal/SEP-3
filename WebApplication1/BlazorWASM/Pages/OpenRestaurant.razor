@@ -56,10 +56,11 @@ else
         try
         {
             reviews = await RestaurantsReviewService.getRestaurantsReviews(id);
+            /*
             theReview = reviews.FirstOrDefault(review => review.CategoryId == id);
             comment = theReview.Comment;
             starreview = theReview.StarReview;
-            
+            */
             AuthenticationState authState = await AuthState;
             ClaimsPrincipal user = authState.User;
             isLoggedIn = user.Identity != null;

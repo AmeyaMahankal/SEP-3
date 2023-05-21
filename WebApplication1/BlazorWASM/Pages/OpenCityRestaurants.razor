@@ -1,0 +1,52 @@
+﻿@page "/OpenCityRestaurants/{cityid:int}"
+@using SEP3lu
+@using HttpClients.ClientInterfaces
+@inject IRestaurantService RestaurantService
+@inject NavigationManager NavMgr
+<h3>OpenCityRestaurants</h3>
+
+@if (restaurants == null)
+{
+    <span>Loading..</span>
+}
+else if (!restaurants.Any())
+{
+    <span>No Restaurants found</span>
+}
+else
+{
+    <div class="users-container">
+        @foreach (Restaurant restaurant in restaurants)
+        {
+            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/OpenRestaurant/{cityid}/{restaurant.Id}")))">
+                <p>@restaurant.ImageURL</p>
+            </div>
+        }
+        <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreateRestaurant/{cityid}")))">
+            <label>Create Restaurant</label>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int cityid { get; set; }
+    
+    private IEnumerable<Restaurant> restaurants;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+
+            restaurants = await RestaurantService.getRestaurants(cityid);
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    
+}
