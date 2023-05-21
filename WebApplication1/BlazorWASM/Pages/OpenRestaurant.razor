@@ -53,6 +53,8 @@ else
     
     private string stringselectedUserId;
     private int? selectedUserId;
+    private int userId;
+    
 
     protected override async Task OnInitializedAsync()
     {
@@ -72,7 +74,7 @@ else
         
             userClaims = user.Claims;
         
-            stringselectedUserId = user.Claims.First(claim => claim.Type.Equals("Id")).ToString();
+            stringselectedUserId = user.Claims.First(claim => claim.Type.Equals("Id")).ToString(); 
 
             string stringid="";
             foreach (char VARIABLE in stringselectedUserId)
@@ -84,7 +86,8 @@ else
             }
 
             selectedUserId = Convert.ToInt32(stringid);
-           
+            userId = (int)selectedUserId;
+
         }
         catch (Exception e)
         {
@@ -97,7 +100,7 @@ else
     {
         try
         {
-            await RestaurantsReviewService.CreateReview(new ReviewCreationDto("hey", 2, (int)selectedUserId, id, "awd", "wada"));
+            await RestaurantsReviewService.CreateReview(new ReviewCreationDto("hey", 2, userId, id, "awd", "wada"));
         }
         catch (Exception e)
         {
