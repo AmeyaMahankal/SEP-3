@@ -37,11 +37,11 @@ namespace WEBAPI.Controllers;
         }
     
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Hotel>>> GetAsync([FromQuery] string? name,[FromQuery] int? id )
+        public async Task<ActionResult<IEnumerable<Hotel>>> GetAsync([FromQuery] int? id )
         {
             try
             {
-                SearchHotelParametersDto parameters = new(name,id);
+                SearchHotelParametersDto parameters = new(id);
                 IEnumerable<Hotel> hotels = await HotelLogic.GetAsync(parameters);
                 return Ok(hotels);
             }

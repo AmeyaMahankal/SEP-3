@@ -35,10 +35,6 @@ public class ParkFileDao: IParkDao
     public Task<IEnumerable<Park>> GetAsync(SearchParkParametersDto searchParkParameters)
     {
         IEnumerable<Park> parks = context.Parks.AsEnumerable();
-        if (searchParkParameters.NameContains != null)
-        {
-            parks = context.Parks.Where(u => u.Name.Equals(searchParkParameters.NameContains));
-        }
         if (searchParkParameters.Id != null)
         {
             parks = context.Parks.Where(u => u.Id.Equals(searchParkParameters.Id));

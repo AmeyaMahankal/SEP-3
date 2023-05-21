@@ -2,8 +2,9 @@
 @using Domain.Models
 @using HttpClients.ClientInterfaces
 @using SEP3lu
+@using System.Security.Claims
 @inject IRestaurantsReviewService RestaurantsReviewService;
-<h3>OpenRestaurant city id @cityid restaurant @id</h3>
+<h3>OpenRestaurant city id @cityid restaurant @id  @selectedUserId</h3>
 
 
 
@@ -40,6 +41,15 @@ else
 
     private string comment;
     private int starreview;
+    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    
+    private string stringselectedUserId;
+    private int? selectedUserId;
 
     protected override async Task OnInitializedAsync()
     {
@@ -49,6 +59,27 @@ else
             theReview = reviews.FirstOrDefault(review => review.CategoryId == id);
             comment = theReview.Comment;
             starreview = theReview.StarReview;
+            
+            AuthenticationState authState = await AuthState;
+            ClaimsPrincipal user = authState.User;
+            isLoggedIn = user.Identity != null;
+        
+            if (!isLoggedIn) return;
+        
+            userClaims = user.Claims;
+        
+            stringselectedUserId = user.Claims.First(claim => claim.Type.Equals("Id")).ToString();
+
+            string stringid="";
+            foreach (char VARIABLE in stringselectedUserId)
+            {
+                if (Char.IsDigit(VARIABLE))
+                {
+                    stringid = stringid + VARIABLE;
+                }
+            }
+
+            selectedUserId = Convert.ToInt32(stringid);
            
         }
         catch (Exception e)
