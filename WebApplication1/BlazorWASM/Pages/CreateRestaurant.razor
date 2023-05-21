@@ -4,6 +4,20 @@
 @inject IRestaurantService RestaurantService
 
 <h3>CreateRestaurant</h3>
+<div class="form-group field">
+        <label>Name:</label>
+        <input type="text" @bind="name" @bind:event="oninput"/>
+        @if (!string.IsNullOrEmpty(resultmsg))
+        {
+            <label style="color: @color">@resultmsg</label>
+        }
+        <label>Description:</label>
+        <input type="text" @bind="desc" @bind:event="oninput"/>
+        <label>ImageURL::</label>
+        <input type="text" @bind="imageurl" @bind:event="oninput"/>
+        
+    
+    </div>
 <div class="button-row">
     <button @onclick="Create" class="acceptbtn">Create</button>
 </div>
@@ -17,6 +31,7 @@
     private string desc = "fingerlickingood";
     private string imageurl = "chickentender";
     private string resultmsg;
+    private string color = "";
 
     private async Task Create()
     {
@@ -27,6 +42,8 @@
         catch (Exception e)
         {
             Console.WriteLine(e);
+            resultmsg = e.Message;
+            color = "red";
             throw;
         }
     }
