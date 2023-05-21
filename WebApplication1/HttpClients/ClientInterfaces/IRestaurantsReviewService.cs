@@ -9,5 +9,5 @@ public interface IRestaurantsReviewService
 {
     public Task<IEnumerable<Review>?> getRestaurantsReviews(int restaurantId);
 
-    Task<Restaurant> CreateReview(ReviewCreationDto dto);
+    Task<Review> CreateReview(ReviewCreationDto dto);
 }

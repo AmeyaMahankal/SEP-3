@@ -41,9 +41,19 @@ public class RestaurantsReviewHttpClient : IRestaurantsReviewService
         
     }
 
-    public Task<Restaurant> CreateReview(ReviewCreationDto dto)
+    public async Task<Review> CreateReview(ReviewCreationDto dto)
     {
-        throw new NotImplementedException();
+        HttpResponseMessage response = await client.PostAsJsonAsync("/RestaurantsReview",dto);
+
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        Review review = JsonSerializer.Deserialize<Review>(result)!;
+        return review;
+
     }
 
 

@@ -3,6 +3,7 @@
 @using HttpClients.ClientInterfaces
 @using SEP3lu
 @using System.Security.Claims
+@using Domain.DTOs
 @inject IRestaurantsReviewService RestaurantsReviewService;
 <h3>OpenRestaurant city id @cityid restaurant @id  @selectedUserId</h3>
 
@@ -28,7 +29,9 @@ else
         }
     </div>
 }
-
+<div class="button-row">
+    <button @onclick="Create" class="acceptbtn">Create</button>
+</div>
 
 @code {
     [Parameter]
@@ -86,6 +89,20 @@ else
         catch (Exception e)
         {
             Console.WriteLine(e);
+            throw;
+        }
+    }
+    
+    private async Task Create()
+    {
+        try
+        {
+            await RestaurantsReviewService.CreateReview(new ReviewCreationDto("hey", 2, (int)selectedUserId, id, "awd", "wada"));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+
             throw;
         }
     }
