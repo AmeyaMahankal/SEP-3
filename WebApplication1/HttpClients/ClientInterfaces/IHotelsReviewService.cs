@@ -5,9 +5,9 @@ using SEP3lu;
 
 namespace HttpClients.ClientInterfaces;
 
-public interface IRestaurantsReviewService
+public interface IHotelsReviewService
 {
-    public Task<IEnumerable<Review>?> getRestaurantsReviews(int restaurantId);
+    public Task<IEnumerable<Review>?> getHotelsReviews(int hotelId);
 
     Task<Review> CreateReview(ReviewCreationDto dto);
 }

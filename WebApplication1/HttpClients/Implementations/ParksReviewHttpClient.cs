@@ -8,18 +8,18 @@ using SEP3lu;
 
 namespace HttpClients.Implementations;
 
-public class RestaurantsReviewHttpClient : IRestaurantsReviewService
+public class ParksReviewHttpClient : IParksReviewService
 {
     private readonly HttpClient client;
 
-    public RestaurantsReviewHttpClient (HttpClient client)
+    public ParksReviewHttpClient (HttpClient client)
     {
         this.client = client;
     }
 
-    public async Task<IEnumerable<Review>?> getRestaurantsReviews(int categoryid)
+    public async Task<IEnumerable<Review>?> getParksReviews(int categoryid)
     {
-        string uri = "/RestaurantsReview";
+        string uri = "/ParksReview";
 
         uri += $"?categoryid={categoryid}";
         
@@ -48,17 +48,5 @@ public class RestaurantsReviewHttpClient : IRestaurantsReviewService
 
 
     
-    /*
-    public async Task<Restaurant> CreateRestaurant(RestaurantCreationDto dto)
-    {
-        HttpResponseMessage response = await client.PostAsJsonAsync("/restaurant", dto);
-        string result = await response.Content.ReadAsStringAsync();
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new Exception(result);
-        }
 
-        Restaurant restaurant = JsonSerializer.Deserialize<Restaurant>(result)!;
-        return restaurant;
-    }*/
 }
