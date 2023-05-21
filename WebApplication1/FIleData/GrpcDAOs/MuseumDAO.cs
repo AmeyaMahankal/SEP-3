@@ -33,7 +33,26 @@ public class MuseumDAO : IMuseumDao
 
     public Task<IEnumerable<Museum>> GetAsync(SearchMuseumParametersDto searchMuseumParameters)
     {
-        throw new NotImplementedException();
+        CitysIdForCategoryList request = new CitysIdForCategoryList()
+        {
+            Cityid = searchMuseumParameters.Id
+        };
+
+        var send = client.GetListOfMuseumsAsync(request);
+        List<Museum> listmus = new List<Museum>();
+        foreach (var VARIABLE in send.ResponseAsync.Result.Categories)
+        {
+            Museum museum = new Museum(VARIABLE.Name, VARIABLE.Description, VARIABLE.Imageurl, VARIABLE.Cityid)
+            {
+                Id = VARIABLE.Id
+            };
+            listmus.Add(museum);
+        }
+
+        IEnumerable<Museum> ilist = listmus;
+
+        return Task.FromResult(ilist);
+
     }
 
     public Task<Museum?> GetByIdAsync(int id)

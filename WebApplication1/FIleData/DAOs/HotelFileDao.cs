@@ -33,10 +33,7 @@ public class HotelFileDao : IHotelDao
     public Task<IEnumerable<Hotel>> GetAsync(SearchHotelParametersDto searchHotelParameters)
     {
         IEnumerable<Hotel> hotels = context.Hotels.AsEnumerable();
-        if (searchHotelParameters.NameContains != null)
-        {
-            hotels = context.Hotels.Where(u => u.Name.Equals(searchHotelParameters.NameContains));
-        }
+
         if (searchHotelParameters.Id != null)
         {
             hotels = context.Hotels.Where(u => u.Id.Equals(searchHotelParameters.Id));

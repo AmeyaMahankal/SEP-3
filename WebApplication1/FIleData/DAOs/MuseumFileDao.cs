@@ -33,10 +33,7 @@ public class MuseumFileDao : IMuseumDao
     public Task<IEnumerable<Museum>> GetAsync(SearchMuseumParametersDto searchMuseumParameters)
     {
         IEnumerable<Museum> museums = context.Museums.AsEnumerable();
-        if (searchMuseumParameters.NameContains != null)
-        {
-            museums = context.Museums.Where(u => u.Name.Equals(searchMuseumParameters.NameContains));
-        }
+
         if (searchMuseumParameters.Id != null)
         {
             museums = context.Museums.Where(u => u.Id.Equals(searchMuseumParameters.Id));

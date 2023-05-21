@@ -2,12 +2,12 @@
 
 public class SearchMuseumParametersDto
 {
-    public string? NameContains { get; set; }
+
     public int Id { get; set; }
 
-    public SearchMuseumParametersDto(string? nameContains,  int? id)
+    public SearchMuseumParametersDto(  int? id)
     {
-        NameContains = nameContains;
+
         Id = (int)id;
     }
 

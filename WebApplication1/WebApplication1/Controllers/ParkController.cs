@@ -34,11 +34,11 @@ namespace WEBAPI.Controllers;
         }
     
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Park>>> GetAsync([FromQuery] string? name,[FromQuery] int? id )
+        public async Task<ActionResult<IEnumerable<Park>>> GetAsync([FromQuery] int? id )
         {
             try
             {
-                SearchParkParametersDto parameters = new(name, id);
+                SearchParkParametersDto parameters = new( id);
                 IEnumerable<Park>parks = await parkLogic.GetAsync(parameters);
                 return Ok(parks);
             }

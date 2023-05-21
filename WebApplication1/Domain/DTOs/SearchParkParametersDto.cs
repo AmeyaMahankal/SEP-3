@@ -2,12 +2,10 @@
 
 public class SearchParkParametersDto
 {
-    public string? NameContains { get; set; }
     public int Id { get; set; }
 
-    public SearchParkParametersDto(string? nameContains,  int? id)
+    public SearchParkParametersDto(  int? id)
     {
-        NameContains = nameContains;
         Id = (int)id;
     }
 

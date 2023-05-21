@@ -37,12 +37,12 @@ public class MuseumController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Museum>>> GetAsync([FromQuery] string? name,
+    public async Task<ActionResult<IEnumerable<Museum>>> GetAsync(
         [FromQuery] int? id)
     {
         try
         {
-            SearchMuseumParametersDto parameters = new( name, id);
+            SearchMuseumParametersDto parameters = new( id);
             IEnumerable<Museum> museums = await museumLogic.GetAsync(parameters);
             return Ok(museums);
         }
