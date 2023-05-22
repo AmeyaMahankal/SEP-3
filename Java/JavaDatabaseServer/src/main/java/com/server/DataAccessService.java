@@ -1,6 +1,6 @@
 package com.server;
 
-import com.DAO.DAO;
+import com.DAO.*;
 import com.model.*;
 import com.sdj3.protobuf.AccessGrpc;
 import com.sdj3.protobuf.DataAccess;
@@ -10,13 +10,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataAccessService extends AccessGrpc.AccessImplBase {
-    private DAO Dao = new DAO();
 
+    private UserDAOImpl userDAO = new UserDAOImpl();
+private CityDAOImpl cityDAO = new CityDAOImpl();
+private HotelDAOImpl hotelDAO = new HotelDAOImpl();
+private HotelReviewDAOImpl hotelReviewDAO = new HotelReviewDAOImpl();
+private MuseumDAOImpl museumDAO = new MuseumDAOImpl();
+private MuseumReviewDAOImpl museumReviewDAO = new MuseumReviewDAOImpl();
+private ParkDAOImpl parkDAO = new ParkDAOImpl();
+private ParkReviewDAOImpl parkReviewDAO = new ParkReviewDAOImpl();
+private ReportDAOImpl reportDAO = new ReportDAOImpl();
+private RestaurantDAOImpl restaurantDAO = new RestaurantDAOImpl();
+private RestaurantReviewDAOImpl restaurantReviewDAO = new RestaurantReviewDAOImpl();
 
     @Override
     public void getByUsername(DataAccess.UserGetUsername request, StreamObserver<DataAccess.User> responseObserver) {
         //super.getByUsername(request, responseObserver);
-        User user = Dao.selectUserWithUsername(request.getUsername());
+        User user = userDAO.selectUserWithUsername(request.getUsername());
 
         //User user=new User(1,"hey","awdawdad","Admin");
         if (user == null) {
@@ -45,7 +55,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     @Override
     public void getById(DataAccess.UserGetId request, StreamObserver<DataAccess.User> responseObserver) {
         //super.getById(request, responseObserver);
-        User user = Dao.selectUserWithId(request.getId());
+        User user = userDAO.selectUserWithId(request.getId());
 
         DataAccess.User response = DataAccess.User.newBuilder()
                 .setId(user.getId())
@@ -66,7 +76,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         String password = request.getPassWord();
         String role = "User";
 
-        Dao.insertUser(username, password, role);
+        userDAO.insertUser(username, password, role);
 
         System.out.println("Received request ==> " + request);
         DataAccess.UserCreateResponse response = DataAccess.UserCreateResponse.newBuilder()
@@ -84,7 +94,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         //super.getUsersContaining(request, responseObserver);
         DataAccess.listOfUsers.Builder builder = DataAccess.listOfUsers.newBuilder();
 
-        ArrayList<User> users = Dao.getUsersWithString(request.getUsercontains());
+        ArrayList<User> users = userDAO.getUsersWithString(request.getUsercontains());
 
         for (User user : users) {
             builder.addUsers(DataAccess.User.newBuilder()
@@ -109,7 +119,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
         DataAccess.listofcity.Builder builder = DataAccess.listofcity.newBuilder();
 
-        ArrayList<City> cities=Dao.getCities(request.getCityname());
+        ArrayList<City> cities= cityDAO.getCities(request.getCityname());
 
         for(City city : cities)
         {
@@ -133,7 +143,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         String description = request.getDescription();
         String ImageURL = request.getImageurl();
 
-        Dao.insertCity(name, description, ImageURL);
+        cityDAO.insertCity(name, description, ImageURL);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CityCreated response = DataAccess.CityCreated.newBuilder()
@@ -150,7 +160,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     @Override
         public void getCityById(DataAccess.CityById request, StreamObserver<DataAccess.City> responseObserver) {
 
-            City city = Dao.getCityById(request.getCityid());
+            City city = cityDAO.getCityById(request.getCityid());
 
             DataAccess.City response = DataAccess.City.newBuilder()
                     .setId(city.getId())
@@ -176,7 +186,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int cityId = request.getCityid();
 
 
-        Dao.insertHotel(name, Description, imageURL, cityId);
+        hotelDAO.insertHotel(name, Description, imageURL, cityId);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryCreated response = DataAccess.CategoryCreated.newBuilder()
@@ -190,7 +200,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     @Override
     public void getHotelById(DataAccess.CategoryById request, StreamObserver<DataAccess.Category> responseObserver) {
-        Hotel hotel = Dao.getHotelyById(request.getCategoryid());
+        Hotel hotel = hotelDAO.getHotelyById(request.getCategoryid());
 
         DataAccess.Category response = DataAccess.Category.newBuilder()
                 .setId(hotel.getId())
@@ -210,7 +220,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getCategoryid();
 
 
-        Dao.updateHotelName(name, id);
+        hotelDAO.updateHotelName(name, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryNameUpdated response = DataAccess.CategoryNameUpdated.newBuilder()
@@ -229,7 +239,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getCategoryid();
 
 
-        Dao.updateHotelDescription(Description, id);
+        hotelDAO.updateHotelDescription(Description, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryDescriptionUpdated response = DataAccess.CategoryDescriptionUpdated.newBuilder()
@@ -247,7 +257,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getCategoryid();
 
 
-        Dao.deleteHotel(id);
+        hotelDAO.deleteHotel(id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryDeleted response = DataAccess.CategoryDeleted.newBuilder()
@@ -263,7 +273,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     public void getListOfHotels(DataAccess.CitysIdForCategoryList request, StreamObserver<DataAccess.ListOfACategory> responseObserver) {
         DataAccess.ListOfACategory.Builder builder = DataAccess.ListOfACategory.newBuilder();
 
-        List<Hotel> hotels = Dao.listOfHotels(request.getCityid());
+        List<Hotel> hotels = hotelDAO.listOfHotels(request.getCityid());
 
         for (Hotel hotel : hotels) {
             builder.addCategories(DataAccess.Category.newBuilder()
@@ -290,7 +300,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int categoryid = request.getCategoryid();
 
 
-        Dao.insertHotelReview(comment, starreveiw, userid, categoryid);
+        hotelReviewDAO.insertHotelReview(comment, starreveiw, userid, categoryid);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewCreated response = DataAccess.ReviewCreated.newBuilder()
@@ -305,7 +315,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     @Override
     public void getHotelsReviewById(DataAccess.ReviewById request, StreamObserver<DataAccess.Review> responseObserver) {
-        Review review = Dao.getHotelsReviewById(request.getId());
+        Review review = hotelReviewDAO.getHotelsReviewById(request.getId());
 
         DataAccess.Review response = DataAccess.Review.newBuilder()
                 .setId(review.getId())
@@ -325,7 +335,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         String comment = request.getComment();
 
 
-        Dao.updateHotelsReviewComment(comment, id);
+        hotelReviewDAO.updateHotelsReviewComment(comment, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewCommentUpdated response = DataAccess.ReviewCommentUpdated.newBuilder()
@@ -343,7 +353,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int starreview = request.getStarreview();
 
 
-        Dao.updateHotelsStarReview(starreview, id);
+        hotelReviewDAO.updateHotelsStarReview(starreview, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewsStarReviewUpdated response = DataAccess.ReviewsStarReviewUpdated.newBuilder()
@@ -361,7 +371,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getId();
 
 
-        Dao.deleteHotelReview(id);
+        hotelReviewDAO.deleteHotelReview(id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewDeleted response = DataAccess.ReviewDeleted.newBuilder()
@@ -376,7 +386,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     public void getHotelReviewsContaining(DataAccess.SearchReviewPeremetars request, StreamObserver<DataAccess.ReveiewList> responseObserver) {
         DataAccess.ReveiewList.Builder builder = DataAccess.ReveiewList.newBuilder();
 
-        ArrayList<Review> reviews = Dao.getHotelReviewsWithHotelId(request.getCategoryid());
+        ArrayList<Review> reviews = hotelReviewDAO.getHotelReviewsWithHotelId(request.getCategoryid());
 
         for (Review review : reviews) {
             builder.addReviews(DataAccess.Review.newBuilder()
@@ -402,7 +412,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int cityId = request.getCityid();
 
 
-        Dao.insertMuseum(name, Description, imageURL, cityId);
+        museumDAO.insertMuseum(name, Description, imageURL, cityId);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryCreated response = DataAccess.CategoryCreated.newBuilder()
@@ -416,7 +426,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     @Override
     public void getMuseumById(DataAccess.CategoryById request, StreamObserver<DataAccess.Category> responseObserver) {
-        Museum museum = Dao.getMuseumyById(request.getCategoryid());
+        Museum museum = museumDAO.getMuseumyById(request.getCategoryid());
 
         DataAccess.Category response = DataAccess.Category.newBuilder()
                 .setId(museum.getId())
@@ -436,7 +446,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getCategoryid();
 
 
-        Dao.updateMuseumName(name, id);
+        museumDAO.updateMuseumName(name, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryNameUpdated response = DataAccess.CategoryNameUpdated.newBuilder()
@@ -454,7 +464,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getCategoryid();
 
 
-        Dao.updateMuseumDescription(Description, id);
+        museumDAO.updateMuseumDescription(Description, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryDescriptionUpdated response = DataAccess.CategoryDescriptionUpdated.newBuilder()
@@ -471,7 +481,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getCategoryid();
 
 
-        Dao.deleteMuseum(id);
+        museumDAO.deleteMuseum(id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryDeleted response = DataAccess.CategoryDeleted.newBuilder()
@@ -487,7 +497,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     public void getListOfMuseums(DataAccess.CitysIdForCategoryList request, StreamObserver<DataAccess.ListOfACategory> responseObserver) {
         DataAccess.ListOfACategory.Builder builder = DataAccess.ListOfACategory.newBuilder();
 
-        List<Museum> museums = Dao.listOfMuseums(request.getCityid());
+        List<Museum> museums = museumDAO.listOfMuseums(request.getCityid());
 
         for (Museum museum : museums) {
             builder.addCategories(DataAccess.Category.newBuilder()
@@ -513,7 +523,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int categoryid = request.getCategoryid();
 
 
-        Dao.insertMuseumReview(comment, starreveiw, userid, categoryid);
+        museumReviewDAO.insertMuseumReview(comment, starreveiw, userid, categoryid);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewCreated response = DataAccess.ReviewCreated.newBuilder()
@@ -528,7 +538,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     @Override
     public void getMuseumsReviewById(DataAccess.ReviewById request, StreamObserver<DataAccess.Review> responseObserver) {
-        Review review = Dao.getMuseumsReviewById(request.getId());
+        Review review = museumReviewDAO.getMuseumsReviewById(request.getId());
 
         DataAccess.Review response = DataAccess.Review.newBuilder()
                 .setId(review.getId())
@@ -548,7 +558,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         String comment = request.getComment();
 
 
-        Dao.updateMuseumsReviewComment(comment, id);
+        museumReviewDAO.updateMuseumsReviewComment(comment, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewCommentUpdated response = DataAccess.ReviewCommentUpdated.newBuilder()
@@ -567,7 +577,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int starreview = request.getStarreview();
 
 
-        Dao.updateMuseumsStarReview(starreview, id);
+        museumReviewDAO.updateMuseumsStarReview(starreview, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewsStarReviewUpdated response = DataAccess.ReviewsStarReviewUpdated.newBuilder()
@@ -585,7 +595,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getId();
 
 
-        Dao.deleteMuseumReview(id);
+        museumReviewDAO.deleteMuseumReview(id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewDeleted response = DataAccess.ReviewDeleted.newBuilder()
@@ -600,7 +610,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     public void getMuseumsReviewsContaining(DataAccess.SearchReviewPeremetars request, StreamObserver<DataAccess.ReveiewList> responseObserver) {
         DataAccess.ReveiewList.Builder builder = DataAccess.ReveiewList.newBuilder();
 
-        ArrayList<Review> reviews = Dao.getMuseumReviewsWithMuseumsId(request.getCategoryid());
+        ArrayList<Review> reviews = museumReviewDAO.getMuseumReviewsWithMuseumsId(request.getCategoryid());
 
         for (Review review : reviews) {
             builder.addReviews(DataAccess.Review.newBuilder()
@@ -626,7 +636,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int cityId = request.getCityid();
 
 
-        Dao.insertPark(name, Description, imageURL, cityId);
+        parkDAO.insertPark(name, Description, imageURL, cityId);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryCreated response = DataAccess.CategoryCreated.newBuilder()
@@ -640,7 +650,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     @Override
     public void getParkById(DataAccess.CategoryById request, StreamObserver<DataAccess.Category> responseObserver) {
-        Park park = Dao.getParkById(request.getCategoryid());
+        Park park = parkDAO.getParkById(request.getCategoryid());
 
         DataAccess.Category response = DataAccess.Category.newBuilder()
                 .setId(park.getId())
@@ -660,7 +670,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getCategoryid();
 
 
-        Dao.updateParkName(name, id);
+        parkDAO.updateParkName(name, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryNameUpdated response = DataAccess.CategoryNameUpdated.newBuilder()
@@ -678,7 +688,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getCategoryid();
 
 
-        Dao.updateParkDescription(Description, id);
+        parkDAO.updateParkDescription(Description, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryDescriptionUpdated response = DataAccess.CategoryDescriptionUpdated.newBuilder()
@@ -695,7 +705,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getCategoryid();
 
 
-        Dao.deletePark(id);
+        parkDAO.deletePark(id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryDeleted response = DataAccess.CategoryDeleted.newBuilder()
@@ -711,7 +721,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     public void getListOfParks(DataAccess.CitysIdForCategoryList request, StreamObserver<DataAccess.ListOfACategory> responseObserver) {
         DataAccess.ListOfACategory.Builder builder = DataAccess.ListOfACategory.newBuilder();
 
-        List<Park> parks = Dao.listOfParks(request.getCityid());
+        List<Park> parks = parkDAO.listOfParks(request.getCityid());
 
         for (Park park : parks) {
             builder.addCategories(DataAccess.Category.newBuilder()
@@ -737,7 +747,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int categoryid = request.getCategoryid();
 
 
-        Dao.insertParkReview(comment, starreveiw, userid, categoryid);
+        parkReviewDAO.insertParkReview(comment, starreveiw, userid, categoryid);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewCreated response = DataAccess.ReviewCreated.newBuilder()
@@ -752,7 +762,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     @Override
     public void getParksReviewById(DataAccess.ReviewById request, StreamObserver<DataAccess.Review> responseObserver) {
-        Review review = Dao.getParksReviewById(request.getId());
+        Review review = parkReviewDAO.getParksReviewById(request.getId());
 
         DataAccess.Review response = DataAccess.Review.newBuilder()
                 .setId(review.getId())
@@ -772,7 +782,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         String comment = request.getComment();
 
 
-        Dao.updateParksReviewComment(comment, id);
+        parkReviewDAO.updateParksReviewComment(comment, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewCommentUpdated response = DataAccess.ReviewCommentUpdated.newBuilder()
@@ -791,7 +801,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int starreview = request.getStarreview();
 
 
-        Dao.updateParksStarReview(starreview, id);
+        parkReviewDAO.updateParksStarReview(starreview, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewsStarReviewUpdated response = DataAccess.ReviewsStarReviewUpdated.newBuilder()
@@ -809,7 +819,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getId();
 
 
-        Dao.deleteParkReview(id);
+        parkReviewDAO.deleteParkReview(id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewDeleted response = DataAccess.ReviewDeleted.newBuilder()
@@ -824,7 +834,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     public void getParksReviewsContaining(DataAccess.SearchReviewPeremetars request, StreamObserver<DataAccess.ReveiewList> responseObserver) {
         DataAccess.ReveiewList.Builder builder = DataAccess.ReveiewList.newBuilder();
 
-        ArrayList<Review> reviews = Dao.getParkReviewsWithParksId(request.getCategoryid());
+        ArrayList<Review> reviews = parkReviewDAO.getParkReviewsWithParksId(request.getCategoryid());
 
         for (Review review : reviews) {
             builder.addReviews(DataAccess.Review.newBuilder()
@@ -850,7 +860,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int cityId = request.getCityid();
 
 
-        Dao.insertRestaurant(name, Description, imageURL, cityId);
+        restaurantDAO.insertRestaurant(name, Description, imageURL, cityId);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryCreated response = DataAccess.CategoryCreated.newBuilder()
@@ -864,7 +874,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     @Override
     public void getRestaurantById(DataAccess.CategoryById request, StreamObserver<DataAccess.Category> responseObserver) {
-        Restaurant restaurant = Dao.getRestaurantById(request.getCategoryid());
+        Restaurant restaurant = restaurantDAO.getRestaurantById(request.getCategoryid());
 
         DataAccess.Category response = DataAccess.Category.newBuilder()
                 .setId(restaurant.getId())
@@ -884,7 +894,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getCategoryid();
 
 
-        Dao.updateRestaurantName(name, id);
+        restaurantDAO.updateRestaurantName(name, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryNameUpdated response = DataAccess.CategoryNameUpdated.newBuilder()
@@ -902,7 +912,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getCategoryid();
 
 
-        Dao.updateRestaurantDescription(Description, id);
+        restaurantDAO.updateRestaurantDescription(Description, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryDescriptionUpdated response = DataAccess.CategoryDescriptionUpdated.newBuilder()
@@ -919,7 +929,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getCategoryid();
 
 
-        Dao.deleteRestaurant(id);
+        restaurantDAO.deleteRestaurant(id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.CategoryDeleted response = DataAccess.CategoryDeleted.newBuilder()
@@ -936,7 +946,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     public void getListOfRestaurant(DataAccess.CitysIdForCategoryList request, StreamObserver<DataAccess.ListOfACategory> responseObserver) {
         DataAccess.ListOfACategory.Builder builder = DataAccess.ListOfACategory.newBuilder();
 
-        List<Restaurant> restaurants = Dao.listOfRestaurant(request.getCityid());
+        List<Restaurant> restaurants = restaurantDAO.listOfRestaurant(request.getCityid());
 
         for (Restaurant restaurant : restaurants) {
             builder.addCategories(DataAccess.Category.newBuilder()
@@ -955,7 +965,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
 
 
-    // Museum Reviews
+    // Restaurant Reviews
     @Override
     public void createRestaurantsReview(DataAccess.ReviewToCreate request, StreamObserver<DataAccess.ReviewCreated> responseObserver) {
         String comment = request.getComment();
@@ -964,7 +974,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int categoryid = request.getCategoryid();
 
 
-        Dao.insertRestaurantReview(comment, starreveiw, userid, categoryid);
+        restaurantReviewDAO.insertRestaurantReview(comment, starreveiw, userid, categoryid);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewCreated response = DataAccess.ReviewCreated.newBuilder()
@@ -979,7 +989,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     @Override
     public void getRestaurantsReviewById(DataAccess.ReviewById request, StreamObserver<DataAccess.Review> responseObserver) {
-        Review review = Dao.getRestaurantsReviewById(request.getId());
+        Review review = restaurantReviewDAO.getRestaurantsReviewById(request.getId());
 
         DataAccess.Review response = DataAccess.Review.newBuilder()
                 .setId(review.getId())
@@ -999,7 +1009,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         String comment = request.getComment();
 
 
-        Dao.updateRestaurantsReviewComment(comment, id);
+        restaurantReviewDAO.updateRestaurantsReviewComment(comment, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewCommentUpdated response = DataAccess.ReviewCommentUpdated.newBuilder()
@@ -1018,7 +1028,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int starreview = request.getStarreview();
 
 
-        Dao.updateRestaurantsStarReview(starreview, id);
+        restaurantReviewDAO.updateRestaurantsStarReview(starreview, id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewsStarReviewUpdated response = DataAccess.ReviewsStarReviewUpdated.newBuilder()
@@ -1036,7 +1046,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getId();
 
 
-        Dao.deleteRestaurantReview(id);
+        restaurantReviewDAO.deleteRestaurantReview(id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReviewDeleted response = DataAccess.ReviewDeleted.newBuilder()
@@ -1051,7 +1061,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
     public void getRestaurantsReviewsContaining(DataAccess.SearchReviewPeremetars request, StreamObserver<DataAccess.ReveiewList> responseObserver) {
         DataAccess.ReveiewList.Builder builder = DataAccess.ReveiewList.newBuilder();
 
-        ArrayList<Review> reviews = Dao.getRestaurantReviewsWithRestaurantsId(request.getCategoryid());
+        ArrayList<Review> reviews = restaurantReviewDAO.getRestaurantReviewsWithRestaurantsId(request.getCategoryid());
 
         for (Review review : reviews) {
             builder.addReviews(DataAccess.Review.newBuilder()
@@ -1081,7 +1091,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         String description = request.getDescription();
         int reviewid = request.getReviewid();
 
-        Dao.insertReport( userid,description,reviewid);
+        reportDAO.insertReport( userid,description,reviewid);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReportCreated response = DataAccess.ReportCreated.newBuilder()
@@ -1096,7 +1106,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
     @Override
     public void getReportById(DataAccess.ReportById request, StreamObserver<DataAccess.Report> responseObserver) {
-        Report report = Dao.getReportById(request.getReportid());
+        Report report = reportDAO.getReportById(request.getReportid());
 
         DataAccess.Report response = DataAccess.Report.newBuilder()
                 .setId(report.getId())
@@ -1114,7 +1124,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         int id = request.getReportid();
 
 
-        Dao.deleteReport(id);
+        reportDAO.deleteReport(id);
 
         System.out.println("Received request ==> " + request);
         DataAccess.ReportDeleted response = DataAccess.ReportDeleted.newBuilder()
@@ -1131,7 +1141,7 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
 
         DataAccess.ListOfReports.Builder builder = DataAccess.ListOfReports.newBuilder();
 
-        List<Report> reports = Dao.listOfReports(request.getEmpty());
+        List<Report> reports = reportDAO.listOfReports(request.getEmpty());
 
         for (Report report : reports) {
             builder.addReport(DataAccess.Report.newBuilder()
@@ -1146,4 +1156,5 @@ public class DataAccessService extends AccessGrpc.AccessImplBase {
         responseObserver.onCompleted();
 
     }
+
 }

@@ -6,7 +6,17 @@ import java.util.ArrayList;
 
 public class DaoTests {
     public static void main(String[] args) {
-        DAO d=new DAO();
+         UserDAOImpl userDAO = new UserDAOImpl();
+        CityDAOImpl cityDAO = new CityDAOImpl();
+        HotelDAOImpl hotelDAO = new HotelDAOImpl();
+         HotelReviewDAOImpl hotelReviewDAO = new HotelReviewDAOImpl();
+         MuseumDAOImpl museumDAO = new MuseumDAOImpl();
+         MuseumReviewDAOImpl museumReviewDAO = new MuseumReviewDAOImpl();
+         ParkDAOImpl parkDAO = new ParkDAOImpl();
+         ParkReviewDAOImpl parkReviewDAO = new ParkReviewDAOImpl();
+         ReportDAOImpl reportDAO = new ReportDAOImpl();
+         RestaurantDAOImpl restaurantDAO = new RestaurantDAOImpl();
+         RestaurantReviewDAOImpl restaurantReviewDAO = new RestaurantReviewDAOImpl();
        // d.insertHotel("lknlknl.","it is one of the most beautiful cities on the face of this horrid world","photo-of-hell",1);
         //d.insertMuseum("Horsens","it is one of the most beautiful cities on the face of this horrid world","photo-of-hell",1);
         //d.insertPark("Horsens","it is one of the most beautiful cities on the face of this horrid world","photo-of-hell",1);
@@ -18,7 +28,7 @@ public class DaoTests {
 
            // System.out.println( d.listOfReports("empty"));
         //d.updateStarReview(3,1);
-        System.out.println(d.getCities("DF"));
+
 
     }
 }
