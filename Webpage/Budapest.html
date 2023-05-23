@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/cities/Cities.css">
+  <script src="js/Script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+
+
+<body>
+  <div class="container">
+
+
+
+ <!-- The top menu -->
+    <header>
+      <nav>
+        <a href="Home.html" class="logo-link"><img src="img/Logo.jpg" alt="Logo"></a>
+        <ul class="menu">
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="Destination.html">Destinations</a></li>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+
+      </nav>
+    </header>
+    
+
+
+
+    <!-- Main layout for the page -->
+    <main>
+
+   
+
+           <!-- Main picture -->
+           <div class="content">
+           <div id="slideshow">
+            <img src="img/BudapestImg1.jpg" class="active" alt="Img1">
+            <img src="img/BudapestImg2.jpg" alt="Img2">
+            <img src="img/BudapestImg3.jpg" alt="Img3">
+        </div>
+          
+       
+       
+               <!-- Description -->
+         <div class="insidecontent">
+          <h2>Information</h2>
+          <p>Welcome to Budapest, a captivating city nestled on the banks of the Danube River. Prepare to be enchanted by the rich history, stunning architecture, and vibrant atmosphere that make Budapest a truly unique destination.
+
+            As you traverse the city, you'll be greeted by architectural wonders that showcase its diverse past. From the grandeur of the Hungarian Parliament Building to the breathtaking beauty of Buda Castle, the city's landmarks offer a glimpse into its imperial past. Don't miss the iconic Chain Bridge, which connects the Buda and Pest sides, or the thermal baths, such as the famous Széchenyi Thermal Bath, where you can relax and rejuvenate in natural hot springs.
+            
+            Budapest is a city of culture, boasting a thriving arts and music scene. Explore the Hungarian State Opera House or attend a classical concert at the stunning St. Stephen's Basilica. Discover the vibrant Jewish Quarter, home to the largest synagogue in Europe and a hub of creativity with its street art and trendy ruin bars.
+            
+            Indulge in Hungarian cuisine, known for its rich flavors and hearty dishes. Try traditional dishes like goulash, lángos (fried dough), and chimney cake, and savor local wines and pálinka, a traditional fruit brandy. Don't forget to explore the bustling Central Market Hall, where you can sample local delicacies and browse artisanal crafts.
+            
+            Take a leisurely stroll along the Danube Promenade, offering picturesque views of the city's bridges and the stunning Parliament Building. Visit Margaret Island, a peaceful oasis in the heart of the city, perfect for a relaxing walk or bike ride.
+            
+            Budapest's nightlife is vibrant and diverse, with an array of ruin bars, stylish lounges, and clubs. Experience the unique atmosphere of the ruin bars, which are converted from dilapidated buildings and offer a mix of art, music, and entertainment.
+            
+            Immerse yourself in the city's history and culture by visiting the fascinating museums and galleries, such as the Hungarian National Museum and the Museum of Fine Arts. Explore the underground labyrinth of Buda Castle or learn about Hungary's tumultuous past at the House of Terror.
+            
+            Welcome to Budapest, a city that seamlessly blends its historical heritage with a modern and dynamic spirit. Get ready to be captivated by its charm, immerse yourself in its culture, and create lasting memories in this extraordinary city.</p>
+        </div>
+           </div>
+      
+     
+    </main>
+
+   
+
+
+         <!-- Categories for the cities -->
+         <div class="floating-square">
+          <a href="Hotels.html"><i class="fas fa-hotel"></i> Hotels</a>
+          <a href="Parks.html"><i class="fas fa-tree"></i> Parks</a>
+          <a href="Museums.html"><i class="fas fa-university"></i> Museums</a>
+          <a href="Restaurants.html"><i class="fas fa-utensils"></i> Restaurants</a>
+      </div>
+
+
+ <!-- Comment section -->
+ <div id="comment-section">
+  <h2>Comments</h2>
+  <div id="comments"></div>
+</div>
+
+<div id="comment-form">
+  <h2>Add a Comment</h2>
+  <textarea id="comment-text" placeholder="Write your comment here"></textarea>
+  <br>
+  <button onclick="addComment()">Submit</button>
+</div>
+
+
+
+
+
+     <!-- The bottom menu for the site -->
+    <footer>
+      <div class="footer-left">
+        <p>Discover the world's most captivating destinations with our travel website. Whether you're planning a spontaneous getaway or a well-planned vacation, we're here to make your travel experience extraordinary. Our website is your ultimate companion, offering a seamless platform to book the best hotels, find top-rated restaurants, explore stunning parks, and uncover fascinating museums.</p>
+      </div>
+      <div class="footer-middle">
+        <img src="img/Logo.jpg" alt="Footer Image">
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="Destination.html">Destination</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+
+
+   <!-- The script for the changing IMGs -->
+  <script>
+    var images = document.querySelectorAll('#slideshow img');
+    var currentImageIndex = 0;
+
+    function showNextImage() {
+        images[currentImageIndex].classList.remove('active');
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        images[currentImageIndex].classList.add('active');
+    }
+
+    setInterval(showNextImage, 3000);
+</script>
+
+
+
+
+
+ <!-- The script for the comments (not stored just visible on the site until refress) -->
+<script>
+  function addComment() {
+      var commentText = document.getElementById('comment-text').value;
+      var currentDate = new Date().toLocaleString();
+      var commentTemplate = `
+          <div class="comment">
+              <div class="author">Anonymous</div>
+              <div class="date">${currentDate}</div>
+              <div class="content">${commentText}</div>
+          </div>
+      `;
+      document.getElementById('comments').innerHTML += commentTemplate;
+      document.getElementById('comment-text').value = '';
+  }
+</script>
+
+
+
+ <!-- Adds the comment to the bottom under each other -->
+<script>
+window.addEventListener('scroll', function() {
+  var commentForm = document.getElementById('comment-form');
+  var footer = document.querySelector('footer');
+  var distanceToTop = footer.getBoundingClientRect().top;
+
+  if (distanceToTop <= window.innerHeight) {
+    commentForm.classList.add('open');
+  } else {
+    commentForm.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>

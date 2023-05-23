@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/cities/Cities.css">
+  <script src="js/Script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+
+
+<body>
+  <div class="container">
+
+
+
+ <!-- The top menu -->
+    <header>
+      <nav>
+        <a href="Home.html" class="logo-link"><img src="img/Logo.jpg" alt="Logo"></a>
+        <ul class="menu">
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="Destination.html">Destinations</a></li>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+
+      </nav>
+    </header>
+    
+
+
+
+    <!-- Main layout for the page -->
+    <main>
+
+   
+
+           <!-- Main picture -->
+           <div class="content">
+           <div id="slideshow">
+            <img src="img/ParisImg1.JPG" class="active" alt="Img1">
+            <img src="/img/ParisImg2.jpg" alt="Img2">
+            <img src="/img/ParisImg3.jpg" alt="Img3">
+        </div>
+          
+       
+       
+               <!-- Description -->
+         <div class="insidecontent">
+          <h2>Information</h2>
+          <p>Welcome to Paris, the City of Lights, where romance, culture, and history converge to create an enchanting experience. As you step into the French capital, you'll be captivated by its iconic landmarks, exquisite architecture, and vibrant atmosphere. Paris is a city that effortlessly blends its rich history with modernity, offering a multitude of treasures to discover.
+
+            Immerse yourself in the city's grandeur as you explore landmarks like the Eiffel Tower, Louvre Museum, and Notre-Dame Cathedral. The city's history comes to life through its charming neighborhoods, such as the artistic Montmartre and the bohemian Le Marais, each with its own unique character and allure.
+            
+            Indulge in the city's culinary delights, from delectable pastries at local patisseries to exquisite French cuisine at renowned restaurants. Parisian cafés offer the perfect spot to savor a cup of coffee while people-watching or engaging in lively conversations.
+            
+            Art enthusiasts will be delighted by the world-class art collections displayed in museums like the Louvre, Musée d'Orsay, and Centre Pompidou. Stroll along the banks of the Seine River, which meanders through the heart of the city, providing picturesque views and opportunities for peaceful moments of reflection.
+            
+            Paris's charm extends beyond its landmarks and art. Take a leisurely stroll in the romantic gardens of Luxembourg or enjoy a boat ride on the Canal Saint-Martin. Explore the vibrant nightlife scene in neighborhoods like Saint-Germain-des-Prés and Pigalle, where bustling bars and live music venues create a lively ambiance.
+            
+            Experience the magic of Paris, a city that embraces its heritage while embracing the future, inviting you to delve into its captivating blend of old-world charm and contemporary allure.</p>
+        </div>
+           </div>
+      
+     
+    </main>
+
+   
+
+
+         <!-- Categories for the cities -->
+         <div class="floating-square">
+          <a href="Hotels.html"><i class="fas fa-hotel"></i> Hotels</a>
+          <a href="Parks.html"><i class="fas fa-tree"></i> Parks</a>
+          <a href="Museums.html"><i class="fas fa-university"></i> Museums</a>
+          <a href="Restaurants.html"><i class="fas fa-utensils"></i> Restaurants</a>
+      </div>
+
+
+ <!-- Comment section -->
+ <div id="comment-section">
+  <h2>Comments</h2>
+  <div id="comments"></div>
+</div>
+
+<div id="comment-form">
+  <h2>Add a Comment</h2>
+  <textarea id="comment-text" placeholder="Write your comment here"></textarea>
+  <br>
+  <button onclick="addComment()">Submit</button>
+</div>
+
+
+
+
+
+     <!-- The bottom menu for the site -->
+    <footer>
+      <div class="footer-left">
+        <p>Discover the world's most captivating destinations with our travel website. Whether you're planning a spontaneous getaway or a well-planned vacation, we're here to make your travel experience extraordinary. Our website is your ultimate companion, offering a seamless platform to book the best hotels, find top-rated restaurants, explore stunning parks, and uncover fascinating museums.</p>
+      </div>
+      <div class="footer-middle">
+        <img src="img/Logo.jpg" alt="Footer Image">
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="Destination.html">Destination</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+
+
+   <!-- The script for the changing IMGs -->
+  <script>
+    var images = document.querySelectorAll('#slideshow img');
+    var currentImageIndex = 0;
+
+    function showNextImage() {
+        images[currentImageIndex].classList.remove('active');
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        images[currentImageIndex].classList.add('active');
+    }
+
+    setInterval(showNextImage, 3000);
+</script>
+
+
+
+
+
+ <!-- The script for the comments (not stored just visible on the site until refress) -->
+<script>
+  function addComment() {
+      var commentText = document.getElementById('comment-text').value;
+      var currentDate = new Date().toLocaleString();
+      var commentTemplate = `
+          <div class="comment">
+              <div class="author">Anonymous</div>
+              <div class="date">${currentDate}</div>
+              <div class="content">${commentText}</div>
+          </div>
+      `;
+      document.getElementById('comments').innerHTML += commentTemplate;
+      document.getElementById('comment-text').value = '';
+  }
+</script>
+
+
+
+ <!-- Adds the comment to the bottom under each other -->
+<script>
+window.addEventListener('scroll', function() {
+  var commentForm = document.getElementById('comment-form');
+  var footer = document.querySelector('footer');
+  var distanceToTop = footer.getBoundingClientRect().top;
+
+  if (distanceToTop <= window.innerHeight) {
+    commentForm.classList.add('open');
+  } else {
+    commentForm.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>
