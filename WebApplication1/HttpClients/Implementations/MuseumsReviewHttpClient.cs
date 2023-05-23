@@ -12,7 +12,7 @@ public class MuseumsReviewHttpClient : IMuseumsReviewService
 {
     private readonly HttpClient client;
 
-    public MuseumsReviewHttpClient (HttpClient client)
+    public MuseumsReviewHttpClient(HttpClient client)
     {
         this.client = client;
     }
@@ -22,7 +22,7 @@ public class MuseumsReviewHttpClient : IMuseumsReviewService
         string uri = "/MuseumsReview";
 
         uri += $"?categoryid={categoryid}";
-        
+
         HttpResponseMessage response = await client.GetAsync(uri);
 
         string result = await response.Content.ReadAsStringAsync();
@@ -30,23 +30,39 @@ public class MuseumsReviewHttpClient : IMuseumsReviewService
         {
             throw new Exception(result);
         }
-        
+
         IEnumerable<Review>? reviews = JsonSerializer.Deserialize<IEnumerable<Review>>(result, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         });
 
         return reviews;
-        
-        
+
+
     }
 
-    public Task<Review> CreateReview(ReviewCreationDto dto)
+    public async Task<Review> CreateReview(ReviewCreationDto dto)
     {
-        throw new NotImplementedException();
+        HttpResponseMessage response = await client.PostAsJsonAsync("/MuseumsReview",dto);
+
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        Review review = JsonSerializer.Deserialize<Review>(result)!;
+        return review;
     }
 
+    public async Task DeleteMuseumReview(int id)
+    {
+        HttpResponseMessage response = await client.DeleteAsync($"/MuseumsReview/{id}");
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
 
-    
-
+    }
 }

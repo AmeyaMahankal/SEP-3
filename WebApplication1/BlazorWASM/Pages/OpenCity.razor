@@ -3,6 +3,7 @@
 @using HttpClients.ClientInterfaces
 @using SEP3lu
 @inject IRestaurantService RestaurantService
+@inject IHotelService HotelService
 @inject ICityService cityService
 @inject NavigationManager NavMgr
 
@@ -14,6 +15,9 @@
 <div @onclick="@((() => NavMgr.NavigateTo($"/OpenCityRestaurants/{id}")))">
     Restaurants
 </div>
+<div @onclick="@((() => NavMgr.NavigateTo($"/OpenCityHotels/{id}")))">
+    Hotels
+</div>
 
 
 
@@ -24,6 +28,7 @@
 
     private IEnumerable<City> cities;
     private IEnumerable<Restaurant> restaurants;
+    private IEnumerable<Hotel> hotels;
     private City theCity;
 
     private string title;
@@ -36,6 +41,7 @@
         {
             cities = await cityService.getCities("getall");
             restaurants = await RestaurantService.getRestaurants(id);
+            hotels = await HotelService.getHotels(id);
             theCity = cities.FirstOrDefault(city => city.Id == id);
 
             title = theCity.Name;

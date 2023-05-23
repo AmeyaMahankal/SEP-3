@@ -18,7 +18,16 @@ public class HotelDAO:IHotelDao
     
     public Task<Hotel> CreateAsync(Hotel hotel)
     {
-        throw new NotImplementedException();
+        CategoryToCreate request = new CategoryToCreate()
+        {
+            Name = hotel.Name,
+            Description = hotel.Description,
+            Imageurl = hotel.ImageURL,
+            Cityid = hotel.CityId
+        };
+        var send = client.CreateHotel(request);
+        
+        return Task.FromResult(hotel);
     }
 
     public Task<IEnumerable<Hotel>> GetAsync(SearchHotelParametersDto searchHotelParameters)

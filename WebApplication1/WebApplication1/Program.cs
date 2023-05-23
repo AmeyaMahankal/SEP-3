@@ -24,7 +24,7 @@ builder.Services.AddScoped<ICityLogic, CityLogic>();
 
 
 //Hotels controllers
-builder.Services.AddScoped<IHotelDao, HotelFileDao>();
+builder.Services.AddScoped<IHotelDao, HotelDAO>();
 builder.Services.AddScoped<IHotelLogic, HotelLogic>();
 builder.Services.AddScoped<IHotelsReviewDao, HotelsReviewDao>(); 
 builder.Services.AddScoped<IHotelsReviewLogic, HotelsReviewLogic>();
