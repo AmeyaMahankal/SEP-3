@@ -30,13 +30,24 @@ public class Tests
     }
     
     [Test]
-    public void GetAdmin() //Test that user 
+    public void GetAdmin() //Test that user Role can be confirmed as Admin
     {
         IUserDao userDao = new UserDAO();
 
         Task<User?> user = userDao.GetByUsernameAsync("bobby");
 
         Assert.That(user.Result.Role,Is.EqualTo("Admin"));
+        
+    }
+    
+    [Test]
+    public void GetUser() //Test that user can be confirmed as User
+    {
+        IUserDao userDao = new UserDAO();
+
+        Task<User?> user = userDao.GetByUsernameAsync("Joan");
+
+        Assert.That(user.Result.Role,Is.EqualTo("User"));
         
     }
 }
