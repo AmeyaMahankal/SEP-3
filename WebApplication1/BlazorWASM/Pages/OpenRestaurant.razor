@@ -25,13 +25,39 @@ else
             <div class="user-card">
                 <p>@review.Comment</p>
                 <p>@review.StarReview</p>
+                <AuthorizeView Policy="MustBeAdmin"> <!-- policy that requires admin can only delete-->
+                    <button @onclick="@(() => RemoveComment(review.Id))" style="cursor:pointer; color: red; font-weight: bold">
+                        &#x2717;
+                    </button>
+                </AuthorizeView>
             </div>
+ 
         }
     </div>
 }
-<div class="button-row">
-    <button @onclick="Create" class="acceptbtn">Create</button>
-</div>
+<AuthorizeView>
+    <Authorized>
+        <div>
+                <label>Comment</label>
+                <input type="text" @bind="comment" @bind:event="oninput"/>
+            </div>
+            <div class="button-row">
+                <button @onclick="Create" class="acceptbtn">Create</button>
+                <br/>
+                <button @onclick="SelectStar1">star1</button>
+                <button @onclick="SelectStar2">star2</button>
+                <button @onclick="SelectStar3">star3</button>
+                <button @onclick="SelectStar4">star4</button>
+                <button @onclick="SelectStar5">star5</button>
+            </div>
+    </Authorized>
+    <NotAuthorized>
+        <div>
+            <p>Log in or create an account in order to leave a review :D</p>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
 
 @code {
     [Parameter]
@@ -43,7 +69,7 @@ else
     private Review theReview;
 
     private string comment;
-    private int starreview;
+    private int starreview=1;
     
     [CascadingParameter]
     public Task<AuthenticationState> AuthState { get; set; } = null!;
@@ -61,7 +87,7 @@ else
         try
         {
             reviews = await RestaurantsReviewService.getRestaurantsReviews(id);
-            /*
+    /*
             theReview = reviews.FirstOrDefault(review => review.CategoryId == id);
             comment = theReview.Comment;
             starreview = theReview.StarReview;
@@ -100,13 +126,53 @@ else
     {
         try
         {
-            await RestaurantsReviewService.CreateReview(new ReviewCreationDto("hey", 2, userId, id, "awd", "wada"));
+            await RestaurantsReviewService.CreateReview(new ReviewCreationDto(comment, starreview, userId, id));
+            reviews = await RestaurantsReviewService.getRestaurantsReviews(id);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
 
             throw;
+        }
+    }
+
+    private async Task SelectStar1()
+    {
+        starreview = 1;
+    }
+    private async Task SelectStar2()
+    {
+        starreview = 2;
+    }
+    private async Task SelectStar3()
+    {
+        starreview = 3;
+    }
+    private async Task SelectStar4()
+    {
+        starreview = 4;
+    }
+    private async Task SelectStar5()
+    {
+        starreview = 5;
+    }
+
+    private async Task RemoveComment(int id)
+    {
+        
+        try
+        {
+            await RestaurantsReviewService.DeleteRestaurantReview(id);
+
+            var list = new List<Review>(reviews);
+            list.RemoveAll(post => post.Id == id);
+            reviews= list.AsEnumerable();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            
         }
     }
 
