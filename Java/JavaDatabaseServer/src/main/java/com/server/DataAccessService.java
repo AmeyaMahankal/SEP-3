@@ -11,17 +11,17 @@ import java.util.List;
 
 public class DataAccessService extends AccessGrpc.AccessImplBase {
 
-    private UserDAOImpl userDAO = new UserDAOImpl();
-private CityDAOImpl cityDAO = new CityDAOImpl();
-private HotelDAOImpl hotelDAO = new HotelDAOImpl();
-private HotelReviewDAOImpl hotelReviewDAO = new HotelReviewDAOImpl();
-private MuseumDAOImpl museumDAO = new MuseumDAOImpl();
-private MuseumReviewDAOImpl museumReviewDAO = new MuseumReviewDAOImpl();
-private ParkDAOImpl parkDAO = new ParkDAOImpl();
-private ParkReviewDAOImpl parkReviewDAO = new ParkReviewDAOImpl();
-private ReportDAOImpl reportDAO = new ReportDAOImpl();
-private RestaurantDAOImpl restaurantDAO = new RestaurantDAOImpl();
-private RestaurantReviewDAOImpl restaurantReviewDAO = new RestaurantReviewDAOImpl();
+    private UserDAOInterface userDAO = new UserDAOImpl();
+private CityDAOInterface cityDAO = new CityDAOImpl();
+private HotelDAOInterface hotelDAO = new HotelDAOImpl();
+private HotelReviewInterface hotelReviewDAO = new HotelReviewDAOImpl();
+private MuseumDAOInterface museumDAO = new MuseumDAOImpl();
+private MuseumReviewDAOInterface museumReviewDAO = new MuseumReviewDAOImpl();
+private ParkDAOInterface parkDAO = new ParkDAOImpl();
+private ParkReviewDAOInterface parkReviewDAO = new ParkReviewDAOImpl();
+private ReportDAOInterface reportDAO = new ReportDAOImpl();
+private RestaurantDAOInterface restaurantDAO = new RestaurantDAOImpl();
+private RestaurantReviewDAOInterface restaurantReviewDAO = new RestaurantReviewDAOImpl();
 
     @Override
     public void getByUsername(DataAccess.UserGetUsername request, StreamObserver<DataAccess.User> responseObserver) {
