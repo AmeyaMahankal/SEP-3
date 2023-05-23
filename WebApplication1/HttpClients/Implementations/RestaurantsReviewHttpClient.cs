@@ -57,6 +57,16 @@ public class RestaurantsReviewHttpClient : IRestaurantsReviewService
 
     }
 
+    public async Task DeleteRestaurantReview(int id)
+    {
+        HttpResponseMessage response = await client.DeleteAsync($"/RestaurantsReview/{id}");
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
+
 
     
     /*
