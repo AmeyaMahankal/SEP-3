@@ -1,0 +1,349 @@
+
+
+/* Animation for menu (Underline & fade) */
+.menu li {
+  position: relative;
+}
+
+.menu li::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.menu li:hover::before {
+  background-color: #000;
+}
+
+.menu li a {
+  position: relative;
+  z-index: 1;
+}
+
+.menu li a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+  transform-origin: right;
+}
+
+.menu li:hover a::before {
+  transform: scaleX(1);
+}
+
+
+
+
+
+/* Position menu on small screens */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+  }
+
+  .menu li {
+    position: static;
+  }
+
+  .menu li::before {
+    display: none;
+  }
+
+  .menu li a::before {
+    display: none;
+  }
+}
+
+
+
+  /* Changed scrollbar */
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: grey;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: rebeccapurple;
+  }
+  
+  body::-webkit-scrollbar-thumb:hover {
+    background: black;
+  }
+  
+
+
+
+
+/* Top menu styles */
+header {
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  margin-right: 10px;
+}
+
+.logo-link img {
+  max-height: 50px;
+  border-radius: 50%;
+}
+
+.menu {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.menu li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+}
+
+
+
+
+
+
+/* Main body styles */
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.content{
+  margin-left: 30%;
+  margin-top: 30px;
+
+}
+
+
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+
+main {
+  display: flex;
+}
+
+
+
+
+/* City IMGs */
+#slideshow {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#slideshow img.active {
+  opacity: 1;
+}
+
+.insidecontent {
+  text-align: center;
+  font-size: 1.5em;
+  color: #333;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  margin: 0 auto 200px; 
+  max-width: 600px;
+}
+
+
+
+
+/*Categories for the cities*/
+
+.floating-square {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.floating-square a {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.floating-square i {
+  margin-right: 5px;
+}
+
+
+
+
+/*Comment section*/
+#comment-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.comment .author {
+  font-weight: bold;
+}
+
+.comment .date {
+  font-size: 12px;
+  color: #888;
+}
+
+.comment .content {
+  margin-top: 5px;
+}
+
+
+#comment-form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  bottom: 175px;
+  left: 10px; 
+  width: calc(30% - 40px);
+  background-color: #f1f1f1;
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+#comment-form.open {
+  transform: translateX(0);
+}
+
+#comment-form textarea {
+  width: 100%;
+  max-width: 400px;
+  height: 80px;
+  padding: 5px;
+}
+
+
+
+
+
+/* Footer styles */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.footer-left {
+  flex-basis: 40%;
+}
+
+.footer-middle {
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.footer-middle img {
+  max-height: 50px;
+}
+
+.footer-right {
+  flex-basis: 40%;
+  text-align: right;
+}
+
+.footer-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-right li {
+  margin-bottom: 10px;
+}
+
+.footer-right li a {
+  text-decoration: none;
+  color: #333;
+}
+
+
+
+/* Main breaks */
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 992px) {
+ 
+}
+
+@media (max-width: 768px) {
+ 
+}
+
+@media (max-width: 576px) {
+
+}
+
+
+
+

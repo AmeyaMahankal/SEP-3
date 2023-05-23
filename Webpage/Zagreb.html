@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/cities/Cities.css">
+  <script src="js/Script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+
+
+<body>
+  <div class="container">
+
+
+
+ <!-- The top menu -->
+    <header>
+      <nav>
+        <a href="Home.html" class="logo-link"><img src="img/Logo.jpg" alt="Logo"></a>
+        <ul class="menu">
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="Destination.html">Destinations</a></li>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+
+      </nav>
+    </header>
+    
+
+
+
+    <!-- Main layout for the page -->
+    <main>
+
+   
+
+           <!-- Main picture -->
+           <div class="content">
+           <div id="slideshow">
+            <img src="img/ZagrebImg1.jpg" class="active" alt="Img1">
+            <img src="img/ZagrebImg2.jpg" alt="Img2">
+            <img src="img/ZagrebImg3.jpg" alt="Img3">
+        </div>
+          
+       
+       
+               <!-- Description -->
+         <div class="insidecontent">
+          <h2>Information</h2>
+          <p>Welcome to Zagreb, the vibrant capital of Croatia. Nestled between the slopes of Medvednica Mountain and the banks of the Sava River, Zagreb offers a delightful mix of history, culture, and natural beauty.
+
+            As you explore the city, you'll be captivated by its charming blend of medieval architecture, green parks, and bustling streets. Begin your journey in the Upper Town (Gornji Grad), where the iconic St. Mark's Church and the medieval Stone Gate await. Wander through the narrow cobblestone streets, visit the Lotrščak Tower for panoramic views, and immerse yourself in the rich history of the city.
+            
+            Zagreb is known for its cultural scene, with numerous museums, galleries, and theaters to explore. Discover the impressive collections at the Croatian Museum of Naïve Art, the Museum of Broken Relationships, and the Museum of Contemporary Art. Don't miss the Zagreb Cathedral, a stunning Gothic masterpiece, and the lively Dolac Market, where you can experience the vibrant local culture and sample fresh produce.
+            
+            Take a stroll through the lush parks and gardens that dot the city, such as the beautiful Zrinjevac Park and the enchanting Botanical Gardens. For a panoramic view of Zagreb, head to the Zagreb 360° Observation Deck, located in the heart of the city.
+            
+            Indulge in traditional Croatian cuisine and taste the local specialties. Treat yourself to hearty dishes like štrukli (cheese-filled pastry), kulen (spicy sausage), and fresh seafood from the Adriatic coast. Sip on a cup of kava (coffee) at one of the cozy cafés and enjoy the relaxed atmosphere.
+            
+            Zagreb is a city of festivals and events, offering a vibrant cultural calendar throughout the year. From the Zagreb Advent, a magical winter festival, to the INmusic Festival, featuring international music acts, there's always something happening in the city to entertain and delight.
+            
+            Escape to the nearby nature and enjoy the beautiful surroundings of Zagreb. Take a day trip to Medvednica Mountain, where you can hike through pristine forests, visit medieval fortresses, and enjoy breathtaking views of the city below.
+            
+            Experience the warmth and hospitality of the locals as you explore the lively streets, charming squares, and hidden gems of Zagreb. Whether you're enchanted by its historical landmarks, inspired by its cultural offerings, or simply immersed in its vibrant atmosphere, Zagreb promises an unforgettable journey.
+            
+            Welcome to Zagreb, a city that effortlessly combines tradition with modernity, inviting you to discover its rich heritage and create lasting memories.</p>
+        </div>
+           </div>
+      
+     
+    </main>
+
+   
+
+
+         <!-- Categories for the cities -->
+         <div class="floating-square">
+          <a href="Hotels.html"><i class="fas fa-hotel"></i> Hotels</a>
+          <a href="Parks.html"><i class="fas fa-tree"></i> Parks</a>
+          <a href="Museums.html"><i class="fas fa-university"></i> Museums</a>
+          <a href="Restaurants.html"><i class="fas fa-utensils"></i> Restaurants</a>
+      </div>
+
+
+ <!-- Comment section -->
+ <div id="comment-section">
+  <h2>Comments</h2>
+  <div id="comments"></div>
+</div>
+
+<div id="comment-form">
+  <h2>Add a Comment</h2>
+  <textarea id="comment-text" placeholder="Write your comment here"></textarea>
+  <br>
+  <button onclick="addComment()">Submit</button>
+</div>
+
+
+
+
+
+     <!-- The bottom menu for the site -->
+    <footer>
+      <div class="footer-left">
+        <p>Discover the world's most captivating destinations with our travel website. Whether you're planning a spontaneous getaway or a well-planned vacation, we're here to make your travel experience extraordinary. Our website is your ultimate companion, offering a seamless platform to book the best hotels, find top-rated restaurants, explore stunning parks, and uncover fascinating museums.</p>
+      </div>
+      <div class="footer-middle">
+        <img src="img/Logo.jpg" alt="Footer Image">
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="Destination.html">Destination</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+
+
+   <!-- The script for the changing IMGs -->
+  <script>
+    var images = document.querySelectorAll('#slideshow img');
+    var currentImageIndex = 0;
+
+    function showNextImage() {
+        images[currentImageIndex].classList.remove('active');
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        images[currentImageIndex].classList.add('active');
+    }
+
+    setInterval(showNextImage, 3000);
+</script>
+
+
+
+
+
+ <!-- The script for the comments (not stored just visible on the site until refress) -->
+<script>
+  function addComment() {
+      var commentText = document.getElementById('comment-text').value;
+      var currentDate = new Date().toLocaleString();
+      var commentTemplate = `
+          <div class="comment">
+              <div class="author">Anonymous</div>
+              <div class="date">${currentDate}</div>
+              <div class="content">${commentText}</div>
+          </div>
+      `;
+      document.getElementById('comments').innerHTML += commentTemplate;
+      document.getElementById('comment-text').value = '';
+  }
+</script>
+
+
+
+ <!-- Adds the comment to the bottom under each other -->
+<script>
+window.addEventListener('scroll', function() {
+  var commentForm = document.getElementById('comment-form');
+  var footer = document.querySelector('footer');
+  var distanceToTop = footer.getBoundingClientRect().top;
+
+  if (distanceToTop <= window.innerHeight) {
+    commentForm.classList.add('open');
+  } else {
+    commentForm.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>

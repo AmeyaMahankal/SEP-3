@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/hotels/Hotels.css">
+  <script src="js/Script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+
+
+<body>
+  <div class="container">
+
+
+
+ <!-- The top menu -->
+    <header>
+      <nav>
+        <a href="Home.html" class="logo-link"><img src="img/Logo.jpg" alt="Logo"></a>
+        <ul class="menu">
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="Destination.html">Destinations</a></li>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+
+      </nav>
+    </header>
+    
+
+
+
+    <!-- Main layout for the page -->
+    <main>
+
+   
+
+           <!-- Main picture -->
+           <div class="content">
+           <div id="slideshow">
+            <img src="img/Kempinsky1.jpg" class="active" alt="Img1">
+            <img src="/img/Kempinsky2.jpg" alt="Img2">
+            <img src="/img/Kempinsky3.png" alt="Img3">
+        </div>
+          
+       
+       
+               <!-- Description -->
+         <div class="insidecontent">
+          <h2>Information</h2>
+          <p>Some info about the hotel I guess.</p>
+        </div>
+           </div>
+      
+     
+    </main>
+
+   
+
+
+         <!-- Categories for the cities -->
+         <div class="floating-square">
+          <a href="Hotels.html"><i class="fas fa-hotel"></i> Hotels</a>
+          <a href="Parks.html"><i class="fas fa-tree"></i> Parks</a>
+          <a href="Museums.html"><i class="fas fa-university"></i> Museums</a>
+          <a href="Restaurants.html"><i class="fas fa-utensils"></i> Restaurants</a>
+      </div>
+
+
+<!--Star reviews-->
+<div id="star-review">
+  <h2>Leave a Review</h2>
+  <div class="stars">
+    <input type="radio" name="star" class="star-1" id="star-1" />
+    <label class="star-1" for="star-1">1</label>
+    <input type="radio" name="star" class="star-2" id="star-2" />
+    <label class="star-2" for="star-2">2</label>
+    <input type="radio" name="star" class="star-3" id="star-3" />
+    <label class="star-3" for="star-3">3</label>
+    <input type="radio" name="star" class="star-4" id="star-4" />
+    <label class="star-4" for="star-4">4</label>
+    <input type="radio" name="star" class="star-5" id="star-5" />
+    <label class="star-5" for="star-5">5</label>
+    <br>
+    <button onclick="addReview()">Submit</button>
+    <span id="review-rating"></span>
+  </div>
+</div>
+
+
+
+
+
+ <!-- Comment section -->
+ <div id="comment-section">
+  <h2>Comments</h2>
+  <div id="comments"></div>
+</div>
+
+<div id="comment-form">
+  <h2>Add a Comment</h2>
+  <textarea id="comment-text" placeholder="Write your comment here"></textarea>
+  <br>
+  <button onclick="addComment()">Submit</button>
+</div>
+
+
+
+
+
+     <!-- The bottom menu for the site -->
+    <footer>
+      <div class="footer-left">
+        <p>Discover the world's most captivating destinations with our travel website. Whether you're planning a spontaneous getaway or a well-planned vacation, we're here to make your travel experience extraordinary. Our website is your ultimate companion, offering a seamless platform to book the best hotels, find top-rated restaurants, explore stunning parks, and uncover fascinating museums.</p>
+      </div>
+      <div class="footer-middle">
+        <img src="img/Logo.jpg" alt="Footer Image">
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="Destination.html">Destination</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+
+
+   <!-- The script for the changing IMGs -->
+  <script>
+    var images = document.querySelectorAll('#slideshow img');
+    var currentImageIndex = 0;
+
+    function showNextImage() {
+        images[currentImageIndex].classList.remove('active');
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        images[currentImageIndex].classList.add('active');
+    }
+
+    setInterval(showNextImage, 3000);
+</script>
+
+
+
+
+
+ <!-- The script for the comments (not stored just visible on the site until refress) -->
+<script>
+  function addComment() {
+      var commentText = document.getElementById('comment-text').value;
+      var currentDate = new Date().toLocaleString();
+      var commentTemplate = `
+          <div class="comment">
+              <div class="author">Anonymous</div>
+              <div class="date">${currentDate}</div>
+              <div class="content">${commentText}</div>
+          </div>
+      `;
+      document.getElementById('comments').innerHTML += commentTemplate;
+      document.getElementById('comment-text').value = '';
+  }
+</script>
+
+
+
+ <!-- Adds the comment to the bottom under each other -->
+<script>
+window.addEventListener('scroll', function() {
+  var commentForm = document.getElementById('comment-form');
+  var footer = document.querySelector('footer');
+  var distanceToTop = footer.getBoundingClientRect().top;
+
+  if (distanceToTop <= window.innerHeight) {
+    commentForm.classList.add('open');
+  } else {
+    commentForm.classList.remove('open');
+  }
+});
+</script>
+
+
+
+
+<script>
+  function addReview() {
+    var rating = getRating();
+    // Perform necessary actions with the rating, such as displaying it on the site
+    document.getElementById('review-rating').innerText = 'Your Rating: ' + rating;
+  }
+
+  function getRating() {
+    var stars = document.getElementsByName('star');
+    var rating;
+    for (var i = 0; i < stars.length; i++) {
+      if (stars[i].checked) {
+        rating = i + 1;
+        break;
+      }
+    }
+    return rating;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
