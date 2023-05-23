@@ -7,12 +7,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DAOTest {
 
-    private DAO data = new DAO();
+
+    private UserDAOInterface userData=new UserDAOImpl();
+
+    private CityDAOInterface cityData=new CityDAOImpl();
 
     @Test
     void userAuth() //Test that all attributes of a user are sent and can be called
     {
-        User finduser = data.selectUserWithUsername("bobby");
+        User finduser = userData.selectUserWithUsername("bobby");
 
         assertEquals("Admin", finduser.getRole());
         assertEquals("ilikecats", finduser.getPassword());
@@ -23,22 +26,22 @@ class DAOTest {
     @Test
     void createCity() //Test that all attributes of a user are sent and can be called
     {
-        data.insertCity("Mumbai","coolplace","niceimage");
+        cityData.insertCity("Mumbai","coolplace","niceimage");
 
-        City findCIty=data.getCityByName("Mumbai");
+        City findCIty=cityData.getCityByName("Mumbai");
 
         assertEquals("Mumbai",findCIty.getName());
         assertEquals("coolplace",findCIty.getDescription());
         assertEquals("niceimage",findCIty.getImageURL());
 
-        data.deleteCity(findCIty.getId());
+        cityData.deleteCity(findCIty.getId());
 
     }
 
     @Test
     void citySearch() //Test that all attributes of a city are sent and can be called
     {
-        City findCity=data.getCityByName("Horsens");
+        City findCity=cityData.getCityByName("Horsens");
 
         assertEquals(4,findCity.getId());
         assertEquals("Horsens",findCity.getName());
