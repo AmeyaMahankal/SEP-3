@@ -1,0 +1,52 @@
+﻿@page "/OpenCityMuseums/{cityid:int}"
+@using SEP3lu
+@using HttpClients.ClientInterfaces
+@inject IMuseumService MuseumService
+@inject NavigationManager NavMgr
+<h3>OpenCityMuseums</h3>
+
+@if (museums == null)
+{
+    <span>Loading..</span>
+}
+else if (!museums.Any())
+{
+    <span>No Museums found</span>
+}
+else
+{
+    <div class="users-container">
+        @foreach (Museum museum in museums)
+        {
+            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/OpenMuseum/{cityid}/{museum.Id}")))">
+                <p>@museum.ImageURL</p>
+            </div>
+        }
+        <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreateMuseum/{cityid}")))">
+            <label>Create Museum</label>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int cityid { get; set; }
+    
+    private IEnumerable<Museum> museums;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+
+            museums = await MuseumService.getMuseums(cityid);
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    
+}

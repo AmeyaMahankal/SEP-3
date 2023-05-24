@@ -1,0 +1,183 @@
+﻿@page "/OpenMuseum/{cityid:int}/{id:int}"
+@using Domain.Models
+@using HttpClients.ClientInterfaces
+@using SEP3lu
+@using System.Security.Claims
+@using Domain.DTOs
+@inject IMuseumsReviewService MuseumsReviewService;
+<h3>OpenMuseumcity id @cityid museums @id  @selectedUserId</h3>
+
+
+
+@if (reviews == null)
+{
+    <span>Loading..</span>
+}
+else if (!reviews.Any())
+{
+    <span>No reviews found</span>
+}
+else
+{
+    <div class="users-container">
+        @foreach (Review review in reviews)
+        {
+            <div class="user-card">
+                <p>@review.Comment</p>
+                <p>@review.StarReview</p>
+                <AuthorizeView Policy="MustBeAdmin"> <!-- policy that requires admin can only delete-->
+                    <button @onclick="@(() => RemoveComment(review.Id))" style="cursor:pointer; color: red; font-weight: bold">
+                        &#x2717;
+                    </button>
+                </AuthorizeView>
+            </div>
+ 
+        }
+    </div>
+}
+<AuthorizeView>
+    <Authorized>
+        <div>
+                <label>Comment</label>
+                <input type="text" @bind="comment" @bind:event="oninput"/>
+            </div>
+            <div class="button-row">
+                <button @onclick="Create" class="acceptbtn">Create</button>
+                <br/>
+                <button @onclick="SelectStar1">star1</button>
+                <button @onclick="SelectStar2">star2</button>
+                <button @onclick="SelectStar3">star3</button>
+                <button @onclick="SelectStar4">star4</button>
+                <button @onclick="SelectStar5">star5</button>
+            </div>
+    </Authorized>
+    <NotAuthorized>
+        <div>
+            <p>Log in or create an account in order to leave a review :D</p>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+@code {
+    [Parameter]
+    public int cityid { get; set; }
+    [Parameter]
+    public int id { get; set; }
+    private IEnumerable<Review> reviews;
+    private IEnumerable<Museum> museums; 
+    private Review theReview;
+
+    private string comment;
+    private int starreview=1;
+    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    
+    private string stringselectedUserId;
+    private int? selectedUserId;
+    private int userId;
+    
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            reviews = await MuseumsReviewService.getMuseumsReviews(id);
+    /*
+            theReview = reviews.FirstOrDefault(review => review.CategoryId == id);
+            comment = theReview.Comment;
+            starreview = theReview.StarReview;
+            */
+            AuthenticationState authState = await AuthState;
+            ClaimsPrincipal user = authState.User;
+            isLoggedIn = user.Identity != null;
+        
+            if (!isLoggedIn) return;
+        
+            userClaims = user.Claims;
+        
+            stringselectedUserId = user.Claims.First(claim => claim.Type.Equals("Id")).ToString(); 
+
+            string stringid="";
+            foreach (char VARIABLE in stringselectedUserId)
+            {
+                if (Char.IsDigit(VARIABLE))
+                {
+                    stringid = stringid + VARIABLE;
+                }
+            }
+
+            selectedUserId = Convert.ToInt32(stringid);
+            userId = (int)selectedUserId;
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    
+    private async Task Create()
+    {
+        try
+        {
+            await MuseumsReviewService.CreateReview(new ReviewCreationDto(comment, starreview, userId, id));
+            reviews = await MuseumsReviewService.getMuseumsReviews(id);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+
+            throw;
+        }
+    }
+
+    private async Task SelectStar1()
+    {
+        starreview = 1;
+    }
+    private async Task SelectStar2()
+    {
+        starreview = 2;
+    }
+    private async Task SelectStar3()
+    {
+        starreview = 3;
+    }
+    private async Task SelectStar4()
+    {
+        starreview = 4;
+    }
+    private async Task SelectStar5()
+    {
+        starreview = 5;
+    }
+
+    private async Task RemoveComment(int id)
+    {
+        
+        try
+        {
+            await MuseumsReviewService.DeleteMuseumReview(id);
+
+            var list = new List<Review>(reviews);
+            list.RemoveAll(post => post.Id == id);
+            reviews= list.AsEnumerable();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            
+        }
+    }
+
+    
+    
+    
+    
+}

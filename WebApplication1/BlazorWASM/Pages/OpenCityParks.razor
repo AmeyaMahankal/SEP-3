@@ -1,0 +1,52 @@
+﻿@page "/OpenCityParks/{cityid:int}"
+@using SEP3lu
+@using HttpClients.ClientInterfaces
+@inject IParkService ParkService
+@inject NavigationManager NavMgr
+<h3>OpenCityParks</h3>
+
+@if (parks == null)
+{
+    <span>Loading..</span>
+}
+else if (!parks.Any())
+{
+    <span>No Parks found</span>
+}
+else
+{
+    <div class="users-container">
+        @foreach (Park park in parks)
+        {
+            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/OpenPark/{cityid}/{park.Id}")))">
+                <p>@park.ImageURL</p>
+            </div>
+        }
+        <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreatePark/{cityid}")))">
+            <label>Create Park</label>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int cityid { get; set; }
+    
+    private IEnumerable<Park> parks;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+
+            parks = await ParkService.getParks(cityid);
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    
+}

@@ -4,7 +4,9 @@
 @using SEP3lu
 @inject IRestaurantService RestaurantService
 @inject IHotelService HotelService
+@inject IParkService ParkService
 @inject ICityService cityService
+@inject IMuseumService MuseumService 
 @inject NavigationManager NavMgr
 
 <h3>OpenCity @id</h3>
@@ -19,7 +21,13 @@
     Hotels
 </div>
 
+<div @onclick="@((() => NavMgr.NavigateTo($"/OpenCityParks/{id}")))">
+    Parks
+</div>
 
+<div @onclick="@((() => NavMgr.NavigateTo($"/OpenCityMuseums/{id}")))">
+    Museums
+</div>
 
 @code {
 
@@ -29,6 +37,8 @@
     private IEnumerable<City> cities;
     private IEnumerable<Restaurant> restaurants;
     private IEnumerable<Hotel> hotels;
+    private IEnumerable<Museum> museums;
+    private IEnumerable<Park> parks;
     private City theCity;
 
     private string title;
@@ -42,6 +52,8 @@
             cities = await cityService.getCities("getall");
             restaurants = await RestaurantService.getRestaurants(id);
             hotels = await HotelService.getHotels(id);
+            museums = await MuseumService.getMuseums(id);
+            parks = await ParkService.getParks(id);
             theCity = cities.FirstOrDefault(city => city.Id == id);
 
             title = theCity.Name;
