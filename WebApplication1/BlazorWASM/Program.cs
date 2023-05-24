@@ -30,6 +30,12 @@ builder.Services.AddScoped<IRestaurantsReviewService, RestaurantsReviewHttpClien
 builder.Services.AddScoped<IHotelService, HotelHttpClient>();
 builder.Services.AddScoped<IHotelsReviewService, HotelsReviewHttpClient>();
 
+builder.Services.AddScoped<IParkService, ParkHttpClient>();
+builder.Services.AddScoped<IParksReviewService, ParksReviewHttpClient>();
+builder.Services.AddScoped<IMuseumService, MuseumHttpClient>();
+builder.Services.AddScoped<IMuseumsReviewService, MuseumsReviewHttpClient>();
+
+
 builder.Services.AddScoped<IAuthService, JwtAuthService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
 
