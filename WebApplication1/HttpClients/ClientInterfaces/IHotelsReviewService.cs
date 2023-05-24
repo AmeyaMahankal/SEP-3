@@ -10,4 +10,5 @@ public interface IHotelsReviewService
     public Task<IEnumerable<Review>?> getHotelsReviews(int hotelId);
 
     Task<Review> CreateReview(ReviewCreationDto dto);
+    public Task DeleteHotelReview(int id);
 }

@@ -1,0 +1,52 @@
+﻿@page "/OpenCityHotels/{cityid:int}"
+@using SEP3lu
+@using HttpClients.ClientInterfaces
+@inject IHotelService HotelService
+@inject NavigationManager NavMgr
+<h3>OpenCityHotels</h3>
+
+@if (hotels == null)
+{
+    <span>Loading..</span>
+}
+else if (!hotels.Any())
+{
+    <span>No Hotels found</span>
+}
+else
+{
+    <div class="users-container">
+        @foreach (Hotel hotel in hotels)
+        {
+            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/OpenHotel/{cityid}/{hotel.Id}")))">
+                <p>@hotel.ImageURL</p>
+            </div>
+        }
+        <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreateHotel/{cityid}")))">
+            <label>Create Hotel</label>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int cityid { get; set; }
+    
+    private IEnumerable<Hotel> hotels;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+
+            hotels = await HotelService.getHotels(cityid);
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    
+}

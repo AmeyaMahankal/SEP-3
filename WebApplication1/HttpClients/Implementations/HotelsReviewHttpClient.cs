@@ -12,17 +12,19 @@ public class HotelsReviewHttpClient : IHotelsReviewService
 {
     private readonly HttpClient client;
 
-    public HotelsReviewHttpClient (HttpClient client)
+    public HotelsReviewHttpClient(HttpClient client)
     {
         this.client = client;
     }
+
+  
 
     public async Task<IEnumerable<Review>?> getHotelsReviews(int categoryid)
     {
         string uri = "/HotelsReview";
 
         uri += $"?categoryid={categoryid}";
-        
+
         HttpResponseMessage response = await client.GetAsync(uri);
 
         string result = await response.Content.ReadAsStringAsync();
@@ -30,23 +32,41 @@ public class HotelsReviewHttpClient : IHotelsReviewService
         {
             throw new Exception(result);
         }
-        
+
         IEnumerable<Review>? reviews = JsonSerializer.Deserialize<IEnumerable<Review>>(result, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         });
 
         return reviews;
-        
-        
+
+
     }
 
-    public Task<Review> CreateReview(ReviewCreationDto dto)
+    public async Task<Review> CreateReview(ReviewCreationDto dto)
     {
-        throw new NotImplementedException();
+        HttpResponseMessage response = await client.PostAsJsonAsync("/HotelsReview",dto);
+
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        Review review = JsonSerializer.Deserialize<Review>(result)!;
+        return review;
     }
 
 
-    
+    public async Task DeleteHotelReview(int id)
+    {
+        HttpResponseMessage response = await client.DeleteAsync($"/HotelsReview/{id}");
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
 
+
+    }
 }

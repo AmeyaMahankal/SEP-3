@@ -10,4 +10,5 @@ public interface IParksReviewService
     public Task<IEnumerable<Review>?> getParksReviews(int parkId);
 
     Task<Review> CreateReview(ReviewCreationDto dto);
+    public Task DeleteParkReview(int id);
 }

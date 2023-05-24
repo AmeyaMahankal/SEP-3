@@ -41,12 +41,29 @@ public class ParksReviewHttpClient : IParksReviewService
         
     }
 
-    public Task<Review> CreateReview(ReviewCreationDto dto)
+    public async Task<Review> CreateReview(ReviewCreationDto dto)
     {
-        throw new NotImplementedException();
+        HttpResponseMessage response = await client.PostAsJsonAsync("/ParksReview",dto);
+
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        Review review = JsonSerializer.Deserialize<Review>(result)!;
+        return review;
     }
 
+    public async Task DeleteParkReview(int id)
+    {
+        HttpResponseMessage response = await client.DeleteAsync($"/ParksReview/{id}");
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
 
-    
 
+    }
 }
