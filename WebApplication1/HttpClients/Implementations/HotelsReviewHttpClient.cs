@@ -17,9 +17,7 @@ public class HotelsReviewHttpClient : IHotelsReviewService
         this.client = client;
     }
 
-    public HotelsReviewHttpClient()
-    {
-    }
+  
 
     public async Task<IEnumerable<Review>?> getHotelsReviews(int categoryid)
     {

@@ -35,7 +35,7 @@ public class MuseumsReviewController: ControllerBase
     
     
     
-    [HttpGet("CategorySearch")]
+    [HttpGet]
     public async Task<ActionResult<IEnumerable<Review>>> GetListOfReviews( [FromQuery] int? categoryid)
     {
         try

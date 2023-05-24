@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class DaoTests {
     public static void main(String[] args) {
-         UserDAOImpl userDAO = new UserDAOImpl();
+         /*UserDAOImpl userDAO = new UserDAOImpl();
         CityDAOImpl cityDAO = new CityDAOImpl();
         HotelDAOImpl hotelDAO = new HotelDAOImpl();
          HotelReviewDAOImpl hotelReviewDAO = new HotelReviewDAOImpl();
@@ -27,7 +27,10 @@ public class DaoTests {
       //  System.out.println( d.getCityById(2));
 
            // System.out.println( d.listOfReports("empty"));
-        //d.updateStarReview(3,1);
+        //d.updateStarReview(3,1);*/
+
+        HotelReviewInterface dao= new HotelReviewDAOImpl();
+        System.out.println(dao.getHotelReviewsWithHotelId(1));
 
 
     }
