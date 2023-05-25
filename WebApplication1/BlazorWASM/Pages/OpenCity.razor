@@ -9,26 +9,63 @@
 @inject IMuseumService MuseumService 
 @inject NavigationManager NavMgr
 
-<h3>OpenCity @id</h3>
-<h3>@title</h3>
-<h3>@desc</h3>
-<img src=@imsrc/>
-
-<div @onclick="@((() => NavMgr.NavigateTo($"/OpenCityRestaurants/{id}")))">
-    Restaurants
-</div>
-<div @onclick="@((() => NavMgr.NavigateTo($"/OpenCityHotels/{id}")))">
-    Hotels
+<h3><b>Explore @title</b></h3>
+<h3 class="heading">@title</h3>
+<img class="photo" src=@imsrc height=80% width=80%/>
+<div>
+    <h3><b>About @title</b></h3>
+    <p class="description">@desc</p>
 </div>
 
-<div @onclick="@((() => NavMgr.NavigateTo($"/OpenCityParks/{id}")))">
-    Parks
+<div class="row">
+    <div class="column" @onclick="@((() => NavMgr.NavigateTo($"/OpenCityRestaurants/{id}")))">
+        Restaurants
+    </div>
+    <div class="column" @onclick="@((() => NavMgr.NavigateTo($"/OpenCityHotels/{id}")))">
+        Hotels
+    </div>
+    <div class="column" @onclick="@((() => NavMgr.NavigateTo($"/OpenCityParks/{id}")))">
+        Parks
+    </div>
+    <div class="column" @onclick="@((() => NavMgr.NavigateTo($"/OpenCityMuseums/{id}")))">
+        Museums
+    </div>
 </div>
 
-<div @onclick="@((() => NavMgr.NavigateTo($"/OpenCityMuseums/{id}")))">
-    Museums
-</div>
-
+        <style>
+            .column {
+              float: left;
+              width: 25%;
+            }
+            
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            
+            .heading{
+            text-align: center;
+            }
+            
+            .description{
+            /*text-align: center;*/
+            font-size: 1.5em;
+           /* color: #505050;*/
+            padding: 20px;
+            /*background-color: #f1f1f1;*/
+            border-radius: 10px;
+            }
+            
+            .photo{
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 50%;
+            }
+           
+        </style>
 @code {
 
     [Parameter]
