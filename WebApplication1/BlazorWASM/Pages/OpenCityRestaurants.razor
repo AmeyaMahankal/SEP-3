@@ -3,8 +3,8 @@
 @using HttpClients.ClientInterfaces
 @inject IRestaurantService RestaurantService
 @inject NavigationManager NavMgr
-<h3>OpenCityRestaurants</h3>
-
+<h3>Restaurants</h3>
+<button @onclick="@((() => NavMgr.NavigateTo($"/OpenCity/{cityid}")))" class="acceptbtn">Go back</button>
 @if (restaurants == null)
 {
     <span>Loading..</span>

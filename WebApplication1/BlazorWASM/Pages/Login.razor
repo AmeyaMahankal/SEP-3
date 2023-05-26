@@ -26,6 +26,7 @@
             <div class="field">
                 <button class="loginbtn" @onclick="LoginAsync">Log in</button>
             </div>
+            <label @onclick="@((() => navMgr.NavigateTo($"/CreateUser")))">Don't have an account ? Click here</label>
         </div>
     </NotAuthorized>
     <Authorized>

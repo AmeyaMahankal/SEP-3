@@ -6,7 +6,8 @@
 @using Domain.DTOs
 @inject IRestaurantsReviewService RestaurantsReviewService;
 @inject IRestaurantService RestaurantService
-
+@inject NavigationManager NavMgr
+<button @onclick="@((() => NavMgr.NavigateTo($"/OpenCityRestaurants/{cityid}")))" class="acceptbtn">Go back</button>
 <h3 class="heading"><b>@theName</b></h3>
 <img class="photo" src=@imgurl height=80% width=80%/>
 <div>
@@ -179,7 +180,7 @@ else
             throw;
         }
     }
-
+    
     private async Task SelectStar1()
     {
         starreview = 1;
