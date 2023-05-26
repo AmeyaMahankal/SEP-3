@@ -3,8 +3,8 @@
 @using HttpClients.ClientInterfaces
 @inject IHotelService HotelService
 @inject NavigationManager NavMgr
-<h3>OpenCityHotels</h3>
-
+<h3>Hotels</h3>
+<button @onclick="@((() => NavMgr.NavigateTo($"/OpenCity/{cityid}")))" class="acceptbtn">Go back</button>
 @if (hotels == null)
 {
     <span>Loading..</span>
@@ -15,16 +15,19 @@ else if (!hotels.Any())
 }
 else
 {
-    <div class="users-container">
+    <div>
         @foreach (Hotel hotel in hotels)
         {
-            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/OpenHotel/{cityid}/{hotel.Id}")))">
-                <p>@hotel.ImageURL</p>
+            <div class="container" @onclick="@((() => NavMgr.NavigateTo($"/OpenHotel/{cityid}/{hotel.Id}")))">
+                <img src=@hotel.ImageURL height=80% width=80%/>
+                <div class="centered">@hotel.Name</div>
             </div>
         }
-        <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreateHotel/{cityid}")))">
-            <label>Create Hotel</label>
-        </div>
+        <AuthorizeView Policy="MustBeAdmin">
+            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreateHotel/{cityid}")))">
+                <label>Create Hotel</label>
+            </div>
+        </AuthorizeView>
     </div>
 }
 
@@ -50,3 +53,31 @@ else
     }
     
 }
+<style>
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: white;
+  
+  background-color: black;
+  display: inline;
+  padding: 0.5rem;
+    
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  
+  opacity: 0.8;
+}
+
+
+
+</style>

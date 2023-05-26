@@ -3,8 +3,8 @@
 @using HttpClients.ClientInterfaces
 @inject IMuseumService MuseumService
 @inject NavigationManager NavMgr
-<h3>OpenCityMuseums</h3>
-
+<h3>Museums</h3>
+<button @onclick="@((() => NavMgr.NavigateTo($"/OpenCity/{cityid}")))" class="acceptbtn">Go back</button>
 @if (museums == null)
 {
     <span>Loading..</span>
@@ -15,16 +15,19 @@ else if (!museums.Any())
 }
 else
 {
-    <div class="users-container">
+    <div>
         @foreach (Museum museum in museums)
         {
-            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/OpenMuseum/{cityid}/{museum.Id}")))">
-                <p>@museum.ImageURL</p>
+            <div class="container" @onclick="@((() => NavMgr.NavigateTo($"/OpenMuseum/{cityid}/{museum.Id}")))">
+                <img src=@museum.ImageURL height=80% width=80%/>
+                <div class="centered">@museum.Name</div>
             </div>
         }
-        <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreateMuseum/{cityid}")))">
-            <label>Create Museum</label>
-        </div>
+        <AuthorizeView Policy="MustBeAdmin">
+            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreateMuseum/{cityid}")))">
+                <label>Create Museum</label>
+            </div>
+        </AuthorizeView>
     </div>
 }
 
@@ -50,3 +53,31 @@ else
     }
     
 }
+<style>
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: white;
+  
+  background-color: black;
+  display: inline;
+  padding: 0.5rem;
+    
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  
+  opacity: 0.8;
+}
+
+
+
+</style>

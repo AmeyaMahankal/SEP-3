@@ -3,8 +3,8 @@
 @using HttpClients.ClientInterfaces
 @inject IParkService ParkService
 @inject NavigationManager NavMgr
-<h3>OpenCityParks</h3>
-
+<h3>Parks</h3>
+<button @onclick="@((() => NavMgr.NavigateTo($"/OpenCity/{cityid}")))" class="acceptbtn">Go back</button>
 @if (parks == null)
 {
     <span>Loading..</span>
@@ -15,16 +15,19 @@ else if (!parks.Any())
 }
 else
 {
-    <div class="users-container">
+    <div>
         @foreach (Park park in parks)
         {
-            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/OpenPark/{cityid}/{park.Id}")))">
-                <p>@park.ImageURL</p>
+            <div class="container" @onclick="@((() => NavMgr.NavigateTo($"/OpenPark/{cityid}/{park.Id}")))">
+                <img src=@park.ImageURL height=80% width=80%/>
+                <div class="centered">@park.Name</div>
             </div>
         }
-        <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreatePark/{cityid}")))">
-            <label>Create Park</label>
-        </div>
+        <AuthorizeView Policy="MustBeAdmin">
+            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreatePark/{cityid}")))">
+                <label>Create Park</label>
+            </div>
+        </AuthorizeView>
     </div>
 }
 
@@ -50,3 +53,31 @@ else
     }
     
 }
+<style>
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: white;
+  
+  background-color: black;
+  display: inline;
+  padding: 0.5rem;
+    
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  
+  opacity: 0.8;
+}
+
+
+
+</style>
