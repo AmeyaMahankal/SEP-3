@@ -15,16 +15,19 @@ else if (!restaurants.Any())
 }
 else
 {
-    <div class="users-container">
+    <div>
         @foreach (Restaurant restaurant in restaurants)
         {
-            <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/OpenRestaurant/{cityid}/{restaurant.Id}")))">
-                <p>@restaurant.ImageURL</p>
+            <div class="container" @onclick="@((() => NavMgr.NavigateTo($"/OpenRestaurant/{cityid}/{restaurant.Id}")))">
+                <img src=@restaurant.ImageURL height=80% width=80%/>
+                <div class="centered">@restaurant.Name</div>
             </div>
         }
+        <AuthorizeView Policy="MustBeAdmin">
         <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreateRestaurant/{cityid}")))">
             <label>Create Restaurant</label>
         </div>
+        </AuthorizeView>
     </div>
 }
 
@@ -50,3 +53,31 @@ else
     }
     
 }
+<style>
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: white;
+  
+  background-color: black;
+  display: inline;
+  padding: 0.5rem;
+    
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  
+  opacity: 0.8;
+}
+
+
+
+</style>

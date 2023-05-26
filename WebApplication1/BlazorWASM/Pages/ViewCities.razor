@@ -4,7 +4,21 @@
 @inject NavigationManager NavMgr
 @inject ICityService cityService
 
-<h3>ViewCities</h3>
+<h3><b>Explore the world</b></h3>
+<AuthorizeView>
+    <Authorized>
+        <p>Hello @context.User.Claims.First(claim => claim.Type.Equals("Username")).Value</p>
+    </Authorized>
+    <NotAuthorized>
+        <p>Welcome </p>
+        <p>Be sure to create an account or log-in as you can only view for now</p>
+    </NotAuthorized>
+</AuthorizeView>
+<div class="form-group field">
+        <label>Search for a city:</label>
+        <input type="text" @bind="searchCity" @bind:event="oninput"/>
+        <button @onclick="Search" disabled="@(string.IsNullOrEmpty(searchCity))" class="acceptbtn">Search</button>
+    </div>
 @if (cities == null)
 {
     <span>Loading..</span>
@@ -30,6 +44,9 @@ else
     private IEnumerable<City> cities;
     private string msg = "";
 
+    private string searchCity;
+    
+
     protected override async Task OnInitializedAsync()
     {
         msg = "";
@@ -44,6 +61,13 @@ else
             msg = e.Message;
         }
     }
+
+    private async Task Search()
+    {
+        cities = await cityService.getCities(searchCity);
+    }
+    
+    
 }
 
 <style>

@@ -9,26 +9,26 @@
 @inject IMuseumService MuseumService 
 @inject NavigationManager NavMgr
 
-<h3><b>Explore @title</b></h3>
-<h3 class="heading">@title</h3>
+
+<h3 class="heading"><b>@title</b></h3>
 <img class="photo" src=@imsrc height=80% width=80%/>
 <div>
     <h3><b>About @title</b></h3>
     <p class="description">@desc</p>
 </div>
-
+<h3><b>Explore @title</b></h3>
 <div class="row">
     <div class="column" @onclick="@((() => NavMgr.NavigateTo($"/OpenCityRestaurants/{id}")))">
-        Restaurants
+        Restaurants &#127869;
     </div>
     <div class="column" @onclick="@((() => NavMgr.NavigateTo($"/OpenCityHotels/{id}")))">
-        Hotels
+        Hotels &#127960; 
     </div>
     <div class="column" @onclick="@((() => NavMgr.NavigateTo($"/OpenCityParks/{id}")))">
-        Parks
+        Parks &#127957;
     </div>
     <div class="column" @onclick="@((() => NavMgr.NavigateTo($"/OpenCityMuseums/{id}")))">
-        Museums
+        Museums &#127963;
     </div>
 </div>
 
@@ -36,6 +36,7 @@
             .column {
               float: left;
               width: 25%;
+              font-size: 22px;
             }
             
             /* Clear floats after the columns */
