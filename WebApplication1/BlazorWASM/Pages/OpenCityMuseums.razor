@@ -22,6 +22,7 @@ else
                 <img src=@museum.ImageURL height=80% width=80%/>
                 <div class="centered">@museum.Name</div>
             </div>
+            <br/>
         }
         <AuthorizeView Policy="MustBeAdmin">
             <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreateMuseum/{cityid}")))">

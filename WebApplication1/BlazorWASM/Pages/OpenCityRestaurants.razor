@@ -22,6 +22,7 @@ else
                 <img src=@restaurant.ImageURL height=80% width=80%/>
                 <div class="centered">@restaurant.Name</div>
             </div>
+            <br/>
         }
         <AuthorizeView Policy="MustBeAdmin">
         <div class="user-card" @onclick="@((() => NavMgr.NavigateTo($"/CreateRestaurant/{cityid}")))">
