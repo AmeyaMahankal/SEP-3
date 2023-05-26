@@ -5,9 +5,15 @@
 @using System.Security.Claims
 @using Domain.DTOs
 @inject IRestaurantsReviewService RestaurantsReviewService;
-<h3>OpenRestaurant city id @cityid restaurant @id  @selectedUserId</h3>
+@inject IRestaurantService RestaurantService
 
+<h3 class="heading"><b>@theName</b></h3>
+<img class="photo" src=@imgurl height=80% width=80%/>
+<div>
+    <p class="description">@desc</p>
+</div>
 
+<h3><b>Comments</b></h3>
 
 @if (reviews == null)
 {
@@ -22,7 +28,7 @@ else
     <div class="users-container">
         @foreach (Review review in reviews)
         {
-            <div class="user-card">
+            /*<div class="user-card">
                 <p>@review.Comment</p>
                 <p>@review.StarReview</p>
                 <AuthorizeView Policy="MustBeAdmin"> <!-- policy that requires admin can only delete-->
@@ -30,25 +36,53 @@ else
                         &#x2717;
                     </button>
                 </AuthorizeView>
+            </div>*/
+            
+            <div>
+                <div class="container">
+                    <div>@review.Comment</div>
+                    @if (@review.StarReview == 1)
+                    {
+                        <div>&#11088;</div>
+                    }
+                    else if (@review.StarReview==2)
+                    {
+                        <div>&#11088;&#11088;</div>
+                    }
+                    else if (@review.StarReview==3)
+                    {
+                        <div>&#11088;&#11088;&#11088;</div>                   
+                    }
+                    else if (@review.StarReview==4)
+                    {
+                        <div>&#11088;&#11088;&#11088;&#11088;</div>                 
+                    }
+                    else if (@review.StarReview==5)
+                    {
+                        <div>&#11088;&#11088;&#11088;&#11088;&#11088;</div>              
+                    }
+                </div>
             </div>
- 
+            <br/>
         }
     </div>
+    
+    
 }
 <AuthorizeView>
     <Authorized>
         <div>
-                <label>Comment</label>
+                <label>Comment:</label>
                 <input type="text" @bind="comment" @bind:event="oninput"/>
             </div>
             <div class="button-row">
                 <button @onclick="Create" class="acceptbtn">Create</button>
                 <br/>
-                <button @onclick="SelectStar1">star1</button>
-                <button @onclick="SelectStar2">star2</button>
-                <button @onclick="SelectStar3">star3</button>
-                <button @onclick="SelectStar4">star4</button>
-                <button @onclick="SelectStar5">star5</button>
+                <button @onclick="SelectStar1">&#11088;</button>
+                <button @onclick="SelectStar2">&#11088;</button>
+                <button @onclick="SelectStar3">&#11088;</button>
+                <button @onclick="SelectStar4">&#11088;</button>
+                <button @onclick="SelectStar5">&#11088;</button>
             </div>
     </Authorized>
     <NotAuthorized>
@@ -65,7 +99,11 @@ else
     [Parameter]
     public int id { get; set; }
     private IEnumerable<Review> reviews;
-    private IEnumerable<Restaurant> restaurants; 
+    private IEnumerable<Restaurant> restaurants;
+    private Restaurant theRestaurant;
+    private string theName;
+    private string desc;
+    private string imgurl;
     private Review theReview;
 
     private string comment;
@@ -87,6 +125,11 @@ else
         try
         {
             reviews = await RestaurantsReviewService.getRestaurantsReviews(id);
+            restaurants = await RestaurantService.getRestaurants(cityid);
+            theRestaurant = restaurants.FirstOrDefault(restaurant => restaurant.Id == id);
+            theName = theRestaurant.Name;
+            desc = theRestaurant.Description;
+            imgurl = theRestaurant.ImageURL;
     /*
             theReview = reviews.FirstOrDefault(review => review.CategoryId == id);
             comment = theReview.Comment;
@@ -181,3 +224,47 @@ else
     
     
 }
+
+<style>
+            .column {
+              float: left;
+              width: 25%;
+              font-size: 22px;
+            }
+            
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            
+            .heading{
+            text-align: center;
+            }
+            
+            .description{
+            /*text-align: center;*/
+            font-size: 1.5em;
+           /* color: #505050;*/
+            padding: 20px;
+            /*background-color: #f1f1f1;*/
+            border-radius: 10px;
+            }
+            
+            .photo{
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 50%;
+            }
+            
+            .container {
+              position: relative;
+              text-align: center;
+              color: #000000;
+              border-bottom: 2px solid black;
+              
+            }
+           
+        </style>

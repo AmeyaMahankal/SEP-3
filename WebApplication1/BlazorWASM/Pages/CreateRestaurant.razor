@@ -1,5 +1,5 @@
 ﻿@page "/CreateRestaurant/{cityid:int}"
-@attribute [Authorize]
+@attribute [Authorize("MustBeAdmin")]
 @using HttpClients.ClientInterfaces
 @using sep3.DTOs
 @inject IRestaurantService RestaurantService
