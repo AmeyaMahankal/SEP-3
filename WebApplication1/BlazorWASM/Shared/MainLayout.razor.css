@@ -1,81 +1,76 @@
-.page {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+
+/* Main body styles */
+body,
+ul {
+    margin: 0;
+    padding: 0;
 }
+
+.container {
+    position: relative;
+    overflow: hidden;
+}
+
 
 main {
-    flex: 1;
-}
-
-.sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
-}
-
-.top-row {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
-    height: 3.5rem;
     display: flex;
+    overflow: hidden;
+}
+
+
+
+/* Background IMG */
+
+.left-placeholder,
+.right-placeholder {
+    width: 20%;
+    background-image: url("https://scontent-cph2-1.xx.fbcdn.net/v/t1.15752-9/344747402_800740714554680_2152931259939557607_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=eDIb0Gs_ywoAX-GrO8x&_nc_ht=scontent-cph2-1.xx&oh=03_AdRRDGdnq3q-n-FTYm4FY_6dZi00-DmZ-yJqDA47NE7p8w&oe=649C9115");
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+
+
+/* Footer styles */
+
+footer {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    background-color: #f1f1f1;
+    padding: 20px;
 }
 
-    .top-row ::deep a, .top-row ::deep .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
-    }
-
-    .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
-        text-decoration: underline;
-    }
-
-    .top-row ::deep a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-@media (max-width: 640.98px) {
-    .top-row:not(.auth) {
-        display: none;
-    }
-
-    .top-row.auth {
-        justify-content: space-between;
-    }
-
-    .top-row ::deep a, .top-row ::deep .btn-link {
-        margin-left: 0;
-    }
+.footer-left {
+    flex-basis: 40%;
 }
 
-@media (min-width: 641px) {
-    .page {
-        flex-direction: row;
-    }
+.footer-middle {
+    flex-basis: 20%;
+    text-align: center;
+}
 
-    .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-    }
+.footer-middle img {
+    max-height: 50px;
+}
 
-    .top-row {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
+.footer-right {
+    flex-basis: 40%;
+    text-align: right;
+}
 
-    .top-row.auth ::deep a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
 
-    .top-row, article {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
-    }
+.footer-right li {
+    margin-bottom: 10px;
+}
+
+.footer-right li a {
+    text-decoration: none;
+    color: #333;
 }

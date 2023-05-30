@@ -29,13 +29,15 @@ else
     <div class="users-container">
         @foreach (Review review in reviews)
         {
-            
+            /*<div class="user-card">
+                <p>@review.Comment</p>
+                <p>@review.StarReview</p>
                 <AuthorizeView Policy="MustBeAdmin"> <!-- policy that requires admin can only delete-->
                     <button @onclick="@(() => RemoveComment(review.Id))" style="cursor:pointer; color: red; font-weight: bold">
                         &#x2717;
                     </button>
                 </AuthorizeView>
-            
+            </div>*/
             
             <div>
                 <div class="container">

@@ -1,68 +1,155 @@
-.navbar-toggler {
-    background-color: rgba(255, 255, 255, 0.1);
+
+.menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
 }
 
-.top-row {
-    height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+/* Animation for menu (Underline & fade) */
+.menu li {
+    margin-right: 30px;
+    margin-top: 5px
 }
 
-.navbar-brand {
-    font-size: 1.1rem;
+.menu li::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
 }
 
-.oi {
-    width: 2rem;
-    font-size: 1.1rem;
-    vertical-align: text-top;
-    top: -2px;
+.menu li:hover::before {
+    background-color: #000;
 }
 
-.nav-item {
-    font-size: 0.9rem;
-    padding-bottom: 0.5rem;
+.menu li a {
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    color: inherit;
 }
 
-    .nav-item:first-of-type {
-        padding-top: 1rem;
-    }
-
-    .nav-item:last-of-type {
-        padding-bottom: 1rem;
-    }
-
-    .nav-item ::deep a {
-        color: #d7d7d7;
-        border-radius: 4px;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        line-height: 3rem;
-    }
-
-.nav-item ::deep a.active {
-    background-color: rgba(255,255,255,0.25);
-    color: white;
+.menu li a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: right;
 }
 
-.nav-item ::deep a:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: white;
+.menu li:hover a::before {
+    transform: scaleX(1);
 }
 
-@media (min-width: 641px) {
-    .navbar-toggler {
-        display: none;
+
+
+
+.menu-items li {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+/* Name on the side */
+.side-name {
+    background-color: #E0F2FF;
+    background: linear-gradient(45deg, #004D00, #00A300, #A300A3, #780078);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Top title */
+.topTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topTitle .navbar-brand {
+    margin-right: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.topTitle .navbar-toggler {
+    padding: 0.25rem 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    display: none;
+}
+
+
+/* side-name menu */
+header {
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    margin-right: 10px;
+}
+
+.logo-link img {
+    max-height: 50px;
+    border-radius: 50%;
+}
+
+
+.login-button {
+    margin-left: auto;
+}
+
+@media (max-width: 768px) {
+    .topTitle .navbar-toggler {
+        display: block;
     }
 
     .collapse {
-        /* Never collapse the sidebar for wide screens */
+        display: none;
+    }
+
+    .collapse.show {
         display: block;
     }
-    
-    .nav-scrollable {
-        /* Allow sidebar to scroll for tall menus */
-        height: calc(100vh - 3.5rem);
-        overflow-y: auto;
+
+
+    /* Changed scrollbar */
+    body::-webkit-scrollbar {
+        width: 10px;
     }
+
+    body::-webkit-scrollbar-track {
+        background: grey;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: rebeccapurple;
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+        background: black;
+    }
+   
+    
+
 }

@@ -1,37 +1,84 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">TravelAdivsor</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
+﻿@using BlazorWASM.Services
+@namespace Login
+@inject NavigationManager navMgr
+@inject IAuthService authService
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <AuthorizeView>
-        <NotAuthorized>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="CreateUser">
-                    <span class="oi oi-plus" aria-hidden="true"></span> Create user
-                </NavLink>
+
+
+
+  
+
+        <!-- The top menu -->
+        <header>
+         
+            
+            
+            <nav>
+                   <div class="topTitle">
+                                <a class="side-name" href="">TravelAdvisor</a>
+                          
+                            
+          <a class="logo-link" href="">
+                      <img src="https://scontent-cph2-1.xx.fbcdn.net/v/t1.15752-9/345271503_2805134322955896_7887376494702044587_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=7U-uOqFMyGYAX84nje2&_nc_ht=scontent-cph2-1.xx&oh=03_AdReZGmzRvFq2ISp2vX8EUwoGIZWqys5-yEMx00TEvdNKw&oe=649C9C09"
+                           alt="Logo">
+                  </a>
             </div>
-        </NotAuthorized>
-        </AuthorizeView>
-        <AuthorizeView Policy="MustBeAdmin"> <!-- Can only be seen by admin -->
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="ViewUsers">
-                <span class="oi oi-list" aria-hidden="true"></span> View users
-            </NavLink>
-        </div>
-        </AuthorizeView>
-    </nav>
-</div>
+          
+          <ul class="menu">
+              <li>  <a href="" Match="NavLinkMatch.All">
+                  <span class="oi oi-menu" aria-hidden="true"></span>Home
+              </a></li>
+            
+            
+              <li>  <a href="ViewCities">
+                  <span class="oi oi-list" aria-hidden="true"></span> Destinations
+              </a></li>
+
+              <li>
+                  <a href="CreateUser">
+                      <span class="oi oi-check" aria-hidden="true"></span> Create user
+                  </a>
+              </li>
+
+              <li>   <a class="menu" href="CreatePost">
+                  <span class="oi oi-plus" aria-hidden="true"></span> Create a Post
+              </a></li>
+              </ul>
+              
+              
+              <AuthorizeView Policy="MustBeAdmin">
+              <ul>
+                  <li class="nav-link" href="ViewUsers">
+                      <span class="oi oi-list" aria-hidden="true"></span> View all Users
+                  </li>
+              </ul>
+          </AuthorizeView>
+         
+          
+          
+          <div class="Login">
+                      <AuthorizeView>
+                          <Authorized>
+                              <img class="icon" src="img/Logout.png" @onclick="Logout"/>
+                          </Authorized>
+                          <NotAuthorized>
+                              <img class="icon" src="img/Login.png" @onclick="Login"/>
+                          </NotAuthorized>
+                      </AuthorizeView>
+                  </div>
+          
+          
+      </nav>
+  </header>
+ 
+
+
+
+
+
+
+
+
 
 @code {
     private bool collapseNavMenu = true;
@@ -41,6 +88,18 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+
+    private void Login()
+    {
+        navMgr.NavigateTo("/Login");
+    }
+
+    private async Task Logout()
+    {
+        await authService.LogoutAsync();
+        navMgr.NavigateTo("/");
     }
 
 }

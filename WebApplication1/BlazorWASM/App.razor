@@ -1,19 +1,77 @@
 ﻿<CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
+            
+            
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
                 <NotAuthorized>
-                    <img width="600" src="https://i.kym-cdn.com/entries/icons/original/000/002/144/You_Shall_Not_Pass!_0-1_screenshot.jpg"/>
-                    <p>You'll have to log in!</p>
+                    <div class="view">
+                        <img class="image" src="https://content.presentermedia.com/content/animsp/00005000/5570/door_peek_out_md_nwm_v2.gif">
+                        <p class="fancy-text">Login required</p>
+                    </div>
                 </NotAuthorized>
             </AuthorizeRouteView>
+            
+            
             <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
         </Found>
         <NotFound>
-            <PageTitle>Not found</PageTitle>
+            <PageTitle>Page Not Found</PageTitle>
             <LayoutView Layout="@typeof(MainLayout)">
-                <p role="alert">Sorry, there's nothing at this address.</p>
+                <p role="alert">Lost</p>
             </LayoutView>
         </NotFound>
+        
+        
     </Router>
 </CascadingAuthenticationState>
+
+
+
+<style>
+.view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.view .image {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.view .fancy-text {
+  text-align: center;
+  font-size: 2.5em;
+  color: #333;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+
+/* Changed scrollbar */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: grey;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rebeccapurple;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
+
+
+
+</style>

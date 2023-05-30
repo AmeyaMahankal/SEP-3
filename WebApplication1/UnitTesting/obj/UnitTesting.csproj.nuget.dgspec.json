@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\UnitTesting\\UnitTesting.csproj": {}
+    "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\UnitTesting\\UnitTesting.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Application\\Application.csproj": {
+    "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Ameya Mahankala\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Application\\obj\\",
+        "projectPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Zsolt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ameya Mahankala\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Zsolt\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -26,8 +26,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Domain\\Domain.csproj"
+              "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Domain\\Domain.csproj"
               }
             }
           }
@@ -61,17 +61,17 @@
         }
       }
     },
-    "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Domain\\Domain.csproj": {
+    "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Ameya Mahankala\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Zsolt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ameya Mahankala\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Zsolt\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -120,17 +120,17 @@
         }
       }
     },
-    "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\FIleData\\FIleData.csproj": {
+    "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\FIleData\\FIleData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\FIleData\\FIleData.csproj",
+        "projectUniqueName": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\FIleData\\FIleData.csproj",
         "projectName": "FIleData",
-        "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\FIleData\\FIleData.csproj",
-        "packagesPath": "C:\\Users\\Ameya Mahankala\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\FIleData\\obj\\",
+        "projectPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\FIleData\\FIleData.csproj",
+        "packagesPath": "C:\\Users\\Zsolt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\FIleData\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ameya Mahankala\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Zsolt\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -142,8 +142,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Application\\Application.csproj"
+              "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Application\\Application.csproj"
               }
             }
           }
@@ -193,17 +193,17 @@
         }
       }
     },
-    "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\UnitTesting\\UnitTesting.csproj": {
+    "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\UnitTesting\\UnitTesting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\UnitTesting\\UnitTesting.csproj",
+        "projectUniqueName": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\UnitTesting\\UnitTesting.csproj",
         "projectName": "UnitTesting",
-        "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\UnitTesting\\UnitTesting.csproj",
-        "packagesPath": "C:\\Users\\Ameya Mahankala\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\UnitTesting\\obj\\",
+        "projectPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\UnitTesting\\UnitTesting.csproj",
+        "packagesPath": "C:\\Users\\Zsolt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\UnitTesting\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ameya Mahankala\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Zsolt\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -215,8 +215,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
-                "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\WebApplication1\\WebApplication1.csproj"
+              "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+                "projectPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\WebApplication1\\WebApplication1.csproj"
               }
             }
           }
@@ -272,17 +272,17 @@
         }
       }
     },
-    "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\Ameya Mahankala\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\WebApplication1\\obj\\",
+        "projectPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\Zsolt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ameya Mahankala\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Zsolt\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -294,11 +294,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\Application\\Application.csproj"
+              "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\Application\\Application.csproj"
               },
-              "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\FIleData\\FIleData.csproj": {
-                "projectPath": "C:\\Users\\Ameya Mahankala\\Documents\\GitHub\\SEP-3\\SEP-3\\WebApplication1\\FIleData\\FIleData.csproj"
+              "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\FIleData\\FIleData.csproj": {
+                "projectPath": "C:\\Users\\Zsolt\\Desktop\\SEP-3-enyém\\WebApplication1\\FIleData\\FIleData.csproj"
               }
             }
           }

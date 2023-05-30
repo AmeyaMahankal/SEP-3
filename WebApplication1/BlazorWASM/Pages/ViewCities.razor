@@ -1,24 +1,80 @@
-﻿@page "/"
+﻿@page "/ViewCities"
 @using Domain.Models
 @using HttpClients.ClientInterfaces
 @inject NavigationManager NavMgr
 @inject ICityService cityService
 
-<h3><b>Explore the world</b></h3>
+
+
+
 <AuthorizeView>
     <Authorized>
         <p>Hello @context.User.Claims.First(claim => claim.Type.Equals("Username")).Value</p>
     </Authorized>
+    
+    
     <NotAuthorized>
         <p>Welcome </p>
         <p>Be sure to create an account or log-in as you can only view for now</p>
     </NotAuthorized>
 </AuthorizeView>
+
+
+
 <div class="form-group field">
-        <label>Search for a city:</label>
-        <input type="text" @bind="searchCity" @bind:event="oninput"/>
-        <button @onclick="Search" disabled="@(string.IsNullOrEmpty(searchCity))" class="acceptbtn">Search</button>
-    </div>
+    <label>Search for a city:</label>
+    <input type="text" @bind="searchCity" @bind:event="oninput"/>
+    <button @onclick="Search" disabled="@(string.IsNullOrEmpty(searchCity))" class="acceptbtn">Search</button>
+</div>
+
+<!-- Intro to the page -->
+        <div class="content">
+            <p class="fancy-text">Places</p>
+  </div>
+     
+
+      
+            <!-- Cities Rows -->
+            <div class="destination-row content px-2">
+                <a href="Paris.html" class="Paris">
+                    <div class="image-wrapper">
+                        <img src="https://scontent-cph2-1.xx.fbcdn.net/v/t1.15752-9/322302741_910769403263986_7154670505106078120_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=6sf2W6JRdvMAX__Hy7j&_nc_ht=scontent-cph2-1.xx&oh=03_AdRd47CQHucxPBcX-W_0TxqWJoZ_Pm486DZ_5kTFNc2vZg&oe=649CA8D5" alt="Paris">
+                        <span class="city-name">Paris</span>
+                    </div>
+                </a>
+                <a href="Coppen.html" class="Coppen">
+                    <div class="image-wrapper">
+                        <img src="https://scontent-cph2-1.xx.fbcdn.net/v/t1.15752-9/313460901_1143670253211062_281594072831713547_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=gmU1ffsa9xwAX_dr_rX&_nc_ht=scontent-cph2-1.xx&oh=03_AdTIMp9BiV8LiHN6bX44RdrL1h_OK_VBUpCTYc1M4sj4Pg&oe=649C938D" alt="Coppenhagen">
+                        <span class="city-name">Coppenhagen</span>
+                    </div>
+                </a>
+                <a href="Berlin.html" class="Berlin">
+                    <div class="image-wrapper">
+                        <img src="https://scontent-cph2-1.xx.fbcdn.net/v/t1.15752-9/257772246_2404786349657775_2082127562767942603_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=pKgEQvtQFTkAX_QMc8j&_nc_ht=scontent-cph2-1.xx&oh=03_AdT5lpG7LE8NxzMrPQSb2LU_ZlCd22JZk10qHPaw5ihV3Q&oe=649CAD5E" alt="Berlin">
+                        <span class="city-name">Berlin</span>
+                    </div>
+                </a>
+                <a href="London.html" class="London">
+                    <div class="image-wrapper">
+                        <img src="https://scontent-cph2-1.xx.fbcdn.net/v/t1.15752-9/343612277_2535915883250622_1253144894472293133_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=FjA0kxiimXEAX-mCsEV&_nc_ht=scontent-cph2-1.xx&oh=03_AdR8JHRJRUFNkRleHOIBm8pXODzUeW1xEcvhTUdABXv_Gg&oe=649C9E27" alt="London">
+                        <span class="city-name">London</span>
+                    </div>
+                </a>
+                <a href="Zagreb.html" class="Zagreb">
+                    <div class="image-wrapper">
+                        <img src="https://scontent-cph2-1.xx.fbcdn.net/v/t1.15752-9/314719531_807406150516452_9063174804634307931_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=NQYEeLJ9MHEAX9sScQf&_nc_ht=scontent-cph2-1.xx&oh=03_AdTmL0Mx5jMBT5lJdxppTjT1XE---7eExzOKE0mmVPpelw&oe=649CA93F" alt="Zagreb">
+                        <span class="city-name">Zagreb</span>
+                    </div>
+                </a>
+                <a href="Budapest.html" class="Budapest">
+                    <div class="image-wrapper">
+                        <img src="https://scontent-cph2-1.xx.fbcdn.net/v/t1.15752-9/288964692_745956589939543_3067388279141849996_n.jpg?stp=dst-jpg_p1080x2048&_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=gFaOOqs4s7AAX-Exe4d&_nc_oc=AQlCy1wk8PJ_L_2CDxVJnuCKppp5lWQu6B_4Uv6RZfXl9IYuDcYbCCt6XdUxCovgDmE&_nc_ht=scontent-cph2-1.xx&oh=03_AdTmlqaOdmIipHJ2khcm5XfWqFN9ASujNJZCnk2Qojx5Yw&oe=649CA416" alt="Budapest">
+                        <span class="city-name">Budapest</span>
+                    </div>
+                </a>
+            </div>
+        
+
 @if (cities == null)
 {
     <span>Loading..</span>
@@ -38,9 +94,13 @@ else
             </div>
             <br/>
         }
-                
     </div>
+   
 }
+
+
+
+
 @code {
     private IEnumerable<City> cities;
     private string msg = "";
@@ -72,28 +132,93 @@ else
 }
 
 <style>
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.centered {
-  position: absolute;
+/* Text styles */
+.content .fancy-text {
+  text-align: center;
+  font-size: 2.5em;
+  color: #333;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 600px;
+  margin-top: 2%;
+}
+
+.destination-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.destination-row a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 1080px;
+  height: 900px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.city-name {
+  position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
-  color: white;
-  
-  background-color: black;
-  display: inline;
-  padding: 0.5rem;
-    
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  
-  opacity: 0.8;
+  color: black;
+  font-size: 24px;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+}
+
+
+.destination-row span {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+  z-index: 3;
+}
+
+
+/* Changed scrollbar */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: grey;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rebeccapurple;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: black;
 }
 
 
