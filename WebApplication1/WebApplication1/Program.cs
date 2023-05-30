@@ -4,7 +4,7 @@ using Application.Logic;
 using Application.LogicInterface;
 using Domain.Auth;
 using FileData;
-using FileData.DAOs;
+
 using FileData.GrpcDAOs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -17,8 +17,7 @@ builder.Services.AddScoped<FileContext>();
 builder.Services.AddScoped<IUserDao, UserDAO>();  //HERE
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 
-builder.Services.AddScoped<IPostDao, PostFileDao>();
-builder.Services.AddScoped<IPostLogic, PostLogic>();
+
 builder.Services.AddScoped<ICityDao, CityDAO>();
 builder.Services.AddScoped<ICityLogic, CityLogic>();
 
