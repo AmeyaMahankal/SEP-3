@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e370daea-4366-4870-b31a-794991779984" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/WebApplication1/BlazorWASM/Shared/Home.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/BlazorWASM/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/BlazorWASM/App.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/BlazorWASM/Shared/MainLayout.razor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/BlazorWASM/Shared/MainLayout.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/BlazorWASM/Shared/Home.razor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/BlazorWASM/Shared/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/BlazorWASM/Shared/NavMenu.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/BlazorWASM/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/BlazorWASM/_Imports.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/BlazorWASM/wwwroot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/BlazorWASM/wwwroot/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/UnitTesting/bin/Debug/net7.0/CoverletSourceRootsMapping" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/UnitTesting/bin/Debug/net7.0/CoverletSourceRootsMapping" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/Debug/net7.0/UnitTesting.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/Debug/net7.0/UnitTesting.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/Debug/net7.0/UnitTesting.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/Debug/net7.0/UnitTesting.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/Debug/net7.0/UnitTesting.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/Debug/net7.0/UnitTesting.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/UnitTesting.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/UnitTesting.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/UnitTesting.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/UnitTesting.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/UnitTesting/obj/rider.project.restore.info" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2QNT9DOWLfyUnHs5XA8yKCoAYON" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Zsolt/Desktop/SEP-3-main"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e370daea-4366-4870-b31a-794991779984" name="Changes" comment="" />
+      <created>1685192888366</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685192888366</updated>
+    </task>
+    <servers />
+  </component>
+</project>

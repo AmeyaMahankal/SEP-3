@@ -7,6 +7,7 @@
     </div>
 </div>
 
+<<<<<<< Updated upstream
 <div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
     <nav class="flex-column">
         <div class="nav-item px-3">
@@ -31,6 +32,44 @@
         </div>
         </AuthorizeView>
     </nav>
+=======
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+       <nav class="flex-column">
+              <div class="nav-item px-3">
+                  <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                      <span class="oi oi-home" aria-hidden="true"></span> Home
+                  </NavLink>
+              </div>
+              <AuthorizeView>
+              <NotAuthorized>
+                  <div class="nav-item px-3">
+                      <NavLink class="nav-link" href="CreateUser">
+                          <span class="oi oi-plus" aria-hidden="true"></span> Create user
+                      </NavLink>
+                  </div>
+              </NotAuthorized>
+              </AuthorizeView>
+              <AuthorizeView Policy="MustBeAdmin"> <!-- Can only be seen by admin -->
+              <div class="nav-item px-3">
+                  <NavLink class="nav-link" href="ViewUsers">
+                      <span class="oi oi-list" aria-hidden="true"></span> View users
+                  </NavLink>
+              </div>
+              </AuthorizeView>
+              <div class="nav-item px-3">
+                  <NavLink class="nav-link" href="CreatePost">
+                      <span class="oi oi-plus" aria-hidden="true"></span> Create Post
+                  </NavLink>
+              </div>
+              <div class="nav-item px-3">
+                  <NavLink class="nav-link" href="About">
+                      <span class="oi oi-list" aria-hidden="true"></span> About
+                  </NavLink>
+              </div>
+      
+          </nav>
+>>>>>>> Stashed changes
 </div>
 
 @code {

@@ -1,0 +1,319 @@
+
+
+/* Animation for menu (Underline & fade) */
+.menu li {
+  position: relative;
+}
+
+.menu li::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.menu li:hover::before {
+  background-color: #000;
+}
+
+.menu li a {
+  position: relative;
+  z-index: 1;
+}
+
+.menu li a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+  transform-origin: right;
+}
+
+.menu li:hover a::before {
+  transform: scaleX(1);
+}
+
+
+
+
+
+/* Position menu on small screens */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+  }
+
+  .menu li {
+    position: static;
+  }
+
+  .menu li::before {
+    display: none;
+  }
+
+  .menu li a::before {
+    display: none;
+  }
+}
+
+
+
+
+
+/* Changed scrollbar */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: grey;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rebeccapurple;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
+
+
+
+
+
+
+/* Top menu styles */
+header {
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  margin-right: 10px;
+}
+
+.logo-link img {
+  max-height: 50px;
+  border-radius: 50%;
+}
+
+.menu {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.menu li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+}
+
+
+
+
+
+
+/* Main body styles */
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100vw;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+
+/* Cities styles */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.destination-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.destination-row a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 1080px;
+  height: 900px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.city-name {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 24px;
+  opacity: 0;
+  transition: opacity 0.50s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+}
+
+.image-wrapper:hover img {
+  opacity: 0.85;
+}
+
+.image-wrapper:hover .city-name {
+  opacity: 1;
+}
+
+.destination-row span {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+  z-index: 3;
+}
+
+@media screen and (max-width: 768px) {
+  .destination-row a {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+/* Text styles */
+.content .fancy-text {
+  text-align: center;
+  font-size: 2.5em;
+  color: #333;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 600px;
+  margin-top: 2%;
+}
+
+
+
+
+
+/* Footer styles */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.footer-left {
+  flex-basis: 40%;
+}
+
+.footer-middle {
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.footer-middle img {
+  max-height: 50px;
+}
+
+.footer-right {
+  flex-basis: 40%;
+  text-align: right;
+}
+
+.footer-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-right li {
+  margin-bottom: 10px;
+}
+
+.footer-right li a {
+  text-decoration: none;
+  color: #333;
+}
+
+
+/* Main breaks */
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+  .destination-row a {
+    width: 50%;
+  }
+}
