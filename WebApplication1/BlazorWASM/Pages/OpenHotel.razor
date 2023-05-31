@@ -5,9 +5,17 @@
 @using System.Security.Claims
 @using Domain.DTOs
 @inject IHotelsReviewService HotelsReviewService;
-<h3>OpenHotel city id @cityid hotel @id  @selectedUserId</h3>
+@inject IHotelService HotelService
+@inject NavigationManager NavMgr
 
+<button @onclick="@((() => NavMgr.NavigateTo($"/OpenCityHotels/{cityid}")))" class="acceptbtn">Go back</button>
+<h3 class="heading"><b>@theName</b></h3>
+<img class="photo" src=@imgurl height=80% width=80%/>
+<div>
+    <p class="description">@desc</p>
+</div>
 
+<h3><b>Comments</b></h3>
 
 @if (reviews == null)
 {
@@ -22,14 +30,33 @@ else
     <div class="users-container">
         @foreach (Review review in reviews)
         {
-            <div class="user-card">
+            <div class="container">
                 <p>@review.Comment</p>
-                <p>@review.StarReview</p>
                 <AuthorizeView Policy="MustBeAdmin"> <!-- policy that requires admin can only delete-->
                     <button @onclick="@(() => RemoveComment(review.Id))" style="cursor:pointer; color: red; font-weight: bold">
                         &#x2717;
                     </button>
                 </AuthorizeView>
+                @if (@review.StarReview == 1)
+                                    {
+                                        <div>&#11088;</div>
+                                    }
+                                    else if (@review.StarReview==2)
+                                    {
+                                        <div>&#11088;&#11088;</div>
+                                    }
+                                    else if (@review.StarReview==3)
+                                    {
+                                        <div>&#11088;&#11088;&#11088;</div>                   
+                                    }
+                                    else if (@review.StarReview==4)
+                                    {
+                                        <div>&#11088;&#11088;&#11088;&#11088;</div>                 
+                                    }
+                                    else if (@review.StarReview==5)
+                                    {
+                                        <div>&#11088;&#11088;&#11088;&#11088;&#11088;</div>              
+                                    }
             </div>
  
         }
@@ -66,6 +93,10 @@ else
     public int id { get; set; }
     private IEnumerable<Review> reviews;
     private IEnumerable<Hotel> hotels; 
+    private Hotel theHotel;
+    private string theName;
+    private string desc;
+    private string imgurl;
     private Review theReview;
 
     private string comment;
@@ -87,6 +118,11 @@ else
         try
         {
             reviews = await HotelsReviewService.getHotelsReviews(id);
+            hotels = await HotelService.getHotels(cityid);
+            theHotel = hotels.FirstOrDefault(hotel => hotel.Id == id);
+            theName = theHotel.Name;
+            desc = theHotel.Description;
+            imgurl = theHotel.ImageURL;
     /*
             theReview = reviews.FirstOrDefault(review => review.CategoryId == id);
             comment = theReview.Comment;
@@ -181,3 +217,47 @@ else
     
     
 }
+
+<style>
+            .column {
+              float: left;
+              width: 25%;
+              font-size: 22px;
+            }
+            
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            
+            .heading{
+            text-align: center;
+            }
+            
+            .description{
+            /*text-align: center;*/
+            font-size: 1.5em;
+           /* color: #505050;*/
+            padding: 20px;
+            /*background-color: #f1f1f1;*/
+            border-radius: 10px;
+            }
+            
+            .photo{
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 50%;
+            }
+            
+            .container {
+              position: relative;
+              text-align: center;
+              color: #000000;
+              border-bottom: 2px solid black;
+              
+            }
+           
+        </style>
