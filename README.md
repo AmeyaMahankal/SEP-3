@@ -1,5 +1,5 @@
 # SEP-3-Travel Advisor
-A heterogenous and distributed system implemented with the help of Java and C# revolving the different locations present in various cities
+A heterogenous and distributed system implemented with the help of Java and C# revolving around the different locations present in various cities
 
 ![image](https://github.com/AmeyaMahankal/SEP-3/assets/104625478/f844d8ba-686f-4f5f-842d-6062e4ec4b3c)
 
